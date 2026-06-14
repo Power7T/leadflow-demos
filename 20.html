@@ -464,5 +464,14 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
   window.addEventListener('resize',()=>goto(0));
 })();
 </script>
+
+
+<!-- TRACKING SCRIPT -->
+<script>
+    try {
+        fetch("{TUNNEL_URL}/api/track.png?bid={BID}", {mode: 'no-cors'});
+    } catch(e) {}
+</script>
+
 </body>
 </html>
