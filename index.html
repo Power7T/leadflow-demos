@@ -982,10 +982,24 @@
     }
 
     // Trigger on exit intent or time delay
-    setTimeout(() => {
+    let popupShown = false;
+    
+    function showTimedPopup() {
+      if (popupShown) return;
+      popupShown = true;
       document.getElementById('popupText').innerText = "Want this outreach software custom-built according to your business specifications rather than a generic sandbox? Contact Chandan on Fiverr to install LeadFlow on your servers.";
       document.getElementById('fiverrPopup').classList.add('show');
-    }, 10000);
+    }
+
+    // Show popup after 90 seconds
+    setTimeout(showTimedPopup, 90000);
+
+    // Show popup on exit intent (mouse leaves viewport at top)
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 20) {
+        showTimedPopup();
+      }
+    });
 
     // Simulate Scrape Job
     function simulateScrapeJob() {
