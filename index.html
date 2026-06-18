@@ -132,6 +132,10 @@
       animation: pulse 1.6s infinite;
     }
 
+    .pulse-dot.gray {
+      background-color: var(--text-dim);
+    }
+
     @keyframes pulse {
       0% {
         transform: scale(0.95);
@@ -853,6 +857,14 @@
 </head>
 <body>
 
+  <!-- Logo Gradient Def -->
+  <svg style="width:0;height:0;position:absolute">
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </svg>
+
   <!-- SIDEBAR NAVIGATION -->
   <aside class="sidebar">
     <div class="logo">
@@ -861,13 +873,16 @@
     </div>
     
     <div class="autopilot-status">
-      <span class="pulse-dot green"></span>
-      <span style="color:#00c896; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Autopilot Active</span>
+      <span class="pulse-dot green" id="sidebarAutopilotDot"></span>
+      <span style="color:#00c896; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.5px;" id="sidebarAutopilotText">Autopilot Active</span>
     </div>
 
     <nav class="nav">
       <a class="nav-item active" onclick="switchTab('dashboard')">
         <span class="icon">⚡</span> Dashboard
+      </a>
+      <a class="nav-item" onclick="switchTab('autopilot')">
+        <span class="icon">🚀</span> Autopilot
       </a>
       <a class="nav-item" onclick="switchTab('find')">
         <span class="icon">🔍</span> Find Businesses
@@ -994,6 +1009,320 @@
           <div class="kanban-col" style="min-height: 120px;">
             <div class="col-header"><span>Replied</span></div>
             <div id="simColReply" style="display:flex; flex-direction:column; gap:6px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUTOPILOT SECTION BELOW DASHBOARD -->
+      <div style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 32px;">
+        <div class="page-header" style="margin-bottom: 24px;">
+          <div class="page-title">
+            <h2 style="font-size: 20px; font-weight: 600; margin-bottom: 6px; font-family: var(--font-display);">🚀 Autopilot Control Center</h2>
+            <p class="subtitle" style="margin-bottom:0">Monitor, manage, and manually trigger LeadFlow's automated outbound outreach.</p>
+          </div>
+        </div>
+
+        <!-- Live Stats Row -->
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px;">
+          <div class="card" style="padding: 16px; text-align: center;">
+            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; letter-spacing: 0.5px;">Leads Scraped</div>
+            <div style="font-size: 24px; font-weight: bold; color: var(--text);">142</div>
+          </div>
+          <div class="card" style="padding: 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: var(--accent);">18</div>
+            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Outreach Sent</div>
+          </div>
+          <div class="card" style="padding: 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: var(--blue);">12</div>
+            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Emails Opened</div>
+          </div>
+          <div class="card" style="padding: 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: var(--yellow);">8</div>
+            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Links Clicked</div>
+          </div>
+          <div class="card" style="padding: 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #00c896;">4</div>
+            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Replies Received</div>
+          </div>
+        </div>
+
+        <!-- Main Autopilot Grid -->
+        <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; margin-bottom: 24px;">
+          <div>
+            <!-- Status Card -->
+            <div class="form-card" id="dashAutopilotStatusCard" style="margin-bottom: 24px; border-color: #00c896;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+                <div>
+                  <h2 style="margin: 0; display: flex; align-items: center; gap: 10px;" id="dashAutopilotStatusText">
+                    <span class="pulse-dot green" style="width: 12px; height: 12px;"></span>
+                    Autopilot is ACTIVE
+                  </h2>
+                  <p style="color: var(--text-dim); margin-top: 6px; font-size: 13px;" id="dashAutopilotSubtext">
+                    Daily lead extraction is scheduled at 06:00 UTC. Auto-sending runs every hour.
+                  </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <button id="dashBtnToggleAutopilot" onclick="simToggleAutopilot()" class="btn btn-ghost" style="padding: 8px 16px; min-width: 100px;">
+                    ⏸ Pause
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Logs -->
+            <div class="form-card" style="margin-bottom: 24px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h2 style="margin: 0;">📟 Live Autopilot Logs</h2>
+                <span style="font-size: 11px; background: rgba(0, 200, 150, 0.1); color: #00c896; padding: 3px 8px; border-radius: 12px; font-weight: 500;">
+                  🟢 Streaming Live
+                </span>
+              </div>
+              <div class="log-box" id="dash-autopilot-terminal-logs" style="height: 220px; margin-top: 0; font-family: monospace;">
+                [Autopilot] Autopilot running scheduled loop...
+                [Autopilot] Checking daily emails limits... 18/25 sent. (Safe)
+                [Autopilot] Checking inbox replies...
+                Finished sync: 0 new opt-outs, 0 new warm replies.
+              </div>
+            </div>
+
+            <!-- Manual Action Center -->
+            <div class="form-card">
+              <h2>⚡ Manual Action Center</h2>
+              <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 18px;">
+                Trigger autopilot tasks immediately without waiting for the background scheduler.
+              </p>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+                  <h3 style="margin:0 0 6px 0; font-size: 14px;">🔍 Lead Finder Scraper</h3>
+                  <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Rotate niche/location lists to scrape new leads.</p>
+                  <button onclick="triggerSimJob('find', this)" class="btn btn-primary" style="width:100%; font-size:11px;">Run Lead Finder Now</button>
+                </div>
+                <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+                  <h3 style="margin:0 0 6px 0; font-size: 14px;">📨 Auto-Send Outreach</h3>
+                  <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Deploy custom previews and drafts to leads with score >= 80.</p>
+                  <button onclick="triggerSimJob('send_leads', this)" class="btn btn-primary" style="width:100%; font-size:11px;">Auto-Send Pending Leads</button>
+                </div>
+                <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+                  <h3 style="margin:0 0 6px 0; font-size: 14px;">🔁 Auto-Send Followups</h3>
+                  <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Dispatch all follow-ups that are scheduled and pending.</p>
+                  <button onclick="triggerSimJob('send_followups', this)" class="btn btn-primary" style="width:100%; font-size:11px;">Dispatch Follow-ups</button>
+                </div>
+                <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+                  <h3 style="margin:0 0 6px 0; font-size: 14px;">📥 Inbox Reply & Opt-Out Sync</h3>
+                  <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Sync your Gmail inbox for replies and stop commands.</p>
+                  <button onclick="triggerSimJob('check_replies', this)" class="btn btn-primary" style="width:100%; font-size:11px;">Sync Inbox Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <!-- Daily Limits Protection -->
+            <div class="form-card" style="margin-bottom: 24px;">
+              <h2>📊 Deliverability & Protection</h2>
+              <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
+                Spam filter safeguard: Emails are throttled to a maximum of 25 sent cold emails per day.
+              </p>
+              <div style="margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; margin-bottom: 6px;">
+                  <span>Daily Limit Progress</span>
+                  <span style="color: var(--accent); font-weight:600;">18 / 25 sent</span>
+                </div>
+                <div style="height: 8px; background: var(--border); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 72%; height: 100%; background: #00c896;"></div>
+                </div>
+              </div>
+              <div style="font-size:11px; color: var(--text-dim); line-height: 1.4; background: var(--surface2); padding: 8px 12px; border-radius: 6px; margin-top: 14px;">
+                ℹ️ <strong>Spam Protection:</strong> Once 25 cold emails are dispatched in a single calendar day, background runs will automatically sleep to preserve your domain health.
+              </div>
+            </div>
+
+            <!-- Active Search Rotation -->
+            <div class="form-card">
+              <h2>⚙️ Active Search Rotation</h2>
+              <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
+                Your daily finder searches these parameters:
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+                  <span style="color: var(--text-dim);">Target Niches</span>
+                  <span style="font-weight: 500;">["gym", "dentist", "cafe"]</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+                  <span style="color: var(--text-dim);">Target Cities</span>
+                  <span style="font-weight: 500;">["Austin, TX", "Huntsville, AL"]</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+                  <span style="color: var(--text-dim);">Scrape Limit</span>
+                  <span style="font-weight: 500;">20 leads/run</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+                  <span style="color: var(--text-dim);">Max Site Score</span>
+                  <span style="font-weight: 500;">70/100</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-bottom: 6px;">
+                  <span style="color: var(--text-dim);">Data Source</span>
+                  <span style="font-weight: 500;">Google Maps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTOPILOT TAB VIEW -->
+    <div id="tab-autopilot" class="tab-content" style="display:none">
+      <div class="page-header" style="margin-bottom: 24px;">
+        <div class="page-title">
+          <h1>🚀 Autopilot Control Center</h1>
+          <p class="subtitle" style="margin-bottom:0">Monitor, manage, and manually trigger LeadFlow's automated outbound outreach.</p>
+        </div>
+      </div>
+
+      <!-- Live Stats Row -->
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px;">
+        <div class="card" style="padding: 16px; text-align: center;">
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; letter-spacing: 0.5px;">Leads Scraped</div>
+          <div style="font-size: 24px; font-weight: bold; color: var(--text);">142</div>
+        </div>
+        <div class="card" style="padding: 16px; text-align: center;">
+          <div style="font-size: 24px; font-weight: bold; color: var(--accent);">18</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Outreach Sent</div>
+        </div>
+        <div class="card" style="padding: 16px; text-align: center;">
+          <div style="font-size: 24px; font-weight: bold; color: var(--blue);">12</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Emails Opened</div>
+        </div>
+        <div class="card" style="padding: 16px; text-align: center;">
+          <div style="font-size: 24px; font-weight: bold; color: var(--yellow);">8</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Links Clicked</div>
+        </div>
+        <div class="card" style="padding: 16px; text-align: center;">
+          <div style="font-size: 24px; font-weight: bold; color: #00c896;">4</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Replies Received</div>
+        </div>
+      </div>
+
+      <!-- Main Autopilot Grid -->
+      <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; margin-bottom: 24px;">
+        <div>
+          <!-- Status Card -->
+          <div class="form-card" id="autopilotStatusCard" style="margin-bottom: 24px; border-color: #00c896;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+              <div>
+                <h2 style="margin: 0; display: flex; align-items: center; gap: 10px;" id="autopilotStatusText">
+                  <span class="pulse-dot green" style="width: 12px; height: 12px;"></span>
+                  Autopilot is ACTIVE
+                </h2>
+                <p style="color: var(--text-dim); margin-top: 6px; font-size: 13px;" id="autopilotSubtext">
+                  Daily lead extraction is scheduled at 06:00 UTC. Auto-sending runs every hour.
+                </p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <button id="btnToggleAutopilot" onclick="simToggleAutopilot()" class="btn btn-ghost" style="padding: 8px 16px; min-width: 100px;">
+                  ⏸ Pause
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Logs -->
+          <div class="form-card" style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h2 style="margin: 0;">📟 Live Autopilot Logs</h2>
+              <span style="font-size: 11px; background: rgba(0, 200, 150, 0.1); color: #00c896; padding: 3px 8px; border-radius: 12px; font-weight: 500;">
+                🟢 Streaming Live
+              </span>
+            </div>
+            <div class="log-box" id="autopilot-terminal-logs" style="height: 220px; margin-top: 0; font-family: monospace;">
+              [Autopilot] Autopilot running scheduled loop...
+              [Autopilot] Checking daily emails limits... 18/25 sent. (Safe)
+              [Autopilot] Checking inbox replies...
+              Finished sync: 0 new opt-outs, 0 new warm replies.
+            </div>
+          </div>
+
+          <!-- Manual Action Center -->
+          <div class="form-card">
+            <h2>⚡ Manual Action Center</h2>
+            <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 18px;">
+              Trigger autopilot tasks immediately without waiting for the background scheduler.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+                <h3 style="margin:0 0 6px 0; font-size: 14px;">🔍 Lead Finder Scraper</h3>
+                <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Rotate niche/location lists to scrape new leads.</p>
+                <button onclick="triggerSimJob('find', this)" class="btn btn-primary" style="width:100%; font-size:11px;">Run Lead Finder Now</button>
+              </div>
+              <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+                <h3 style="margin:0 0 6px 0; font-size: 14px;">📨 Auto-Send Outreach</h3>
+                <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Deploy custom previews and drafts to leads with score >= 80.</p>
+                <button onclick="triggerSimJob('send_leads', this)" class="btn btn-primary" style="width:100%; font-size:11px;">Auto-Send Pending Leads</button>
+              </div>
+              <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+                <h3 style="margin:0 0 6px 0; font-size: 14px;">🔁 Auto-Send Followups</h3>
+                <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Dispatch all follow-ups that are scheduled and pending.</p>
+                <button onclick="triggerSimJob('send_followups', this)" class="btn btn-primary" style="width:100%; font-size:11px;">Dispatch Follow-ups</button>
+              </div>
+              <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+                <h3 style="margin:0 0 6px 0; font-size: 14px;">📥 Inbox Reply & Opt-Out Sync</h3>
+                <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Sync your Gmail inbox for replies and stop commands.</p>
+                <button onclick="triggerSimJob('check_replies', this)" class="btn btn-primary" style="width:100%; font-size:11px;">Sync Inbox Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Daily Limits Protection -->
+          <div class="form-card" style="margin-bottom: 24px;">
+            <h2>📊 Deliverability & Protection</h2>
+            <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
+              Spam filter safeguard: Emails are throttled to a maximum of 25 sent cold emails per day.
+            </p>
+            <div style="margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; margin-bottom: 6px;">
+                <span>Daily Limit Progress</span>
+                <span style="color: var(--accent); font-weight:600;">18 / 25 sent</span>
+              </div>
+              <div style="height: 8px; background: var(--border); border-radius: 4px; overflow: hidden;">
+                <div style="width: 72%; height: 100%; background: #00c896;"></div>
+              </div>
+            </div>
+            <div style="font-size:11px; color: var(--text-dim); line-height: 1.4; background: var(--surface2); padding: 8px 12px; border-radius: 6px; margin-top: 14px;">
+              ℹ️ <strong>Spam Protection:</strong> Once 25 cold emails are dispatched in a single calendar day, background runs will automatically sleep to preserve your domain health.
+            </div>
+          </div>
+
+          <!-- Active Search Rotation -->
+          <div class="form-card">
+            <h2>⚙️ Active Search Rotation</h2>
+            <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
+              Your daily finder searches these parameters:
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+                <span style="color: var(--text-dim);">Target Niches</span>
+                <span style="font-weight: 500;">["gym", "dentist", "cafe"]</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+                <span style="color: var(--text-dim);">Target Cities</span>
+                <span style="font-weight: 500;">["Austin, TX", "Huntsville, AL"]</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+                <span style="color: var(--text-dim);">Scrape Limit</span>
+                <span style="font-weight: 500;">20 leads/run</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+                <span style="color: var(--text-dim);">Max Site Score</span>
+                <span style="font-weight: 500;">70/100</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding-bottom: 6px;">
+                <span style="color: var(--text-dim);">Data Source</span>
+                <span style="font-weight: 500;">Google Maps</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1159,7 +1488,7 @@
       { id: 6, name: "Pristine Dental Care", category: "Dentist", city: "Austin", score: 32, status: "approved", email: "pristinedentistry@gmail.com", phone: "+1 512-555-0211", website: "pristinedentistryaustin.com", pitch: "" },
       { id: 7, name: "Downtown Sports Arena", category: "Gym", city: "Austin", score: 29, status: "demo", email: "frontdesk@downtownsports.com", phone: "+1 512-555-0310", website: "downtownsportsarena.com", pitch: "" },
       { id: 8, name: "Gourmet Lab Cafe", category: "Cafe", city: "Austin", score: 54, status: "sent", email: "info@gourmetlabcafe.com", phone: "+1 512-555-0312", website: "gourmetlabcafe.io", pitch: "" },
-      { id: 9, name: "Southside Salons", category: "Salon", city: "Austin", score: 31, status: "replied", email: "hello@southsidesalons.com", phone: "+1 512-555-0422", website: "southsidesalonsaustin.com", phone: "+1 512-555-0422", website: "southsidesalonsaustin.com", pitch: "" }
+      { id: 9, name: "Southside Salons", category: "Salon", city: "Austin", score: 31, status: "replied", email: "hello@southsidesalons.com", phone: "+1 512-555-0422", website: "southsidesalonsaustin.com", pitch: "" }
     ];
 
     let activeLeadId = 1;
@@ -1522,7 +1851,7 @@ Would you be open to a quick chat this week to see if speed optimizations can he
             <div class="sim-detail-row"><span>Outreach:</span> <b style="color:var(--accent)">Sent!</b></div>
             <div style="margin-top:12px; font-size:11px; display:flex; flex-direction:column; gap:6px;">
               <div class="checklist-item checked">
-                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--accent)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                 Initial Outbound sent (SMTP OK)
               </div>
               <div class="checklist-item">
@@ -1583,6 +1912,10 @@ Would you be open to a quick chat this week to see if speed optimizations can he
           simStep = 2;
           renderSimVisuals();
           btn.innerText = "▶ Run Step: Run Speed Audit";
+          
+          // Mark step progress
+          document.getElementById('step1').className = "step completed";
+          document.getElementById('step2').className = "step active";
         }, 2200);
       }
       else if (simStep === 2) {
@@ -1600,6 +1933,9 @@ Would you be open to a quick chat this week to see if speed optimizations can he
           simStep = 3;
           renderSimVisuals();
           btn.innerText = "▶ Run Step: Deploy Demo Site";
+
+          document.getElementById('step2').className = "step completed";
+          document.getElementById('step3').className = "step active";
         }, 1500);
       }
       else if (simStep === 3) {
@@ -1622,6 +1958,9 @@ Would you be open to a quick chat this week to see if speed optimizations can he
           simStep = 4;
           renderSimVisuals();
           btn.innerText = "▶ Run Step: Write AI Pitch";
+
+          document.getElementById('step3').className = "step completed";
+          document.getElementById('step4').className = "step active";
         }, 2500);
       }
       else if (simStep === 4) {
@@ -1638,6 +1977,9 @@ Would you be open to a quick chat this week to see if speed optimizations can he
           simStep = 5;
           renderSimVisuals();
           btn.innerText = "▶ Run Step: Send SMTP Campaign";
+
+          document.getElementById('step4').className = "step completed";
+          document.getElementById('step5').className = "step active";
         }, 2200);
       }
       else if (simStep === 5) {
@@ -1660,6 +2002,9 @@ Would you be open to a quick chat this week to see if speed optimizations can he
           renderSimVisuals();
           btn.disabled = true;
           btn.innerText = "Simulate Outcome Events";
+
+          document.getElementById('step5').className = "step completed";
+          document.getElementById('step6').className = "step active";
         }, 2200);
       }
     }
@@ -1688,6 +2033,7 @@ Would you be open to a quick chat this week to see if speed optimizations can he
               <div style="font-size:10px; color:var(--red)">OPTED_OUT / Blacklisted</div>
             `;
           }
+          document.getElementById('step6').className = "step completed";
         }, 2200);
       }
       else if (type === 'reply') {
@@ -1705,6 +2051,8 @@ Would you be open to a quick chat this week to see if speed optimizations can he
           const card = document.getElementById('sim-lead-card');
           colReply.appendChild(card);
           colSent.innerHTML = '';
+
+          document.getElementById('step6').className = "step completed";
 
           // Show Fiverr Prompt
           document.getElementById('popupText').innerText = "Warm Lead Converted! As demonstrated, LeadFlow automatically scraped, audited, deployed a custom clone, rotated Gemini API keys, launched outreach, tracked opens, and detected this positive reply. Let Chandan build this exact system custom for your business on Fiverr!";
@@ -1742,7 +2090,87 @@ Would you be open to a quick chat this week to see if speed optimizations can he
       renderSimVisuals();
     }
 
-    // Initialize simulation panel layout on page load
+    // -------------------------------------------------------------
+    // AUTOPILOT PANEL SIMULATION LOGIC
+    // -------------------------------------------------------------
+    let autopilotActive = true;
+    function simToggleAutopilot() {
+      const btns = [document.getElementById('btnToggleAutopilot'), document.getElementById('dashBtnToggleAutopilot')];
+      const texts = [document.getElementById('autopilotStatusText'), document.getElementById('dashAutopilotStatusText')];
+      const subs = [document.getElementById('autopilotSubtext'), document.getElementById('dashAutopilotSubtext')];
+      const statusCards = [document.getElementById('autopilotStatusCard'), document.getElementById('dashAutopilotStatusCard')];
+      const sidebarDot = document.getElementById('sidebarAutopilotDot');
+      const sidebarText = document.getElementById('sidebarAutopilotText');
+      
+      autopilotActive = !autopilotActive;
+      if (autopilotActive) {
+        btns.forEach(btn => { if(btn) { btn.innerText = "⏸ Pause"; btn.className = "btn btn-ghost"; } });
+        texts.forEach(text => { if(text) text.innerHTML = `<span class="pulse-dot green" style="width: 12px; height: 12px;"></span> Autopilot is ACTIVE`; });
+        subs.forEach(sub => { if(sub) sub.innerText = "Daily lead extraction is scheduled at 06:00 UTC. Auto-sending runs every hour."; });
+        statusCards.forEach(card => { if(card) card.style.borderColor = "#00c896"; });
+        
+        sidebarDot.className = "pulse-dot green";
+        sidebarText.innerText = "Autopilot Active";
+        sidebarText.style.color = "#00c896";
+        
+        logAutopilotLine("[System] Autopilot background loops resumed.", "ok");
+      } else {
+        btns.forEach(btn => { if(btn) { btn.innerText = "▶ Start"; btn.className = "btn btn-primary"; } });
+        texts.forEach(text => { if(text) text.innerHTML = `<span class="pulse-dot gray" style="width: 12px; height: 12px;"></span> Autopilot is STOPPED`; });
+        subs.forEach(sub => { if(sub) sub.innerText = "Outbox queue processing is paused. Automatic triggers are disabled."; });
+        statusCards.forEach(card => { if(card) card.style.borderColor = "var(--border)"; });
+        
+        sidebarDot.className = "pulse-dot gray";
+        sidebarText.innerText = "Autopilot Stopped";
+        sidebarText.style.color = "var(--text-dim)";
+        
+        logAutopilotLine("[System] Autopilot background loops paused.", "err");
+      }
+    }
+
+    function logAutopilotLine(msg, type="") {
+      const termIds = ['autopilot-terminal-logs', 'dash-autopilot-terminal-logs'];
+      termIds.forEach(id => {
+        const term = document.getElementById(id);
+        if (term) {
+          const timeStr = new Date().toLocaleTimeString();
+          const div = document.createElement('div');
+          div.className = type;
+          div.innerHTML = `<span class="dim">[${timeStr}]</span> ${msg}`;
+          term.appendChild(div);
+          term.scrollTop = term.scrollHeight;
+        }
+      });
+    }
+
+    function triggerSimJob(jobId, btn) {
+      const originalText = btn.innerText;
+      const buttons = document.querySelectorAll(`button[onclick="triggerSimJob('${jobId}', this)"]`);
+      buttons.forEach(b => {
+        b.disabled = true;
+        b.innerText = "Triggering...";
+      });
+      
+      logAutopilotLine(`-> Manually triggered job run for: ${originalText}`);
+      
+      setTimeout(() => {
+        if (jobId === 'find') {
+          logAutopilotLine("✓ SUCCESS: Lead Finder Scraper search initiated in background.", "ok");
+        } else if (jobId === 'send_leads') {
+          logAutopilotLine("✓ SUCCESS: Auto-send dispatch triggered for leads meeting score threshold.", "ok");
+        } else if (jobId === 'send_followups') {
+          logAutopilotLine("✓ SUCCESS: Dispatch run completed for pending follow-ups.", "ok");
+        } else if (jobId === 'check_replies') {
+          logAutopilotLine("✓ SUCCESS: IMAP reply scan finished across all configured SMTP accounts.", "ok");
+        }
+        buttons.forEach(b => {
+          b.disabled = false;
+          b.innerText = originalText;
+        });
+      }, 1500);
+    }
+
+    // Initialize simulation panel layouts on page load
     renderSimVisuals();
     resetSimulation();
   </script>
