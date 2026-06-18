@@ -853,6 +853,70 @@
       border-color: var(--red);
       color: var(--red);
     }
+
+    /* GUIDED TOUR STYLING */
+    .tour-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(3px);
+    }
+    .tour-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .tour-card {
+      position: fixed;
+      background: #111827;
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 24px;
+      width: 400px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.9), 0 0 30px rgba(0, 200, 150, 0.2);
+      z-index: 2100;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: none;
+    }
+    .tour-card h3 {
+      font-size: 16px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tour-card p {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .tour-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tour-progress {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+    .tour-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    .tour-highlight-el {
+      position: relative;
+      z-index: 2050 !important;
+      box-shadow: 0 0 0 3px var(--accent) !important;
+      background: var(--surface2) !important;
+    }
   </style>
 </head>
 <body>
@@ -867,8 +931,11 @@
 
   <!-- SIDEBAR NAVIGATION -->
   <aside class="sidebar">
-    <div class="logo">
-      LeadFlow
+    <div class="logo" style="display:flex; flex-direction:column; gap:4px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+        LeadFlow
+        <span class="badge" onclick="startTour()" style="cursor:pointer; font-size:10px; background:rgba(0, 200, 150, 0.15); color:var(--accent); border:1px solid rgba(0, 200, 150, 0.3); padding:2px 6px;">Tour 🎓</span>
+      </div>
       <span>by Chandan</span>
     </div>
     
@@ -878,38 +945,38 @@
     </div>
 
     <nav class="nav">
-      <a class="nav-item active" onclick="switchTab('dashboard')">
+      <a class="nav-item active" id="nav-dashboard" onclick="switchTab('dashboard')">
         <span class="icon">⚡</span> Dashboard
       </a>
-      <a class="nav-item" onclick="switchTab('autopilot')">
+      <a class="nav-item" id="nav-autopilot" onclick="switchTab('autopilot')">
         <span class="icon">🚀</span> Autopilot
       </a>
-      <a class="nav-item" onclick="switchTab('find')">
+      <a class="nav-item" id="nav-find" onclick="switchTab('find')">
         <span class="icon">🔍</span> Find Businesses
       </a>
-      <a class="nav-item" onclick="switchTab('leads')">
+      <a class="nav-item" id="nav-leads" onclick="switchTab('leads')">
         <span class="icon">📋</span> Review Leads
         <span class="badge badge-new" style="margin-left:auto">4</span>
       </a>
-      <a class="nav-item" onclick="switchTab('pipeline')">
+      <a class="nav-item" id="nav-pipeline" onclick="switchTab('pipeline')">
         <span class="icon">🗂</span> Pipeline
       </a>
-      <a class="nav-item" onclick="showBuildOffer('followups')">
+      <a class="nav-item" id="nav-followups" onclick="switchTab('followups')">
         <span class="icon">🔁</span> Follow-ups
       </a>
-      <a class="nav-item" onclick="showBuildOffer('templates')">
+      <a class="nav-item" id="nav-templates" onclick="switchTab('templates')">
         <span class="icon">📝</span> Templates
       </a>
-      <a class="nav-item" onclick="showBuildOffer('demos')">
+      <a class="nav-item" id="nav-demos" onclick="switchTab('demos')">
         <span class="icon">🌐</span> Demo Sites
       </a>
-      <a class="nav-item" onclick="showBuildOffer('sent')">
+      <a class="nav-item" id="nav-sent" onclick="switchTab('sent')">
         <span class="icon">📨</span> Sent
       </a>
-      <a class="nav-item" onclick="switchTab('analytics')">
+      <a class="nav-item" id="nav-analytics" onclick="switchTab('analytics')">
         <span class="icon">📊</span> Analytics
       </a>
-      <a class="nav-item" onclick="showBuildOffer('settings')">
+      <a class="nav-item" id="nav-settings" onclick="switchTab('settings')">
         <span class="icon">⚙️</span> Settings
       </a>
     </nav>
@@ -1447,13 +1514,342 @@
               <div>Restaurants</div>
               <div class="funnel-bar-bg"><div class="funnel-bar-fill orange" style="width: 38%"></div></div>
               <div class="funnel-percent">38%</div>
+    </div>
+
+    <!-- FOLLOW-UPS TAB VIEW -->
+    <div id="tab-followups" class="tab-content" style="display:none">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+        <div>
+          <h1>🔁 Follow-up Sequences</h1>
+          <p class="subtitle" style="margin-bottom:0">Automated sequential outreach sent to prospects who haven't replied.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://www.fiverr.com/s/zWZ5yWg" target="_blank">🛠️ Order Custom Build</a>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); padding:20px; border-radius:10px; margin-bottom:24px; font-size:13px; line-height:1.6;">
+        💡 <strong>How Automated Follow-ups Work:</strong> If a prospect opens your initial cold pitch but doesn't reply within a specified delay (e.g., 3 days), Autopilot automatically dispatches the next step in the sequence from the exact same sender email address. It cancels all scheduled follow-ups instantly if the IMAP sync detects any incoming reply or opt-out.
+      </div>
+
+      <div class="form-card" style="padding:0; overflow:hidden;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+          <thead>
+            <tr style="background:var(--surface2); border-bottom:1px solid var(--border); color:var(--text-dim); text-transform:uppercase; font-size:11px; letter-spacing:0.5px;">
+              <th style="padding:14px 20px;">Prospect</th>
+              <th style="padding:14px 20px;">Niche</th>
+              <th style="padding:14px 20px;">Step</th>
+              <th style="padding:14px 20px;">Delay</th>
+              <th style="padding:14px 20px;">Assigned Sender</th>
+              <th style="padding:14px 20px;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px; font-weight:600;">Texas Strength Gym</td>
+              <td style="padding:14px 20px; color:var(--text-dim);">Gym</td>
+              <td style="padding:14px 20px;">Follow-up #1 (Re-engagement)</td>
+              <td style="padding:14px 20px;">3 Days</td>
+              <td style="padding:14px 20px; font-family:monospace; color:var(--text-dim);">chqn.films2@gmail.com</td>
+              <td style="padding:14px 20px;"><span class="badge" style="background:rgba(245,197,66,0.12); color:var(--yellow);">⌛ Pending (Day 3)</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px; font-weight:600;">Sunset Clinic</td>
+              <td style="padding:14px 20px; color:var(--text-dim);">Dentist</td>
+              <td style="padding:14px 20px;">Follow-up #2 (Case Study)</td>
+              <td style="padding:14px 20px;">7 Days</td>
+              <td style="padding:14px 20px; font-family:monospace; color:var(--text-dim);">chqn.films2@gmail.com</td>
+              <td style="padding:14px 20px;"><span class="badge badge-skipped">🛑 Cancelled (Replied)</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px; font-weight:600;">Metro Gents Haircut</td>
+              <td style="padding:14px 20px; color:var(--text-dim);">Barbershop</td>
+              <td style="padding:14px 20px;">Follow-up #1 (Re-engagement)</td>
+              <td style="padding:14px 20px;">3 Days</td>
+              <td style="padding:14px 20px; font-family:monospace; color:var(--text-dim);">sender2@leadflow.co</td>
+              <td style="padding:14px 20px;"><span class="badge badge-sent">📨 Sent</span></td>
+            </tr>
+            <tr>
+              <td style="padding:14px 20px; font-weight:600;">Austin Iron Club</td>
+              <td style="padding:14px 20px; color:var(--text-dim);">Gym</td>
+              <td style="padding:14px 20px;">Follow-up #1 (Re-engagement)</td>
+              <td style="padding:14px 20px;">3 Days</td>
+              <td style="padding:14px 20px; font-family:monospace; color:var(--text-dim);">chqn.films2@gmail.com</td>
+              <td style="padding:14px 20px;"><span class="badge" style="background:rgba(245,197,66,0.12); color:var(--yellow);">⌛ Pending (Day 3)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TEMPLATES TAB VIEW -->
+    <div id="tab-templates" class="tab-content" style="display:none">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+        <div>
+          <h1>📝 AI Outreach Templates</h1>
+          <p class="subtitle" style="margin-bottom:0">Edit and manage personalized cold email sequence templates.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://www.fiverr.com/s/zWZ5yWg" target="_blank">🛠️ Order Custom Build</a>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); padding:20px; border-radius:10px; margin-bottom:24px; font-size:13px; line-height:1.6;">
+        ℹ️ <strong>AI Merging & Rotation:</strong> These templates leverage dynamic variables. When LeadFlow processes a lead, it passes the template structure along with specific PageSpeed audit scores and demo URLs to the local <code>Gemini 3.5 Flash</code> model, instructing it to rewrite it uniquely for each recipient to prevent spam filters from flagging repetitive copy.
+      </div>
+
+      <div style="display:grid; grid-template-columns: 240px 1fr; gap:20px;">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <button class="btn btn-ghost" id="btn-tpl-gym" onclick="selectTemplate('gym')" style="justify-content:flex-start; text-align:left; border-color:var(--accent); color:var(--accent); background:var(--accent-dim); width:100%;">🏋️ Gym Performance Pitch</button>
+          <button class="btn btn-ghost" id="btn-tpl-dentist" onclick="selectTemplate('dentist')" style="justify-content:flex-start; text-align:left; width:100%;">🦷 Dentist PageSpeed Pitch</button>
+          <button class="btn btn-ghost" id="btn-tpl-cafe" onclick="selectTemplate('cafe')" style="justify-content:flex-start; text-align:left; width:100%;">☕ Cafe SEO Pitch</button>
+        </div>
+        <div class="form-card" style="margin:0;">
+          <h2 style="font-size:14px; margin-bottom:12px;" id="templateTitle">Gym Performance Pitch Template</h2>
+          
+          <div style="margin-bottom:14px;">
+            <label>Subject Line Template</label>
+            <input type="text" id="templateSubject" value="Quick question about mobile loading speed gaps at {{business_name}}">
+          </div>
+          
+          <div style="margin-bottom:18px;">
+            <label>Email Body Template</label>
+            <textarea id="templateBody" style="min-height:220px; font-family:monospace; font-size:12px; line-height:1.6;">Hi {{prospect_name}},
+
+I noticed your website at {{business_website}} takes over {{lighthouse_interactive_delay}} to load interactive pages on mobile. 
+
+A loading delay like that causes up to 40% of gym visitors to abandon the site. I built a custom preview showing how a fully optimized, fast version of your gym site loads (which you can test here):
+
+{{github_demo_url}}
+
+Would you be open to a quick call this week to see if speed optimizations can help you capture more website memberships?
+
+Best,
+Chandan</textarea>
+          </div>
+          
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:11px; color:var(--text-dim);">Variables: <code>{{business_name}}</code>, <code>{{business_website}}</code>, <code>{{github_demo_url}}</code></span>
+            <button class="btn btn-primary" onclick="saveTemplateDemo()">💾 Save Template</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEMO SITES TAB VIEW -->
+    <div id="tab-demos" class="tab-content" style="display:none">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+        <div>
+          <h1>🌐 Premium Niche Demos</h1>
+          <p class="subtitle" style="margin-bottom:0">Visual templates deployed automatically as personalized lead magnets.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://www.fiverr.com/s/zWZ5yWg" target="_blank">🛠️ Order Custom Build</a>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); padding:20px; border-radius:10px; margin-bottom:24px; font-size:13px; line-height:1.6;">
+        💡 <strong>The Hook:</strong> Sending a cold email with a pre-built website demo customized with the client's own name and phone number gets massive open and click-through rates. LeadFlow automates this whole process instantly using template assets deployed directly to hosting.
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="height:120px; background:linear-gradient(135deg, #1f1f1f 0%, #121212 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); font-size:32px;">🏋️</div>
+          <div style="padding:16px;">
+            <h3 style="font-size:14px; margin-bottom:6px; color:#fff;">Neon Gym Template</h3>
+            <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px; height:36px;">Sleek dark-mode sports design with high-contrast call-to-actions.</p>
+            <a href="17.html" target="_blank" class="btn btn-ghost" style="width:100%; font-size:11px; display:flex; justify-content:center;">👁️ Preview Template</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="height:120px; background:linear-gradient(135deg, #1f1f1f 0%, #121212 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); font-size:32px;">🦷</div>
+          <div style="padding:16px;">
+            <h3 style="font-size:14px; margin-bottom:6px; color:#fff;">Pristine Dental Template</h3>
+            <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px; height:36px;">Clean, trustworthy blue styling designed to drive local patient inquiries.</p>
+            <a href="96.html" target="_blank" class="btn btn-ghost" style="width:100%; font-size:11px; display:flex; justify-content:center;">👁️ Preview Template</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="height:120px; background:linear-gradient(135deg, #1f1f1f 0%, #121212 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); font-size:32px;">☕</div>
+          <div style="padding:16px;">
+            <h3 style="font-size:14px; margin-bottom:6px; color:#fff;">Vintage Cafe Template</h3>
+            <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px; height:36px;">Warm aesthetic cafe template prioritizing phone clicks and directions.</p>
+            <a href="67.html" target="_blank" class="btn btn-ghost" style="width:100%; font-size:11px; display:flex; justify-content:center;">👁️ Preview Template</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="height:120px; background:linear-gradient(135deg, #1f1f1f 0%, #121212 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); font-size:32px;">💇</div>
+          <div style="padding:16px;">
+            <h3 style="font-size:14px; margin-bottom:6px; color:#fff;">Salon Glow Template</h3>
+            <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px; height:36px;">Elegant, picture-heavy beauty studio design with instant book widgets.</p>
+            <a href="alio-fitness-club-102.html" target="_blank" class="btn btn-ghost" style="width:100%; font-size:11px; display:flex; justify-content:center;">👁️ Preview Template</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SENT LOGS TAB VIEW -->
+    <div id="tab-sent" class="tab-content" style="display:none">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+        <div>
+          <h1>📨 Sent Outreach Logs</h1>
+          <p class="subtitle" style="margin-bottom:0">Chronological history of SMTP outreach dispatches.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://www.fiverr.com/s/zWZ5yWg" target="_blank">🛠️ Order Custom Build</a>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); padding:20px; border-radius:10px; margin-bottom:24px; font-size:13px; line-height:1.6;">
+        📨 <strong>Reputation Safety:</strong> Cold email accounts require strict daily quotas to stay in good standing. This history tracks sends across all configured Gmail and custom business domains.
+      </div>
+
+      <div class="form-card" style="padding:0; overflow:hidden;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+          <thead>
+            <tr style="background:var(--surface2); border-bottom:1px solid var(--border); color:var(--text-dim); text-transform:uppercase; font-size:11px; letter-spacing:0.5px;">
+              <th style="padding:14px 20px;">Recipient</th>
+              <th style="padding:14px 20px;">Sender</th>
+              <th style="padding:14px 20px;">Subject</th>
+              <th style="padding:14px 20px;">Timestamp</th>
+              <th style="padding:14px 20px;">Outcome Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px; font-weight:600;">owner@alphastrength.com</td>
+              <td style="padding:14px 20px; font-family:monospace; color:var(--text-dim);">chqn.films2@gmail.com</td>
+              <td style="padding:14px 20px;">Quick question about speed gaps at Alpha Strength Academy</td>
+              <td style="padding:14px 20px; color:var(--text-dim);">15 mins ago</td>
+              <td style="padding:14px 20px;"><span class="badge" style="background:rgba(0,200,150,0.15); color:var(--accent);">👀 Opened</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px; font-weight:600;">manager@bistro512.com</td>
+              <td style="padding:14px 20px; font-family:monospace; color:var(--text-dim);">chqn.films2@gmail.com</td>
+              <td style="padding:14px 20px;">Subject: Speed audit for Bistro 512</td>
+              <td style="padding:14px 20px; color:var(--text-dim);">2 hours ago</td>
+              <td style="padding:14px 20px;"><span class="badge badge-sent">📨 Delivered</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px; font-weight:600;">hello@southsidesalons.com</td>
+              <td style="padding:14px 20px; font-family:monospace; color:var(--text-dim);">chqn.films2@gmail.com</td>
+              <td style="padding:14px 20px;">Subject: Speed audit for Southside Salons</td>
+              <td style="padding:14px 20px; color:var(--text-dim);">1 day ago</td>
+              <td style="padding:14px 20px;"><span class="badge" style="background:rgba(0,200,150,0.25); color:var(--accent);">🤝 Warm Reply</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 20px; font-weight:600;">frontdesk@downtownsports.com</td>
+              <td style="padding:14px 20px; font-family:monospace; color:var(--text-dim);">sender2@leadflow.co</td>
+              <td style="padding:14px 20px;">Website issues at Downtown Sports Arena</td>
+              <td style="padding:14px 20px; color:var(--text-dim);">2 days ago</td>
+              <td style="padding:14px 20px;"><span class="badge" style="background:rgba(77,159,255,0.15); color:var(--blue);">🌐 Clicked Demo</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SETTINGS TAB VIEW -->
+    <div id="tab-settings" class="tab-content" style="display:none">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+        <div>
+          <h1>⚙️ LeadFlow Configurations</h1>
+          <p class="subtitle" style="margin-bottom:0">Setup SMTP, AI models, and local directory extraction keys.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://www.fiverr.com/s/zWZ5yWg" target="_blank">🛠️ Order Custom Build</a>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); padding:20px; border-radius:10px; margin-bottom:24px; font-size:13px; line-height:1.6;">
+        ⚙️ <strong>Configuration Dashboard:</strong> Wire up email accounts, API endpoints, and backup targets. Changes below simulate setting up your production LeadFlow instance.
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1.6fr 1fr; gap:24px;">
+        <div>
+          <!-- SMTP Accounts -->
+          <div class="form-card" style="margin-bottom:24px;">
+            <h2>Rotated SMTP Sender Accounts</h2>
+            <p style="font-size:12px; color:var(--text-dim); margin-bottom:14px;">Define sender accounts that Autopilot will cycle through to balance outbox volumes.</p>
+            
+            <div style="margin-bottom:14px;">
+              <label>Sender Accounts (Comma Separated)</label>
+              <input type="text" id="settingsSmtpAccounts" value="chqn.films2@gmail.com, sender2@leadflow.co, support@youragency.com">
             </div>
+            
+            <div style="margin-bottom:14px;">
+              <label>Gmail App Passwords (Comma Separated)</label>
+              <input type="password" id="settingsSmtpPasswords" value="••••••••••••••••, ••••••••••••••••, ••••••••••••••••">
+            </div>
+          </div>
+
+          <!-- Model Config -->
+          <div class="form-card">
+            <h2>AI Outreach Agent Models</h2>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+              <div>
+                <label>Audit & Logic Model</label>
+                <select id="settingsAuditModel">
+                  <option selected>Gemini 3.5 Flash (High)</option>
+                  <option>Gemini 3.5 Flash (Medium)</option>
+                  <option>Gemini 2.5 Pro</option>
+                </select>
+              </div>
+              <div>
+                <label>AI Writing Model</label>
+                <select id="settingsWriteModel">
+                  <option>Gemini 3.5 Flash (High)</option>
+                  <option selected>Gemini 3.5 Flash (Medium)</option>
+                  <option>Gemini 2.5 Pro</option>
+                </select>
+              </div>
+            </div>
+            
+            <div>
+              <label>CRM Chat Rewrite Model</label>
+              <select id="settingsChatModel">
+                <option>Gemini 3.5 Flash (High)</option>
+                <option>Gemini 3.5 Flash (Medium)</option>
+                <option selected>Gemini 2.5 Pro (Fallback)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- API Keys -->
+          <div class="form-card" style="margin-bottom:24px;">
+            <h2>External Integrations</h2>
+            
+            <div style="margin-bottom:14px;">
+              <label>Google Places API Key</label>
+              <input type="password" value="AIzaSyA1b2MzNDU2Nzg5MGFiY2RlZmdoaWprbG1ubw==">
+            </div>
+            
+            <div style="margin-bottom:14px;">
+              <label>Lighthouse PageSpeed API Key</label>
+              <input type="password" value="QUl6YVN5R2FwU3BlZWRLZXlGb3JMaWdodGhvdXNl==">
+            </div>
+          </div>
+
+          <!-- Save Button Area -->
+          <div class="form-card" style="text-align:center;">
+            <h2>Save & Sync Settings</h2>
+            <p style="font-size:12px; color:var(--text-dim); margin-bottom:14px;">Commit your local credentials and reload background daemons.</p>
+            <button class="btn btn-primary" onclick="saveSettingsDemo()" style="width:100%; justify-content:center;">💾 Save Settings</button>
           </div>
         </div>
       </div>
     </div>
 
   </main>
+
+  <!-- GUIDED TOUR SYSTEM -->
+  <div class="tour-overlay" id="tourOverlay" onclick="closeTour()"></div>
+  <div class="tour-card" id="tourCard">
+    <h3 id="tourTitle">⚡ Welcome to LeadFlow Tour</h3>
+    <p id="tourText">Let's walk through how this software runs on your servers.</p>
+    <div class="tour-actions">
+      <span class="tour-progress" id="tourProgress">Step 1 of 7</span>
+      <div class="tour-buttons">
+        <button class="btn btn-ghost" style="padding:6px 12px; font-size:11px;" id="btnTourPrev" onclick="prevTourStep()">Back</button>
+        <button class="btn btn-primary" style="padding:6px 12px; font-size:11px;" id="btnTourNext" onclick="nextTourStep()">Next</button>
+      </div>
+    </div>
+  </div>
 
   <!-- FIVERR CUSTOM BUILD POPUP OVERLAY -->
   <div class="popup-overlay" id="fiverrPopup">
@@ -1504,12 +1900,17 @@
       }
 
       // Highlight active nav item
-      const navs = document.querySelectorAll('.nav-item');
-      navs.forEach(nav => {
-        if (nav.getAttribute('onclick').includes(tabId)) {
-          nav.classList.add('active');
-        }
-      });
+      const activeNav = document.getElementById(`nav-${tabId}`);
+      if (activeNav) {
+        activeNav.classList.add('active');
+      } else {
+        const navs = document.querySelectorAll('.nav-item');
+        navs.forEach(nav => {
+          if (nav.getAttribute('onclick') && nav.getAttribute('onclick').includes(tabId)) {
+            nav.classList.add('active');
+          }
+        });
+      }
 
       if (tabId === 'leads') {
         renderLeadsList();
@@ -2169,6 +2570,202 @@ Would you be open to a quick chat this week to see if speed optimizations can he
         });
       }, 1500);
     }
+
+    // -------------------------------------------------------------
+    // TEMPLATE & SETTINGS DEMO ACTIONS
+    // -------------------------------------------------------------
+    function selectTemplate(niche) {
+      // De-active all buttons
+      document.getElementById('btn-tpl-gym').style.borderColor = 'var(--border)';
+      document.getElementById('btn-tpl-gym').style.color = 'var(--text-dim)';
+      document.getElementById('btn-tpl-gym').style.background = 'transparent';
+      
+      document.getElementById('btn-tpl-dentist').style.borderColor = 'var(--border)';
+      document.getElementById('btn-tpl-dentist').style.color = 'var(--text-dim)';
+      document.getElementById('btn-tpl-dentist').style.background = 'transparent';
+      
+      document.getElementById('btn-tpl-cafe').style.borderColor = 'var(--border)';
+      document.getElementById('btn-tpl-cafe').style.color = 'var(--text-dim)';
+      document.getElementById('btn-tpl-cafe').style.background = 'transparent';
+      
+      const btn = document.getElementById(`btn-tpl-${niche}`);
+      btn.style.borderColor = 'var(--accent)';
+      btn.style.color = 'var(--accent)';
+      btn.style.background = 'var(--accent-dim)';
+      
+      const title = document.getElementById('templateTitle');
+      const subject = document.getElementById('templateSubject');
+      const body = document.getElementById('templateBody');
+      
+      if (niche === 'gym') {
+        title.innerText = "Gym Performance Pitch Template";
+        subject.value = "Quick question about mobile loading speed gaps at {{business_name}}";
+        body.value = `Hi {{prospect_name}},\n\nI noticed your website at {{business_website}} takes over {{lighthouse_interactive_delay}} to load interactive pages on mobile. \n\nA loading delay like that causes up to 40% of gym visitors to abandon the site. I built a custom preview showing how a fully optimized, fast version of your gym site loads (which you can test here):\n\n{{github_demo_url}}\n\nWould you be open to a quick call this week to see if speed optimizations can help you capture more website memberships?\n\nBest,\nChandan`;
+      } else if (niche === 'dentist') {
+        title.innerText = "Dentist PageSpeed Pitch Template";
+        subject.value = "Urgent: Page speed score of {{business_name}} dental site";
+        body.value = `Hi {{prospect_name}},\n\nI checked out {{business_name}} on Google Maps and ran your website {{business_website}} through our PageSpeed analyzer.\n\nThe report indicates a PageSpeed score of {{lighthouse_score}}/100 (which is extremely low for local dentist searches).\n\nSince local patients expect quick page loading to schedule appointments, I built a fast-loading mock replacement site for you here:\n\n{{github_demo_url}}\n\nWould it make sense to talk briefly about replacing your current site or optimizing it?\n\nThanks,\nChandan`;
+      } else if (niche === 'cafe') {
+        title.innerText = "Cafe SEO & Mobile Optimization Template";
+        subject.value = "Quick suggestion to improve table bookings for {{business_name}}";
+        body.value = `Hi {{prospect_name}},\n\nI love your cafe's reviews! However, I noticed that on mobile devices, {{business_website}} has rendering layout shifts that make booking tables or viewing your menu frustrating.\n\nI put together a clean, lightning-fast design demo for {{business_name}} to see the difference in loading speed:\n\n{{github_demo_url}}\n\nNo charge for this demo—just wanted to share it. Let me know if you'd like to get it live!\n\nCheers,\nChandan`;
+      }
+    }
+
+    function saveTemplateDemo() {
+      document.getElementById('popupText').innerText = "Template Saved in Sandbox! To create custom copywriting chains, A/B test variations, and connect real-time AI engines customized for your services, contact Chandan on Fiverr to set up your production LeadFlow instance.";
+      document.getElementById('fiverrPopup').classList.add('show');
+    }
+    
+    function saveSettingsDemo() {
+      document.getElementById('popupText').innerText = "Settings Saved successfully! Your rotated SMTP accounts and AI models have been simulated. To build a custom deployment with multiple live Gmail credentials, SSL SMTP routing, API credentials, and background worker profiles, let's connect on Fiverr!";
+      document.getElementById('fiverrPopup').classList.add('show');
+    }
+
+    // -------------------------------------------------------------
+    // INTERACTIVE GUIDED TOUR SYSTEM LOGIC
+    // -------------------------------------------------------------
+    let tourActive = false;
+    let tourStep = 0;
+    
+    const tourData = [
+      {
+        title: "⚡ Welcome to LeadFlow Simulator Tour",
+        text: "This guided walkthrough highlights how LeadFlow automates local client outreach under the hood. Let's see how it runs on your background servers step-by-step.",
+        tab: "dashboard",
+        highlight: null,
+        position: { top: "35%", left: "50%", transform: "translate(-50%, -50%)" }
+      },
+      {
+        title: "🔍 1. Scraping Target Businesses",
+        text: "In the Find Businesses tab, you set your niche and city search targets. The scraper crawls local Google Places entries, harvests direct email addresses, and extracts social links in seconds.",
+        tab: "find",
+        highlight: "nav-find",
+        position: { top: "180px", left: "240px" }
+      },
+      {
+        title: "📊 2. Lighthouse Speed Auditing",
+        text: "Next, LeadFlow executes a headless mobile Lighthouse PageSpeed check on target websites. Scores below 50 are badged as 'Hot Gaps' to hook prospect attention.",
+        tab: "dashboard",
+        highlight: "step2",
+        position: { top: "220px", left: "240px" }
+      },
+      {
+        title: "🌐 3. Prebuilt Replacement Demos",
+        text: "The Demo Site engine hosts visual template landing pages. It clones niche templates (Gyms, Salons, Cafes), brands it with the lead's logo/phone, and deploys it on GitHub Pages as a free sample.",
+        tab: "demos",
+        highlight: "nav-demos",
+        position: { top: "450px", left: "240px" }
+      },
+      {
+        title: "📝 4. Model-driven Copy Templates",
+        text: "Templates combine Speed Scores and Demo URLs with dynamic placeholders. LeadFlow processes these placeholders through Gemini Flash to compose unique pitches that bypass spam filters.",
+        tab: "templates",
+        highlight: "nav-templates",
+        position: { top: "410px", left: "240px" }
+      },
+      {
+        title: "📨 5. Rotated SMTP Deliverability",
+        text: "Settings configure rotated Gmail and custom domain accounts to keep daily outbox volumes safe. Sequential follow-ups are auto-scheduled and sent from the same active sender account.",
+        tab: "settings",
+        highlight: "nav-settings",
+        position: { top: "520px", left: "240px" }
+      },
+      {
+        title: "🚀 6. Scheduler & Autopilot loop",
+        text: "Background schedules run daily loops: scraping leads, writing pitches, and checking IMAP mailboxes. When a lead replies 'let's chat', it pauses follow-ups and logs details to CRM pipelines.",
+        tab: "autopilot",
+        highlight: "nav-autopilot",
+        position: { top: "140px", left: "240px" }
+      }
+    ];
+
+    function startTour() {
+      tourActive = true;
+      tourStep = 0;
+      document.getElementById('tourOverlay').classList.add('show');
+      const card = document.getElementById('tourCard');
+      card.style.display = 'block';
+      renderTourStep();
+    }
+    
+    function closeTour() {
+      tourActive = false;
+      document.getElementById('tourOverlay').classList.remove('show');
+      document.getElementById('tourCard').style.display = 'none';
+      document.querySelectorAll('.tour-highlight-el').forEach(el => el.classList.remove('tour-highlight-el'));
+      localStorage.setItem('leadflow_tour_seen', 'true');
+    }
+    
+    function renderTourStep() {
+      const step = tourData[tourStep];
+      if (!step) return;
+      
+      switchTab(step.tab);
+      
+      document.getElementById('tourTitle').innerHTML = step.title;
+      document.getElementById('tourText').innerText = step.text;
+      document.getElementById('tourProgress').innerText = `Step ${tourStep + 1} of ${tourData.length}`;
+      
+      const btnPrev = document.getElementById('btnTourPrev');
+      if (tourStep === 0) {
+        btnPrev.style.display = 'none';
+      } else {
+        btnPrev.style.display = 'inline-flex';
+      }
+      
+      const btnNext = document.getElementById('btnTourNext');
+      if (tourStep === tourData.length - 1) {
+        btnNext.innerText = 'Finish 🎉';
+      } else {
+        btnNext.innerText = 'Next';
+      }
+      
+      document.querySelectorAll('.tour-highlight-el').forEach(el => el.classList.remove('tour-highlight-el'));
+      
+      if (step.highlight) {
+        const target = document.getElementById(step.highlight);
+        if (target) {
+          target.classList.add('tour-highlight-el');
+        }
+      }
+      
+      const card = document.getElementById('tourCard');
+      if (step.position.transform) {
+        card.style.position = 'fixed';
+        card.style.top = step.position.top;
+        card.style.left = step.position.left;
+        card.style.transform = step.position.transform;
+      } else {
+        card.style.position = 'absolute';
+        card.style.top = step.position.top;
+        card.style.left = step.position.left;
+        card.style.transform = 'none';
+      }
+    }
+    
+    function nextTourStep() {
+      if (tourStep < tourData.length - 1) {
+        tourStep++;
+        renderTourStep();
+      } else {
+        closeTour();
+      }
+    }
+    
+    function prevTourStep() {
+      if (tourStep > 0) {
+        tourStep--;
+        renderTourStep();
+      }
+    }
+
+    // Auto-start tour if never seen
+    setTimeout(() => {
+      if (!localStorage.getItem('leadflow_tour_seen')) {
+        startTour();
+      }
+    }, 1200);
 
     // Initialize simulation panel layouts on page load
     renderSimVisuals();
