@@ -966,9 +966,6 @@
       <a class="nav-item" id="nav-templates" onclick="switchTab('templates')">
         <span class="icon">📝</span> Templates
       </a>
-      <a class="nav-item" id="nav-demos" onclick="switchTab('demos')">
-        <span class="icon">🌐</span> Demo Sites
-      </a>
       <a class="nav-item" id="nav-sent" onclick="switchTab('sent')">
         <span class="icon">📨</span> Sent
       </a>
@@ -1002,6 +999,20 @@
     <div id="tab-dashboard" class="tab-content">
       <h1>Outreach Lifecycle Simulator</h1>
       <p class="subtitle">Watch exactly how LeadFlow finds, audits, templates, drafts, and automatically routes outreach campaigns.</p>
+
+      <!-- PERSONALIZATION CARD -->
+      <div style="background:var(--surface); border:1px solid var(--border); padding:20px; border-radius:12px; margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div>
+          <h3 style="font-size:14px; font-weight:600; color:#fff; margin-bottom:4px; font-family:var(--font-display);">🎯 Personalize Simulator Workflow</h3>
+          <p style="color:var(--text-dim); font-size:12px;">Choose an industry to see how LeadFlow tailors audits and pitches for that niche.</p>
+        </div>
+        <div style="display:flex; gap:10px;" id="industrySelectorContainer">
+          <button class="btn btn-ghost" id="btn-ind-gym" onclick="selectIndustry('gym')" style="border-color:var(--accent); color:var(--accent); background:var(--accent-dim); padding:6px 12px; font-size:12px;">🏋️ Gyms</button>
+          <button class="btn btn-ghost" id="btn-ind-dentist" onclick="selectIndustry('dentist')" style="padding:6px 12px; font-size:12px;">🦷 Dentists</button>
+          <button class="btn btn-ghost" id="btn-ind-cafe" onclick="selectIndustry('cafe')" style="padding:6px 12px; font-size:12px;">☕ Cafes</button>
+          <button class="btn btn-ghost" id="btn-ind-roofer" onclick="selectIndustry('roofer')" style="padding:6px 12px; font-size:12px;">🏠 Roofers</button>
+        </div>
+      </div>
 
       <!-- STEPPER WIDGET -->
       <div class="stepper">
@@ -1598,6 +1609,7 @@
           <button class="btn btn-ghost" id="btn-tpl-gym" onclick="selectTemplate('gym')" style="justify-content:flex-start; text-align:left; border-color:var(--accent); color:var(--accent); background:var(--accent-dim); width:100%;">🏋️ Gym Performance Pitch</button>
           <button class="btn btn-ghost" id="btn-tpl-dentist" onclick="selectTemplate('dentist')" style="justify-content:flex-start; text-align:left; width:100%;">🦷 Dentist PageSpeed Pitch</button>
           <button class="btn btn-ghost" id="btn-tpl-cafe" onclick="selectTemplate('cafe')" style="justify-content:flex-start; text-align:left; width:100%;">☕ Cafe SEO Pitch</button>
+          <button class="btn btn-ghost" id="btn-tpl-roofer" onclick="selectTemplate('roofer')" style="justify-content:flex-start; text-align:left; width:100%;">🏠 Roofer Lead Pitch</button>
         </div>
         <div class="form-card" style="margin:0;">
           <h2 style="font-size:14px; margin-bottom:12px;" id="templateTitle">Gym Performance Pitch Template</h2>
@@ -1626,59 +1638,6 @@ Chandan</textarea>
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <span style="font-size:11px; color:var(--text-dim);">Variables: <code>{{business_name}}</code>, <code>{{business_website}}</code>, <code>{{github_demo_url}}</code></span>
             <button class="btn btn-primary" onclick="saveTemplateDemo()">💾 Save Template</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DEMO SITES TAB VIEW -->
-    <div id="tab-demos" class="tab-content" style="display:none">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
-        <div>
-          <h1>🌐 Premium Niche Demos</h1>
-          <p class="subtitle" style="margin-bottom:0">Visual templates deployed automatically as personalized lead magnets.</p>
-        </div>
-        <a class="btn btn-ghost" href="https://www.fiverr.com/s/zWZ5yWg" target="_blank">🛠️ Order Custom Build</a>
-      </div>
-
-      <div style="background:var(--surface); border:1px solid var(--border); padding:20px; border-radius:10px; margin-bottom:24px; font-size:13px; line-height:1.6;">
-        💡 <strong>The Hook:</strong> Sending a cold email with a pre-built website demo customized with the client's own name and phone number gets massive open and click-through rates. LeadFlow automates this whole process instantly using template assets deployed directly to hosting.
-      </div>
-
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="height:120px; background:linear-gradient(135deg, #1f1f1f 0%, #121212 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); font-size:32px;">🏋️</div>
-          <div style="padding:16px;">
-            <h3 style="font-size:14px; margin-bottom:6px; color:#fff;">Neon Gym Template</h3>
-            <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px; height:36px;">Sleek dark-mode sports design with high-contrast call-to-actions.</p>
-            <a href="17.html" target="_blank" class="btn btn-ghost" style="width:100%; font-size:11px; display:flex; justify-content:center;">👁️ Preview Template</a>
-          </div>
-        </div>
-
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="height:120px; background:linear-gradient(135deg, #1f1f1f 0%, #121212 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); font-size:32px;">🦷</div>
-          <div style="padding:16px;">
-            <h3 style="font-size:14px; margin-bottom:6px; color:#fff;">Pristine Dental Template</h3>
-            <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px; height:36px;">Clean, trustworthy blue styling designed to drive local patient inquiries.</p>
-            <a href="96.html" target="_blank" class="btn btn-ghost" style="width:100%; font-size:11px; display:flex; justify-content:center;">👁️ Preview Template</a>
-          </div>
-        </div>
-
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="height:120px; background:linear-gradient(135deg, #1f1f1f 0%, #121212 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); font-size:32px;">☕</div>
-          <div style="padding:16px;">
-            <h3 style="font-size:14px; margin-bottom:6px; color:#fff;">Vintage Cafe Template</h3>
-            <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px; height:36px;">Warm aesthetic cafe template prioritizing phone clicks and directions.</p>
-            <a href="67.html" target="_blank" class="btn btn-ghost" style="width:100%; font-size:11px; display:flex; justify-content:center;">👁️ Preview Template</a>
-          </div>
-        </div>
-
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="height:120px; background:linear-gradient(135deg, #1f1f1f 0%, #121212 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); font-size:32px;">💇</div>
-          <div style="padding:16px;">
-            <h3 style="font-size:14px; margin-bottom:6px; color:#fff;">Salon Glow Template</h3>
-            <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px; height:36px;">Elegant, picture-heavy beauty studio design with instant book widgets.</p>
-            <a href="alio-fitness-club-102.html" target="_blank" class="btn btn-ghost" style="width:100%; font-size:11px; display:flex; justify-content:center;">👁️ Preview Template</a>
           </div>
         </div>
       </div>
@@ -2159,20 +2118,8 @@ Would you be open to a quick chat this week to see if speed optimizations can he
     // OUTBOUND LIFECYCLE SIMULATOR LOGIC
     // -------------------------------------------------------------
     let simStep = 1;
-    let simLead = {
-      name: "Austin Iron Gym",
-      category: "Gym",
-      website: "austinirongym.com",
-      phone: "+1 512-555-9011",
-      email: "info@austinirongym.com",
-      owner: "",
-      score: null,
-      demoUrl: "",
-      pitchSubject: "",
-      pitchBody: "",
-      opens: 0,
-      clicks: 0
-    };
+    let currentIndustry = 'gym';
+    let simLead = {};
 
     function logSimLine(text, type='') {
       const term = document.getElementById('dashboard-logs');
@@ -2186,13 +2133,14 @@ Would you be open to a quick chat this week to see if speed optimizations can he
 
     function renderSimVisuals() {
       const card = document.getElementById('sim-visual-card');
+      if (!card) return;
       
       if (simStep === 1) {
         card.innerHTML = `
           <div class="sim-card-title">🔍 Step 1: Scrape & Contact Enrichment</div>
           <div class="sim-lead-box">
-            <div style="font-size:15px; font-weight:700; color:#fff; margin-bottom:8px;">Texas Places Crawler</div>
-            <div class="sim-detail-row"><span>Target Niche:</span> <b>Gyms</b></div>
+            <div style="font-size:15px; font-weight:700; color:#fff; margin-bottom:8px;">Outbound Places Crawler</div>
+            <div class="sim-detail-row"><span>Target Niche:</span> <b>${simLead.category}</b></div>
             <div class="sim-detail-row"><span>Target City:</span> <b>Austin, TX</b></div>
             <div class="sim-detail-row"><span>Scraped Name:</span> <b>${simLead.name}</b></div>
             <div class="sim-detail-row"><span>Phone:</span> <b>${simLead.phone}</b></div>
@@ -2220,10 +2168,10 @@ Would you be open to a quick chat this week to see if speed optimizations can he
         card.innerHTML = `
           <div class="sim-card-title">🌐 Step 3: Niche Demo Builder</div>
           <div class="sim-lead-box">
-            <div style="font-size:13px; font-weight:600; color:#fff; margin-bottom:8px;">Clone & Customize "Fitness Neon Template"</div>
+            <div style="font-size:13px; font-weight:600; color:#fff; margin-bottom:8px;">Clone & Customize "${simLead.category} Template"</div>
             <div class="sim-detail-row"><span>Brand Placed:</span> <b>${simLead.name}</b></div>
             <div class="sim-detail-row"><span>Phone Integrated:</span> <b>${simLead.phone}</b></div>
-            <div class="sim-detail-row"><span>Github API deploy:</span> <b>Origin HEAD -> branch main</b></div>
+            <div class="sim-detail-row"><span>Cloudflare API deploy:</span> <b>Origin HEAD -> branch main</b></div>
             <div class="sim-detail-row" style="border:none; margin-top:8px;">
               <span style="font-size:10px;">Generated Prospect Demo Link:</span>
             </div>
@@ -2285,101 +2233,109 @@ Would you be open to a quick chat this week to see if speed optimizations can he
 
     function runNextSimulationStep() {
       const btn = document.getElementById('btn-run-step');
+      if (!btn) return;
       
       if (simStep === 1) {
-        logSimLine(`[Places Scraper] Searching for "Gyms" targets in Austin, TX...`, 'ok');
+        logSimLine(`[Places Scraper] Searching for "${simLead.category}s" targets in Austin, TX...`, 'ok');
         setTimeout(() => {
           logSimLine(`[Places Scraper] Found target: "${simLead.name}" | Website: "${simLead.website}"`);
           logSimLine(`[Enrichment] Scanning web pages for contacts & owner names...`);
         }, 1000);
         setTimeout(() => {
-          simLead.owner = "Mike Thompson";
           logSimLine(`[Enrichment] Extracted Email: "${simLead.email}" (Valid)`);
           logSimLine(`[Enrichment] Scraped Owner: "${simLead.owner}" (From /about page metadata)`);
           
           // Add to mini-pipeline
           const col = document.getElementById('simColApproved');
-          col.innerHTML = `
-            <div class="kanban-card" id="sim-lead-card">
-              <div class="kanban-card-title">${simLead.name}</div>
-              <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; color:var(--text-dim)">
-                <span>${simLead.category}</span>
-                <span id="sim-card-badge" style="color:var(--text-dim)">New</span>
+          if (col) {
+            col.innerHTML = `
+              <div class="kanban-card" id="sim-lead-card">
+                <div class="kanban-card-title">${simLead.name}</div>
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; color:var(--text-dim)">
+                  <span>${simLead.category}</span>
+                  <span id="sim-card-badge" style="color:var(--text-dim)">New</span>
+                </div>
               </div>
-            </div>
-          `;
+            `;
+          }
           
           simStep = 2;
           renderSimVisuals();
           btn.innerText = "▶ Run Step: Run Speed Audit";
           
           // Mark step progress
-          document.getElementById('step1').className = "step completed";
-          document.getElementById('step2').className = "step active";
+          const s1 = document.getElementById('step1');
+          const s2 = document.getElementById('step2');
+          if (s1) s1.className = "step completed";
+          if (s2) s2.className = "step active";
         }, 2200);
       }
       else if (simStep === 2) {
         logSimLine(`[Speed Auditor] Testing speed scores for https://${simLead.website} via Google PageSpeed Insights API...`);
         setTimeout(() => {
-          simLead.score = 34;
-          logSimLine(`[Speed Auditor] lighthouse test returned score: 34/100`, 'err');
+          logSimLine(`[Speed Auditor] lighthouse test returned score: ${simLead.score}/100`, 'err');
           logSimLine(`[Speed Auditor] Gaps found: LCP interactive = 5.2s, Render-blocking JS causes 1.8s delay.`, 'err');
           logSimLine(`[Speed Auditor] Lead badged: 🔥 HOT Prospect (website score < 50)`, 'ok');
           
           const badge = document.getElementById('sim-card-badge');
-          badge.innerText = `Score: 34`;
-          badge.style.color = `var(--red)`;
+          if (badge) {
+            badge.innerText = `Score: ${simLead.score}`;
+            badge.style.color = `var(--red)`;
+          }
 
           simStep = 3;
           renderSimVisuals();
           btn.innerText = "▶ Run Step: Deploy Demo Site";
 
-          document.getElementById('step2').className = "step completed";
-          document.getElementById('step3').className = "step active";
+          const s2 = document.getElementById('step2');
+          const s3 = document.getElementById('step3');
+          if (s2) s2.className = "step completed";
+          if (s3) s3.className = "step active";
         }, 1500);
       }
       else if (simStep === 3) {
-        logSimLine(`[Demo Builder] Fetching pre-designed template clone: "Fitness & Gyms"`);
+        logSimLine(`[Demo Builder] Fetching pre-designed template clone: "${simLead.category}"`);
         setTimeout(() => {
           logSimLine(`[Demo Builder] Personalizing HTML clone for "${simLead.name}" (Injecting name, phone, address, and theme)...`);
-          logSimLine(`[Github Deploy] Pushing customized demo file to pages branch...`);
+          logSimLine(`[Cloudflare Deploy] Pushing customized demo file to pages branch...`);
         }, 1000);
         setTimeout(() => {
-          simLead.demoUrl = `https://power7t.github.io/leadflow-demos/${simLead.name.toLowerCase().replace(/\s+/g, '-')}-preview/`;
-          logSimLine(`[Github Deploy] Deployed live URL: ${simLead.demoUrl}`, 'ok');
+          logSimLine(`[Cloudflare Deploy] Deployed live URL: ${simLead.demoUrl}`, 'ok');
           
           // Move in mini-pipeline
           const colApproved = document.getElementById('simColApproved');
           const colDemo = document.getElementById('simColDemo');
           const card = document.getElementById('sim-lead-card');
-          colDemo.appendChild(card);
-          colApproved.innerHTML = '';
+          if (colDemo && card) colDemo.appendChild(card);
+          if (colApproved) colApproved.innerHTML = '';
 
           simStep = 4;
           renderSimVisuals();
           btn.innerText = "▶ Run Step: Write AI Pitch";
 
-          document.getElementById('step3').className = "step completed";
-          document.getElementById('step4').className = "step active";
+          const s3 = document.getElementById('step3');
+          const s4 = document.getElementById('step4');
+          if (s3) s3.className = "step completed";
+          if (s4) s4.className = "step active";
         }, 2500);
       }
       else if (simStep === 4) {
         logSimLine(`[AI Rotator] Routing copy generation task to local pool...`);
         setTimeout(() => {
           logSimLine(`[AI Rotator] REST key #1 returned rate-limit (429) — rotating to REST key #2...`, 'err');
-        }, 8000); // simulate delay or rotation
+        }, 1800);
         setTimeout(() => {
-          logSimLine(`[AI Rotator] Routing task to gemini-2.5-pro...`);
-          simLead.pitchSubject = `Quick question about speed gaps at ${simLead.name}`;
-          simLead.pitchBody = `Hi Mike,\n\nI was looking at gyms in Austin and checked out your website at ${simLead.website}.\n\nYour site takes over 5.2 seconds to load interactive features. I built a custom optimized preview showing how a faster version of your site would look and load:\n\n${simLead.demoUrl}\n\nWould you be open to a quick chat to optimize this?\n\nBest, Chandan`;
+          logSimLine(`[AI Rotator] Routing task to gemini-3.5-flash...`);
           logSimLine(`[AI Rotator] Outreach pitch generated successfully!`, 'ok');
 
           simStep = 5;
           renderSimVisuals();
           btn.innerText = "▶ Run Step: Send SMTP Campaign";
 
-          document.getElementById('step4').className = "step completed";
-          document.getElementById('step5').className = "step active";
+          const s4 = document.getElementById('step4');
+          const s5 = document.getElementById('step5');
+          if (s4) s4.className = "step completed";
+          if (s5) s5.className = "step active";
         }, 2200);
       }
       else if (simStep === 5) {
@@ -2395,32 +2351,34 @@ Would you be open to a quick chat this week to see if speed optimizations can he
           const colDemo = document.getElementById('simColDemo');
           const colSent = document.getElementById('simColSent');
           const card = document.getElementById('sim-lead-card');
-          colSent.appendChild(card);
-          colDemo.innerHTML = '';
+          if (colSent && card) colSent.appendChild(card);
+          if (colDemo) colDemo.innerHTML = '';
 
           simStep = 6;
           renderSimVisuals();
           btn.disabled = true;
           btn.innerText = "Simulate Outcome Events";
 
-          document.getElementById('step5').className = "step completed";
-          document.getElementById('step6').className = "step active";
+          const s5 = document.getElementById('step5');
+          const s6 = document.getElementById('step6');
+          if (s5) s5.className = "step completed";
+          if (s6) s6.className = "step active";
         }, 2200);
       }
     }
 
     function triggerSimEvent(type) {
       if (type === 'open') {
-        logSimLine(`[Open Tracker] Tracking pixel triggered! Email was opened by prospect info@austinirongym.com. IP: 74.125.19.12 (Austin, TX)`, 'ok');
+        logSimLine(`[Open Tracker] Tracking pixel triggered! Email was opened by prospect ${simLead.email}. IP: 74.125.19.12 (Austin, TX)`, 'ok');
       }
       else if (type === 'click') {
         logSimLine(`[Open Tracker] Redirect detected! Prospect clicked demo preview link. Redirected to: ${simLead.demoUrl}`, 'ok');
       }
       else if (type === 'stop') {
-        logSimLine(`[IMAP Sync] Caught unread email inbox reply from info@austinirongym.com...`);
+        logSimLine(`[IMAP Sync] Caught unread email inbox reply from ${simLead.email}...`);
         setTimeout(() => {
           logSimLine(`[IMAP Sync] Scan match: Reply content contains spam opt-out: "Please stop emailing me".`, 'err');
-          logSimLine(`[Reputation Guard] Opt-out matched. Blacklisting lead info@austinirongym.com...`, 'err');
+          logSimLine(`[Reputation Guard] Opt-out matched. Blacklisting lead ${simLead.email}...`, 'err');
         }, 1000);
         setTimeout(() => {
           logSimLine(`[Reputation Guard] Deleted all 3 pending scheduled follow-ups to protect domain.`, 'ok');
@@ -2433,11 +2391,12 @@ Would you be open to a quick chat this week to see if speed optimizations can he
               <div style="font-size:10px; color:var(--red)">OPTED_OUT / Blacklisted</div>
             `;
           }
-          document.getElementById('step6').className = "step completed";
+          const s6 = document.getElementById('step6');
+          if (s6) s6.className = "step completed";
         }, 2200);
       }
       else if (type === 'reply') {
-        logSimLine(`[IMAP Sync] Caught unread email inbox reply from info@austinirongym.com...`);
+        logSimLine(`[IMAP Sync] Caught unread email inbox reply from ${simLead.email}...`);
         setTimeout(() => {
           logSimLine(`[IMAP Sync] Sentiment scan: Positive response ("let's chat", "interested in speed increase").`);
           logSimLine(`[IMAP Sync] Cancelling future automated follow-up sequences.`, 'ok');
@@ -2449,42 +2408,141 @@ Would you be open to a quick chat this week to see if speed optimizations can he
           const colSent = document.getElementById('simColSent');
           const colReply = document.getElementById('simColReply');
           const card = document.getElementById('sim-lead-card');
-          colReply.appendChild(card);
-          colSent.innerHTML = '';
+          if (colReply && card) colReply.appendChild(card);
+          if (colSent) colSent.innerHTML = '';
 
-          document.getElementById('step6').className = "step completed";
+          const s6 = document.getElementById('step6');
+          if (s6) s6.className = "step completed";
 
           // Show Fiverr Prompt
-          document.getElementById('popupText').innerText = "Warm Lead Converted! As demonstrated, LeadFlow automatically scraped, audited, deployed a custom clone, rotated Gemini API keys, launched outreach, tracked opens, and detected this positive reply. Let Chandan build this exact system custom for your business on Fiverr, tailored to the specific types of leads you require!";
+          document.getElementById('popupText').innerText = `Warm Lead Converted! As demonstrated, LeadFlow automatically scraped, audited, deployed a custom clone, rotated Gemini API keys, launched outreach, tracked opens, and detected this positive reply. Let Chandan build this exact system custom for your business on Fiverr, tailored to the specific types of leads you require!`;
           document.getElementById('fiverrPopup').classList.add('show');
         }, 2200);
       }
     }
 
+    function selectIndustry(ind) {
+      currentIndustry = ind;
+      
+      const industries = ['gym', 'dentist', 'cafe', 'roofer'];
+      industries.forEach(i => {
+        const btn = document.getElementById(`btn-ind-${i}`);
+        if (btn) {
+          if (i === ind) {
+            btn.style.borderColor = 'var(--accent)';
+            btn.style.color = 'var(--accent)';
+            btn.style.background = 'var(--accent-dim)';
+          } else {
+            btn.style.borderColor = 'var(--border)';
+            btn.style.color = 'var(--text-dim)';
+            btn.style.background = 'transparent';
+          }
+        }
+      });
+      
+      const findNicheInput = document.getElementById('findNiche');
+      if (findNicheInput) {
+        findNicheInput.value = ind;
+      }
+      
+      selectTemplate(ind);
+      resetSimulation();
+      logAutopilotLine(`[System] Re-targeting lead engine niche parameters: ${ind.toUpperCase()} listings.`, 'ok');
+    }
+
     function resetSimulation() {
       simStep = 1;
-      simLead.score = null;
-      simLead.owner = "";
-      simLead.demoUrl = "";
       
-      document.getElementById('simColApproved').innerHTML = '';
-      document.getElementById('simColDemo').innerHTML = '';
-      document.getElementById('simColSent').innerHTML = '';
-      document.getElementById('simColReply').innerHTML = '';
+      if (currentIndustry === 'gym') {
+        simLead = {
+          name: "Austin Iron Gym",
+          category: "Gym",
+          website: "austinirongym.com",
+          phone: "+1 512-555-9011",
+          email: "info@austinirongym.com",
+          owner: "Mike Thompson",
+          score: 34,
+          demoUrl: "https://leadflow-demos.pages.dev/17.html",
+          pitchSubject: "Quick question about speed gaps at Austin Iron Gym",
+          pitchBody: "Hi Mike,\n\nI was looking at gyms in Austin and checked out your website at austinirongym.com.\n\nYour site takes over 5.2 seconds to load interactive features. I built a custom optimized preview showing how a faster version of your gym site would look and load:\n\nhttps://leadflow-demos.pages.dev/17.html\n\nWould you be open to a quick chat to optimize this?\n\nBest, Chandan",
+          opens: 0,
+          clicks: 0
+        };
+      } else if (currentIndustry === 'dentist') {
+        simLead = {
+          name: "Sunset Dental Clinic",
+          category: "Dentist",
+          website: "sunsetdentalclinic.com",
+          phone: "+1 512-555-8833",
+          email: "dr.smith@sunsetdentalclinic.com",
+          owner: "Dr. Arthur Smith",
+          score: 28,
+          demoUrl: "https://leadflow-demos.pages.dev/96.html",
+          pitchSubject: "Urgent: Page speed score of Sunset Dental Clinic",
+          pitchBody: "Hi Dr. Smith,\n\nI checked out Sunset Dental Clinic on Google Maps and ran your website sunsetdentalclinic.com through our PageSpeed analyzer.\n\nThe report indicates a PageSpeed score of 28/100. I built a fast-loading mock replacement site for you here:\n\nhttps://leadflow-demos.pages.dev/96.html\n\nWould it make sense to talk briefly about optimizing your site?\n\nThanks,\nChandan",
+          opens: 0,
+          clicks: 0
+        };
+      } else if (currentIndustry === 'cafe') {
+        simLead = {
+          name: "Bistro 512 Café",
+          category: "Cafe",
+          website: "bistro512cafe.com",
+          phone: "+1 512-555-0199",
+          email: "owner@bistro512cafe.com",
+          owner: "Jean-Pierre",
+          score: 45,
+          demoUrl: "https://leadflow-demos.pages.dev/67.html",
+          pitchSubject: "Quick suggestion to improve table bookings for Bistro 512 Café",
+          pitchBody: "Hi Jean-Pierre,\n\nI love your cafe's reviews! However, I noticed that on mobile devices, bistro512cafe.com has layout shifts that score 45/100 on audits. I put together a clean, lightning-fast design demo for Bistro 512 Café to see the difference:\n\nhttps://leadflow-demos.pages.dev/67.html\n\nLet me know if you'd like to get it live!\n\nCheers,\nChandan",
+          opens: 0,
+          clicks: 0
+        };
+      } else if (currentIndustry === 'roofer') {
+        simLead = {
+          name: "Apex Roofing Specialists",
+          category: "Roofer",
+          website: "apexroofingtx.com",
+          phone: "+1 512-555-1022",
+          email: "contact@apexroofingtx.com",
+          owner: "Dave Miller",
+          score: 31,
+          demoUrl: "https://leadflow-demos.pages.dev/alio-fitness-club-102.html",
+          pitchSubject: "Quick suggestion to capture more roofing leads at Apex",
+          pitchBody: "Hi Dave,\n\nI noticed your website apexroofingtx.com takes over 5.8s to load on mobile speed tests. That speed lag loses up to 40% of potential roofing estimate leads. I built a fast-loading mock replacement site for you here:\n\nhttps://leadflow-demos.pages.dev/alio-fitness-club-102.html\n\nWould it make sense to talk briefly about optimizing your site?\n\nThanks,\nChandan",
+          opens: 0,
+          clicks: 0
+        };
+      }
+      
+      const cApp = document.getElementById('simColApproved');
+      const cDem = document.getElementById('simColDemo');
+      const cSen = document.getElementById('simColSent');
+      const cRep = document.getElementById('simColReply');
+      if (cApp) cApp.innerHTML = '';
+      if (cDem) cDem.innerHTML = '';
+      if (cSen) cSen.innerHTML = '';
+      if (cRep) cRep.innerHTML = '';
       
       const btn = document.getElementById('btn-run-step');
-      btn.disabled = false;
-      btn.innerText = "▶ Run Step: Scrape Places";
+      if (btn) {
+        btn.disabled = false;
+        btn.innerText = "▶ Run Step: Scrape Places";
+      }
 
-      document.getElementById('dashboard-logs').innerHTML = `
-        <div class="ok">[09:30:00] [Autopilot] Starting lifecycle simulator run...</div>
-        <div>[09:30:00] Standing by. Click "Run Step: Scrape Places" below.</div>
-      `;
+      const logs = document.getElementById('dashboard-logs');
+      if (logs) {
+        logs.innerHTML = `
+          <div class="ok">[09:30:00] [Autopilot] Starting lifecycle simulator run...</div>
+          <div>[09:30:00] Standing by. Click "Run Step: Scrape Places" below.</div>
+        `;
+      }
 
-      // Reset step visual status
       for (let i = 1; i <= 6; i++) {
         const step = document.getElementById(`step${i}`);
-        step.className = `step ${i === 1 ? 'active' : ''}`;
+        if (step) {
+          step.className = `step ${i === 1 ? 'active' : ''}`;
+        }
       }
 
       renderSimVisuals();
@@ -2574,27 +2632,28 @@ Would you be open to a quick chat this week to see if speed optimizations can he
     // TEMPLATE & SETTINGS DEMO ACTIONS
     // -------------------------------------------------------------
     function selectTemplate(niche) {
-      // De-active all buttons
-      document.getElementById('btn-tpl-gym').style.borderColor = 'var(--border)';
-      document.getElementById('btn-tpl-gym').style.color = 'var(--text-dim)';
-      document.getElementById('btn-tpl-gym').style.background = 'transparent';
+      const templatesList = ['gym', 'dentist', 'cafe', 'roofer'];
+      templatesList.forEach(t => {
+        const btn = document.getElementById(`btn-tpl-${t}`);
+        if (btn) {
+          btn.style.borderColor = 'var(--border)';
+          btn.style.color = 'var(--text-dim)';
+          btn.style.background = 'transparent';
+        }
+      });
       
-      document.getElementById('btn-tpl-dentist').style.borderColor = 'var(--border)';
-      document.getElementById('btn-tpl-dentist').style.color = 'var(--text-dim)';
-      document.getElementById('btn-tpl-dentist').style.background = 'transparent';
-      
-      document.getElementById('btn-tpl-cafe').style.borderColor = 'var(--border)';
-      document.getElementById('btn-tpl-cafe').style.color = 'var(--text-dim)';
-      document.getElementById('btn-tpl-cafe').style.background = 'transparent';
-      
-      const btn = document.getElementById(`btn-tpl-${niche}`);
-      btn.style.borderColor = 'var(--accent)';
-      btn.style.color = 'var(--accent)';
-      btn.style.background = 'var(--accent-dim)';
+      const activeBtn = document.getElementById(`btn-tpl-${niche}`);
+      if (activeBtn) {
+        activeBtn.style.borderColor = 'var(--accent)';
+        activeBtn.style.color = 'var(--accent)';
+        activeBtn.style.background = 'var(--accent-dim)';
+      }
       
       const title = document.getElementById('templateTitle');
       const subject = document.getElementById('templateSubject');
       const body = document.getElementById('templateBody');
+      
+      if (!title || !subject || !body) return;
       
       if (niche === 'gym') {
         title.innerText = "Gym Performance Pitch Template";
@@ -2608,6 +2667,10 @@ Would you be open to a quick chat this week to see if speed optimizations can he
         title.innerText = "Cafe SEO & Mobile Optimization Template";
         subject.value = "Quick suggestion to improve table bookings for {{business_name}}";
         body.value = `Hi {{prospect_name}},\n\nI love your cafe's reviews! However, I noticed that on mobile devices, {{business_website}} has rendering layout shifts that make booking tables or viewing your menu frustrating.\n\nI put together a clean, lightning-fast design demo for {{business_name}} to see the difference in loading speed:\n\n{{github_demo_url}}\n\nNo charge for this demo—just wanted to share it. Let me know if you'd like to get it live!\n\nCheers,\nChandan`;
+      } else if (niche === 'roofer') {
+        title.innerText = "Roofer Lead Conversion Template";
+        subject.value = "Estimate conversions suggestion for {{business_name}}";
+        body.value = `Hi {{prospect_name}},\n\nI was looking at roofers in your area and noticed your website {{business_website}} takes over {{lighthouse_interactive_delay}} to load estimates forms on mobile speed tests.\n\nThat delay drops lead conversions by 40%. I built a custom fast-loading copy of your site to demonstrate the difference:\n\n{{github_demo_url}}\n\nWould you be open to a quick chat to verify how this speed boost can increase estimate requests?\n\nThanks,\nChandan`;
       }
     }
 
@@ -2651,10 +2714,10 @@ Would you be open to a quick chat this week to see if speed optimizations can he
       },
       {
         title: "🌐 3. Prebuilt Replacement Demos",
-        text: "To maximize response rates, LeadFlow clones visual template landing pages. It loads the prospect's brand info and exposes a quick, fully responsive mock replacement site that loads in under 1 second.",
-        tab: "demos",
-        highlight: "nav-demos",
-        position: { top: "450px", left: "240px" }
+        text: "To maximize response rates, LeadFlow clones responsive niche templates, loads the prospect's brand info, and deploys it on hosting as a free sample. You can see this step run directly in the lifecycle simulator.",
+        tab: "dashboard",
+        highlight: "step3",
+        position: { top: "220px", left: "240px" }
       },
       {
         title: "📝 4. AI-Personalized Templates",
@@ -2684,14 +2747,16 @@ Would you be open to a quick chat this week to see if speed optimizations can he
       tourStep = 0;
       document.getElementById('tourOverlay').classList.add('show');
       const card = document.getElementById('tourCard');
-      card.style.display = 'block';
+      if (card) card.style.display = 'block';
       renderTourStep();
     }
     
     function closeTour() {
       tourActive = false;
-      document.getElementById('tourOverlay').classList.remove('show');
-      document.getElementById('tourCard').style.display = 'none';
+      const overlay = document.getElementById('tourOverlay');
+      const card = document.getElementById('tourCard');
+      if (overlay) overlay.classList.remove('show');
+      if (card) card.style.display = 'none';
       document.querySelectorAll('.tour-highlight-el').forEach(el => el.classList.remove('tour-highlight-el'));
       localStorage.setItem('leadflow_tour_seen', 'true');
     }
@@ -2702,22 +2767,29 @@ Would you be open to a quick chat this week to see if speed optimizations can he
       
       switchTab(step.tab);
       
-      document.getElementById('tourTitle').innerHTML = step.title;
-      document.getElementById('tourText').innerText = step.text;
-      document.getElementById('tourProgress').innerText = `Step ${tourStep + 1} of ${tourData.length}`;
+      const title = document.getElementById('tourTitle');
+      const txt = document.getElementById('tourText');
+      const prog = document.getElementById('tourProgress');
+      if (title) title.innerHTML = step.title;
+      if (txt) txt.innerText = step.text;
+      if (prog) prog.innerText = `Step ${tourStep + 1} of ${tourData.length}`;
       
       const btnPrev = document.getElementById('btnTourPrev');
-      if (tourStep === 0) {
-        btnPrev.style.display = 'none';
-      } else {
-        btnPrev.style.display = 'inline-flex';
+      if (btnPrev) {
+        if (tourStep === 0) {
+          btnPrev.style.display = 'none';
+        } else {
+          btnPrev.style.display = 'inline-flex';
+        }
       }
       
       const btnNext = document.getElementById('btnTourNext');
-      if (tourStep === tourData.length - 1) {
-        btnNext.innerText = 'Finish 🎉';
-      } else {
-        btnNext.innerText = 'Next';
+      if (btnNext) {
+        if (tourStep === tourData.length - 1) {
+          btnNext.innerText = 'Finish 🎉';
+        } else {
+          btnNext.innerText = 'Next';
+        }
       }
       
       document.querySelectorAll('.tour-highlight-el').forEach(el => el.classList.remove('tour-highlight-el'));
@@ -2730,16 +2802,18 @@ Would you be open to a quick chat this week to see if speed optimizations can he
       }
       
       const card = document.getElementById('tourCard');
-      if (step.position.transform) {
-        card.style.position = 'fixed';
-        card.style.top = step.position.top;
-        card.style.left = step.position.left;
-        card.style.transform = step.position.transform;
-      } else {
-        card.style.position = 'absolute';
-        card.style.top = step.position.top;
-        card.style.left = step.position.left;
-        card.style.transform = 'none';
+      if (card) {
+        if (step.position.transform) {
+          card.style.position = 'fixed';
+          card.style.top = step.position.top;
+          card.style.left = step.position.left;
+          card.style.transform = step.position.transform;
+        } else {
+          card.style.position = 'absolute';
+          card.style.top = step.position.top;
+          card.style.left = step.position.left;
+          card.style.transform = 'none';
+        }
       }
     }
     
@@ -2767,8 +2841,7 @@ Would you be open to a quick chat this week to see if speed optimizations can he
     }, 1200);
 
     // Initialize simulation panel layouts on page load
-    renderSimVisuals();
-    resetSimulation();
+    selectIndustry('gym');
   </script>
 </body>
 </html>
