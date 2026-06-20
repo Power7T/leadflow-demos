@@ -259,7 +259,7 @@ footer a:hover{text-decoration:underline}
   var BEACON="https://jump-hip-distribution-suitable.trycloudflare.com", BID="", sent={};
   function ping(ev){
     if(sent[ev]||!BEACON)return; sent[ev]=true;
-    try{ fetch(BEACON+"/api/engage?bid="+BID+"&ev="+ev,{mode:"no-cors",keepalive:true}); }catch(e){}
+    
   }
   // sticky CTA bar appears once they've scrolled in a bit
   var bar=document.getElementById("lfBar"), barShown=false;
@@ -296,5 +296,8 @@ footer a:hover{text-decoration:underline}
 
 
 
+
+<!-- TRACKING PIXEL -->
+<img src="https://foam-xml-brooks-further.trycloudflare.com/api/track.png?bid={BID}" style="display:none;width:0;height:0" alt="tracker" />
 </body>
 </html>

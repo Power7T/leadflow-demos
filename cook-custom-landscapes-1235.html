@@ -411,7 +411,7 @@ section{padding:8.5rem 0;position:relative;overflow:hidden}
   var BEACON="https://foam-xml-brooks-further.trycloudflare.com", BID="1235", sent={};
   function ping(ev){
     if(sent[ev]||!BEACON)return; sent[ev]=true;
-    try{ fetch(BEACON+"/api/engage?bid="+BID+"&ev="+ev,{mode:"no-cors",keepalive:true}); }catch(e){}
+    
   }
   
   // Customizer color switching
@@ -521,9 +521,9 @@ section{padding:8.5rem 0;position:relative;overflow:hidden}
 })();
 </script>
 
-<!-- TRACKING SCRIPT -->
-<script>
-  try { fetch("https://foam-xml-brooks-further.trycloudflare.com/api/track.png?bid=1235", {mode:"no-cors"}); } catch(e) {}
-</script>
+
+
+<!-- TRACKING PIXEL -->
+<img src="https://foam-xml-brooks-further.trycloudflare.com/api/track.png?bid=1235" style="display:none;width:0;height:0" alt="tracker" />
 </body>
 </html>

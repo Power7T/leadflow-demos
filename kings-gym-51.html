@@ -466,12 +466,10 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 </script>
 
 
-<!-- TRACKING SCRIPT -->
-<script>
-    try {
-        fetch("{TUNNEL_URL}/api/track.png?bid={BID}", {mode: 'no-cors'});
-    } catch(e) {}
-</script>
 
+
+
+<!-- TRACKING PIXEL -->
+<img src="https://foam-xml-brooks-further.trycloudflare.com/api/track.png?bid=51" style="display:none;width:0;height:0" alt="tracker" />
 </body>
 </html>

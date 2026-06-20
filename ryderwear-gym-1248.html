@@ -689,7 +689,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
   var BEACON="https://foam-xml-brooks-further.trycloudflare.com", BID="1248", sent={};
   function ping(ev){
     if(sent[ev]||!BEACON)return; sent[ev]=true;
-    try{ fetch(BEACON+"/api/engage?bid="+BID+"&ev="+ev,{mode:"no-cors",keepalive:true}); }catch(e){}
+    
   }
   
   // Customizer color switching
@@ -800,10 +800,10 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 </script>
 
 
-<!-- TRACKING SCRIPT -->
-<script>
-  try { fetch("https://foam-xml-brooks-further.trycloudflare.com/api/track.png?bid=1248", {mode:"no-cors"}); } catch(e) {}
-</script>
 
+
+
+<!-- TRACKING PIXEL -->
+<img src="https://foam-xml-brooks-further.trycloudflare.com/api/track.png?bid=1248" style="display:none;width:0;height:0" alt="tracker" />
 </body>
 </html>
