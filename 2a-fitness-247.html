@@ -686,7 +686,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
 <script>
 (function(){
-  var BEACON="https://foam-xml-brooks-further.trycloudflare.com", BID="247", sent={};
+  var BEACON="https://api.trycloudflare.com", BID="247", sent={};
   function ping(ev){
     if(sent[ev]||!BEACON)return; sent[ev]=true;
     try{ fetch(BEACON+"/api/engage?bid="+BID+"&ev="+ev,{mode:"no-cors",keepalive:true}); }catch(e){}
@@ -802,7 +802,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
 <!-- TRACKING SCRIPT -->
 <script>
-  try { fetch("https://foam-xml-brooks-further.trycloudflare.com/api/track.png?bid=247", {mode:"no-cors"}); } catch(e) {}
+  try { fetch("https://api.trycloudflare.com/api/track.png?bid=247", {mode:"no-cors"}); } catch(e) {}
 </script>
 
 </body>
