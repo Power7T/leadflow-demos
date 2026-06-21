@@ -250,6 +250,14 @@ body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#2C2A2
           <span>LASER TREATMENTS</span>
         </div>
       </div>
+      
+      
+      <div class="hero-rating-injection" style="margin-bottom:1rem; display:flex; align-items:center; justify-content:center; gap:8px;">
+        <span style="color:#fbbf24; font-size:1.2rem; letter-spacing:2px;">★★★★★</span>
+        <span style="font-weight:700;">4.7</span>
+        <span style="opacity:0.8; font-size:0.9rem;">(53 reviews)</span>
+      </div>
+      
       <p class="hero-desc">At Club Aurora Fitness + Spa, we offer premium, non-surgical aesthetic treatments designed to enhance your natural beauty. Our certified medical practitioners provide personalized care in a luxurious, serene environment, helping you look and feel your absolute best.</p>
       <div class="hero-btns">
         <a href="#contact" class="btn btn-primary">Book Consultation</a>
@@ -372,7 +380,7 @@ body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#2C2A2
   </div>
 </section>
 
-<!-- AHA: Glow Score Visualizer -->
+<!-- AHA: Glow Level Visualizer -->
 <section class="aha-section" id="glow-visualizer">
   <div class="container">
     <div class="aha-inner">
@@ -408,8 +416,8 @@ body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#2C2A2
           <path d="M152,95 Q160,103 168,95" fill="none" stroke="#7c2d70" stroke-width="1.8" stroke-linecap="round"/>
           <!-- Neck -->
           <rect x="154" y="116" width="12" height="12" rx="2" fill="#f9a8d4" opacity="0.7"/>
-          <!-- Glow Score -->
-          <text id="med-score" x="160" y="175" text-anchor="middle" fill="#ec4899" font-size="18" font-weight="800" font-family="sans-serif">Glow Score: 72/100</text>
+          <!-- Glow Level -->
+          <text id="med-score" x="160" y="175" text-anchor="middle" fill="#ec4899" font-size="18" font-weight="800" font-family="sans-serif">Glow Level: 72/100</text>
         </svg>
       </div>
       <div class="aha-label" id="med-label">Restore — Intensive Renewal</div>
@@ -477,9 +485,9 @@ body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#2C2A2
     <p>Schedule a consult or visit our luxury clinic.</p>
     <div class="cinfo-grid">
       <a href="tel:+61 482 090 160" class="cinfo-item">📞 +61 482 090 160</a>
-      <a href="mailto:info@clubaurora.com.au" class="cinfo-item">✉ info@clubaurora.com.au</a>
+      
       <div class="cinfo-item">📍 288 Edward St, Brisbane City QLD 4000, Australia</div>
-      <a href="https://instagram.com/clubaurora_brisbane" target="_blank" class="cinfo-item">📸 @clubaurora_brisbane</a>
+      
       <a href="https://www.google.com/maps/place/?q=place_id:ChIJ7w5QP5NbkWsRYP-SphysiKc" target="_blank" class="cinfo-item">🗺 View on Google Maps</a>
     </div>
   </div>
@@ -496,7 +504,7 @@ body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#2C2A2
         </a>
         <p>A premium medical aesthetics clinic dedicated to skin health, non-surgical rejuvenation, and timeless beauty.</p>
         <div class="social-links">
-          <a href="https://instagram.com/clubaurora_brisbane" target="_blank" class="social-btn">IG</a>
+          
           <a href="https://www.google.com/maps/place/?q=place_id:ChIJ7w5QP5NbkWsRYP-SphysiKc" target="_blank" class="social-btn">📍</a>
         </div>
       </div>
@@ -513,7 +521,7 @@ body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#2C2A2
         <h4>Contact</h4>
         <ul class="footer-links">
           <li>+61 482 090 160</li>
-          <li>info@clubaurora.com.au</li>
+          
           <li>288 Edward St, Brisbane City QLD 4000, Australia</li>
         </ul>
       </div>
@@ -594,10 +602,10 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 })();
 (function(){
   var levels=[
-    {label:'Refresh — Light Brightening',score:'Glow Score: 42/100',rings:[0.3,0.15,0.08,0.04],dur:3,glow:'rgba(236,72,153,0.15)'},
-    {label:'Renew — Active Rejuvenation',score:'Glow Score: 62/100',rings:[0.5,0.3,0.18,0.08],dur:2.2,glow:'rgba(236,72,153,0.25)'},
-    {label:'Restore — Intensive Renewal',score:'Glow Score: 72/100',rings:[0.7,0.5,0.3,0.15],dur:1.8,glow:'rgba(236,72,153,0.35)'},
-    {label:'Transform — Complete Glow-Up ✨',score:'Glow Score: 98/100',rings:[1,0.75,0.5,0.3],dur:1.2,glow:'rgba(244,114,182,0.55)'}
+    {label:'Refresh — Light Brightening',score:'Glow Level: 42/100',rings:[0.3,0.15,0.08,0.04],dur:3,glow:'rgba(236,72,153,0.15)'},
+    {label:'Renew — Active Rejuvenation',score:'Glow Level: 62/100',rings:[0.5,0.3,0.18,0.08],dur:2.2,glow:'rgba(236,72,153,0.25)'},
+    {label:'Restore — Intensive Renewal',score:'Glow Level: 72/100',rings:[0.7,0.5,0.3,0.15],dur:1.8,glow:'rgba(236,72,153,0.35)'},
+    {label:'Transform — Complete Glow-Up ✨',score:'Glow Level: 98/100',rings:[1,0.75,0.5,0.3],dur:1.2,glow:'rgba(244,114,182,0.55)'}
   ];
   window.medViz=function(idx){
     var l=levels[idx];

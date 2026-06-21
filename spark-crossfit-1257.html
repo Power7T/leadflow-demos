@@ -380,7 +380,7 @@ body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#2C2A2
   </div>
 </section>
 
-<!-- AHA: Glow Score Visualizer -->
+<!-- AHA: Glow Level Visualizer -->
 <section class="aha-section" id="glow-visualizer">
   <div class="container">
     <div class="aha-inner">
@@ -416,8 +416,8 @@ body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#2C2A2
           <path d="M152,95 Q160,103 168,95" fill="none" stroke="#7c2d70" stroke-width="1.8" stroke-linecap="round"/>
           <!-- Neck -->
           <rect x="154" y="116" width="12" height="12" rx="2" fill="#f9a8d4" opacity="0.7"/>
-          <!-- Glow Score -->
-          <text id="med-score" x="160" y="175" text-anchor="middle" fill="#ec4899" font-size="18" font-weight="800" font-family="sans-serif">Glow Score: 72/100</text>
+          <!-- Glow Level -->
+          <text id="med-score" x="160" y="175" text-anchor="middle" fill="#ec4899" font-size="18" font-weight="800" font-family="sans-serif">Glow Level: 72/100</text>
         </svg>
       </div>
       <div class="aha-label" id="med-label">Restore — Intensive Renewal</div>
@@ -602,10 +602,10 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 })();
 (function(){
   var levels=[
-    {label:'Refresh — Light Brightening',score:'Glow Score: 42/100',rings:[0.3,0.15,0.08,0.04],dur:3,glow:'rgba(236,72,153,0.15)'},
-    {label:'Renew — Active Rejuvenation',score:'Glow Score: 62/100',rings:[0.5,0.3,0.18,0.08],dur:2.2,glow:'rgba(236,72,153,0.25)'},
-    {label:'Restore — Intensive Renewal',score:'Glow Score: 72/100',rings:[0.7,0.5,0.3,0.15],dur:1.8,glow:'rgba(236,72,153,0.35)'},
-    {label:'Transform — Complete Glow-Up ✨',score:'Glow Score: 98/100',rings:[1,0.75,0.5,0.3],dur:1.2,glow:'rgba(244,114,182,0.55)'}
+    {label:'Refresh — Light Brightening',score:'Glow Level: 42/100',rings:[0.3,0.15,0.08,0.04],dur:3,glow:'rgba(236,72,153,0.15)'},
+    {label:'Renew — Active Rejuvenation',score:'Glow Level: 62/100',rings:[0.5,0.3,0.18,0.08],dur:2.2,glow:'rgba(236,72,153,0.25)'},
+    {label:'Restore — Intensive Renewal',score:'Glow Level: 72/100',rings:[0.7,0.5,0.3,0.15],dur:1.8,glow:'rgba(236,72,153,0.35)'},
+    {label:'Transform — Complete Glow-Up ✨',score:'Glow Level: 98/100',rings:[1,0.75,0.5,0.3],dur:1.2,glow:'rgba(244,114,182,0.55)'}
   ];
   window.medViz=function(idx){
     var l=levels[idx];
