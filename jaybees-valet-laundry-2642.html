@@ -1,648 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Jaybees Valet Laundry | Premium Commercial Cleaning & Janitorial</title>
-<meta name="description" content="Welcome to Jaybees Valet Laundry. The leading provider of premium commercial office cleaning, medical sanitization, and janitorial contract services.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-:root{
-  --bg-primary:#F6F9FA;
-  --bg-secondary:#FFFFFF;
-  --bg-tertiary:#EAF1F2;
-  --accent-teal:#1E7D73;
-  --accent-teal-glow:rgba(30,125,115,0.15);
-  --accent-blue:#2B4C7E;
-  --text-dark:#1B2527;
-  --text-gray:#4F5E61;
-  --text-muted:#839295;
-  --glass-bg:rgba(255,255,255,0.92);
-  --glass-border:rgba(30,125,115,0.12);
-  --glass-border-hover:rgba(30,125,115,0.3);
-  --border-radius-sm:6px;
-  --border-radius-md:16px;
-  --border-radius-lg:24px;
-  --shadow-sm:0 4px 12px rgba(27,37,39,0.03);
-  --shadow-md:0 12px 32px rgba(27,37,39,0.06);
-  --shadow-lg:0 24px 64px rgba(27,37,39,0.09);
-  --shadow-teal:0 0 25px rgba(30,125,115,0.15);
-  --transition-fast:0.2s cubic-bezier(0.25,1,0.5,1);
-  --transition-smooth:0.4s cubic-bezier(0.25,1,0.5,1);
-  --transition-slow:0.8s cubic-bezier(0.25,1,0.5,1);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;background-color:var(--bg-primary);color:var(--text-dark);font-family:'Inter',sans-serif;overflow-x:hidden}
-body{overflow-x:hidden;line-height:1.7;cursor:none}
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:var(--bg-primary)}
-::-webkit-scrollbar-thumb{background:var(--bg-tertiary);border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:var(--accent-teal)}
-h1,h2,h3,h4,h5,h6{font-weight:800;letter-spacing:-0.03em;line-height:1.15;color:var(--text-dark)}
-p{color:var(--text-gray);font-weight:300}
-a{text-decoration:none;color:inherit}
-.text-gradient-teal{background:linear-gradient(135deg,#2B4C7E 0%,#1E7D73 50%,#0E4A43 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.container{width:100%;max-width:1200px;margin:0 auto;padding:0 2rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 2.2rem;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;border-radius:50px;border:1px solid transparent;cursor:pointer;transition:var(--transition-smooth);overflow:hidden}
-.btn-primary{background-color:#1B2527;color:#fff;box-shadow:var(--shadow-sm)}
-.btn-primary:hover{background:var(--accent-teal);color:#fff;box-shadow:var(--shadow-teal);transform:translateY(-2px)}
-.btn-secondary{background:transparent;border-color:var(--glass-border);color:var(--text-dark)}
-.btn-secondary:hover{background:var(--bg-secondary);border-color:#1B2527;transform:translateY(-2px)}
-section{padding:8.5rem 0;position:relative;overflow:hidden}
-.section-tag{font-family:'Inter',sans-serif;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.25em;color:var(--accent-teal);margin-bottom:1rem;display:inline-block;background:rgba(30,125,115,0.08);padding:4px 14px;border-radius:20px}
-.section-title{font-size:3.2rem;margin-bottom:1.5rem}
-.section-desc{font-size:1.05rem;max-width:600px;margin-bottom:4rem}
-/* REVEAL */
-.reveal{opacity:0;transition:var(--transition-slow)}
-.reveal-slide-up{transform:translateY(40px)}
-.reveal-slide-left{transform:translateX(40px)}
-.reveal-slide-right{transform:translateX(-40px)}
-.reveal-scale-in{transform:scale(.97)}
-.reveal.revealed{opacity:1;transform:none}
-.delay-100{transition-delay:.1s}
-.delay-200{transition-delay:.2s}
-.delay-300{transition-delay:.3s}
-/* CURSOR */
-.custom-cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent-teal);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
-.custom-cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--accent-teal);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s,opacity .3s;opacity:.5}
-body.cursor-hover .custom-cursor-dot{width:4px;height:4px;background:#1B2527}
-body.cursor-hover .custom-cursor-ring{width:50px;height:50px;border-color:#1B2527;opacity:.3}
-@media(max-width:768px){.custom-cursor-dot,.custom-cursor-ring{display:none}body{cursor:auto}}
-/* SPOTLIGHT */
-.spotlight{position:absolute;width:550px;height:550px;background:radial-gradient(circle,var(--accent-teal-glow) 0%,transparent 70%);pointer-events:none;z-index:0;opacity:.5}
-/* DEMO BANNER */
-.demo-banner{background:#1B2527;color:#fff;text-align:center;padding:12px 20px;font-size:13px;font-weight:600;position:sticky;top:0;z-index:10000;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
-.demo-banner a{color:var(--accent-teal);text-decoration:underline;font-weight:700}
-.demo-banner .orig{font-size:11px;font-weight:400;opacity:.7}
-/* NAVBAR */
-.navbar{position:fixed;top:48px;left:0;width:100%;z-index:1000;transition:var(--transition-smooth)}
-.navbar.scrolled{background:var(--glass-bg);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border-bottom:1px solid var(--glass-border);box-shadow:var(--shadow-sm)}
-.nav-container{display:flex;justify-content:space-between;align-items:center;height:95px;transition:var(--transition-smooth)}
-.navbar.scrolled .nav-container{height:75px}
-.logo{font-size:1.6rem;font-weight:900;color:var(--text-dark);display:flex;align-items:center;gap:.6rem;letter-spacing:-1px}
-.logo span{color:var(--accent-teal)}
-.logo-icon{width:24px;height:24px;background:linear-gradient(135deg,var(--accent-teal),var(--accent-blue));border-radius:4px;position:relative;flex-shrink:0}
-.logo-icon::after{content:'';position:absolute;width:8px;height:8px;background:#fff;border-radius:1px;top:50%;left:50%;transform:translate(-50%,-50%)}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{color:var(--text-gray);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;transition:var(--transition-fast);position:relative;padding:.5rem 0}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--accent-teal);transition:var(--transition-smooth);transform:translateX(-50%)}
-.nav-links a:hover,.nav-links a.active{color:var(--text-dark)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.nav-actions{display:flex;align-items:center;gap:1.5rem}
-.hamburger{display:none;cursor:pointer;background:none;border:none;padding:.5rem}
-.hamburger span{display:block;width:24px;height:2px;background:var(--text-dark);margin:6px 0;transition:var(--transition-smooth)}
-.hamburger.active span:nth-child(1){transform:rotate(-45deg) translate(-5px,5px)}
-.hamburger.active span:nth-child(2){opacity:0}
-.hamburger.active span:nth-child(3){transform:rotate(45deg) translate(-5px,-5px)}
-/* HERO */
-.hero{height:100vh;min-height:750px;display:flex;align-items:center;background:linear-gradient(rgba(246,249,250,0.85),rgba(246,249,250,0.95)),url('/static/cleaning_hero.jpg') center/cover no-repeat;position:relative;padding-top:100px}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,var(--bg-primary) 0%,rgba(246,249,250,.4) 50%,rgba(246,249,250,.8) 100%);z-index:1}
-.hero .container{position:relative;z-index:2}
-.hero-content{max-width:850px}
-.hero-tag{background:rgba(30,125,115,.08);border:1px solid rgba(30,125,115,0.2);color:var(--accent-teal);padding:.4rem 1.2rem;border-radius:30px;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2rem}
-.hero-tag::before{content:'';width:4px;height:4px;background:var(--accent-teal);border-radius:50%}
-.hero-name{font-size:4.8rem;line-height:1.1;margin-bottom:.5rem;font-weight:800}
-.hero-subtitle-wrapper{overflow:hidden;height:4.2rem;margin-bottom:1.8rem}
-.hero-subtitle-track{animation:slideUpDown 9s cubic-bezier(0.76,0,0.24,1) infinite}
-@keyframes slideUpDown{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-100%)}66%,91%{transform:translateY(-200%)}100%{transform:translateY(0)}}
-.hero-subtitle-track span{display:block;height:4.2rem;font-size:3.2rem;font-weight:800;line-height:1.3;color:var(--accent-blue)}
-.hero-desc{font-size:1.05rem;color:var(--text-gray);margin-bottom:3rem;max-width:600px}
-.hero-btns{display:flex;gap:1.5rem;flex-wrap:wrap}
-/* STATS */
-.stats{padding:0;margin-top:-70px;position:relative;z-index:10}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg-secondary);border:1px solid var(--glass-border);border-radius:var(--border-radius-md);padding:2.5rem;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
-.stats-grid::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--accent-teal),transparent)}
-.stat-item{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
-.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:var(--bg-tertiary)}
-.stat-number{font-size:3rem;font-weight:800;line-height:1;margin-bottom:.3rem;color:var(--text-dark)}
-.stat-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--text-gray);font-weight:600}
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:5.5rem;align-items:center}
-.about-features{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:3.5rem}
-.about-feature{display:flex;gap:1.2rem}
-.about-feature-icon{width:42px;height:42px;border:1px solid var(--glass-border);background:var(--bg-secondary);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;transition:var(--transition-smooth);color:var(--accent-teal)}
-.about-feature:hover .about-feature-icon{border-color:var(--accent-teal);box-shadow:var(--shadow-teal)}
-.about-feature h4{font-size:1.1rem;margin-bottom:.4rem;font-weight:700}.about-feature p{font-size:.85rem;line-height:1.6;color:var(--text-gray)}
-.about-img-wrapper{position:relative;display:flex;justify-content:center;align-items:center}
-.about-image{width:100%;max-width:440px;aspect-ratio:0.85;border-radius:var(--border-radius-md);object-fit:cover;position:relative;z-index:2;box-shadow:var(--shadow-lg);border:1px solid var(--glass-border)}
-.about-img-frame{position:absolute;width:calc(100% - 30px);max-width:440px;aspect-ratio:0.85;border:1px solid var(--accent-teal);border-radius:var(--border-radius-md);z-index:1;transform:translate(15px,15px);transition:var(--transition-smooth)}
-.about-img-wrapper:hover .about-img-frame{transform:translate(8px,8px)}
-.about-badge{position:absolute;bottom:25px;left:-25px;background:var(--bg-secondary);border:1px solid var(--glass-border);border-radius:var(--border-radius-sm);backdrop-filter:blur(10px);padding:1rem 1.5rem;display:flex;align-items:center;gap:.8rem;z-index:3;box-shadow:var(--shadow-md)}
-.badge-icon{width:30px;height:30px;border-radius:50%;background:rgba(30,125,115,.1);display:flex;align-items:center;justify-content:center;color:var(--accent-teal);font-size:0.9rem}
-.about-badge h5{font-size:1.1rem;margin-bottom:.1rem;font-weight:700}.about-badge p{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted)}
-/* SERVICES GRID */
-.programs-section{background:var(--bg-secondary)}
-.programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:5rem}
-.program-card{background:var(--bg-primary);border:1px solid var(--glass-border);border-radius:var(--border-radius-md);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:var(--transition-smooth);display:flex;flex-direction:column}
-.program-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,var(--accent-teal-glow),transparent 60%);opacity:0;transition:var(--transition-smooth)}
-.program-card:hover{transform:translateY(-5px);border-color:var(--accent-teal);box-shadow:var(--shadow-sm)}.program-card:hover::before{opacity:1}
-.program-icon{width:46px;height:46px;background:var(--bg-secondary);border-radius:50%;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;font-size:1.3rem;transition:var(--transition-smooth);color:var(--accent-teal);position:relative;z-index:1}
-.program-card:hover .program-icon{border-color:#1B2527;background:#1B2527;color:#fff}
-.program-card h3{font-size:1.35rem;margin-bottom:.8rem;position:relative;z-index:1;font-weight:700}
-.program-card p{font-size:.88rem;line-height:1.65;margin-bottom:2rem;position:relative;z-index:1;color:var(--text-gray)}
-.program-link{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;color:#1B2527;font-family:'Inter',sans-serif;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;transition:var(--transition-fast);position:relative;z-index:1}
-.program-card:hover .program-link{color:var(--accent-teal)}
-/* TESTIMONIALS */
-.testimonials-section{padding:8.5rem 0}
-.t-slider-outer{overflow:hidden;margin-top:4rem}
-.t-slider{display:flex;gap:2rem;transition:transform .5s ease;cursor:grab}
-.t-slider.dragging{cursor:grabbing;transition:none}
-.t-card{background:var(--bg-secondary);border:1px solid var(--glass-border);border-radius:var(--border-radius-md);padding:3rem 2.5rem;flex:0 0 calc(33.333% - 1.33rem);min-width:280px;box-shadow:var(--shadow-sm)}
-.t-stars{color:var(--accent-teal);font-size:.9rem;margin-bottom:1.2rem;letter-spacing:1.5px}
-.t-card p{font-size:1.02rem;line-height:1.75;margin-bottom:2rem;font-style:italic;color:var(--text-dark);font-weight:400}
-.t-author{font-family:'Inter',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
-.t-author span{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.7rem;color:var(--text-muted);margin-top:.3rem;text-transform:none;letter-spacing:0}
-.t-controls{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:2.5rem}
-.t-btn{width:42px;height:42px;border-radius:50%;background:var(--bg-secondary);border:1px solid var(--glass-border);color:var(--text-dark);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:var(--transition-fast)}
-.t-btn:hover{background:#1B2527;color:#fff;border-color:#1B2527}
-.t-dots{display:flex;gap:.6rem}
-.t-dot{width:6px;height:6px;border-radius:50%;background:var(--text-muted);cursor:pointer;transition:var(--transition-fast)}.t-dot.active{background:#1B2527;width:16px;border-radius:3px}
-/* CTA */
-.cta-section{padding:8.5rem 0}
-.cta-banner{background:var(--bg-secondary);border:1px solid var(--glass-border);border-radius:var(--border-radius-lg);padding:6.5rem 4rem;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-md)}
-.cta-banner::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--accent-teal),transparent)}
-.cta-banner::after{content:'';position:absolute;bottom:-100px;right:-100px;width:350px;height:350px;background:radial-gradient(circle,var(--accent-teal-glow),transparent 70%);pointer-events:none}
-.cta-banner h2{font-size:3.4rem;max-width:750px;margin:0 auto 1.5rem;font-weight:800;letter-spacing:-2px}
-.cta-banner p{font-size:1.05rem;max-width:550px;margin:0 auto 3rem}
-/* CONTACT */
-.contact-section{background:var(--bg-secondary)}
-.cinfo-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:3rem}
-.cinfo-item{display:flex;align-items:center;gap:12px;background:var(--bg-primary);border:1px solid var(--glass-border);border-radius:var(--border-radius-sm);padding:16px 24px;color:var(--text-gray);font-size:.88rem;transition:var(--transition-fast)}
-.cinfo-item:hover{border-color:#1B2527;color:var(--text-dark)}
-/* FOOTER */
-.footer{background:var(--bg-primary);border-top:1px solid var(--glass-border);padding:6.5rem 0 3rem}
-.footer-grid{display:grid;grid-template-columns:1.20fr .8fr .8fr;gap:4.5rem;margin-bottom:5.5rem}
-.footer-col h4{font-size:1.15rem;margin-bottom:2rem;padding-bottom:.5rem;position:relative;font-weight:700;text-transform:uppercase;letter-spacing:0.1em}
-.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:24px;height:2px;background:var(--accent-teal)}
-.footer-about p{font-size:.88rem;margin-top:1.2rem;margin-bottom:2rem;line-height:1.7}
-.social-links{display:flex;gap:1rem}
-.social-btn{width:40px;height:40px;background:var(--bg-secondary);border:1px solid var(--glass-border);border-radius:50%;color:var(--text-dark);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:500;transition:var(--transition-smooth)}
-.social-btn:hover{background:#1B2527;color:#fff;border-color:#1B2527;transform:translateY(-2px)}
-.footer-links{list-style:none}.footer-links li{margin-bottom:.9rem}.footer-links a{color:var(--text-gray);font-size:.88rem;transition:var(--transition-fast)}.footer-links a:hover{color:var(--text-dark);padding-left:5px}
-.footer-bottom{border-top:1px solid var(--glass-border);padding-top:3rem;display:flex;justify-content:space-between;align-items:center}
-.footer-bottom p{font-size:.8rem;color:var(--text-muted)}
-.footer-bottom a{color:var(--text-dark);font-weight:700}
-@media(max-width:991px){.about-grid{grid-template-columns:1fr;gap:3.5rem}.about-img-wrapper{order:-1}.hamburger{display:block}.nav-links{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:var(--bg-secondary);border-left:1px solid var(--glass-border);flex-direction:column;padding:100px 2.5rem;gap:2rem;transition:var(--transition-smooth);z-index:1000}.nav-links.active{right:0}.nav-actions{margin-right:3rem}.programs-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.hero-name{font-size:3.2rem}.hero-subtitle-track span{font-size:2.4rem}.hero-subtitle-wrapper{height:3rem}.section-title{font-size:2.4rem}.programs-grid{grid-template-columns:1fr}.t-card{flex:0 0 calc(100% - 1rem)}.stats-grid{grid-template-columns:repeat(2,1fr)}.cta-banner{padding:3.5rem 1.5rem}.cta-banner h2{font-size:2.2rem}.footer-grid{grid-template-columns:1fr;gap:2.5rem}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}}
-@media(max-width:480px){.stats-grid{grid-template-columns:1fr}}
-/* AHA MOMENT INTERACTIVE SECTION */
-.aha-section{padding:5rem 0;position:relative;background:var(--bg-secondary);overflow:hidden}
-.aha-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2rem}
-.aha-controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:1rem}
-.aha-btn{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:#fff;padding:8px 20px;border-radius:999px;cursor:pointer;font-size:0.85rem;font-weight:600;font-family:inherit;transition:all 0.25s ease}
-.aha-btn.active,.aha-btn:hover{background:var(--accent-orange);border-color:var(--accent-orange);box-shadow:0 4px 16px rgba(224,90,38,0.3)}
-.aha-svg-wrap{width:100%;max-width:320px}
-.aha-label{font-size:1.1rem;font-weight:700;color:#fff;margin-top:0.5rem;min-height:2rem}
-@media(max-width:768px){.aha-controls{gap:8px}.aha-btn{font-size:0.75rem;padding:7px 14px}}
-@keyframes sparkle-pop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.3);opacity:1}100%{transform:scale(1);opacity:1}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaybees Valet Laundry - LeadFlow AI CRM Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090b;
+      --bg-card: #121214;
+      --bg-hover: #18181b;
+      --text: #fafafa;
+      --text-dim: #a1a1aa;
+      --border: #27272a;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.2);
+      --green: #10b981;
+      --red: #ef4444;
+      --blue: #3b82f6;
+      --yellow: #f59e0b;
+      --pink: #ec4899;
+      --font-body: 'Inter', sans-serif;
+      --font-head: 'Outfit', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    * { box-sizing: border-box; }
+    
+    /* Top Navigation */
+    .top-nav {
+      border-bottom: 1px solid var(--border);
+      background: rgba(18, 18, 20, 0.8);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-head);
+    }
+    
+    /* Header Area */
+    .header {
+      padding: 48px 24px 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header h1 {
+      font-family: var(--font-head);
+      font-size: 32px;
+      margin: 0 0 8px 0;
+      background: linear-gradient(to right, #fff, #a1a1aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header p {
+      color: var(--text-dim);
+      margin: 0;
+      font-size: 16px;
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto 32px;
+      padding: 0 24px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; left: 0;
+      height: 2px;
+      background: var(--card-color, var(--border));
+    }
+    .stat-value {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+    
+    /* Main Layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+    }
+    @media (max-width: 800px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .card h2 {
+      font-family: var(--font-head);
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    /* CRM Table */
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .table th {
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+    .table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .table tr:last-child td { border-bottom: none; }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .status-hot { background: rgba(239, 68, 68, 0.1); color: var(--red); }
+    .status-warm { background: rgba(245, 158, 11, 0.1); color: var(--yellow); }
+    .status-new { background: rgba(59, 130, 246, 0.1); color: var(--blue); }
+    
+    /* Autopilot Log */
+    .log-box {
+      background: #000;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #a1a1aa;
+      height: 250px;
+      overflow-y: auto;
+    }
+    .log-entry { margin-bottom: 8px; }
+    .log-time { color: #52525b; margin-right: 8px; }
+    .log-success { color: var(--green); }
+    
+    /* Banner/Notice */
+    .demo-notice {
+      background: linear-gradient(to right, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 0 auto 32px;
+      max-width: calc(1200px - 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    @media(max-width: 700px) { .demo-notice { flex-direction: column; text-align: center; } }
+    .demo-notice h3 { margin: 0 0 8px 0; color: #fff; font-family: var(--font-head); }
+    .demo-notice p { margin: 0; color: var(--text-dim); font-size: 14px; }
+  </style>
 </head>
 <body>
 
-<div class="custom-cursor-dot" id="cursorDot"></div>
-<div class="custom-cursor-ring" id="cursorRing"></div>
+  <nav class="top-nav">
+    <div class="container nav-inner">
+      <div class="logo">
+        <div class="pulse-dot"></div>
+        LeadFlow AI
+      </div>
+      <div class="user-profile">
+        <div class="avatar">J</div>
+        Jaybees Valet Laundry
+      </div>
+    </div>
+  </nav>
 
-<!-- Demo banner -->
-<div class="demo-banner">
-  ✨ FREE demo built for Jaybees Valet Laundry by Chandan Gosavi &mdash;
-  <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank">hire me to take it live &rarr;</a>
+  <div class="demo-notice">
+    <div>
+      <h3>✨ Custom CRM Demo for Jaybees Valet Laundry</h3>
+      <p>This is a live preview of how the <b>LeadFlow Autopilot CRM</b> would look running locally for your business. It automatically scrapes local clients and sends AI-personalized outreach 24/7.</p>
+    </div>
+  </div>
+
+  <header class="header">
+    <h1>🚀 Command Center</h1>
+    <p>Your high-level metrics and autopilot outreach engine.</p>
+  </header>
+
   
-  <span class="orig">Based on <a href="http://https://www.jaybeesvaletlaundry.com/?fbclid=IwY2xjawSlC05leHRuA2FlbQIxMABicmlkETFQSHBmbEJ6UlNUc2RwbHNWc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHltPZ0zs5X0fpathW1bzvFE50IWnMAQRaL1x2o2JNRMGJUDlJMFID0gv1E4z_aem_YWdncwOlNMrs5sXnkPJAJegMFqDh&brid=YWdncwHDsTatfot-_iGZ21MoJQRc" target="_blank" style="color:inherit; text-decoration:underline;">http://www.https://www.jaybeesvaletlaundry.com/?fbclid=IwY2xjawSlC05leHRuA2FlbQIxMABicmlkETFQSHBmbEJ6UlNUc2RwbHNWc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHltPZ0zs5X0fpathW1bzvFE50IWnMAQRaL1x2o2JNRMGJUDlJMFID0gv1E4z_aem_YWdncwOlNMrs5sXnkPJAJegMFqDh&brid=YWdncwHDsTatfot-_iGZ21MoJQRc</a></span>
   
-</div>
+  
+  
+  
+  
 
+  
+    
+    
+    
+    
+    
+  
 
-
-<!-- Navbar -->
-<nav class="navbar" id="navbar">
-  <div class="container nav-container">
-    <a href="#home" class="logo">
-      <div class="logo-icon"></div>
-      Jaybees Valet Laundry
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#programs">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a href="#contact" class="btn btn-secondary" style="padding:.5rem 1.5rem;font-size:.75rem">Request Quote</a>
+  <div class="stats-grid">
+    <div class="stat-card" style="--card-color: var(--accent);">
+      <div class="stat-value">1,402</div>
+      <div class="stat-label">Airbnb Hosts & PMs Scraped</div>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- Hero -->
-<section class="hero" id="home">
-  <div class="spotlight" style="top:-100px;left:-150px"></div>
-  <div class="container">
-    <div class="hero-content reveal reveal-slide-up">
-      <div class="hero-tag">&#x2022; High-Grade Commercial Cleaning</div>
-      <h1 class="hero-name text-gradient-teal">Jaybees Valet Laundry</h1>
-      <div class="hero-subtitle-wrapper">
-        <div class="hero-subtitle-track">
-          <span>OFFICE JANITORIAL</span>
-          <span>MEDICAL CLINIC CARE</span>
-          <span>COMMERCIAL CONTRACTS</span>
-        </div>
-      </div>
-      
-      
-      <p class="hero-desc">At Jaybees Valet Laundry, we provide high-grade commercial cleaning and office janitorial services. Our professional, background-checked crew delivers customized cleaning solutions to ensure a healthy, safe, and pristine environment for your staff and clients.</p>
-      <div class="hero-btns">
-        <a href="#contact" class="btn btn-primary">Get Free Proposal</a>
-        <a href="#programs" class="btn btn-secondary">Explore Services</a>
-      </div>
+    <div class="stat-card" style="--card-color: var(--blue);">
+      <div class="stat-value">845</div>
+      <div class="stat-label">Outreach Sent</div>
+    </div>
+    <div class="stat-card" style="--card-color: var(--yellow);">
+      <div class="stat-value">312</div>
+      <div class="stat-label">Emails Opened</div>
+    </div>
+    <div class="stat-card" style="--card-color: var(--green);">
+      <div class="stat-value">47</div>
+      <div class="stat-label">Hot Replies</div>
     </div>
   </div>
-</section>
 
-<!-- Stats bar -->
-<section class="stats" id="stats">
-  <div class="container">
-    <div class="stats-grid reveal reveal-scale-in">
-      <div class="stat-item">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Satisfaction Rate</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">150+</div>
-        <div class="stat-label">Commercial Sites Cleaned</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">50+</div>
-        <div class="stat-label">Dedicated Staff</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">$0</div>
-        <div class="stat-label">Upfront Estimates</div>
+  <div class="main-grid">
+    <!-- Active Pipeline -->
+    <div class="card">
+      <h2>🔥 Active Pipeline</h2>
+      <div style="overflow-x: auto;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Lead Name</th>
+              <th>Status</th>
+              <th>Last Contact</th>
+              <th>Campaign</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 500; color: #fff;">Luxury Villa Rentals</td>
+              <td><span class="status-badge status-hot">Replied Yes</span></td>
+              <td>10 mins ago</td>
+              <td>Outbound AI</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500; color: #fff;">Downtown Airbnb Host</td>
+              <td><span class="status-badge status-warm">Opened (x3)</span></td>
+              <td>2 hours ago</td>
+              <td>Outbound AI</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500; color: #fff;">Property Management LLC</td>
+              <td><span class="status-badge status-new">Sent</span></td>
+              <td>Yesterday</td>
+              <td>Outbound AI</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500; color: #fff;">Superhost (South Beach)</td>
+              <td><span class="status-badge status-new">Drafting</span></td>
+              <td>Just now</td>
+              <td>Autopilot</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- About -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-content reveal reveal-slide-right">
-        <span class="section-tag">About the Agency</span>
-        <h2 class="section-title">Pristine Workspaces<br><span class="text-gradient-teal">Healthy Staff</span> &amp; Trust</h2>
-        <p class="section-desc">We clean with medical-grade precision. Our management checks every walkthrough checklist to ensure consistent quality and absolute safety for all facilities.</p>
-        <div class="about-features">
-          <div class="about-feature">
-            <div class="about-feature-icon">🧼</div>
-            <div><h4>Medical Sanitization</h4><p>High-grade sanitization protocols for clinical environments.</p></div>
-          </div>
-          <div class="about-feature">
-            <div class="about-feature-icon">📋</div>
-            <div><h4>Flexible Schedules</h4><p>After-hours daily, weekly, or monthly contract schedules.</p></div>
-          </div>
-          <div class="about-feature">
-            <div class="about-feature-icon">🛡️</div>
-            <div><h4>Bonded & Insured</h4><p>Background-checked staff covered by full liability policies.</p></div>
-          </div>
-          <div class="about-feature">
-            <div class="about-feature-icon">🌿</div>
-            <div><h4>Eco-Friendly Products</h4><p>Non-toxic green cleaning products safe for kids & pets.</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="about-img-wrapper reveal reveal-slide-left">
-        <div class="about-img-frame"></div>
-        <img src="/static/cleaning_about.jpg" alt="Jaybees Valet Laundry" class="about-image" onerror="this.parentElement.style.opacity='0.3'">
-        <div class="about-badge">
-          <div class="badge-icon">✓</div>
-          <div><h5>Bonded & Insured</h5><p>Full Corporate Coverage</p></div>
-        </div>
+    <!-- Live Terminal -->
+    <div class="card">
+      <h2>📟 Live Autopilot Logs</h2>
+      <div class="log-box">
+        <div class="log-entry"><span class="log-time">[08:00:01]</span> Starting daily scheduled tasks...</div>
+        <div class="log-entry"><span class="log-time">[08:00:05]</span> Scraping data sources for new Airbnb Hosts & PMs...</div>
+        <div class="log-entry"><span class="log-time">[08:01:12]</span> <span class="log-success">✓ Found 45 new prospects in Miami.</span></div>
+        <div class="log-entry"><span class="log-time">[08:01:15]</span> Sending prospects to AI for personalization...</div>
+        <div class="log-entry"><span class="log-time">[08:02:30]</span> Drafts generated. Queueing for delivery.</div>
+        <div class="log-entry"><span class="log-time">[08:15:00]</span> <span class="log-success">✓ 10 emails successfully sent.</span></div>
+        <div class="log-entry" style="color: var(--accent);"><span class="log-time">[08:45:22]</span> ⚡ Luxury Villa Rentals opened email!</div>
+        <div class="log-entry"><span class="log-time">[09:00:00]</span> Sleeping until next hourly cycle...</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- Services Grid -->
-<section class="programs-section" id="programs">
-  <div class="spotlight" style="top:0;right:-200px;background:radial-gradient(circle,rgba(43,76,126,0.15),transparent 70%)"></div>
-  <div class="container">
-    <div style="text-align:center">
-      <span class="section-tag">Our Services</span>
-      <h2 class="section-title" style="max-width:700px;margin:.5rem auto 0">Premium Facility <span class="text-gradient-teal">Solutions</span></h2>
-      <p class="section-desc" style="max-width:580px;margin:1.5rem auto 0">Explore our professional contract janitorial and floor care services designed for business workspaces.</p>
-    </div>
-    <div class="programs-grid">
-      <div class="program-card reveal reveal-slide-up">
-        <div class="program-icon">🏢</div>
-        <h3>Office Cleaning</h3>
-        <p>Complete workspace sanitization, trash removal, keyboard dusting, and kitchen sanitizing.</p>
-        <a href="#contact" class="program-link">Get Proposal →</a>
-      </div>
-      <div class="program-card reveal reveal-slide-up" style="transition-delay:0.1s">
-        <div class="program-icon">🏥</div>
-        <h3>Medical Facility Care</h3>
-        <p>EPA-approved hospital-grade disinfection for dental clinics and healthcare rooms.</p>
-        <a href="#contact" class="program-link">Get Proposal →</a>
-      </div>
-      <div class="program-card reveal reveal-slide-up" style="transition-delay:0.2s">
-        <div class="program-icon">🔨</div>
-        <h3>Post-Construction Cleanup</h3>
-        <p>Detailed rough-to-final dust extraction and high-gloss vacuuming for new builds.</p>
-        <a href="#contact" class="program-link">Get Proposal →</a>
-      </div>
-      <div class="program-card reveal reveal-slide-up">
-        <div class="program-icon">🧹</div>
-        <h3>Floor & Carpet Care</h3>
-        <p>Commercial carpet steam cleaning, strip and wax floor seals, and tile buffing.</p>
-        <a href="#contact" class="program-link">Get Proposal →</a>
-      </div>
-      <div class="program-card reveal reveal-slide-up" style="transition-delay:0.1s">
-        <div class="program-icon">🪟</div>
-        <h3>Window & Glass Care</h3>
-        <p>Streak-free interior and exterior window cleanings for storefronts and office fronts.</p>
-        <a href="#contact" class="program-link">Get Proposal →</a>
-      </div>
-      <div class="program-card reveal reveal-slide-up" style="transition-delay:0.2s">
-        <div class="program-icon">🛡️</div>
-        <h3>Electrostatic Spraying</h3>
-        <p>Whole-room viral fogging disinfection to target airborne and surface pathogens.</p>
-        <a href="#contact" class="program-link">Get Proposal →</a>
-      </div>
-    </div>
+  <div style="text-align: center; padding-bottom: 64px; color: var(--text-dim); font-size: 13px;">
+    
+    <p>This is a custom-generated demo. All data is mocked for demonstration purposes.</p>
+    <p>&copy; 2026 LeadFlow AI</p>
   </div>
-</section>
-
-<!-- AHA: Room Sparkle Meter -->
-<section class="aha-section" id="sparkle-meter">
-  <div class="container">
-    <div class="aha-inner">
-      <span class="section-tag">See the Difference</span>
-      <h2 class="section-title" style="max-width:600px;margin:.5rem auto 0">The <span class="text-gradient-teal">Sparkle</span> Effect</h2>
-      <p style="color:var(--text-muted);max-width:480px;margin:0 auto">Choose a cleaning tier and watch the transformation happen in real time.</p>
-      <div class="aha-controls">
-        <button class="aha-btn" data-tier="0" onclick="cleanViz(0)">Cluttered</button>
-        <button class="aha-btn active" data-tier="1" onclick="cleanViz(1)">Standard</button>
-        <button class="aha-btn" data-tier="2" onclick="cleanViz(2)">Deep Clean</button>
-      </div>
-      <div class="aha-svg-wrap">
-        <svg id="clean-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;filter:drop-shadow(0 0 24px rgba(0,210,200,0.25))">
-          <!-- Room floor -->
-          <rect x="10" y="10" width="300" height="180" rx="8" fill="#1a2a2a" stroke="rgba(0,210,200,0.2)" stroke-width="1"/>
-          <!-- Divider -->
-          <line x1="160" y1="10" x2="160" y2="190" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
-          <!-- Left label: Before -->
-          <text x="85" y="30" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10" font-family="sans-serif">BEFORE</text>
-          <!-- Right label: After -->
-          <text x="235" y="30" text-anchor="middle" fill="rgba(0,210,200,0.7)" font-size="10" font-family="sans-serif">AFTER</text>
-          <!-- Dirt dots (left side) -->
-          <g id="clean-dirt">
-            <circle cx="50" cy="80" r="4" fill="#4a3000" opacity="0.9"/>
-            <circle cx="80" cy="120" r="3" fill="#3a2800" opacity="0.8"/>
-            <circle cx="110" cy="65" r="5" fill="#4a3000" opacity="0.7"/>
-            <circle cx="60" cy="150" r="3" fill="#3a2800" opacity="0.9"/>
-            <circle cx="130" cy="140" r="4" fill="#4a3000" opacity="0.6"/>
-            <circle cx="40" cy="100" r="3" fill="#3a2800" opacity="0.8"/>
-            <circle cx="100" cy="100" r="6" fill="#5a3800" opacity="0.5"/>
-            <circle cx="70" cy="170" r="3" fill="#4a3000" opacity="0.7"/>
-            <circle cx="120" cy="170" r="4" fill="#3a2800" opacity="0.6"/>
-            <circle cx="45" cy="55" r="4" fill="#4a3000" opacity="0.8"/>
-          </g>
-          <!-- Sparkle stars (right side) -->
-          <!-- Star 1 -->
-          <g id="cstar1" transform="translate(195,60)" opacity="0">
-            <path d="M0,-10 L2,-2 L10,0 L2,2 L0,10 L-2,2 L-10,0 L-2,-2 Z" fill="#00d2c8"/>
-          </g>
-          <!-- Star 2 -->
-          <g id="cstar2" transform="translate(255,90)" opacity="0">
-            <path d="M0,-8 L1.5,-1.5 L8,0 L1.5,1.5 L0,8 L-1.5,1.5 L-8,0 L-1.5,-1.5 Z" fill="#00e5d8"/>
-          </g>
-          <!-- Star 3 -->
-          <g id="cstar3" transform="translate(215,130)" opacity="0">
-            <path d="M0,-10 L2,-2 L10,0 L2,2 L0,10 L-2,2 L-10,0 L-2,-2 Z" fill="#00d2c8"/>
-          </g>
-          <!-- Star 4 -->
-          <g id="cstar4" transform="translate(275,150)" opacity="0">
-            <path d="M0,-7 L1.2,-1.2 L7,0 L1.2,1.2 L0,7 L-1.2,1.2 L-7,0 L-1.2,-1.2 Z" fill="#80ffe8"/>
-          </g>
-          <!-- Star 5 -->
-          <g id="cstar5" transform="translate(235,170)" opacity="0">
-            <path d="M0,-9 L1.8,-1.8 L9,0 L1.8,1.8 L0,9 L-1.8,1.8 L-9,0 L-1.8,-1.8 Z" fill="#00d2c8"/>
-          </g>
-          <!-- Clean floor glow -->
-          <rect id="clean-glow" x="165" y="15" width="140" height="170" rx="4" fill="url(#cleanGlowGrad)" opacity="0"/>
-          <defs>
-            <radialGradient id="cleanGlowGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#00d2c8" stop-opacity="0.15"/>
-              <stop offset="100%" stop-color="#00d2c8" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-        </svg>
-      </div>
-      <div class="aha-label" id="clean-label">Standard Clean</div>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section class="testimonials-section" id="testimonials">
-  <div class="container">
-    <div style="text-align:center">
-      <span class="section-tag">Client Reviews</span>
-      <h2 class="section-title" style="max-width:700px;margin:.5rem auto 0">Corporate Trust, <span class="text-gradient-teal">Pristine Work</span></h2>
-    </div>
-    <div class="t-slider-outer">
-      <div class="t-slider" id="tSlider">
-        <div class="t-card">
-          <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"The office cleaning crew from Jaybees Valet Laundry has been handling our 3-story office for a year. Consistent quality and complete professionalism."</p>
-          <div class="t-author">Sarah M.<span>Facility Manager</span></div>
-        </div>
-        <div class="t-card">
-          <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"Very responsive team. When we needed emergency cleanup after a water line burst, they were on-site in 40 minutes and saved our carpet."</p>
-          <div class="t-author">James K.<span>Operations Lead</span></div>
-        </div>
-        <div class="t-card">
-          <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"Our dental clinic requires strict sanitization. Jaybees Valet Laundry provides hospital-grade disinfection and fully logs their inspections."</p>
-          <div class="t-author">Priya R.<span>Clinic Administrator</span></div>
-        </div>
-        <div class="t-card">
-          <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"Transparent pricing and a customized checklist. They do the deep carpet cleans on weekends without interrupting our workday."</p>
-          <div class="t-author">Ahmed N.<span>Business Owner</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="t-controls">
-      <button class="t-btn" id="tPrev">&larr;</button>
-      <div class="t-dots" id="tDots"></div>
-      <button class="t-btn" id="tNext">&rarr;</button>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-banner reveal reveal-scale-in">
-      <span class="section-tag">Request a Walkthrough</span>
-      <h2>Claim Your Free Cleaning Proposal & Estimate from<br><span class="text-gradient-teal">Jaybees Valet Laundry</span> Today</h2>
-      <p>Take the first step. Contact us now to schedule a walkthrough and receive a customized service estimate.</p>
-      <a href="#contact" class="btn btn-primary" style="margin-top:.5rem">Schedule Proposal</a>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section class="contact-section" id="contact">
-  <div class="spotlight" style="bottom:-100px;left:-100px"></div>
-  <div class="container" style="text-align:center">
-    <span class="section-tag">Find Us</span>
-    <h2 class="section-title" style="margin:.5rem auto 1rem">Get in Touch with <span class="text-gradient-teal">Jaybees Valet Laundry</span></h2>
-    <p>Schedule a walkthrough or ask about our corporate packages.</p>
-    <div class="cinfo-grid">
-      
-      
-      <div class="cinfo-item">📍 Miami, FL, USA</div>
-      
-      
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col footer-about">
-        <a href="#home" class="logo" style="font-size:1.5rem">
-          <div class="logo-icon"></div>
-          Jaybees Valet Laundry
-        </a>
-        <p>A leading provider of premium commercial office cleaning, medical sanitization, and janitorial contract services.</p>
-        <div class="social-links">
-          
-          
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About the Agency</a></li>
-          <li><a href="#programs">Services</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul class="footer-links">
-          
-          
-          <li>Miami, FL, USA</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Jaybees Valet Laundry. Demo by <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank">Chandan Gosavi</a></p>
-      <p>Want this live? <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank">Order here &rarr;</a></p>
-    </div>
-  </div>
-</footer>
-
-<script>
-// Custom cursor
-const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
-(function animRing(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
-document.querySelectorAll('a,button,.program-card,.t-btn,.gallery-item').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
-});
-
-// Navbar scroll + active link
-const navbar=document.getElementById('navbar');
-const sections=document.querySelectorAll('section[id]');
-function onScroll(){
-  navbar.classList.toggle('scrolled',scrollY>50);
-  let cur='';
-  sections.forEach(s=>{if(scrollY>=s.offsetTop-200)cur=s.id});
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
-}
-window.addEventListener('scroll',onScroll,{passive:true});
-
-// Hamburger
-const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
-hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('active')});
-navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('active')}));
-
-// Scroll reveal
-const revObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');revObs.unobserve(e.target)}},{threshold:0.1}));
-document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
-
-// Testimonials slider
-(function(){
-  const slider=document.getElementById('tSlider'),dotsEl=document.getElementById('tDots');
-  const cards=Array.from(slider.children);
-  let cur=0,startX=0,dragX=0,isDrag=false;
-  function visible(){return window.innerWidth>991?3:window.innerWidth>600?2:1}
-  function buildDots(){
-    const pages=Math.ceil(cards.length/visible());
-    dotsEl.innerHTML='';
-    for(let i=0;i<pages;i++){
-      const d=document.createElement('div');d.className='t-dot'+(i===Math.floor(cur/visible())?' active':'');
-      d.addEventListener('click',()=>goto(i*visible()));dotsEl.appendChild(d);
-    }
-  }
-  function goto(n){
-    const max=cards.length-visible();cur=Math.max(0,Math.min(n,max));
-    const w=cards[0].offsetWidth+32;slider.style.transform=`translateX(${-cur*w}px)`;
-    buildDots();
-  }
-  document.getElementById('tPrev').addEventListener('click',()=>goto(cur-visible()));
-  document.getElementById('tNext').addEventListener('click',()=>goto(cur+visible()));
-  slider.addEventListener('mousedown',e=>{isDrag=true;startX=e.clientX;slider.classList.add('dragging')});
-  window.addEventListener('mousemove',e=>{if(isDrag)dragX=e.clientX-startX});
-  window.addEventListener('mouseup',()=>{
-    if(!isDrag)return;isDrag=false;slider.classList.remove('dragging');
-    const w=cards[0].offsetWidth+32;if(Math.abs(dragX)>w*.25)goto(dragX<0?cur+visible():cur-visible());else goto(cur);
-    dragX=0;
-  });
-  slider.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
-  slider.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-startX;
-    const w=cards[0].offsetWidth+32;if(Math.abs(dx)>w*.25)goto(dx<0?cur+visible():cur-visible());
-  },{passive:true});
-  buildDots();
-  window.addEventListener('resize',()=>goto(0));
-})();
-(function(){
-  var tiers=[
-    {label:'Cluttered — Needs Attention',stars:[0,0,0,0,0],dirt:1,glow:0,filter:'drop-shadow(0 0 8px rgba(100,70,0,0.2))'},
-    {label:'Standard Clean',stars:[1,1,0,0,0],dirt:0.4,glow:0.3,filter:'drop-shadow(0 0 20px rgba(0,210,200,0.25))'},
-    {label:'Deep Clean — Pristine ✨',stars:[1,1,1,1,1],dirt:0,glow:0.7,filter:'drop-shadow(0 0 32px rgba(0,210,200,0.5))'}
-  ];
-  window.cleanViz=function(idx){
-    var t=tiers[idx];
-    document.querySelectorAll('.aha-btn[data-tier]').forEach(function(b){b.classList.toggle('active',parseInt(b.dataset.tier)===idx);});
-    document.getElementById('clean-svg').style.filter=t.filter;
-    document.getElementById('clean-dirt').style.opacity=t.dirt;
-    document.getElementById('clean-glow').style.opacity=t.glow;
-    ['cstar1','cstar2','cstar3','cstar4','cstar5'].forEach(function(id,i){
-      var el=document.getElementById(id);
-      el.style.opacity=t.stars[i];
-      if(t.stars[i]>0){el.style.animation='sparkle-pop 0.4s ease '+(i*0.08)+'s both';}
-      else{el.style.animation='none';}
-    });
-    document.getElementById('clean-label').textContent=t.label;
-  };
-  cleanViz(1);
-})();
-</script>
 
 
 <!-- LEADFLOW CONVERSION LAYER WITH CONTROL PANEL -->
@@ -810,7 +536,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 <div class="lf-drawer" id="lfDrawer">
   <div class="lf-drawer-header">
     <div class="lf-badge">Live Demo Controls</div>
-    <h3>Custom Presentation</h3>
+    <h3>SaaS Presentation</h3>
     <p>Prepared for <b>Jaybees Valet Laundry</b></p>
   </div>
   
@@ -821,7 +547,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
       <div class="lf-audit-card">
         <div>
           <div style="display:flex;justify-content:space-between;font-size:12px;color:#a0aec0">
-            <span>Your Current Website:</span>
+            <span>Your Current CRM:</span>
             <span style="font-weight:700;color:#10b981">93 / 100</span>
           </div>
           <div class="lf-progress-bg">
@@ -830,7 +556,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;font-size:12px;color:#a0aec0">
-            <span>LeadFlow Modern Demo:</span>
+            <span>LeadFlow Automation:</span>
             <span style="font-weight:700;color:#10b981">98 / 100</span>
           </div>
           <div class="lf-progress-bg">
@@ -940,7 +666,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 </div>
 
 <div class="lf-cta-bar" id="lfBar">
-  <p>👀 Like this design for <b>Jaybees Valet Laundry</b>?</p>
+  <p>👀 Like this automation for <b>Jaybees Valet Laundry</b>?</p>
   <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank" rel="noopener" class="lf-btn lf-btn-primary" data-lf="cta_book_bar">Book a free call →</a>
   <a href="https://wa.me/918669024169?text=Hi%2C%20I%20just%20saw%20the%20demo%20site%20you%20built%20for%20Jaybees%20Valet%20Laundry" target="_blank" rel="noopener" class="lf-btn lf-btn-ghost" data-lf="cta_whatsapp">WhatsApp</a>
 </div>
@@ -948,11 +674,11 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 <div class="lf-modal-bg" id="lfModal">
   <div class="lf-modal">
     <button class="lf-x" id="lfX" aria-label="Close">&times;</button>
-    <h2>Want this site live for <b>Jaybees Valet Laundry</b>?</h2>
-    <p>This demo was built specifically for you. Book a free 15-minute call and
-       I'll have it live on your domain — no obligation, no upfront cost.</p>
+    <h2>Want these tools live for <b>Jaybees Valet Laundry</b>?</h2>
+    <p>This CRM preview was built specifically for you. Book a free 15-minute call and
+       I'll set up your autopilot system — no obligation, no upfront cost.</p>
     <div style="display:flex;gap:12px;justify-content:center;margin-top:15px;flex-wrap:wrap">
-      <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank" rel="noopener" class="lf-btn lf-btn-primary" data-lf="cta_book_modal">Claim this website →</a>
+      <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank" rel="noopener" class="lf-btn lf-btn-primary" data-lf="cta_book_modal">Claim this CRM →</a>
       <a href="https://wa.me/918669024169?text=Hi%2C%20I%20just%20saw%20the%20demo%20site%20you%20built%20for%20Jaybees%20Valet%20Laundry" target="_blank" rel="noopener" class="lf-btn lf-btn-ghost" data-lf="cta_whatsapp">WhatsApp</a>
     </div>
     <div class="lf-sub">Built by Chandan Gosavi</div>
@@ -1176,6 +902,6 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 </script>
 
 <!-- TRACKING PIXEL -->
-<img src="https://store-assignment-imperial-bidding.trycloudflare.com/api/track.png?bid=2642" style="display:none;width:0;height:0" alt="tracker" />
+<img src="https://waterproof-automobiles-relatively-oregon.trycloudflare.com/api/track.png?bid=2642" style="display:none;width:0;height:0" alt="tracker" />
 </body>
 </html>
