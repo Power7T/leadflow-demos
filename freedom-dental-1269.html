@@ -451,6 +451,14 @@ section {
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title">Healthy Smiles For A Lifetime</h1>
+      
+      
+      <div class="hero-rating-injection" style="margin-bottom:1rem; display:flex; align-items:center; justify-content:center; gap:8px;">
+        <span style="color:#fbbf24; font-size:1.2rem; letter-spacing:2px;">★★★★★</span>
+        <span style="font-weight:700;">4.8</span>
+        <span style="opacity:0.8; font-size:0.9rem;">(244 reviews)</span>
+      </div>
+      
       <p class="hero-desc">Experience state-of-the-art dental care at Freedom Dental. Our dedicated experts combine technology and comfort to keep your smile bright and healthy.</p>
       <div class="hero-btns">
         <a href="#services" class="btn btn-primary">Our Services</a>
@@ -579,7 +587,7 @@ section {
           </g>
           <!-- Score badge -->
           <rect x="95" y="158" width="110" height="24" rx="6" fill="rgba(32,178,170,0.12)" stroke="rgba(32,178,170,0.3)" stroke-width="1"/>
-          <text id="tx-score" x="150" y="174" text-anchor="middle" fill="#20b2aa" font-family="sans-serif" font-size="11" font-weight="700">Smile Score: 72 / 100</text>
+          <text id="tx-score" x="150" y="174" text-anchor="middle" fill="#20b2aa" font-family="sans-serif" font-size="11" font-weight="700">Smile Level: 72 / 100</text>
         </svg>
       </div>
       <div class="aha-label" id="tx-label">Deep Cleaning · Plaque Removal</div>
@@ -675,13 +683,13 @@ window.addEventListener('scroll', function() {
 (function(){
   const treatments = [
     { label:'Deep Cleaning · Plaque Removal', sub:'Starting at $149 · Insurance accepted',
-      score:'Smile Score: 72 / 100', stain:0.35, glow:'rgba(32,178,170,0.06)', glowR:60, sparkles:0, stop1:'#f5f0e8', stop2:'#d4e8e6' },
+      score:'Smile Level: 72 / 100', stain:0.35, glow:'rgba(32,178,170,0.06)', glowR:60, sparkles:0, stop1:'#f5f0e8', stop2:'#d4e8e6' },
     { label:'Teeth Whitening · 6-8 Shades Brighter', sub:'Starting at $299 · Results same day',
-      score:'Smile Score: 88 / 100', stain:0.05, glow:'rgba(32,178,170,0.12)', glowR:75, sparkles:0.6, stop1:'#ffffff', stop2:'#e8f8f7' },
+      score:'Smile Level: 88 / 100', stain:0.05, glow:'rgba(32,178,170,0.12)', glowR:75, sparkles:0.6, stop1:'#ffffff', stop2:'#e8f8f7' },
     { label:'Porcelain Veneers · Custom Smile Design', sub:'Starting at $899/tooth · Forever beautiful',
-      score:'Smile Score: 96 / 100', stain:0, glow:'rgba(32,178,170,0.18)', glowR:88, sparkles:1, stop1:'#ffffff', stop2:'#edfffe' },
+      score:'Smile Level: 96 / 100', stain:0, glow:'rgba(32,178,170,0.18)', glowR:88, sparkles:1, stop1:'#ffffff', stop2:'#edfffe' },
     { label:'Full Mouth Restoration · Complete Rebuild', sub:'Free consultation · Financing available',
-      score:'Smile Score: 100 / 100 ✨', stain:0, glow:'rgba(32,200,180,0.22)', glowR:100, sparkles:1, stop1:'#ffffff', stop2:'#f0ffff' }
+      score:'Smile Level: 100 / 100 ✨', stain:0, glow:'rgba(32,200,180,0.22)', glowR:100, sparkles:1, stop1:'#ffffff', stop2:'#f0ffff' }
   ];
   const btns = document.querySelectorAll('.aha-btn[data-tx]');
   const stain = document.getElementById('tx-stain');
