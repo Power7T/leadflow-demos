@@ -910,15 +910,4 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
 
 </body>
-</html>"""
-
-
-
-def _services_html(services: list, accent: str) -> str:
-    if not services:
-        return ""
-    cards = ""
-    icons = ["✦", "◈", "⬡", "◉", "▸", "◆"]
-    for i, s in enumerate(services[:6]):
-        icon = icons[i % len(icons)]
-        desc_html = f'<p class="svc-desc">{s["desc"]}</p>' if s["desc"] else ""
+</html>
