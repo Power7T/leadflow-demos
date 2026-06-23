@@ -975,6 +975,53 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
     display:flex;flex-direction:column;gap:10px}
   .lf-drawer-footer .lf-btn{width:100%;font-size:15px;padding:12px;font-weight:700}
   
+  /* Chatbot styles */
+  .lf-chat-launcher{position:fixed;bottom:30px;right:30px;width:56px;height:56px;border-radius:50%;
+    background:linear-gradient(135deg,#10b981,#059669);border:1px solid rgba(255,255,255,0.25);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:99990;
+    box-shadow:0 8px 32px rgba(16,185,129,0.45);transition:all 0.3s cubic-bezier(0.2,0.8,0.2,1);
+    color:#fff;font-size:22px;user-select:none}
+  .lf-chat-launcher:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(16,185,129,0.6)}
+  
+  .lf-chat-window{position:fixed;bottom:96px;right:30px;width:320px;height:420px;z-index:99995;
+    background:rgba(10,11,15,0.96);backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,0.08);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.65);
+    display:none;flex-direction:column;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;
+    overflow:hidden;transition:all 0.3s ease}
+  .lf-chat-window.open{display:flex}
+  
+  .lf-chat-header{padding:14px 16px;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.06);
+    display:flex;justify-content:space-between;align-items:center}
+  .lf-chat-header h4{margin:0;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px}
+  .lf-chat-header h4::before{content:'';display:block;width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981}
+  
+  .lf-chat-messages{flex-grow:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;
+    font-size:12.5px;line-height:1.45}
+  
+  .lf-msg{max-width:82%;padding:8px 12px;border-radius:12px;margin-bottom:2px;word-break:break-word}
+  .lf-msg-user{align-self:flex-end;background:#2563eb;color:#fff;border-bottom-right-radius:2px}
+  .lf-msg-ai{align-self:flex-start;background:rgba(255,255,255,0.06);color:#e2e8f0;border-bottom-left-radius:2px;border:1px solid rgba(255,255,255,0.04)}
+  
+  .lf-chat-input-area{padding:10px;background:rgba(0,0,0,0.2);border-top:1px solid rgba(255,255,255,0.06);
+    display:flex;gap:8px;align-items:center}
+  .lf-chat-input{flex-grow:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+    border-radius:999px;padding:6px 14px;color:#fff;font-size:12.5px;outline:none;transition:border-color 0.2s}
+  .lf-chat-input:focus{border-color:#10b981}
+  .lf-chat-send{background:#10b981;border:none;color:#fff;border-radius:50%;width:28px;height:28px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:11px;transition:background 0.2s}
+  .lf-chat-send:hover{background:#059669}
+  
+  .lf-typing{display:none;align-self:flex-start;background:rgba(255,255,255,0.03);padding:6px 12px;border-radius:12px;font-size:11px;color:#718096;margin:0 16px 8px}
+  
+  /* Timeline styles for Sequence */
+  .lf-timeline{display:flex;flex-direction:column;gap:14px;position:relative;padding-left:14px;margin-top:10px}
+  .lf-timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:rgba(255,255,255,0.08)}
+  .lf-timeline-item{display:flex;gap:10px;position:relative}
+  .lf-timeline-badge{width:8px;height:8px;border-radius:50%;background:#3b82f6;margin-top:4px;
+    position:absolute;left:-14px;border:2px solid #0a0b0f}
+  .lf-timeline-content h4{margin:0;font-size:12.5px;font-weight:700;color:#fff}
+  .lf-timeline-content p{margin:2px 0 0;font-size:10.5px;color:#718096;line-height:1.4}
+  
   @keyframes lf-fade{from{opacity:0}to{opacity:1}}
 </style>
 
@@ -983,7 +1030,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 <div class="lf-drawer" id="lfDrawer">
   <div class="lf-drawer-header">
     <div class="lf-badge">Live Demo Controls</div>
-    <h3>Custom Presentation</h3>
+    <h3>SaaS Presentation</h3>
     <p>Prepared for <b>HDS Munich - roofing and plumbing</b></p>
   </div>
   
@@ -994,7 +1041,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
       <div class="lf-audit-card">
         <div>
           <div style="display:flex;justify-content:space-between;font-size:12px;color:#a0aec0">
-            <span>Your Current Website:</span>
+            <span>Your Current CRM:</span>
             <span style="font-weight:700;color:#f59e0b">65 / 100</span>
           </div>
           <div class="lf-progress-bg">
@@ -1003,7 +1050,7 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;font-size:12px;color:#a0aec0">
-            <span>LeadFlow Modern Demo:</span>
+            <span>LeadFlow Automation:</span>
             <span style="font-weight:700;color:#10b981">98 / 100</span>
           </div>
           <div class="lf-progress-bg">
@@ -1047,6 +1094,35 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
       </ul>
     </div>
 
+    <!-- Outreach Sequence Timeline -->
+    <div>
+      <div class="lf-section-title">Autonomous Outreach Engine</div>
+      <p style="font-size:12px;color:#a0aec0;margin:0 0 12px">How we follow up with your prospects automatically:</p>
+      <div class="lf-timeline">
+        <div class="lf-timeline-item">
+          <div class="lf-timeline-badge" style="background:#3b82f6"></div>
+          <div class="lf-timeline-content">
+            <h4>Day 1: Personalized Pitch</h4>
+            <p>Initial email sent with custom demo site link.</p>
+          </div>
+        </div>
+        <div class="lf-timeline-item">
+          <div class="lf-timeline-badge" style="background:#10b981"></div>
+          <div class="lf-timeline-content">
+            <h4>Day 3: WhatsApp Nudge</h4>
+            <p>Follow-up text sent if booking is pending.</p>
+          </div>
+        </div>
+        <div class="lf-timeline-item">
+          <div class="lf-timeline-badge" style="background:#fbbf24"></div>
+          <div class="lf-timeline-content">
+            <h4>Day 7: Social Follow-up</h4>
+            <p>Instagram DM sent to maximize response rate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Designer profile -->
     <div style="margin-top:auto">
       <div class="lf-section-title">Created By</div>
@@ -1062,25 +1138,42 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
   
   <div class="lf-drawer-footer">
     <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank" rel="noopener" class="lf-btn lf-btn-primary" data-lf="cta_book_drawer">Claim Website &rarr;</a>
-    <a href="https://wa.me/918669024169?text=Hi%2C%20I%20just%20saw%20the%20demo%20site%20you%20built%20for%20HDS%20Munich%20-%20roofing%20and%20plumbing" target="_blank" rel="noopener" class="lf-btn lf-btn-ghost" data-lf="cta_whatsapp">WhatsApp</a>
+    
+  </div>
+</div>
+
+<div class="lf-chat-launcher" id="lfChatLauncher" aria-label="Open Chat">💬</div>
+
+<div class="lf-chat-window" id="lfChatWindow">
+  <div class="lf-chat-header">
+    <h4 style="margin:0">AI Assistant</h4>
+    <button class="lf-x" id="lfChatClose" style="position:static;font-size:20px;padding:0;background:none;border:none;color:#718096;cursor:pointer" aria-label="Close Chat">&times;</button>
+  </div>
+  <div class="lf-chat-messages" id="lfChatMessages">
+    <div class="lf-msg lf-msg-ai">Hi there! I'm your AI business assistant. How can I help you today?</div>
+  </div>
+  <div class="lf-typing" id="lfChatTyping">AI is typing...</div>
+  <div class="lf-chat-input-area">
+    <input type="text" class="lf-chat-input" id="lfChatInput" placeholder="Type a message...">
+    <button class="lf-chat-send" id="lfChatSend" aria-label="Send message">➔</button>
   </div>
 </div>
 
 <div class="lf-cta-bar" id="lfBar">
-  <p>👀 Like this design for <b>HDS Munich - roofing and plumbing</b>?</p>
+  <p>👀 Like this automation for <b>HDS Munich - roofing and plumbing</b>?</p>
   <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank" rel="noopener" class="lf-btn lf-btn-primary" data-lf="cta_book_bar">Book a free call →</a>
-  <a href="https://wa.me/918669024169?text=Hi%2C%20I%20just%20saw%20the%20demo%20site%20you%20built%20for%20HDS%20Munich%20-%20roofing%20and%20plumbing" target="_blank" rel="noopener" class="lf-btn lf-btn-ghost" data-lf="cta_whatsapp">WhatsApp</a>
+  
 </div>
 
 <div class="lf-modal-bg" id="lfModal">
   <div class="lf-modal">
     <button class="lf-x" id="lfX" aria-label="Close">&times;</button>
-    <h2>Want this site live for <b>HDS Munich - roofing and plumbing</b>?</h2>
-    <p>This demo was built specifically for you. Book a free 15-minute call and
-       I'll have it live on your domain — no obligation, no upfront cost.</p>
+    <h2>Want these tools live for <b>HDS Munich - roofing and plumbing</b>?</h2>
+    <p>This CRM preview was built specifically for you. Book a free 15-minute call and
+       I'll set up your autopilot system — no obligation, no upfront cost.</p>
     <div style="display:flex;gap:12px;justify-content:center;margin-top:15px;flex-wrap:wrap">
-      <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank" rel="noopener" class="lf-btn lf-btn-primary" data-lf="cta_book_modal">Claim this website →</a>
-      <a href="https://wa.me/918669024169?text=Hi%2C%20I%20just%20saw%20the%20demo%20site%20you%20built%20for%20HDS%20Munich%20-%20roofing%20and%20plumbing" target="_blank" rel="noopener" class="lf-btn lf-btn-ghost" data-lf="cta_whatsapp">WhatsApp</a>
+      <a href="https://www.fiverr.com/s/99Vgp0j" target="_blank" rel="noopener" class="lf-btn lf-btn-primary" data-lf="cta_book_modal">Claim this CRM →</a>
+      
     </div>
     <div class="lf-sub">Built by Chandan Gosavi</div>
   </div>
@@ -1205,6 +1298,96 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
     setTimeout(openModal,28000);
   }
   
+  // Chat window toggling
+  var chatLauncher = document.getElementById('lfChatLauncher');
+  var chatWindow = document.getElementById('lfChatWindow');
+  var chatClose = document.getElementById('lfChatClose');
+  var chatInput = document.getElementById('lfChatInput');
+  var chatSend = document.getElementById('lfChatSend');
+  var chatMessages = document.getElementById('lfChatMessages');
+  var chatTyping = document.getElementById('lfChatTyping');
+  
+  if (chatLauncher) {
+    chatLauncher.addEventListener('click', function(){
+      var isOpen = chatWindow.classList.contains('open');
+      if(isOpen) {
+        chatWindow.classList.remove('open');
+        ping('chat_closed');
+      } else {
+        chatWindow.classList.add('open');
+        ping('chat_opened');
+        chatInput.focus();
+      }
+    });
+  }
+  
+  if (chatClose) {
+    chatClose.addEventListener('click', function(){
+      chatWindow.classList.remove('open');
+    });
+  }
+  
+  var chatHistory = [];
+  
+  function sendChatMessage() {
+    var txt = chatInput.value.trim();
+    if(!txt) return;
+    chatInput.value = '';
+    
+    // Add User message
+    var userDiv = document.createElement('div');
+    userDiv.className = 'lf-msg lf-msg-user';
+    userDiv.textContent = txt;
+    chatMessages.appendChild(userDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    chatHistory.push({role: 'user', content: txt});
+    ping('chat_message_sent');
+    
+    // Show typing
+    chatTyping.style.display = 'block';
+    
+    // Send to server
+    function _doChat(){
+      if(!BEACON) {
+        setTimeout(_doChat, 1000);
+        return;
+      }
+      fetch(BEACON + "/leads/" + BID + "/chat", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: txt, history: chatHistory })
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        chatTyping.style.display = 'none';
+        var aiDiv = document.createElement('div');
+        aiDiv.className = 'lf-msg lf-msg-ai';
+        aiDiv.textContent = data.reply || "Sorry, I'm having trouble connecting right now.";
+        chatMessages.appendChild(aiDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        chatHistory.push({role: 'assistant', content: data.reply || ''});
+      })
+      .catch(function(){
+        chatTyping.style.display = 'none';
+        var aiDiv = document.createElement('div');
+        aiDiv.className = 'lf-msg lf-msg-ai';
+        aiDiv.textContent = "Sorry, I could not reach the server.";
+        chatMessages.appendChild(aiDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      });
+    }
+    _doChat();
+  }
+  
+  if (chatSend) chatSend.addEventListener('click', sendChatMessage);
+  if (chatInput) {
+    chatInput.addEventListener('keypress', function(e){
+      if(e.key === 'Enter') sendChatMessage();
+    });
+  }
+
   // Track high-intent clicks
   document.querySelectorAll("[data-lf]").forEach(function(el){
     el.addEventListener("click",function(){ping(el.getAttribute("data-lf"));});
@@ -1212,6 +1395,9 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 })();
 </script>
 
-
+<!-- TRACKING SCRIPT -->
+<script>
+  try { fetch("https://stem-alleged-mirror-compliant.trycloudflare.com/api/track.png?bid=1298", {mode:"no-cors"}); } catch(e) {}
+</script>
 </body>
 </html>
