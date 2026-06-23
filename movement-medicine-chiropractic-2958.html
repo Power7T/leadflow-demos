@@ -3,86 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Movement Medicine Chiropractic Performance & Recovery | Premium Chiropractic Care</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Movement Medicine Chiropractic Performance & Recovery | Premium Chiropractic & Wellness</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg-primary:#090b10;
-  --bg-secondary:#13161f;
-  --accent-blue:#00f2fe;
-  --accent-purple:#4facfe;
-  --text-white:#ffffff;
-  --text-gray:#a2a7b6;
-  --glass-bg:rgba(19,22,31,0.65);
-  --glass-border:rgba(255,255,255,0.05);
-  --shadow-blue:0 0 40px rgba(0,242,254,0.15);
-  --transition-smooth:0.4s cubic-bezier(0.25,1,0.5,1);
+  --bg-primary:#ffffff;
+  --bg-secondary:#f8fafc;
+  --accent-main:#0d9488;
+  --accent-light:#ccfbf1;
+  --accent-dark:#0f766e;
+  --text-dark:#0f172a;
+  --text-gray:#475569;
+  --text-light:#94a3b8;
+  --radius-lg:24px;
+  --radius-md:16px;
+  --shadow-sm:0 4px 6px -1px rgba(0,0,0,0.05);
+  --shadow-lg:0 20px 40px -10px rgba(13,148,136,0.1);
+  --transition:0.4s cubic-bezier(0.2,0.8,0.2,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background-color:var(--bg-primary);color:var(--text-white);line-height:1.6;overflow-x:hidden;}
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:var(--bg-primary)}
-::-webkit-scrollbar-thumb{background:var(--bg-secondary);border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:var(--accent-blue)}
+body{font-family:'Inter',sans-serif;background-color:var(--bg-primary);color:var(--text-dark);line-height:1.7;overflow-x:hidden;}
 
-h1,h2,h3{font-family:'Outfit',sans-serif;font-weight:800;line-height:1.1;}
+h1,h2,h3{font-family:'Outfit',sans-serif;font-weight:700;line-height:1.15;color:var(--text-dark);letter-spacing:-0.02em;}
 a{text-decoration:none;color:inherit;}
 
-.text-gradient{background:linear-gradient(135deg,var(--accent-blue) 0%,var(--accent-purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.demo-banner{background:var(--text-dark);color:#fff;text-align:center;padding:12px;font-size:14px;font-weight:500;position:sticky;top:0;z-index:1000;}
+.demo-banner a{color:var(--accent-light);text-decoration:underline;font-weight:600;}
 
-.demo-banner{background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple));color:#000;text-align:center;padding:12px;font-size:14px;font-weight:700;position:sticky;top:0;z-index:1000;}
-.demo-banner a{color:#000;text-decoration:underline;}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem;width:100%;}
 
-.hero{height:100vh;min-height:700px;display:flex;align-items:center;position:relative;background:radial-gradient(circle at 70% 50%, rgba(0,242,254,0.08) 0%, transparent 60%);}
-.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1600') center/cover;opacity:0.15;z-index:-1;}
-.container{max-width:1200px;margin:0 auto;padding:0 2rem;width:100%;}
+/* SPLIT HERO */
+.hero{padding:8rem 0;background:var(--bg-primary);position:relative;overflow:hidden;}
+.hero .container{display:flex;align-items:center;gap:4rem;}
+.hero-content{flex:1;animation:fadeUp 1s ease forwards;}
+.hero-tag{display:inline-block;padding:8px 20px;background:var(--accent-light);color:var(--accent-dark);border-radius:30px;font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:1.5rem;}
+.hero h1{font-size:4rem;margin-bottom:1.5rem;}
+.hero h1 span{color:var(--accent-main);}
+.hero p{font-size:1.2rem;color:var(--text-gray);margin-bottom:2.5rem;max-width:550px;}
 
-.hero-content{max-width:700px;animation:fadeUp 1s ease forwards;}
-.hero-tag{display:inline-block;padding:8px 16px;background:rgba(0,242,254,0.1);border:1px solid rgba(0,242,254,0.2);color:var(--accent-blue);border-radius:30px;font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;}
-.hero h1{font-size:4.5rem;margin-bottom:1.5rem;letter-spacing:-0.02em;}
-.hero p{font-size:1.25rem;color:var(--text-gray);margin-bottom:2.5rem;max-width:550px;}
+.btn{display:inline-flex;align-items:center;padding:1.1rem 2.5rem;font-family:'Outfit',sans-serif;font-weight:600;font-size:1.05rem;border-radius:50px;transition:var(--transition);cursor:pointer;}
+.btn-primary{background:var(--accent-main);color:#fff;box-shadow:0 10px 20px rgba(13,148,136,0.2);}
+.btn-primary:hover{transform:translateY(-3px);background:var(--accent-dark);box-shadow:0 15px 30px rgba(13,148,136,0.3);}
 
-.btn{display:inline-flex;align-items:center;padding:1rem 2.5rem;font-family:'Outfit',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;border-radius:8px;transition:var(--transition-smooth);cursor:pointer;}
-.btn-primary{background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:#000;box-shadow:var(--shadow-blue);}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,242,254,0.3);}
+.hero-image{flex:1;position:relative;animation:fadeLeft 1s ease forwards;}
+.hero-img-wrap{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/3;}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-badge{position:absolute;bottom:-20px;left:-20px;background:#fff;padding:1.5rem;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:1rem;}
+.badge-icon{width:50px;height:50px;background:var(--accent-light);color:var(--accent-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.badge-text{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;line-height:1.2;}
+.badge-text span{display:block;font-size:0.85rem;color:var(--text-gray);font-weight:400;}
 
-/* PREMIUM GRID INSTEAD OF UGLY SVG */
-.treatments{padding:8rem 0;position:relative;}
+/* TREATMENTS GRID */
+.treatments{padding:8rem 0;background:var(--bg-secondary);}
 .section-header{text-align:center;margin-bottom:5rem;}
 .section-header h2{font-size:3rem;margin-bottom:1rem;}
 .section-header p{color:var(--text-gray);font-size:1.1rem;max-width:600px;margin:0 auto;}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
-.card{background:var(--glass-bg);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:3rem 2rem;border-radius:16px;transition:var(--transition-smooth);position:relative;overflow:hidden;group;}
-.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple));transform:scaleX(0);transform-origin:left;transition:transform 0.5s ease;}
-.card:hover::before{transform:scaleX(1);}
-.card:hover{transform:translateY(-10px);border-color:rgba(0,242,254,0.3);box-shadow:var(--shadow-blue);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2.5rem;}
+.card{background:#fff;padding:3rem 2.5rem;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);transition:var(--transition);position:relative;}
+.card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg);}
+.card-icon{width:70px;height:70px;background:var(--bg-secondary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--accent-main);margin-bottom:2rem;transition:var(--transition);}
+.card:hover .card-icon{background:var(--accent-main);color:#fff;}
+.card h3{font-size:1.6rem;margin-bottom:1rem;}
+.card p{color:var(--text-gray);font-size:1.05rem;}
 
-.card-icon{width:60px;height:60px;background:rgba(0,242,254,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--accent-blue);margin-bottom:1.5rem;transition:var(--transition-smooth);}
-.card:hover .card-icon{background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:#000;}
-.card h3{font-size:1.5rem;margin-bottom:1rem;color:#fff;}
-.card p{color:var(--text-gray);font-size:1rem;line-height:1.6;}
+/* ABOUT */
+.about{padding:8rem 0;background:var(--bg-primary);}
+.about .container{display:flex;align-items:center;gap:5rem;}
+.about-img{flex:1;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:1/1;}
+.about-img img{width:100%;height:100%;object-fit:cover;}
+.about-content{flex:1;}
+.about-content h2{font-size:3rem;margin-bottom:1.5rem;}
+.about-content p{font-size:1.15rem;color:var(--text-gray);margin-bottom:2rem;}
+.check-list{list-style:none;margin-bottom:3rem;}
+.check-list li{display:flex;align-items:center;gap:1rem;font-size:1.1rem;font-weight:500;margin-bottom:1rem;color:var(--text-dark);}
+.check-icon{color:var(--accent-main);font-size:1.2rem;}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
 
-@media(max-width:768px){
+@media(max-width:992px){
+  .hero .container, .about .container{flex-direction:column;text-align:center;}
+  .hero-badge{display:none;}
   .hero h1{font-size:3rem;}
-  .treatments{padding:4rem 0;}
+  .hero-content, .about-content{width:100%;}
+  .check-list li{justify-content:center;}
 }
 </style>
 </head>
 <body>
 
-<div class="demo-banner">✨ Custom design concept for Movement Medicine Chiropractic Performance & Recovery &mdash; <a href="https://www.fiverr.com/sellers/chandangosavi/">Take it live on Fiverr</a></div>
+<div class="demo-banner">✨ Custom website design for Movement Medicine Chiropractic Performance & Recovery &mdash; <a href="https://www.fiverr.com/sellers/chandangosavi/">Order on Fiverr to take it live</a></div>
 
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-tag">Premium Chiropractic Care</div>
-      <h1>Reclaim Your <span class="text-gradient">Active Life</span></h1>
+      <div class="hero-tag">Expert Chiropractic Care</div>
+      <h1>Reclaim Your <span>Active Life</span></h1>
       <p>Targeted adjustments, spinal decompression, and holistic pain relief therapies tailored exclusively to your body's needs.</p>
-      <a href="#treatments" class="btn btn-primary">View Treatments &rarr;</a>
+      <a href="#treatments" class="btn btn-primary">Discover Treatments &rarr;</a>
+    </div>
+    <div class="hero-image">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1400" alt="Chiropractic Care">
+      </div>
+      <div class="hero-badge">
+        <div class="badge-icon">✓</div>
+        <div class="badge-text">Natural Relief<span>No surgery or meds</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -90,8 +119,8 @@ a{text-decoration:none;color:inherit;}
 <section class="treatments" id="treatments">
   <div class="container">
     <div class="section-header">
-      <h2>Targeted <span class="text-gradient">Relief</span></h2>
-      <p>Specialized treatments designed to address the root cause of your pain, without relying on surgery or medication.</p>
+      <h2>Targeted <span>Relief</span></h2>
+      <p>Specialized therapies designed to address the root cause of your pain, promoting natural healing and long-term wellness.</p>
     </div>
     
     <div class="grid">
@@ -110,8 +139,27 @@ a{text-decoration:none;color:inherit;}
       <div class="card">
         <div class="card-icon">🏃</div>
         <h3>Knee & Joint Recovery</h3>
-        <p>Extremity adjustments paired with cold laser therapy reduce joint inflammation, accelerating recovery for athletes and arthritis patients.</p>
+        <p>Extremity adjustments paired with focused therapy reduce joint inflammation, accelerating recovery for athletes and arthritis patients.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=600" alt="Wellness">
+    </div>
+    <div class="about-content">
+      <h2>Why Choose <span>Movement Medicine Chiropractic Performance & Recovery</span>?</h2>
+      <p>We believe that your body has the innate ability to heal itself when the spine and nervous system are functioning optimally. Our doctors take a personalized, comprehensive approach to every patient.</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✔</span> Comprehensive Initial Exam & X-Rays</li>
+        <li><span class="check-icon">✔</span> Personalized Recovery Plans</li>
+        <li><span class="check-icon">✔</span> Modern, State-of-the-art Facility</li>
+        <li><span class="check-icon">✔</span> Focus on Long-Term Wellness</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
     </div>
   </div>
 </section>
