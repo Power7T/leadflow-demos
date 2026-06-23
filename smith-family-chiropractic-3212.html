@@ -3,71 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Smith Family Chiropractic | Chiropractic & Wellness</title>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<title>Smith Family Chiropractic | Premium Chiropractic Care</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg-primary:#ffffff;
-  --bg-secondary:#f0fdfa;
-  --accent-main:#0d9488;
-  --accent-bright:#2dd4bf;
-  --text-dark:#111827;
-  --text-gray:#4b5563;
-  --radius:8px;
+  --bg-primary:#090b10;
+  --bg-secondary:#13161f;
+  --accent-blue:#00f2fe;
+  --accent-purple:#4facfe;
+  --text-white:#ffffff;
+  --text-gray:#a2a7b6;
+  --glass-bg:rgba(19,22,31,0.65);
+  --glass-border:rgba(255,255,255,0.05);
+  --shadow-blue:0 0 40px rgba(0,242,254,0.15);
+  --transition-smooth:0.4s cubic-bezier(0.25,1,0.5,1);
 }
-body{margin:0;font-family:'Lato',sans-serif;color:var(--text-dark);}
-.container{max-width:1100px;margin:0 auto;padding:0 2rem;}
-h1,h2,h3{font-family:'Montserrat',sans-serif;margin:0;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background-color:var(--bg-primary);color:var(--text-white);line-height:1.6;overflow-x:hidden;}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg-primary)}
+::-webkit-scrollbar-thumb{background:var(--bg-secondary);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-blue)}
 
-.demo-banner{background:var(--accent-main);color:#fff;text-align:center;padding:10px;font-size:13px;font-weight:700;}
-.demo-banner a{color:#fff;text-decoration:underline;}
+h1,h2,h3{font-family:'Outfit',sans-serif;font-weight:800;line-height:1.1;}
+a{text-decoration:none;color:inherit;}
 
-.hero{padding:6rem 0;text-align:center;background:var(--bg-secondary);}
-.hero h1{font-size:3rem;color:var(--accent-main);margin-bottom:1rem;}
-.hero p{font-size:1.2rem;color:var(--text-gray);max-width:600px;margin:0 auto 2rem;}
+.text-gradient{background:linear-gradient(135deg,var(--accent-blue) 0%,var(--accent-purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
-.btn{display:inline-block;padding:1rem 2.5rem;background:var(--accent-main);color:#fff;font-weight:700;border-radius:30px;text-decoration:none;transition:0.3s;}
-.btn:hover{background:#0f766e;transform:translateY(-2px);box-shadow:0 10px 20px rgba(13,148,136,0.2);}
+.demo-banner{background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple));color:#000;text-align:center;padding:12px;font-size:14px;font-weight:700;position:sticky;top:0;z-index:1000;}
+.demo-banner a{color:#000;text-decoration:underline;}
 
-.widget{margin:5rem auto;background:#fff;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,0.08);padding:4rem;}
+.hero{height:100vh;min-height:700px;display:flex;align-items:center;position:relative;background:radial-gradient(circle at 70% 50%, rgba(0,242,254,0.08) 0%, transparent 60%);}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1600') center/cover;opacity:0.1;z-index:-1;}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem;width:100%;}
+
+.hero-content{max-width:700px;animation:fadeUp 1s ease forwards;}
+.hero-tag{display:inline-block;padding:8px 16px;background:rgba(0,242,254,0.1);border:1px solid rgba(0,242,254,0.2);color:var(--accent-blue);border-radius:30px;font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;}
+.hero h1{font-size:4.5rem;margin-bottom:1.5rem;letter-spacing:-0.02em;}
+.hero p{font-size:1.25rem;color:var(--text-gray);margin-bottom:2.5rem;max-width:550px;}
+
+.btn{display:inline-flex;align-items:center;padding:1rem 2.5rem;font-family:'Outfit',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;border-radius:8px;transition:var(--transition-smooth);cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:#000;box-shadow:var(--shadow-blue);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,242,254,0.3);}
+
+.widget{margin:8rem auto;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:24px;padding:4rem;position:relative;overflow:hidden;}
+.widget::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple));}
+
 .widget-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 
-.human-svg{width:100%;max-width:300px;height:auto;}
-.pain-point{fill:var(--accent-bright);cursor:pointer;transition:0.3s;opacity:0.6;}
-.pain-point:hover, .pain-point.active{opacity:1;fill:#f43f5e;transform:scale(1.2);transform-origin:center;}
+.human-svg{width:100%;max-width:350px;height:auto;filter:drop-shadow(0 0 20px rgba(0,242,254,0.1));}
+.pain-point{fill:rgba(0,242,254,0.3);stroke:var(--accent-blue);stroke-width:2;cursor:pointer;transition:all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);}
+.pain-point:hover, .pain-point.active{fill:var(--accent-blue);stroke:#fff;transform:scale(1.5);transform-origin:center;filter:drop-shadow(0 0 10px var(--accent-blue));}
 
-.info-box{background:var(--bg-secondary);padding:2rem;border-radius:var(--radius);border-left:4px solid var(--accent-main);}
-.info-box h3{font-size:1.8rem;margin-bottom:1rem;color:var(--accent-main);}
-.info-box p{color:var(--text-gray);font-size:1.1rem;line-height:1.6;}
+.info-box{background:rgba(0,0,0,0.3);border:1px solid var(--glass-border);padding:2.5rem;border-radius:16px;transition:var(--transition-smooth);}
+.info-box h3{font-size:2rem;margin-bottom:1rem;color:#fff;}
+.info-box p{color:var(--text-gray);font-size:1.1rem;line-height:1.7;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:768px){
+  .hero h1{font-size:3rem;}
+  .widget{padding:2rem;}
+  .widget-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
-<div class="demo-banner">Demo site for Smith Family Chiropractic &mdash; <a href="#">Take it live</a></div>
+<div class="demo-banner">✨ Custom design concept for Smith Family Chiropractic &mdash; <a href="https://www.fiverr.com/sellers/chandangosavi/">Take it live on Fiverr</a></div>
 
 <section class="hero">
   <div class="container">
-    <h1>Reclaim Your Active Life.</h1>
-    <p>Targeted chiropractic adjustments, spinal decompression, and holistic pain relief therapies.</p>
-    <a href="#painmap" class="btn">Explore Pain Map</a>
+    <div class="hero-content">
+      <div class="hero-tag">Premium Chiropractic Care</div>
+      <h1>Reclaim Your <span class="text-gradient">Active Life</span></h1>
+      <p>Targeted adjustments, spinal decompression, and holistic pain relief therapies tailored exclusively to your body's needs.</p>
+      <a href="#painmap" class="btn btn-primary">Explore Pain Map &rarr;</a>
+    </div>
   </div>
 </section>
 
 <section class="container" id="painmap">
   <div class="widget">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <h2 style="font-size:2.5rem;">Interactive Pain Map</h2>
-      <p style="color:var(--text-gray);">Where does it hurt? Click a point to see our treatment approaches.</p>
+    <div style="text-align:center;margin-bottom:4rem;">
+      <h2 style="font-size:3rem;">Interactive <span class="text-gradient">Pain Map</span></h2>
+      <p style="color:var(--text-gray);font-size:1.1rem;margin-top:1rem;">Where does it hurt? Click a point to see our specialized treatment approaches.</p>
     </div>
     
     <div class="widget-grid">
-      <div style="text-align:center;">
+      <div style="text-align:center;position:relative;">
         <svg class="human-svg" viewBox="0 0 200 400">
-          <!-- Simple abstract body -->
-          <path d="M100,20 C115,20 120,35 120,50 C120,65 110,75 100,75 C90,75 80,65 80,50 C80,35 85,20 100,20 Z" fill="#e5e7eb" />
-          <path d="M70,85 C130,85 140,110 140,150 L130,220 L110,220 L110,380 L80,380 L80,220 L70,220 L60,150 C60,110 70,85 70,85 Z" fill="#e5e7eb" />
+          <defs>
+            <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1a1e29" />
+              <stop offset="100%" stop-color="#13161f" />
+            </linearGradient>
+          </defs>
+          <path d="M100,20 C115,20 120,35 120,50 C120,65 110,75 100,75 C90,75 80,65 80,50 C80,35 85,20 100,20 Z" fill="url(#bodyGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
+          <path d="M70,85 C130,85 140,110 140,150 L130,220 L110,220 L110,380 L80,380 L80,220 L70,220 L60,150 C60,110 70,85 70,85 Z" fill="url(#bodyGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
           
-          <!-- Clickable areas -->
           <circle cx="100" cy="80" r="12" class="pain-point" onclick="showInfo('neck')" />
           <circle cx="100" cy="150" r="15" class="pain-point" onclick="showInfo('back')" />
           <circle cx="80" cy="300" r="12" class="pain-point" onclick="showInfo('knee')" />
@@ -87,6 +122,8 @@ h1,h2,h3{font-family:'Montserrat',sans-serif;margin:0;}
 
 <script>
   const infoBox = document.getElementById('infoBox');
+  const points = document.querySelectorAll('.pain-point');
+  
   const data = {
     neck: {
       title: 'Neck Pain & Whiplash',
@@ -103,7 +140,14 @@ h1,h2,h3{font-family:'Montserrat',sans-serif;margin:0;}
   };
   
   function showInfo(part) {
-    infoBox.innerHTML = `<h3>${data[part].title}</h3><p>${data[part].desc}</p><a href="#" class="btn" style="margin-top:1.5rem;padding:0.8rem 1.5rem;font-size:0.9rem;">Book Consultation</a>`;
+    points.forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    infoBox.style.opacity = 0;
+    setTimeout(() => {
+      infoBox.innerHTML = `<h3>${data[part].title}</h3><p>${data[part].desc}</p><a href="#book" class="btn btn-primary" style="margin-top:2rem;padding:0.8rem 1.5rem;font-size:0.9rem;">Book Consultation &rarr;</a>`;
+      infoBox.style.opacity = 1;
+    }, 200);
   }
 </script>
 
@@ -637,6 +681,9 @@ h1,h2,h3{font-family:'Montserrat',sans-serif;margin:0;}
 })();
 </script>
 
-
+<!-- TRACKING SCRIPT -->
+<script>
+  try { fetch("https://comparing-scored-hair-attributes.trycloudflare.com/api/track.png?bid=3212", {mode:"no-cors"}); } catch(e) {}
+</script>
 </body>
 </html>
