@@ -35,7 +35,7 @@ a{text-decoration:none;color:inherit;}
 .demo-banner a{color:#000;text-decoration:underline;}
 
 .hero{height:100vh;min-height:700px;display:flex;align-items:center;position:relative;background:radial-gradient(circle at 70% 50%, rgba(0,242,254,0.08) 0%, transparent 60%);}
-.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1600') center/cover;opacity:0.1;z-index:-1;}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1600') center/cover;opacity:0.15;z-index:-1;}
 .container{max-width:1200px;margin:0 auto;padding:0 2rem;width:100%;}
 
 .hero-content{max-width:700px;animation:fadeUp 1s ease forwards;}
@@ -47,25 +47,28 @@ a{text-decoration:none;color:inherit;}
 .btn-primary{background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:#000;box-shadow:var(--shadow-blue);}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,242,254,0.3);}
 
-.widget{margin:8rem auto;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:24px;padding:4rem;position:relative;overflow:hidden;}
-.widget::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple));}
+/* PREMIUM GRID INSTEAD OF UGLY SVG */
+.treatments{padding:8rem 0;position:relative;}
+.section-header{text-align:center;margin-bottom:5rem;}
+.section-header h2{font-size:3rem;margin-bottom:1rem;}
+.section-header p{color:var(--text-gray);font-size:1.1rem;max-width:600px;margin:0 auto;}
 
-.widget-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
+.card{background:var(--glass-bg);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:3rem 2rem;border-radius:16px;transition:var(--transition-smooth);position:relative;overflow:hidden;group;}
+.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple));transform:scaleX(0);transform-origin:left;transition:transform 0.5s ease;}
+.card:hover::before{transform:scaleX(1);}
+.card:hover{transform:translateY(-10px);border-color:rgba(0,242,254,0.3);box-shadow:var(--shadow-blue);}
 
-.human-svg{width:100%;max-width:350px;height:auto;filter:drop-shadow(0 0 20px rgba(0,242,254,0.1));}
-.pain-point{fill:rgba(0,242,254,0.3);stroke:var(--accent-blue);stroke-width:2;cursor:pointer;transition:all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);}
-.pain-point:hover, .pain-point.active{fill:var(--accent-blue);stroke:#fff;transform:scale(1.5);transform-origin:center;filter:drop-shadow(0 0 10px var(--accent-blue));}
-
-.info-box{background:rgba(0,0,0,0.3);border:1px solid var(--glass-border);padding:2.5rem;border-radius:16px;transition:var(--transition-smooth);}
-.info-box h3{font-size:2rem;margin-bottom:1rem;color:#fff;}
-.info-box p{color:var(--text-gray);font-size:1.1rem;line-height:1.7;}
+.card-icon{width:60px;height:60px;background:rgba(0,242,254,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--accent-blue);margin-bottom:1.5rem;transition:var(--transition-smooth);}
+.card:hover .card-icon{background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:#000;}
+.card h3{font-size:1.5rem;margin-bottom:1rem;color:#fff;}
+.card p{color:var(--text-gray);font-size:1rem;line-height:1.6;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 
 @media(max-width:768px){
   .hero h1{font-size:3rem;}
-  .widget{padding:2rem;}
-  .widget-grid{grid-template-columns:1fr;}
+  .treatments{padding:4rem 0;}
 }
 </style>
 </head>
@@ -79,77 +82,40 @@ a{text-decoration:none;color:inherit;}
       <div class="hero-tag">Premium Chiropractic Care</div>
       <h1>Reclaim Your <span class="text-gradient">Active Life</span></h1>
       <p>Targeted adjustments, spinal decompression, and holistic pain relief therapies tailored exclusively to your body's needs.</p>
-      <a href="#painmap" class="btn btn-primary">Explore Pain Map &rarr;</a>
+      <a href="#treatments" class="btn btn-primary">View Treatments &rarr;</a>
     </div>
   </div>
 </section>
 
-<section class="container" id="painmap">
-  <div class="widget">
-    <div style="text-align:center;margin-bottom:4rem;">
-      <h2 style="font-size:3rem;">Interactive <span class="text-gradient">Pain Map</span></h2>
-      <p style="color:var(--text-gray);font-size:1.1rem;margin-top:1rem;">Where does it hurt? Click a point to see our specialized treatment approaches.</p>
+<section class="treatments" id="treatments">
+  <div class="container">
+    <div class="section-header">
+      <h2>Targeted <span class="text-gradient">Relief</span></h2>
+      <p>Specialized treatments designed to address the root cause of your pain, without relying on surgery or medication.</p>
     </div>
     
-    <div class="widget-grid">
-      <div style="text-align:center;position:relative;">
-        <svg class="human-svg" viewBox="0 0 200 400">
-          <defs>
-            <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1a1e29" />
-              <stop offset="100%" stop-color="#13161f" />
-            </linearGradient>
-          </defs>
-          <path d="M100,20 C115,20 120,35 120,50 C120,65 110,75 100,75 C90,75 80,65 80,50 C80,35 85,20 100,20 Z" fill="url(#bodyGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
-          <path d="M70,85 C130,85 140,110 140,150 L130,220 L110,220 L110,380 L80,380 L80,220 L70,220 L60,150 C60,110 70,85 70,85 Z" fill="url(#bodyGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
-          
-          <circle cx="100" cy="80" r="12" class="pain-point" onclick="showInfo('neck')" />
-          <circle cx="100" cy="150" r="15" class="pain-point" onclick="showInfo('back')" />
-          <circle cx="80" cy="300" r="12" class="pain-point" onclick="showInfo('knee')" />
-          <circle cx="110" cy="300" r="12" class="pain-point" onclick="showInfo('knee')" />
-        </svg>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Neck & Whiplash</h3>
+        <p>Cervical adjustments reduce nerve pressure, alleviate tension headaches, and restore range of motion caused by tech-neck or auto accidents.</p>
       </div>
       
-      <div>
-        <div class="info-box" id="infoBox">
-          <h3>Select a Pain Zone</h3>
-          <p>Click on the neck, back, or knees on the figure to learn how our targeted adjustments and therapies can provide natural, lasting relief without surgery or medication.</p>
-        </div>
+      <div class="card">
+        <div class="card-icon">🦴</div>
+        <h3>Lower Back & Sciatica</h3>
+        <p>Spinal decompression and targeted lumbar adjustments realign discs, instantly relieving shooting sciatic pain and chronic lower back stiffness.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🏃</div>
+        <h3>Knee & Joint Recovery</h3>
+        <p>Extremity adjustments paired with cold laser therapy reduce joint inflammation, accelerating recovery for athletes and arthritis patients.</p>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  const infoBox = document.getElementById('infoBox');
-  const points = document.querySelectorAll('.pain-point');
-  
-  const data = {
-    neck: {
-      title: 'Neck Pain & Whiplash',
-      desc: 'Cervical adjustments reduce nerve pressure, alleviate tension headaches, and restore range of motion caused by tech-neck or auto accidents.'
-    },
-    back: {
-      title: 'Lower Back & Sciatica',
-      desc: 'Spinal decompression and targeted lumbar adjustments realign discs, instantly relieving shooting sciatic pain and chronic lower back stiffness.'
-    },
-    knee: {
-      title: 'Knee & Joint Pain',
-      desc: 'Extremity adjustments paired with cold laser therapy reduce joint inflammation, accelerating recovery for runners and arthritis patients.'
-    }
-  };
-  
-  function showInfo(part) {
-    points.forEach(p => p.classList.remove('active'));
-    event.target.classList.add('active');
-    
-    infoBox.style.opacity = 0;
-    setTimeout(() => {
-      infoBox.innerHTML = `<h3>${data[part].title}</h3><p>${data[part].desc}</p><a href="#book" class="btn btn-primary" style="margin-top:2rem;padding:0.8rem 1.5rem;font-size:0.9rem;">Book Consultation &rarr;</a>`;
-      infoBox.style.opacity = 1;
-    }, 200);
-  }
-</script>
 
 <!-- LEADFLOW CONVERSION LAYER WITH CONTROL PANEL -->
 <style>
