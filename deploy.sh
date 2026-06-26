@@ -14,6 +14,6 @@ source "$CRED_FILE"
 export CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID
 
 echo "🚀 Syncing and deploying static assets to Cloudflare Pages..."
-npx wrangler pages deploy /Users/chandan/leadflow/leadflow-demos --project-name=leadflow-demos
+npx wrangler pages deploy /Users/chandan/leadflow/demos --project-name=leadflow-demos
 
 echo "✨ Deployment complete!"
