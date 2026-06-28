@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- PASSCODE SECURITY WALL -->
+    <script>
+      (function() {
+        var pass = localStorage.getItem("lf_pass");
+        if (pass !== "chandan123") {
+          var input = prompt("Enter passcode to access dashboard:");
+          if (input === "chandan123") {
+            localStorage.setItem("lf_pass", input);
+          } else {
+            document.write("<h1 style='color:red;text-align:center;font-family:sans-serif;margin-top:100px;'>Unauthorized Access</h1>");
+            window.stop();
+          }
+        }
+      })();
+    </script>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadFlow — Dashboard & Autopilot</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="logo">LeadFlow<span>by Chandan</span></div>
+  
+  <a href="./dashboard_index.html" class="autopilot-status" id="sidebar-autopilot-status">
+    
+      <span class="pulse-dot green" id="sidebar-autopilot-dot"></span>
+      <span id="sidebar-autopilot-text" style="color:#00c896; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Autopilot Active</span>
+    
+  </a>
+
+  <nav class="nav">
+    <a href="./dashboard_index.html" class="active">
+      <span class="icon">⚡</span> Dashboard
+    </a>
+    <a href="./dashboard_find.html" class="">
+      <span class="icon">🔍</span> Find Businesses
+    </a>
+    <a href="./dashboard_leads.html" class="">
+      <span class="icon">📋</span> Review Leads
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1150</span>
+    </a>
+    <a href="./dashboard_saas.html" class="">
+      <span class="icon">💻</span> SaaS CRM Leads
+    </a>
+    <a href="./dashboard_ig.html" class="">
+      <span class="icon">📸</span> Instagram Reach
+      <span class="badge badge-new" id="sidebar-badge-ig-new" style="margin-left:auto; display:none;">0</span>
+    </a>
+    <a href="./dashboard_test.html" class="">
+      <span class="icon">🧪</span> Test Leads
+      <span class="badge badge-new" id="sidebar-badge-test-new" style="margin-left:auto; ">5</span>
+    </a>
+    <a href="./dashboard_kanban.html" class="">
+      <span class="icon">🗂</span> Pipeline
+    </a>
+    <a href="./dashboard_followups.html" class="">
+      <span class="icon">🔁</span> Follow-ups
+    </a>
+    <a href="./dashboard_templates.html" class="">
+      <span class="icon">📝</span> Templates
+    </a>
+    <a href="./dashboard_demos.html" class="">
+      <span class="icon">🌐</span> Demo Sites
+    </a>
+    <a href="./dashboard_sent.html" class="">
+      <span class="icon">📨</span> Sent
+    </a>
+    <a href="./dashboard_analytics.html" class="">
+      <span class="icon">📊</span> Analytics
+    </a>
+    <a href="/ab-test" class="">
+      <span class="icon">🧪</span> A/B Tests
+    </a>
+    <a href="./dashboard_settings.html" class="">
+      <span class="icon">⚙️</span> Settings
+    </a>
+  </nav>
+  <div class="sidebar-stats">
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1150</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">535</b></div>
+    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
+    <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
+    <div class="stat" id="sidebar-stat-opted-out-container" style="">
+      <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">2</b>
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+  
+<div class="page-header" style="margin-bottom: 24px;">
+  <div class="page-title">
+    <h1>🚀 Command Center</h1>
+    <p>Your high-level metrics and autopilot outreach engine.</p>
+  </div>
+</div>
+
+<!-- Live Stats Row -->
+<div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 24px;">
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
+    <div style="font-size: 24px; font-weight: bold; color: var(--text);">2228</div>
+    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Leads Scraped</div>
+  </div>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
+    <div style="font-size: 24px; font-weight: bold; color: var(--accent);">705</div>
+    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Outreach Sent</div>
+  </div>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
+    <div style="font-size: 24px; font-weight: bold; color: var(--purple, #a855f7);">81</div>
+    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Follow-ups Sent</div>
+  </div>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
+    <div style="font-size: 24px; font-weight: bold; color: var(--blue);">31</div>
+    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Emails Opened</div>
+  </div>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
+    <div style="font-size: 24px; font-weight: bold; color: var(--yellow);">8</div>
+    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Links Clicked</div>
+  </div>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
+    <div style="font-size: 24px; font-weight: bold; color: #00c896;">4</div>
+    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Replies Received</div>
+  </div>
+</div>
+
+<!-- Main Grid -->
+<div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; margin-bottom: 24px;">
+  
+  <!-- Left Side: Status, Trigger & Live Terminal -->
+  <div>
+    <!-- Status Card -->
+    <div class="form-card" style="margin-bottom: 24px; border-color: #00c896;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <h2 style="margin: 0; display: flex; align-items: center; gap: 10px;">
+            
+              <span class="pulse-dot green" style="width: 12px; height: 12px;"></span>
+              Autopilot is ACTIVE
+            
+          </h2>
+          <p style="color: var(--text-dim); margin-top: 6px; font-size: 13px;">
+            
+              Active 24/7. Lead extraction runs every 10 mins. Auto-sending checks queue every 5 mins and staggers sends to arrive during local business hours in each country.
+            
+          </p>
+        </div>
+        
+        <!-- Interactive Toggle Switch -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 500; color: var(--text-dim);">Toggle Status:</span>
+          <button id="toggleBtn" onclick="toggleAutopilot()" class="btn btn-ghost" style="padding: 8px 16px; min-width: 100px;">
+            ⏸ Pause
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Terminal / Logs -->
+    <div class="form-card" style="margin-bottom: 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h2 style="margin: 0;">📟 Live Autopilot Logs</h2>
+        <span style="font-size: 11px; background: rgba(0, 200, 150, 0.1); color: #00c896; padding: 3px 8px; border-radius: 12px; font-weight: 500;">
+          🟢 Streaming Live
+        </span>
+      </div>
+      <div id="terminalLog" style="height: 250px; background: #0c0c0e; border: 1px solid #1f1f24; border-radius: 8px; padding: 12px; font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace; font-size: 12px; line-height: 1.5; color: #a9b1d6; overflow-y: auto; white-space: pre-wrap; word-break: break-all;">
+        Initializing logs...
+      </div>
+    </div>
+
+    <!-- Manual Trigger Center -->
+    <div class="form-card">
+      <h2>⚡ Manual Action Center</h2>
+      <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 18px;">
+        Trigger autopilot tasks immediately without waiting for the background scheduler.
+      </p>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+          <h3 style="margin:0 0 6px 0; font-size: 14px;">🔍 Lead Finder Scraper</h3>
+          <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Rotate niche/location lists to scrape new leads.</p>
+          <button onclick="triggerJob('find', this)" class="btn btn-primary btn-sm" style="width:100%">Run Lead Finder Now</button>
+        </div>
+        
+        <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+          <h3 style="margin:0 0 6px 0; font-size: 14px;">📨 Auto-Send Outreach</h3>
+          <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Deploy custom previews and drafts to leads with score >= 80.</p>
+          <button onclick="triggerJob('send_leads', this)" class="btn btn-primary btn-sm" style="width:100%">Auto-Send Pending Leads</button>
+        </div>
+ 
+        <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+          <h3 style="margin:0 0 6px 0; font-size: 14px;">🔁 Auto-Send Followups</h3>
+          <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Dispatch all follow-ups that are scheduled and pending.</p>
+          <button onclick="triggerJob('send_followups', this)" class="btn btn-primary btn-sm" style="width:100%">Dispatch Follow-ups</button>
+        </div>
+ 
+        <div style="padding: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;">
+          <h3 style="margin:0 0 6px 0; font-size: 14px;">📥 Inbox Reply & Opt-Out Sync</h3>
+          <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Sync your Gmail inbox for replies and stop commands.</p>
+          <button onclick="triggerJob('check_replies', this)" class="btn btn-primary btn-sm" style="width:100%">Sync Inbox Now</button>
+        </div>
+      </div>
+      
+      <!-- Live Action Log Box -->
+      <div id="triggerStatus" style="margin-top: 16px; padding: 12px; background: #111; border: 1px solid #222; border-radius: 6px; font-family: monospace; font-size: 12px; display: none;"></div>
+    </div>
+  </div>
+ 
+  <!-- Right Side: Stats & Config -->
+  <div>
+    <!-- Daily Limit Stats Card -->
+    
+    
+    <div class="form-card" style="margin-bottom: 24px;">
+      <h2>📊 Deliverability & Protection</h2>
+      <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
+        Spam filter safeguard: Emails are throttled to a dynamically warmed maximum of 75 sent cold emails per day.
+      </p>
+      
+      <div style="margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; margin-bottom: 6px;">
+          <span>Daily Limit Progress</span>
+          <span style="color: var(--accent); font-weight:600;">58 / 75 sent</span>
+        </div>
+        <div class="bp-track" style="height: 8px;">
+          <div class="bp-fill" style="width: 77.33333333333333%; background: #00c896;"></div>
+        </div>
+      </div>
+      
+      <div style="font-size:11px; color: var(--text-dim); line-height: 1.4; background: var(--surface2); padding: 8px 12px; border-radius: 6px; margin-top: 14px;">
+        ℹ️ <strong>Spam Protection:</strong> Once 75 cold emails are dispatched in a single calendar day, background runs will automatically sleep until tomorrow to preserve your domain health.
+      </div>
+    </div>
+
+    <!-- Next in Queue / Timers -->
+    <div class="form-card" style="margin-bottom: 24px;">
+      <h2>⏳ Upcoming Outreach Schedule</h2>
+      <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
+        Queue of leads pending initial outreach or automated follow-ups. Delays are added to simulate human behavior.
+      </p>
+
+      
+      <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #ef4444; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 16px;">
+        <strong>⚠️ Stuck Leads:</strong> You have 1 lead(s) in "approved" status with no email address. They will not be sent.
+      </div>
+      
+
+      
+      <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 16px;">
+        <strong>⏳ Pending Follow-ups:</strong> 180 follow-up(s) waiting in queue.
+      </div>
+      
+
+      <div style="margin-bottom: 16px;">
+        <div style="font-weight: 600; font-size: 13px; margin-bottom: 8px; border-bottom: 1px solid var(--border); padding-bottom: 4px;">Initial Cold Emails (Next 5)</div>
+        
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>Gulf Dunes Landscape And Agriculture Services</strong> (info@gdlandscape.ae)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chqn.films2@gmail.com</span>
+              </div>
+              <div style="color: var(--accent); font-weight: 600;">
+                2026-06-24 13:00:36
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>Daily Rosen Dentistry</strong> (contact@officite.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: Auto-assigned at send</span>
+              </div>
+              <div style="color: var(--accent); font-weight: 600;">
+                2026-06-24 13:01:29
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>Driftwood Dental</strong> (info@driftwooddentalclinic.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: Auto-assigned at send</span>
+              </div>
+              <div style="color: var(--accent); font-weight: 600;">
+                2026-06-24 13:01:51
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>J Adams Air Conditioning Heating And Plumbing | Rialto CA</strong> (j.adamshvac@icloud.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
+              </div>
+              <div style="color: var(--accent); font-weight: 600;">
+                2026-06-24 13:03:06
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>JC&C Roofing Company</strong> (hello@jccroofing.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: bhartimitrabot@gmail.com</span>
+              </div>
+              <div style="color: var(--accent); font-weight: 600;">
+                2026-06-24 13:03:13
+              </div>
+            </div>
+          
+          </div>
+        
+      </div>
+
+      <div>
+        <div style="font-weight: 600; font-size: 13px; margin-bottom: 8px; border-bottom: 1px solid var(--border); padding-bottom: 4px;">Auto Follow-ups (Next 5)</div>
+        
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>KIDA RAMADAN Barbershop</strong> (info@kidabarber.de)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
+              </div>
+              <div style="color: #fbbf24; font-weight: 600;">
+                2026-06-28 05:36:27
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>East Nashville Chiropractic</strong> (info@eastnashvillechiro.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: bhartimitrabot@gmail.com</span>
+              </div>
+              <div style="color: #fbbf24; font-weight: 600;">
+                2026-06-28 06:36:27
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>Club Aurora Fitness + Spa</strong> (info@clubaurora.com.au)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
+              </div>
+              <div style="color: #fbbf24; font-weight: 600;">
+                2026-06-28 07:06:39
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>Assiniboine Lawns & Landscapes</strong> (service@assiniboine.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
+              </div>
+              <div style="color: #fbbf24; font-weight: 600;">
+                2026-06-28 07:12:57
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>Oasis Landscape Group Ltd.</strong> (oasisheadoffice@gmail.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: bhartimitrabot@gmail.com</span>
+              </div>
+              <div style="color: #fbbf24; font-weight: 600;">
+                2026-06-28 07:15:59
+              </div>
+            </div>
+          
+          </div>
+        
+      </div>
+    </div>
+
+    <!-- Active Scheduler Config -->
+    <div class="form-card">
+      <h2>⚙️ Active Search Rotation</h2>
+      <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
+        Your daily finder searches these parameters:
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+          <span style="color: var(--text-dim);">Target Niches</span>
+          <span style="font-weight: 500;">["gym", "restaurant", "dentist", "barbershop", "real estate", "roofing", "hvac", "solar", "lawyer", "medspa", "remodeler", "cleaning", "detailing", "tree service", "plumbing", "landscaping", "accountant", "moving", "chiropractor"]</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+          <span style="color: var(--text-dim);">Target Cities</span>
+          <span style="font-weight: 500;">["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX", "Phoenix, AZ", "San Antonio, TX", "Philadelphia, PA", "San Diego, CA", "Dallas, TX", "Fort Worth, TX", "Jacksonville, FL", "Austin, TX", "San Jose, CA", "Charlotte, NC", "Columbus, OH", "Indianapolis, IN", "San Francisco, CA", "Seattle, WA", "Denver, CO", "Oklahoma City, OK", "Nashville, TN", "Washington, DC", "El Paso, TX", "Boston, MA", "Portland, OR", "Las Vegas, NV", "Detroit, MI", "Louisville, KY", "Baltimore, MD", "Milwaukee, WI", "Albuquerque, NM", "Tucson, AZ", "Fresno, CA", "Sacramento, CA", "Kansas City, MO", "Mesa, AZ", "Atlanta, GA", "Omaha, NE", "Colorado Springs, CO", "Raleigh, NC", "Long Beach, CA", "Virginia Beach, VA", "Miami, FL", "Oakland, CA", "Minneapolis, MN", "Tulsa, OK", "Bakersfield, CA", "Wichita, KS", "Arlington, TX", "Tampa, FL", "Aurora, CO", "New Orleans, LA", "Cleveland, OH", "Anaheim, CA", "Honolulu, HI", "Henderson, NV", "Stockton, CA", "Riverside, CA", "Santa Ana, CA", "Irvine, CA", "St. Louis, MO", "St. Paul, MN", "Pittsburgh, PA", "Corpus Christi, TX", "Cincinnati, OH", "Greensboro, NC", "Newark, NJ", "Plano, TX", "Lincoln, NE", "Orlando, FL", "Fort Wayne, IN", "Jersey City, NJ", "Durham, NC", "St. Petersburg, FL", "Laredo, TX", "Buffalo, NY", "Madison, WI", "Lubbock, TX", "Chandler, AZ", "Scottsdale, AZ", "Reno, NV", "Glendale, AZ", "Winston-Salem, NC", "North Las Vegas, NV", "Norfolk, VA", "Chesapeake, VA", "Garland, TX", "Irving, TX", "Hialeah, FL", "Fremont, CA", "Boise, ID", "Richmond, VA", "Baton Rouge, LA", "Spokane, WA", "Des Moines, IA", "Tacoma, WA", "San Bernardino, CA", "Modesto, CA", "Huntington Beach, CA", "Fontana, CA", "Montgomery, AL", "Glendale, CA", "Aurora, IL", "Santa Clarita, CA", "Birmingham, AL", "Oxnard, CA", "Fayetteville, NC", "Moreno Valley, CA", "Rochester, NY", "Grand Rapids, MI", "Salt Lake City, UT", "Amarillo, TX", "Yonkers, NY", "Columbus, GA", "Little Rock, AR", "Augusta, GA", "Huntsville, AL", "Newport News, VA", "Overland Park, KS", "Santa Rosa, CA", "Port St. Lucie, FL", "Ontario, CA", "Tempe, AZ", "Vancouver, WA", "Springfield, MO", "Cape Coral, FL", "Pembroke Pines, FL", "Sioux Falls, SD", "Peoria, AZ", "Lancaster, CA", "Elk Grove, CA", "Corona, CA", "Eugene, OR", "Salem, OR", "Fort Lauderdale, FL", "Chattanooga, TN", "Garden Grove, CA", "Oceanside, CA", "Rancho Cucamonga, CA", "Brownsville, TX", "Jackson, MS", "Worcester, MA", "Grand Prairie, TX", "Knoxville, TN", "Providence, RI", "Tallahassee, FL", "London, United Kingdom", "Manchester, United Kingdom", "Birmingham, United Kingdom", "Leeds, United Kingdom", "Glasgow, United Kingdom", "Edinburgh, United Kingdom", "Toronto, Canada", "Vancouver, Canada", "Montreal, Canada", "Calgary, Canada", "Ottawa, Canada", "Edmonton, Canada", "Sydney, Australia", "Melbourne, Australia", "Brisbane, Australia", "Perth, Australia", "Adelaide, Australia", "Auckland, New Zealand", "Wellington, New Zealand", "Dublin, Ireland", "Singapore", "Dubai, United Arab Emirates", "Abu Dhabi, United Arab Emirates", "Berlin, Germany", "Munich, Germany", "Frankfurt, Germany", "Hamburg, Germany", "Zurich, Switzerland", "Geneva, Switzerland", "Amsterdam, Netherlands", "Rotterdam, Netherlands"]</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+          <span style="color: var(--text-dim);">Scrape Limit</span>
+          <span style="font-weight: 500;">60 leads/run</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+          <span style="color: var(--text-dim);">Max Site Score</span>
+          <span style="font-weight: 500;">100/100</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding-bottom: 6px;">
+          <span style="color: var(--text-dim);">Data Source</span>
+          <span style="font-weight: 500; text-transform: capitalize;">google maps</span>
+        </div>
+      </div>
+      
+      <div style="margin-top: 14px;">
+        <a href="./dashboard_find.html" class="btn btn-ghost btn-sm" style="width: 100%; text-align: center;">⚙️ Configure Rotation</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tabs Row: Sent Outreach Feed vs fresh leads inventory -->
+<div class="form-card" style="margin-bottom: 24px; padding: 20px;">
+  <div style="display: flex; border-bottom: 1px solid var(--border); margin-bottom: 16px; gap: 20px;">
+    <button onclick="switchTab('sentTab', this)" class="tab-btn active" style="font-size: 15px; font-weight: 600; padding-bottom: 10px; background: none; border: none; color: var(--accent); cursor: pointer; border-bottom: 2px solid var(--accent); font-family: inherit;">
+      📨 Outgoing Cold Outreach Feed (Sent)
+    </button>
+    <button onclick="switchTab('foundTab', this)" class="tab-btn" style="font-size: 15px; font-weight: 600; padding-bottom: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-family: inherit;">
+      🔍 Fresh Autopilot Inventory (Found)
+    </button>
+  </div>
+
+  <style>
+  /* Filter chip */
+  .filter-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 8px; font-size: 10px; font-weight: 500; border-radius: 12px;
+    border: 1px solid var(--border); color: var(--text-dim);
+    cursor: pointer; transition: all .15s; user-select: none;
+    margin-bottom: 2px;
+  }
+  .filter-chip input { display: none; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { border-color: var(--accent); background: rgba(0,242,254,.1); color: var(--accent); }
+  .filter-chip.active::before { content: '✓ '; }
+  </style>
+
+  <!-- Filters Bar -->
+  <div style="padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 16px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" onclick="toggleAutopilotFilters()">
+      <span style="font-size:11px; font-weight:600; text-transform:uppercase; color:var(--text-dim); display:flex; align-items:center; gap:4px">
+        ⚙️ Filter Feed & Inventory
+      </span>
+      <span id="apFiltersToggleIcon" style="font-size:10px; color:var(--text-dim)">[+] Expand Filters</span>
+    </div>
+    
+    <div id="autopilotFiltersPanel" style="display:none; margin-top:10px; flex-direction:column; gap:10px;">
+      <!-- Sent Feed Filters (only visible when sentTab is active) -->
+      <div id="sentFiltersGroup" style="display:flex; flex-direction:column; gap:8px;">
+        <div style="font-size:9px; color:var(--text-dim); text-transform:uppercase; font-weight:600;">Sent Engagement</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <label class="filter-chip" id="ap-chip-opened">
+            <input type="checkbox" id="ap-filter-opened"> 👁️ Opened Email
+          </label>
+          <label class="filter-chip" id="ap-chip-clicked">
+            <input type="checkbox" id="ap-filter-clicked"> 🔗 Clicked Link
+          </label>
+          <label class="filter-chip" id="ap-chip-replied">
+            <input type="checkbox" id="ap-filter-replied"> 💬 Replied
+          </label>
+          <label class="filter-chip" id="ap-chip-demo">
+            <input type="checkbox" id="ap-filter-demo"> 🌐 Demo URL Sent
+          </label>
+        </div>
+      </div>
+
+      <!-- Found Inventory Filters (only visible when foundTab is active) -->
+      <div id="foundFiltersGroup" style="display:none; flex-direction:column; gap:8px;">
+        <div style="font-size:9px; color:var(--text-dim); text-transform:uppercase; font-weight:600;">Inventory Properties</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <label class="filter-chip" id="ap-chip-new">
+            <input type="checkbox" id="ap-filter-new"> Status: New
+          </label>
+          <label class="filter-chip" id="ap-chip-approved">
+            <input type="checkbox" id="ap-filter-approved"> Status: Approved
+          </label>
+          <label class="filter-chip" id="ap-chip-has-email">
+            <input type="checkbox" id="ap-filter-has-email"> Has Email
+          </label>
+          <label class="filter-chip" id="ap-chip-has-ig">
+            <input type="checkbox" id="ap-filter-has-ig"> Has Instagram
+          </label>
+        </div>
+      </div>
+
+      <!-- Niche dropdown (applies to both) -->
+      <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+        <div style="flex:1; min-width: 150px;">
+          <div style="font-size:9px; color:var(--text-dim); text-transform:uppercase; margin-bottom:4px; font-weight:600;">Niche Filter</div>
+          <select id="ap-filter-niche" onchange="applyAutopilotFilters()" style="width:100%; font-size:11px; padding:4px; border-radius:4px; border:1px solid var(--border); background:var(--bg); color:var(--text)">
+            <option value="all">All Niches</option>
+          </select>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="resetAutopilotFilters()" style="margin-top:14px; font-size:11px; padding:6px 12px; height:24px;">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sent Tab -->
+  <div id="sentTab" class="tab-content">
+    
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--border); color: var(--text-dim);">
+              <th style="padding: 10px 8px;">Business Name</th>
+              <th style="padding: 10px 8px;">Niche</th>
+              <th style="padding: 10px 8px;">Contact Email</th>
+              <th style="padding: 10px 8px;">Sent Time</th>
+              <th style="padding: 10px 8px; text-align: center;">Tracking</th>
+              <th style="padding: 10px 8px; text-align: right;">Demo Previews</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr class="sent-row" data-name="Aspire Garden Services" data-category="landscaping" data-email="aspiregardenservices@aol.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Aspire Garden Services</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">landscaping</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ aspiregardenservices@aol.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-28 00:41</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://power7t.github.io/leadflow-demos/aspire-garden-services-1750.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Cincinnati Fitness Boxing" data-category="gym" data-email="cincinnatifitnessboxing@outlook.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Cincinnati Fitness Boxing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">gym</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ cincinnatifitnessboxing@outlook.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-28 00:40</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://power7t.github.io/leadflow-demos/cincinnati-fitness-boxing-1785.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Gilman Plumbing, Inc." data-category="plumbing" data-email="gilmanplumbingdm@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Gilman Plumbing, Inc.</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">plumbing</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ gilmanplumbingdm@gmail.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-28 00:31</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://power7t.github.io/leadflow-demos/gilman-plumbing-inc-2790.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Shotwell Plumbing, LLC" data-category="plumbing" data-email="jonpinhorn.typedesign@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Shotwell Plumbing, LLC</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">plumbing</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ jonpinhorn.typedesign@gmail.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-28 00:29</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://power7t.github.io/leadflow-demos/shotwell-plumbing-llc-2732.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="GARLAND PAINT AND REMODELING" data-category="remodeler" data-email="gprpainting@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">GARLAND PAINT AND REMODELING</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">remodeler</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ gprpainting@gmail.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 06:04</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/garland-paint-and-3286.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Nxt Level Barbers" data-category="barbershop" data-email="nxtlevelbarber@outlook.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Nxt Level Barbers</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">barbershop</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ nxtlevelbarber@outlook.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 02:24</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/nxt-level-barbers-2759.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Direct Solar Wholesaler - Solar Panel, Solar Battery" data-category="solar" data-email="lynch_piechan@yahoo.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Direct Solar Wholesaler - Solar Panel, Solar Battery</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ lynch_piechan@yahoo.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 02:18</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/direct-solar-wholesaler-2218.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Exceptional Dentistry of Chandler" data-category="dentist" data-email="erichwangdds@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Exceptional Dentistry of Chandler</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">dentist</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ erichwangdds@gmail.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 02:17</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/exceptional-dentistry-of-2754.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Chesapeake Family and Implant Dentistry - Dr. Harry Squire" data-category="dentist" data-email="chesapeakedentistry@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Chesapeake Family and Implant Dentistry - Dr. Harry Squire</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">dentist</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ chesapeakedentistry@gmail.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 02:15</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://power7t.github.io/leadflow-demos/chesapeake-family-and-2597.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Good Energy Network" data-category="solar" data-email="info@goodenergynetwork.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Good Energy Network</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@goodenergynetwork.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 02:14</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/good-energy-network-2520.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Swan Family Lawyers" data-category="lawyer" data-email="swan@swanfamilylawyers.com.au" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Swan Family Lawyers</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">lawyer</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ swan@swanfamilylawyers.com.au</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 01:56</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/swan-family-lawyers-2223.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="ADMA Consulting and Accounting LLC" data-category="accountant" data-email="info@admauae.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">ADMA Consulting and Accounting LLC</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">accountant</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@admauae.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 01:54</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/adma-consulting-and-2123.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Central Works HVAC Solutions" data-category="hvac" data-email="info@mycwhvac.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Central Works HVAC Solutions</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">hvac</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@mycwhvac.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 01:49</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/central-works-hvac-2315.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Texas Air Conditioning" data-category="hvac" data-email="info@texasaircompany.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Texas Air Conditioning</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">hvac</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@texasaircompany.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 01:46</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/texas-air-conditioning-2282.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Fry Plumbing, Heating And Air Conditioning Corp." data-category="hvac" data-email="fryplumbinghvac@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Fry Plumbing, Heating And Air Conditioning Corp.</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">hvac</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ fryplumbinghvac@gmail.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-06-27 01:44</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-demos.pages.dev/fry-plumbing-heating-2473.html" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    
+  </div>
+
+  <!-- Found Tab -->
+  <div id="foundTab" class="tab-content" style="display: none;">
+    
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--border); color: var(--text-dim);">
+              <th style="padding: 10px 8px;">Business Name</th>
+              <th style="padding: 10px 8px;">Niche</th>
+              <th style="padding: 10px 8px;">Status</th>
+              <th style="padding: 10px 8px; text-align: center;">Prospect Score</th>
+              <th style="padding: 10px 8px;">Available Channels</th>
+              <th style="padding: 10px 8px; text-align: right;">Found Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr class="found-row" data-name="Clean Image Detailing" data-category="detailing" data-email="contact@lgmobiledetailing.com" data-instagram="None" data-score="96" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Clean Image Detailing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">96pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:18</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Details By Edison" data-category="detailing" data-email="lfinesseautocare@gmail.com" data-instagram="None" data-score="100" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Details By Edison</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">100pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:18</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Dos Amigos Detailing Co." data-category="detailing" data-email="dosamigosdetailingco@gmail.com" data-instagram="None" data-score="74" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Dos Amigos Detailing Co.</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">74pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:18</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Sovereign Mobile Car Detailing Garland" data-category="detailing" data-email="cs@sscwaz.com" data-instagram="None" data-score="96" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Sovereign Mobile Car Detailing Garland</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">96pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:17</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Magic Touch Car Detailing" data-category="detailing" data-email="info@magictouchcardetailing.site" data-instagram="None" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Magic Touch Car Detailing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:16</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Dallas Auto Protection - Auto Restoration & Ceramic Tint" data-category="detailing" data-email="info@mobiledetailgurus.com" data-instagram="dallasdetailstudio" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Dallas Auto Protection - Auto Restoration & Ceramic Tint</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:16</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Ace’s Auto Care And Mobile Detailing LLC." data-category="detailing" data-email="silveracedetailingdfw@gmail.com" data-instagram="None" data-score="81" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Ace’s Auto Care And Mobile Detailing LLC.</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">81pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:16</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Auto Revive Car Detail" data-category="detailing" data-email="cs@sscwaz.com" data-instagram="None" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Auto Revive Car Detail</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:15</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Rizz & Shine Auto Spa and Detailing (Mobile Service Available)" data-category="detailing" data-email="cs@sscwaz.com" data-instagram="rizz_shine_auto_detailing" data-score="100" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Rizz & Shine Auto Spa and Detailing (Mobile Service Available)</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">100pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:15</td>
+              </tr>
+            
+              <tr class="found-row" data-name="NTX Auto Care Mobile Detailing" data-category="detailing" data-email="ntxmobiledetail@gmail.com" data-instagram="ntxautocare" data-score="83" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">NTX Auto Care Mobile Detailing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">83pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:15</td>
+              </tr>
+            
+              <tr class="found-row" data-name="On Time Mobile Detailing" data-category="detailing" data-email="ontimeautodetailing214@gmail.com" data-instagram="None" data-score="96" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">On Time Mobile Detailing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">96pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:14</td>
+              </tr>
+            
+              <tr class="found-row" data-name="On The Spot Detail" data-category="detailing" data-email="otsd21@gmail.com" data-instagram="eaonthespotdetail" data-score="100" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">On The Spot Detail</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">100pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:12</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Harts Luxury Detailing" data-category="detailing" data-email="hartsdetailing@gmail.com" data-instagram="None" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Harts Luxury Detailing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:12</td>
+              </tr>
+            
+              <tr class="found-row" data-name="AT Dryer Vent Cleaning" data-category="cleaning" data-email="service@dryerventcleaninggarland.com" data-instagram="None" data-score="89" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">AT Dryer Vent Cleaning</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">89pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:11</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Eco Green" data-category="cleaning" data-email="office@ecogreenwindowclean.com" data-instagram="ecogreenwindowclean" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Eco Green</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:11</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    
+  </div>
+</div>
+
+</main>
+
+
+<script>
+// Tab switcher
+function switchTab(tabId, btn) {
+  // Hide all contents
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  // Show target content
+  document.getElementById(tabId).style.display = 'block';
+  
+  // Show correct filters group
+  const sentFilters = document.getElementById('sentFiltersGroup');
+  const foundFilters = document.getElementById('foundFiltersGroup');
+  if (sentFilters && foundFilters) {
+    if (tabId === 'sentTab') {
+      sentFilters.style.display = 'flex';
+      foundFilters.style.display = 'none';
+    } else {
+      sentFilters.style.display = 'none';
+      foundFilters.style.display = 'flex';
+    }
+  }
+
+  // Reset all buttons styling
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.style.color = 'var(--text-dim)';
+    b.style.borderBottom = 'none';
+    b.classList.remove('active');
+  });
+  
+  // Set current button styling
+  btn.style.color = 'var(--accent)';
+  btn.style.borderBottom = '2px solid var(--accent)';
+  btn.classList.add('active');
+
+  // Re-apply filters for the active tab
+  applyAutopilotFilters();
+}
+
+// Log streaming
+async function fetchLogs() {
+  try {
+    const res = await fetch('/autopilot/logs');
+    const data = await res.json();
+    const term = document.getElementById('terminalLog');
+    if (data.logs) {
+      const isAtBottom = term.scrollHeight - term.clientHeight <= term.scrollTop + 10;
+      
+      // Escape HTML
+      const escaped = data.logs
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+      
+      const lines = escaped.split('\n');
+      const coloredLines = lines.map(line => {
+        let style = "";
+        const lower = line.toLowerCase();
+        if (line.includes('✅') || lower.includes('success') || lower.includes('job succeeded')) {
+          style = "color: #00c896;"; // Green
+        } else if (line.includes('✗') || lower.includes('error') || lower.includes('failed') || lower.includes('exception')) {
+          style = "color: #ff4d4d;"; // Red
+        } else if (lower.includes('skip') || lower.includes('skipped')) {
+          style = "color: var(--text-dim); opacity: 0.65;"; // Gray/dim
+        } else if (line.includes('[ai_writer]') || lower.includes('ai_writer')) {
+          style = "color: #00f2fe;"; // Accent/cyan
+        } else if (lower.includes('warning') || lower.includes('warn')) {
+          style = "color: #ffc400;"; // Yellow
+        } else if (line.includes('[INFO]') || lower.includes('info:')) {
+          style = "color: #a9b1d6; opacity: 0.85;";
+        }
+        return style ? `<span style="${style}">${line}</span>` : `<span>${line}</span>`;
+      });
+
+      term.innerHTML = coloredLines.join('\n');
+      if (isAtBottom) {
+        term.scrollTop = term.scrollHeight;
+      }
+    }
+  } catch (e) {
+    console.error("Failed to fetch autopilot logs", e);
+  }
+}
+
+// Poll logs every 3 seconds
+setInterval(fetchLogs, 3000);
+fetchLogs(); // initial load
+
+async function toggleAutopilot() {
+  const isEnabled = document.getElementById('toggleBtn').textContent.includes('Pause');
+  const btn = document.getElementById('toggleBtn');
+  btn.disabled = true;
+  
+  try {
+    const res = await fetch('/autopilot/toggle', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ enabled: !isEnabled })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      window.location.reload();
+    }
+  } catch (e) {
+    alert('Failed to update autopilot status');
+    btn.disabled = false;
+  }
+}
+
+async function triggerJob(jobId, element) {
+  const statusBox = document.getElementById('triggerStatus');
+  const originalText = element.textContent;
+  element.disabled = true;
+  element.textContent = 'Triggering...';
+  
+  statusBox.style.display = 'block';
+  statusBox.style.color = '#fff';
+  statusBox.textContent = `-> Requesting background trigger for: ${originalText}...`;
+  
+  try {
+    const res = await fetch(`/autopilot/trigger/${jobId}`, { method: 'POST' });
+    const data = await res.json();
+    if (data.ok) {
+      statusBox.style.color = '#00c896';
+      statusBox.textContent = `✓ SUCCESS: ${data.message}\n(Run output is handled in background scheduler logs).`;
+      setTimeout(fetchLogs, 1000); // fetch logs soon to show progress
+    } else {
+      statusBox.style.color = '#ff4d4d';
+      statusBox.textContent = `✗ FAILED: ${data.error}`;
+    }
+  } catch (e) {
+    statusBox.style.color = '#ff4d4d';
+    statusBox.textContent = `✗ REQUEST ERROR: Could not reach leadflow backend.`;
+  }
+  
+  setTimeout(() => {
+    element.disabled = false;
+    element.textContent = originalText;
+  }, 3000);
+}
+
+// --- Autopilot Client-Side Filters ---
+
+function applyAutopilotFilters() {
+  const activeTab = document.querySelector('.tab-btn.active')?.getAttribute('onclick').includes('sentTab') ? 'sent' : 'found';
+  const nicheVal = document.getElementById('ap-filter-niche')?.value || 'all';
+  
+  if (activeTab === 'sent') {
+    const filterOpened = document.getElementById('ap-filter-opened')?.checked;
+    const filterClicked = document.getElementById('ap-filter-clicked')?.checked;
+    const filterReplied = document.getElementById('ap-filter-replied')?.checked;
+    const filterDemo = document.getElementById('ap-filter-demo')?.checked;
+    
+    document.querySelectorAll('.sent-row').forEach(row => {
+      const opened = row.dataset.opened === '1' || row.dataset.opened === 'True';
+      const clicked = row.dataset.clicked === '1' || row.dataset.clicked === 'True';
+      const replied = row.dataset.replied === '1' || row.dataset.replied === 'True';
+      const hasDemo = row.dataset.demo === '1';
+      const category = row.dataset.category || '';
+      
+      let match = true;
+      if (filterOpened && !opened) match = false;
+      if (filterClicked && !clicked) match = false;
+      if (filterReplied && !replied) match = false;
+      if (filterDemo && !hasDemo) match = false;
+      if (nicheVal !== 'all' && category !== nicheVal) match = false;
+      
+      row.style.display = match ? '' : 'none';
+    });
+  } else {
+    const filterNew = document.getElementById('ap-filter-new')?.checked;
+    const filterApproved = document.getElementById('ap-filter-approved')?.checked;
+    const filterHasEmail = document.getElementById('ap-filter-has-email')?.checked;
+    const filterHasIg = document.getElementById('ap-filter-has-ig')?.checked;
+    
+    document.querySelectorAll('.found-row').forEach(row => {
+      const status = row.dataset.status || '';
+      const email = row.dataset.email || '';
+      const instagram = row.dataset.instagram || '';
+      const category = row.dataset.category || '';
+      
+      let match = true;
+      if (filterNew && status !== 'new') match = false;
+      if (filterApproved && status !== 'approved') match = false;
+      if (filterHasEmail && !email) match = false;
+      if (filterHasIg && !instagram) match = false;
+      if (nicheVal !== 'all' && category !== nicheVal) match = false;
+      
+      row.style.display = match ? '' : 'none';
+    });
+  }
+}
+
+function populateAutopilotDropdown() {
+  const niches = new Set();
+  document.querySelectorAll('.sent-row, .found-row').forEach(row => {
+    const cat = row.dataset.category;
+    if (cat) niches.add(cat.trim());
+  });
+  
+  const nicheSelect = document.getElementById('ap-filter-niche');
+  if (nicheSelect) {
+    // Clear dynamic options first (keep 'All Niches')
+    nicheSelect.innerHTML = '<option value="all">All Niches</option>';
+    [...niches].sort().forEach(n => {
+      const opt = document.createElement('option');
+      opt.value = n;
+      opt.textContent = n.charAt(0).toUpperCase() + n.slice(1);
+      nicheSelect.appendChild(opt);
+    });
+  }
+}
+
+function toggleAutopilotFilters() {
+  const panel = document.getElementById('autopilotFiltersPanel');
+  const icon = document.getElementById('apFiltersToggleIcon');
+  if (panel.style.display === 'none') {
+    panel.style.display = 'flex';
+    icon.textContent = '[-] Collapse Filters';
+  } else {
+    panel.style.display = 'none';
+    icon.textContent = '[+] Expand Filters';
+  }
+}
+
+function resetAutopilotFilters() {
+  document.querySelectorAll('.filter-chip input').forEach(input => {
+    if (input.id.startsWith('ap-filter-')) {
+      input.checked = false;
+      input.closest('.filter-chip').classList.remove('active');
+    }
+  });
+  const nicheSelect = document.getElementById('ap-filter-niche');
+  if (nicheSelect) nicheSelect.value = 'all';
+  applyAutopilotFilters();
+}
+
+// Bind event listeners
+document.querySelectorAll('.filter-chip input').forEach(input => {
+  if (input.id.startsWith('ap-filter-')) {
+    input.addEventListener('change', () => {
+      const chip = input.closest('.filter-chip');
+      if (input.checked) {
+        chip.classList.add('active');
+      } else {
+        chip.classList.remove('active');
+      }
+      applyAutopilotFilters();
+    });
+  }
+});
+
+// Run dropdown population
+populateAutopilotDropdown();
+</script>
+
+
+<!-- Cloudflare Tunnel URL widget -->
+<div id="tunnelWidget" style="display:none;position:fixed;bottom:20px;right:20px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;padding:12px 16px;z-index:999;box-shadow:0 4px 24px rgba(0,0,0,0.5);max-width:340px;">
+  <div style="font-size:10px;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">🌐 Public URL (Cloudflare)</div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <a id="tunnelLink" href="#" target="_blank" style="font-size:12px;color:#00c896;text-decoration:none;font-family:'SF Mono',Monaco,monospace;word-break:break-all;flex:1"></a>
+    <button onclick="copyTunnelUrl()" id="copyBtn" style="background:#2a2a2a;border:1px solid #3a3a3a;border-radius:6px;color:#aaa;font-size:11px;padding:5px 10px;cursor:pointer;flex-shrink:0;transition:all 0.15s">Copy</button>
+  </div>
+</div>
+
+<script>
+let tunnelUrl = '';
+function copyTunnelUrl() {
+  if (!tunnelUrl) return;
+  navigator.clipboard.writeText(tunnelUrl).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied!'; btn.style.color = '#00c896';
+    setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = '#aaa'; }, 2000);
+  });
+}
+async function pollTunnelUrl() {
+  try {
+    const res = await fetch('/api/tunnel-url');
+    const data = await res.json();
+    if (data.url) {
+      tunnelUrl = data.url;
+      document.getElementById('tunnelLink').textContent = data.url;
+      document.getElementById('tunnelLink').href = data.url;
+      document.getElementById('tunnelWidget').style.display = 'block';
+    }
+  } catch(e) {}
+}
+pollTunnelUrl();
+const fastPoll = setInterval(async () => {
+  await pollTunnelUrl();
+  if (tunnelUrl) { clearInterval(fastPoll); setInterval(pollTunnelUrl, 30000); }
+}, 3000);
+
+async function pollStats() {
+  try {
+    const res = await fetch('/api/stats');
+    const stats = await res.json();
+    
+    // Update autopilot badge
+    const dot = document.getElementById('sidebar-autopilot-dot');
+    const text = document.getElementById('sidebar-autopilot-text');
+    if (dot && text) {
+      if (stats.autopilot_active) {
+        dot.className = 'pulse-dot green';
+        text.style.color = '#00c896';
+        text.textContent = 'Autopilot Active';
+      } else {
+        dot.className = 'pulse-dot gray';
+        text.style.color = 'var(--text-dim)';
+        text.textContent = 'Autopilot Stopped';
+      }
+    }
+    
+    // Update stats text
+    const newStat = document.getElementById('sidebar-stat-new');
+    if (newStat) newStat.textContent = stats.new;
+    const sentStat = document.getElementById('sidebar-stat-sent');
+    if (sentStat) sentStat.textContent = stats.sent;
+    const repliedStat = document.getElementById('sidebar-stat-replied');
+    if (repliedStat) repliedStat.textContent = stats.replied;
+    const closedStat = document.getElementById('sidebar-stat-closed');
+    if (closedStat) closedStat.textContent = stats.closed;
+    const optedOutStat = document.getElementById('sidebar-stat-opted-out');
+    const optedOutContainer = document.getElementById('sidebar-stat-opted-out-container');
+    if (optedOutStat && optedOutContainer) {
+      optedOutStat.textContent = stats.opted_out;
+      optedOutContainer.style.display = stats.opted_out > 0 ? '' : 'none';
+    }
+    
+    // Update badges
+    const badgeLeadsNew = document.getElementById('sidebar-badge-leads-new');
+    if (badgeLeadsNew) {
+      badgeLeadsNew.textContent = stats.new;
+      badgeLeadsNew.style.display = stats.new === 0 ? 'none' : '';
+    }
+    const badgeIgNew = document.getElementById('sidebar-badge-ig-new');
+    if (badgeIgNew) {
+      badgeIgNew.textContent = stats.instagram_reach_new;
+      badgeIgNew.style.display = stats.instagram_reach_new === 0 ? 'none' : '';
+    }
+    const badgeTestNew = document.getElementById('sidebar-badge-test-new');
+    if (badgeTestNew) {
+      badgeTestNew.textContent = stats.test_leads_new;
+      badgeTestNew.style.display = stats.test_leads_new === 0 ? 'none' : '';
+    }
+  } catch (e) {
+    console.error("Failed to poll sidebar stats", e);
+  }
+}
+window.pollStats = pollStats;
+
+document.addEventListener('DOMContentLoaded', pollStats);
+</script>
+</body>
+</html>
