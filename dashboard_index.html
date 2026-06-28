@@ -3,56 +3,19 @@
 <head>
 
     <!-- PASSCODE SECURITY WALL -->
-    <style>
-      #lf-login-overlay {
-        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-        background: #0b0c10; color: #c5c6c7; z-index: 999999;
-        display: flex; align-items: center; justify-content: center;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      }
-      .lf-login-card {
-        background: #151a22; padding: 36px; border-radius: 12px;
-        box-shadow: 0 12px 40px rgba(0,0,0,0.65); width: 340px;
-        border: 1px solid #00c896; text-align: center;
-      }
-      .lf-login-card h2 { margin: 0 0 10px 0; color: #fff; font-size: 22px; font-weight: 600; }
-      .lf-login-card p { margin: 0 0 24px 0; color: #8a99ad; font-size: 13px; }
-      .lf-login-input {
-        width: 100%; padding: 12px 16px; margin: 8px 0; border-radius: 8px;
-        border: 1px solid #2d3848; background: #0b0c10; color: #fff;
-        box-sizing: border-box; font-size: 14px; outline: none; transition: border-color 0.2s;
-      }
-      .lf-login-input:focus { border-color: #00c896; }
-      .lf-login-btn {
-        width: 100%; padding: 12px; border-radius: 8px; border: none;
-        background: #00c896; color: #0b0c10; font-weight: bold; cursor: pointer;
-        font-size: 15px; margin-top: 14px; transition: opacity 0.2s;
-      }
-      .lf-login-btn:hover { opacity: 0.9; }
-      .lf-error { color: #ff4a4a; font-size: 13px; text-align: center; margin-top: 12px; display: none; font-weight: 500; }
-    </style>
     <script>
       (function() {
-        var u = localStorage.getItem("lf_user");
-        var p = localStorage.getItem("lf_pass");
-        if (u === "chandan" && p === "Supergo12@") {
-          document.addEventListener("DOMContentLoaded", function() {
-            var overlay = document.getElementById("lf-login-overlay");
-            if (overlay) overlay.style.display = "none";
-          });
+        var pass = localStorage.getItem("lf_pass");
+        if (pass !== "chandan123") {
+          var input = prompt("Enter passcode to access dashboard:");
+          if (input === "chandan123") {
+            localStorage.setItem("lf_pass", input);
+          } else {
+            document.write("<h1 style='color:red;text-align:center;font-family:sans-serif;margin-top:100px;'>Unauthorized Access</h1>");
+            window.stop();
+          }
         }
       })();
-      function lfLogin() {
-        var u = document.getElementById("lf-user").value;
-        var p = document.getElementById("lf-pass").value;
-        if (u === "chandan" && p === "Supergo12@") {
-          localStorage.setItem("lf_user", u);
-          localStorage.setItem("lf_pass", p);
-          document.getElementById("lf-login-overlay").style.display = "none";
-        } else {
-          document.getElementById("lf-error-msg").style.display = "block";
-        }
-      }
     </script>
     
   <meta charset="UTF-8">
@@ -61,18 +24,6 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-    <div id="lf-login-overlay">
-      <div class="lf-login-card">
-        <h2>🔒 LeadFlow Command Center</h2>
-        <p>Enter your authorization credentials to continue</p>
-        <input type="text" id="lf-user" class="lf-login-input" placeholder="Username" autocomplete="off" />
-        <input type="password" id="lf-pass" class="lf-login-input" placeholder="Password" />
-        <button onclick="lfLogin()" class="lf-login-btn">Sign In</button>
-        <div id="lf-error-msg" class="lf-error">Invalid credentials. Access Denied.</div>
-      </div>
-    </div>
-    
 
 <aside class="sidebar">
   <div class="logo">LeadFlow<span>by Chandan</span></div>
@@ -93,7 +44,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1139</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1148</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -132,7 +83,7 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">1139</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1148</b></div>
     <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">535</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
@@ -158,11 +109,11 @@
     <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Leads Scraped</div>
   </div>
   <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
-    <div style="font-size: 24px; font-weight: bold; color: var(--accent);">705</div>
+    <div style="font-size: 24px; font-weight: bold; color: var(--accent);">727</div>
     <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Outreach Sent</div>
   </div>
   <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
-    <div style="font-size: 24px; font-weight: bold; color: var(--purple, #a855f7);">81</div>
+    <div style="font-size: 24px; font-weight: bold; color: var(--purple, #a855f7);">82</div>
     <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Follow-ups Sent</div>
   </div>
   <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
@@ -276,10 +227,10 @@
       <div style="margin-bottom: 12px;">
         <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; margin-bottom: 6px;">
           <span>Daily Limit Progress</span>
-          <span style="color: var(--accent); font-weight:600;">58 / 75 sent</span>
+          <span style="color: var(--accent); font-weight:600;">59 / 75 sent</span>
         </div>
         <div class="bp-track" style="height: 8px;">
-          <div class="bp-fill" style="width: 77.33333333333333%; background: #00c896;"></div>
+          <div class="bp-fill" style="width: 78.66666666666666%; background: #00c896;"></div>
         </div>
       </div>
       
@@ -303,7 +254,7 @@
 
       
       <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 16px;">
-        <strong>⏳ Pending Follow-ups:</strong> 180 follow-up(s) waiting in queue.
+        <strong>⏳ Pending Follow-ups:</strong> 179 follow-up(s) waiting in queue.
       </div>
       
 
@@ -373,16 +324,6 @@
           
             <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
               <div>
-                <strong>KIDA RAMADAN Barbershop</strong> (info@kidabarber.de)<br>
-                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
-              </div>
-              <div style="color: #fbbf24; font-weight: 600;">
-                2026-06-28 05:36:27
-              </div>
-            </div>
-          
-            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-              <div>
                 <strong>East Nashville Chiropractic</strong> (info@eastnashvillechiro.com)<br>
                 <span style="color:var(--text-dim); font-size:11px;">Via: bhartimitrabot@gmail.com</span>
               </div>
@@ -418,6 +359,16 @@
               </div>
               <div style="color: #fbbf24; font-weight: 600;">
                 2026-06-28 07:15:59
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>Dakspecialist Benelux B.V</strong> (info@dakspecialist-benelux.nl)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
+              </div>
+              <div style="color: #fbbf24; font-weight: 600;">
+                2026-06-28 07:36:27
               </div>
             </div>
           
@@ -926,10 +877,10 @@
                 <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:18</td>
               </tr>
             
-              <tr class="found-row" data-name="Sovereign Mobile Car Detailing Garland" data-category="detailing" data-email="cs@sscwaz.com" data-instagram="None" data-score="96" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <tr class="found-row" data-name="Sovereign Mobile Car Detailing Garland" data-category="detailing" data-email="cs@sscwaz.com" data-instagram="None" data-score="96" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
                 <td style="padding: 12px 8px; font-weight: 600;">Sovereign Mobile Car Detailing Garland</td>
                 <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
                 <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">96pt</td>
                 <td style="padding: 12px 8px;">
                   <div style="display: flex; gap: 6px; flex-wrap: wrap;">
