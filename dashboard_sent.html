@@ -3,19 +3,56 @@
 <head>
 
     <!-- PASSCODE SECURITY WALL -->
+    <style>
+      #lf-login-overlay {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: #0b0c10; color: #c5c6c7; z-index: 999999;
+        display: flex; align-items: center; justify-content: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      .lf-login-card {
+        background: #151a22; padding: 36px; border-radius: 12px;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.65); width: 340px;
+        border: 1px solid #00c896; text-align: center;
+      }
+      .lf-login-card h2 { margin: 0 0 10px 0; color: #fff; font-size: 22px; font-weight: 600; }
+      .lf-login-card p { margin: 0 0 24px 0; color: #8a99ad; font-size: 13px; }
+      .lf-login-input {
+        width: 100%; padding: 12px 16px; margin: 8px 0; border-radius: 8px;
+        border: 1px solid #2d3848; background: #0b0c10; color: #fff;
+        box-sizing: border-box; font-size: 14px; outline: none; transition: border-color 0.2s;
+      }
+      .lf-login-input:focus { border-color: #00c896; }
+      .lf-login-btn {
+        width: 100%; padding: 12px; border-radius: 8px; border: none;
+        background: #00c896; color: #0b0c10; font-weight: bold; cursor: pointer;
+        font-size: 15px; margin-top: 14px; transition: opacity 0.2s;
+      }
+      .lf-login-btn:hover { opacity: 0.9; }
+      .lf-error { color: #ff4a4a; font-size: 13px; text-align: center; margin-top: 12px; display: none; font-weight: 500; }
+    </style>
     <script>
       (function() {
-        var pass = localStorage.getItem("lf_pass");
-        if (pass !== "chandan123") {
-          var input = prompt("Enter passcode to access dashboard:");
-          if (input === "chandan123") {
-            localStorage.setItem("lf_pass", input);
-          } else {
-            document.write("<h1 style='color:red;text-align:center;font-family:sans-serif;margin-top:100px;'>Unauthorized Access</h1>");
-            window.stop();
-          }
+        var u = localStorage.getItem("lf_user");
+        var p = localStorage.getItem("lf_pass");
+        if (u === "chandan" && p === "Supergo12@") {
+          document.addEventListener("DOMContentLoaded", function() {
+            var overlay = document.getElementById("lf-login-overlay");
+            if (overlay) overlay.style.display = "none";
+          });
         }
       })();
+      function lfLogin() {
+        var u = document.getElementById("lf-user").value;
+        var p = document.getElementById("lf-pass").value;
+        if (u === "chandan" && p === "Supergo12@") {
+          localStorage.setItem("lf_user", u);
+          localStorage.setItem("lf_pass", p);
+          document.getElementById("lf-login-overlay").style.display = "none";
+        } else {
+          document.getElementById("lf-error-msg").style.display = "block";
+        }
+      }
     </script>
     
   <meta charset="UTF-8">
@@ -24,6 +61,18 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+    <div id="lf-login-overlay">
+      <div class="lf-login-card">
+        <h2>🔒 LeadFlow Command Center</h2>
+        <p>Enter your authorization credentials to continue</p>
+        <input type="text" id="lf-user" class="lf-login-input" placeholder="Username" autocomplete="off" />
+        <input type="password" id="lf-pass" class="lf-login-input" placeholder="Password" />
+        <button onclick="lfLogin()" class="lf-login-btn">Sign In</button>
+        <div id="lf-error-msg" class="lf-error">Invalid credentials. Access Denied.</div>
+      </div>
+    </div>
+    
 
 <aside class="sidebar">
   <div class="logo">LeadFlow<span>by Chandan</span></div>
@@ -44,7 +93,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1150</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1098</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -83,8 +132,8 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">1150</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">536</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1098</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">537</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -115,6 +164,129 @@
     </tr>
   </thead>
   <tbody>
+  
+  <tr id="row-2999">
+    <td>
+      <div class="lead-name" style="font-size:14px">Top Roofing LLC</div>
+      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
+    </td>
+    <td style="font-size:12px;color:var(--text-dim)">
+      
+    </td>
+    <td style="font-size:12px">
+      
+        <span class="tag tag-green" style="font-size:11px">✉ info@toproofingtx.com</span>
+      
+    </td>
+    <td style="text-align:center">
+      
+        <span class="tracking-pill unseen">unseen</span>
+      
+    </td>
+    <td style="text-align:center">
+      
+        <span class="tracking-pill unseen">—</span>
+      
+    </td>
+    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
+      
+        2026-06-28 06:06
+      
+    </td>
+    <td>
+      <span class="badge badge-"></span>
+    </td>
+    <td style="white-space:nowrap">
+      
+        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
+                onclick="markReplied(2999, this)">
+          ✓ Replied
+        </button>
+      
+    </td>
+  </tr>
+  
+  <tr id="row-2037">
+    <td>
+      <div class="lead-name" style="font-size:14px">Ted's Plumbing Company</div>
+      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
+    </td>
+    <td style="font-size:12px;color:var(--text-dim)">
+      
+    </td>
+    <td style="font-size:12px">
+      
+        <span class="tag tag-green" style="font-size:11px">✉ tedsplumbingco@gmail.com</span>
+      
+    </td>
+    <td style="text-align:center">
+      
+        <span class="tracking-pill unseen">unseen</span>
+      
+    </td>
+    <td style="text-align:center">
+      
+        <span class="tracking-pill unseen">—</span>
+      
+    </td>
+    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
+      
+        2026-06-28 06:06
+      
+    </td>
+    <td>
+      <span class="badge badge-"></span>
+    </td>
+    <td style="white-space:nowrap">
+      
+        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
+                onclick="markReplied(2037, this)">
+          ✓ Replied
+        </button>
+      
+    </td>
+  </tr>
+  
+  <tr id="row-2037">
+    <td>
+      <div class="lead-name" style="font-size:14px">Ted's Plumbing Company</div>
+      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
+    </td>
+    <td style="font-size:12px;color:var(--text-dim)">
+      
+    </td>
+    <td style="font-size:12px">
+      
+        <span class="tag tag-green" style="font-size:11px">✉ tedsplumbingco@gmail.com</span>
+      
+    </td>
+    <td style="text-align:center">
+      
+        <span class="tracking-pill unseen">unseen</span>
+      
+    </td>
+    <td style="text-align:center">
+      
+        <span class="tracking-pill unseen">—</span>
+      
+    </td>
+    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
+      
+        2026-06-28 05:57
+      
+    </td>
+    <td>
+      <span class="badge badge-"></span>
+    </td>
+    <td style="white-space:nowrap">
+      
+        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
+                onclick="markReplied(2037, this)">
+          ✓ Replied
+        </button>
+      
+    </td>
+  </tr>
   
   <tr id="row-1750">
     <td>
@@ -28886,786 +29058,6 @@
     </td>
   </tr>
   
-  <tr id="row-3186">
-    <td>
-      <div class="lead-name" style="font-size:14px">Mr. Rooter Plumbing of North Miami Beach</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ csr@mrrooternj.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(3186, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-3185">
-    <td>
-      <div class="lead-name" style="font-size:14px">AAAPLUMBINGSERVICES COM</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ aaaplumbing@gmail.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(3185, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-3183">
-    <td>
-      <div class="lead-name" style="font-size:14px">Ez Plumbing Repair Services</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ ezplumbingrepair@icloud.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(3183, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-3098">
-    <td>
-      <div class="lead-name" style="font-size:14px">Moldar Roofing</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@moldarroofing.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(3098, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-3095">
-    <td>
-      <div class="lead-name" style="font-size:14px">Pride Roofing Xperts</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ sales@prideroofingxperts.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(3095, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-3000">
-    <td>
-      <div class="lead-name" style="font-size:14px">Houston Roofing Experts</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ sales@houstonroofingexperts.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(3000, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2999">
-    <td>
-      <div class="lead-name" style="font-size:14px">Top Roofing LLC</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@toproofingtx.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2999, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2942">
-    <td>
-      <div class="lead-name" style="font-size:14px">Eagle Drain Cleaning Drain Line Jetting Movers And Packers, , Handyman, Plumber, Electrical Services Abu Dhabi & Dubai</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@handymanae.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2942, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2921">
-    <td>
-      <div class="lead-name" style="font-size:14px">HVAC Solutions</div>
-      <div style="font-size:11px;color:var(--text-dim)">hvac</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@hvacsolutionscoloradosprings.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2921, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2911">
-    <td>
-      <div class="lead-name" style="font-size:14px">High Valley Roofing, LLC</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@m9r.a2b.myftpupload.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2911, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2910">
-    <td>
-      <div class="lead-name" style="font-size:14px">Total Roofing & Restoration</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@totalroofingco.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2910, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2909">
-    <td>
-      <div class="lead-name" style="font-size:14px">Pioneer Construction and Roofing</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ tnclingan.pioneer@gmail.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2909, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2906">
-    <td>
-      <div class="lead-name" style="font-size:14px">Homestead Roofing - Colorado Springs</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@homesteadroofingcolorado.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2906, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2901">
-    <td>
-      <div class="lead-name" style="font-size:14px">Acacia Dental - Dentist Tempe</div>
-      <div style="font-size:11px;color:var(--text-dim)">dentist</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@tempearizonadentist.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2901, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2895">
-    <td>
-      <div class="lead-name" style="font-size:14px">Tempe Dentistry - Dr. Jeremy Chan</div>
-      <div style="font-size:11px;color:var(--text-dim)">dentist</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ tempe.dentistry@yahoo.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2895, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2894">
-    <td>
-      <div class="lead-name" style="font-size:14px">Tempe Dental</div>
-      <div style="font-size:11px;color:var(--text-dim)">dentist</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ hello@tempe-dental.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2894, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2891">
-    <td>
-      <div class="lead-name" style="font-size:14px">Activate Health & Fitness</div>
-      <div style="font-size:11px;color:var(--text-dim)">gym</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ hello@activatehf.com.au</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2891, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2887">
-    <td>
-      <div class="lead-name" style="font-size:14px">Function Well Newstead</div>
-      <div style="font-size:11px;color:var(--text-dim)">gym</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ westend@functionwell.com.au</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2887, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2886">
-    <td>
-      <div class="lead-name" style="font-size:14px">Club Vitality Woolloongabba - Health Club & Gym South Brisbane</div>
-      <div style="font-size:11px;color:var(--text-dim)">gym</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@clubvitality.com.au</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2886, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2875">
-    <td>
-      <div class="lead-name" style="font-size:14px">West County Gardens - Landscaping - Hardscaping - Snow Management</div>
-      <div style="font-size:11px;color:var(--text-dim)">landscaping</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ westcountygardens@yahoo.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2875, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
   <tr id="row-2084">
     <td>
       <div class="lead-name" style="font-size:14px">KIDA RAMADAN Barbershop</div>
@@ -29699,1020 +29091,6 @@
       
         <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
                 onclick="markReplied(2084, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2848">
-    <td>
-      <div class="lead-name" style="font-size:14px">Nautilus Solar Energy, LLC</div>
-      <div style="font-size:11px;color:var(--text-dim)">solar</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@nautilussolar.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2848, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2844">
-    <td>
-      <div class="lead-name" style="font-size:14px">MODERN HVAC TECHNOLOGY</div>
-      <div style="font-size:11px;color:var(--text-dim)">hvac</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ modernhvactech@gmail.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2844, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2842">
-    <td>
-      <div class="lead-name" style="font-size:14px">City & Suburban Heating & Cooling</div>
-      <div style="font-size:11px;color:var(--text-dim)">hvac</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ service@citysuburbanheating.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2842, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2841">
-    <td>
-      <div class="lead-name" style="font-size:14px">Chicago Comfort HVAC Services</div>
-      <div style="font-size:11px;color:var(--text-dim)">hvac</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@chicagocomforthvac.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2841, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2834">
-    <td>
-      <div class="lead-name" style="font-size:14px">Chicago Roofing Systems</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ chicagoroofingsystems1@gmail.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2834, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2830">
-    <td>
-      <div class="lead-name" style="font-size:14px">Chicago Roofing Company</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@bukroofing.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2830, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2792">
-    <td>
-      <div class="lead-name" style="font-size:14px">Roma Plumbing</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@romaplumbingservice.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2792, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2791">
-    <td>
-      <div class="lead-name" style="font-size:14px">Ryan Plumbing, Heating & Fire Protection</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ dcassidy@ryanservice.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2791, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2774">
-    <td>
-      <div class="lead-name" style="font-size:14px">Powercool Hvac Solutions</div>
-      <div style="font-size:11px;color:var(--text-dim)">hvac</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@powercoolhvac.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2774, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2773">
-    <td>
-      <div class="lead-name" style="font-size:14px">Arctic HVAC & Construction</div>
-      <div style="font-size:11px;color:var(--text-dim)">hvac</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@totalimprovementsllc.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2773, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2769">
-    <td>
-      <div class="lead-name" style="font-size:14px">H & R Roofing Supply</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ hrroofing@hrroofingsupply.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2769, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2736">
-    <td>
-      <div class="lead-name" style="font-size:14px">Roy's Plumbing, Heating, Cooling & Electrical</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@justcallroys.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2736, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2735">
-    <td>
-      <div class="lead-name" style="font-size:14px">Professional Plumbing Resources</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ adamt@pprbuffalo.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2735, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2683">
-    <td>
-      <div class="lead-name" style="font-size:14px">Primary Air Home Services</div>
-      <div style="font-size:11px;color:var(--text-dim)">hvac</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ primaryair.hs@gmail.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2683, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2680">
-    <td>
-      <div class="lead-name" style="font-size:14px">Budget Heating And Cooling / Furnace / HVAC / Boilers</div>
-      <div style="font-size:11px;color:var(--text-dim)">hvac</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ service@budget-hvac.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2680, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2676">
-    <td>
-      <div class="lead-name" style="font-size:14px">Triple J Inc Roofing</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ office@triplejincroofing.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2676, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2674">
-    <td>
-      <div class="lead-name" style="font-size:14px">Pinnacle Roofing Associates LLC Roof Repair and Replacement</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ pinnacleroofingassociates@gmail.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2674, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2672">
-    <td>
-      <div class="lead-name" style="font-size:14px">Academy Roofing, Inc.</div>
-      <div style="font-size:11px;color:var(--text-dim)">roofing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ estimates@www.academyroofinginc.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2672, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2670">
-    <td>
-      <div class="lead-name" style="font-size:14px">Smile32 Dental Studio</div>
-      <div style="font-size:11px;color:var(--text-dim)">dentist</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@smile32dentalstudio.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2670, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2669">
-    <td>
-      <div class="lead-name" style="font-size:14px">Cañada Dental Group</div>
-      <div style="font-size:11px;color:var(--text-dim)">dentist</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ smile@canadadentalgroup.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2669, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2667">
-    <td>
-      <div class="lead-name" style="font-size:14px">Glendale Family Dental Care, Dr. Simon Wong, Dr. Lloyd Turner</div>
-      <div style="font-size:11px;color:var(--text-dim)">dentist</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ calstatedental@yahoo.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2667, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2665">
-    <td>
-      <div class="lead-name" style="font-size:14px">North Brand Dental</div>
-      <div style="font-size:11px;color:var(--text-dim)">dentist</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ smile@northbranddental.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2665, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2664">
-    <td>
-      <div class="lead-name" style="font-size:14px">Glendale Dental Wellness</div>
-      <div style="font-size:11px;color:var(--text-dim)">dentist</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ glendaledentalwellness@yahoo.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2664, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2659">
-    <td>
-      <div class="lead-name" style="font-size:14px">Elev8 Fitness</div>
-      <div style="font-size:11px;color:var(--text-dim)">gym</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ clubelev8@gmail.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2659, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2590">
-    <td>
-      <div class="lead-name" style="font-size:14px">Body Evolution</div>
-      <div style="font-size:11px;color:var(--text-dim)">gym</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ info@bodyevolutiongym.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2590, this)">
-          ✓ Replied
-        </button>
-      
-    </td>
-  </tr>
-  
-  <tr id="row-2037">
-    <td>
-      <div class="lead-name" style="font-size:14px">Ted's Plumbing Company</div>
-      <div style="font-size:11px;color:var(--text-dim)">plumbing</div>
-    </td>
-    <td style="font-size:12px;color:var(--text-dim)">
-      
-    </td>
-    <td style="font-size:12px">
-      
-        <span class="tag tag-green" style="font-size:11px">✉ tedsplumbingco@gmail.com</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">unseen</span>
-      
-    </td>
-    <td style="text-align:center">
-      
-        <span class="tracking-pill unseen">—</span>
-      
-    </td>
-    <td style="font-size:11px;color:var(--text-dim);white-space:nowrap">
-      —
-    </td>
-    <td>
-      <span class="badge badge-"></span>
-    </td>
-    <td style="white-space:nowrap">
-      
-        <button class="btn btn-primary" style="font-size:12px;padding:5px 12px"
-                onclick="markReplied(2037, this)">
           ✓ Replied
         </button>
       
