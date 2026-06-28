@@ -35,20 +35,38 @@
       (function() {
         var u = localStorage.getItem("lf_user");
         var p = localStorage.getItem("lf_pass");
-        if (u === "chandan" && p === "Supergo12@") {
+        if ((u === "chandan" && p === "Supergo12@") || (u === "parmeet" && p === "parmeet")) {
           document.addEventListener("DOMContentLoaded", function() {
             var overlay = document.getElementById("lf-login-overlay");
             if (overlay) overlay.style.display = "none";
+            
+            // Read-only mode for parmeet
+            if (u === "parmeet") {
+              // Create read-only banner
+              var banner = document.createElement("div");
+              banner.style.cssText = "background: #f7b731; color: #000; text-align: center; padding: 6px; font-weight: bold; font-size: 13px; position: fixed; top: 0; left: 0; width: 100%; z-index: 99999;";
+              banner.innerText = "READ ONLY MODE - Actions Disabled";
+              document.body.appendChild(banner);
+              document.body.style.paddingTop = "30px";
+              
+              // Disable buttons
+              var buttons = document.querySelectorAll("button, .btn");
+              buttons.forEach(function(b) {
+                b.style.opacity = "0.5";
+                b.style.pointerEvents = "none";
+                b.title = "Action disabled in read-only mode";
+              });
+            }
           });
         }
       })();
       function lfLogin() {
-        var u = document.getElementById("lf-user").value;
-        var p = document.getElementById("lf-pass").value;
-        if (u === "chandan" && p === "Supergo12@") {
+        var u = document.getElementById("lf-user").value.trim().toLowerCase();
+        var p = document.getElementById("lf-pass").value.trim();
+        if ((u === "chandan" && p === "Supergo12@") || (u === "parmeet" && p === "parmeet")) {
           localStorage.setItem("lf_user", u);
           localStorage.setItem("lf_pass", p);
-          document.getElementById("lf-login-overlay").style.display = "none";
+          window.location.reload(); // Reload to apply read-only mode properly
         } else {
           document.getElementById("lf-error-msg").style.display = "block";
         }
@@ -93,7 +111,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">733</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1040</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -135,8 +153,8 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">733</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">545</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1040</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">553</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -153,11 +171,11 @@
 <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:24px">
   <div class="card accent">
     <div class="label">Total Leads</div>
-    <div class="value">1827</div>
+    <div class="value">1860</div>
   </div>
   <div class="card blue">
     <div class="label">Contacted</div>
-    <div class="value">547</div>
+    <div class="value">555</div>
   </div>
   <div class="card yellow">
     <div class="label">Replied</div>
@@ -193,9 +211,9 @@
     <div class="stat-bar"><div class="stat-bar-fill" style="width:100.0%;background:var(--yellow)"></div></div>
   </div>
   <div class="form-card" style="text-align:center;padding:24px">
-    <div style="font-size:36px;font-weight:800;color:var(--blue)">4.3%</div>
+    <div style="font-size:36px;font-weight:800;color:var(--blue)">2.9%</div>
     <div style="color:var(--text-dim);font-size:13px;margin-top:4px">Email Open Rate</div>
-    <div class="stat-bar"><div class="stat-bar-fill" style="width:4.3%;background:var(--blue)"></div></div>
+    <div class="stat-bar"><div class="stat-bar-fill" style="width:2.9%;background:var(--blue)"></div></div>
   </div>
 </div>
 
@@ -208,7 +226,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">landscaping</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">90 leads</span>
+          <span style="color:var(--text-dim)">68 leads</span>
           <span style="color:var(--accent);font-weight:600">1 replied</span>
         </div>
       </div>
@@ -216,7 +234,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">gym</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">223 leads</span>
+          <span style="color:var(--text-dim)">204 leads</span>
           <span style="color:var(--accent);font-weight:600">1 replied</span>
         </div>
       </div>
@@ -224,7 +242,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">tree service</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">18 leads</span>
+          <span style="color:var(--text-dim)">17 leads</span>
           <span style="color:var(--accent);font-weight:600">0 replied</span>
         </div>
       </div>
@@ -232,7 +250,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">solar</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">71 leads</span>
+          <span style="color:var(--text-dim)">39 leads</span>
           <span style="color:var(--accent);font-weight:600">0 replied</span>
         </div>
       </div>
@@ -240,7 +258,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">roofing</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">138 leads</span>
+          <span style="color:var(--text-dim)">79 leads</span>
           <span style="color:var(--accent);font-weight:600">0 replied</span>
         </div>
       </div>
