@@ -3,56 +3,19 @@
 <head>
 
     <!-- PASSCODE SECURITY WALL -->
-    <style>
-      #lf-login-overlay {
-        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-        background: #0b0c10; color: #c5c6c7; z-index: 999999;
-        display: flex; align-items: center; justify-content: center;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      }
-      .lf-login-card {
-        background: #151a22; padding: 36px; border-radius: 12px;
-        box-shadow: 0 12px 40px rgba(0,0,0,0.65); width: 340px;
-        border: 1px solid #00c896; text-align: center;
-      }
-      .lf-login-card h2 { margin: 0 0 10px 0; color: #fff; font-size: 22px; font-weight: 600; }
-      .lf-login-card p { margin: 0 0 24px 0; color: #8a99ad; font-size: 13px; }
-      .lf-login-input {
-        width: 100%; padding: 12px 16px; margin: 8px 0; border-radius: 8px;
-        border: 1px solid #2d3848; background: #0b0c10; color: #fff;
-        box-sizing: border-box; font-size: 14px; outline: none; transition: border-color 0.2s;
-      }
-      .lf-login-input:focus { border-color: #00c896; }
-      .lf-login-btn {
-        width: 100%; padding: 12px; border-radius: 8px; border: none;
-        background: #00c896; color: #0b0c10; font-weight: bold; cursor: pointer;
-        font-size: 15px; margin-top: 14px; transition: opacity 0.2s;
-      }
-      .lf-login-btn:hover { opacity: 0.9; }
-      .lf-error { color: #ff4a4a; font-size: 13px; text-align: center; margin-top: 12px; display: none; font-weight: 500; }
-    </style>
     <script>
       (function() {
-        var u = localStorage.getItem("lf_user");
-        var p = localStorage.getItem("lf_pass");
-        if (u === "chandan" && p === "Supergo12@") {
-          document.addEventListener("DOMContentLoaded", function() {
-            var overlay = document.getElementById("lf-login-overlay");
-            if (overlay) overlay.style.display = "none";
-          });
+        var pass = localStorage.getItem("lf_pass");
+        if (pass !== "chandan123") {
+          var input = prompt("Enter passcode to access dashboard:");
+          if (input === "chandan123") {
+            localStorage.setItem("lf_pass", input);
+          } else {
+            document.write("<h1 style='color:red;text-align:center;font-family:sans-serif;margin-top:100px;'>Unauthorized Access</h1>");
+            window.stop();
+          }
         }
       })();
-      function lfLogin() {
-        var u = document.getElementById("lf-user").value;
-        var p = document.getElementById("lf-pass").value;
-        if (u === "chandan" && p === "Supergo12@") {
-          localStorage.setItem("lf_user", u);
-          localStorage.setItem("lf_pass", p);
-          document.getElementById("lf-login-overlay").style.display = "none";
-        } else {
-          document.getElementById("lf-error-msg").style.display = "block";
-        }
-      }
     </script>
     
   <meta charset="UTF-8">
@@ -61,18 +24,6 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-    <div id="lf-login-overlay">
-      <div class="lf-login-card">
-        <h2>🔒 LeadFlow Command Center</h2>
-        <p>Enter your authorization credentials to continue</p>
-        <input type="text" id="lf-user" class="lf-login-input" placeholder="Username" autocomplete="off" />
-        <input type="password" id="lf-pass" class="lf-login-input" placeholder="Password" />
-        <button onclick="lfLogin()" class="lf-login-btn">Sign In</button>
-        <div id="lf-error-msg" class="lf-error">Invalid credentials. Access Denied.</div>
-      </div>
-    </div>
-    
 
 <aside class="sidebar">
   <div class="logo">LeadFlow<span>by Chandan</span></div>
@@ -93,7 +44,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1113</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1150</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -132,8 +83,8 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">1113</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">535</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1150</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">536</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -154,11 +105,11 @@
 <!-- Live Stats Row -->
 <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 24px;">
   <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
-    <div style="font-size: 24px; font-weight: bold; color: var(--text);">2228</div>
+    <div style="font-size: 24px; font-weight: bold; color: var(--text);">2233</div>
     <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Leads Scraped</div>
   </div>
   <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
-    <div style="font-size: 24px; font-weight: bold; color: var(--accent);">707</div>
+    <div style="font-size: 24px; font-weight: bold; color: var(--accent);">753</div>
     <div style="font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px;">Outreach Sent</div>
   </div>
   <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;">
@@ -875,6 +826,97 @@
           </thead>
           <tbody>
             
+              <tr class="found-row" data-name="Bathroom Renovations Perth" data-category="remodeler" data-email="info@elitebathrooms.com.au" data-instagram="None" data-score="88" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Bathroom Renovations Perth</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">remodeler</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">88pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:02</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Hatch Renovations" data-category="remodeler" data-email="info@hatchrenovations.com.au" data-instagram="None" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Hatch Renovations</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">remodeler</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:01</td>
+              </tr>
+            
+              <tr class="found-row" data-name="OZ HOME BUILDING & CONSTRUCTION" data-category="remodeler" data-email="info@ozhomebuilding.com.au" data-instagram="oz_home_building" data-score="100" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">OZ HOME BUILDING & CONSTRUCTION</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">remodeler</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">100pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:01</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Amerex Renovations" data-category="remodeler" data-email="info@amerex.com.au" data-instagram="amerexbuilders" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Amerex Renovations</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">remodeler</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:00</td>
+              </tr>
+            
+              <tr class="found-row" data-name="HomeLux Renovations" data-category="remodeler" data-email="info@homeluxrenovations.com.au" data-instagram="homelux_renovations" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">HomeLux Renovations</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">remodeler</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:00</td>
+              </tr>
+            
               <tr class="found-row" data-name="Clean Image Detailing" data-category="detailing" data-email="contact@lgmobiledetailing.com" data-instagram="None" data-score="96" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
                 <td style="padding: 12px 8px; font-weight: 600;">Clean Image Detailing</td>
                 <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
@@ -1049,95 +1091,6 @@
                   </div>
                 </td>
                 <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:15</td>
-              </tr>
-            
-              <tr class="found-row" data-name="On Time Mobile Detailing" data-category="detailing" data-email="ontimeautodetailing214@gmail.com" data-instagram="None" data-score="96" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">On Time Mobile Detailing</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">96pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:14</td>
-              </tr>
-            
-              <tr class="found-row" data-name="On The Spot Detail" data-category="detailing" data-email="otsd21@gmail.com" data-instagram="eaonthespotdetail" data-score="100" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">On The Spot Detail</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">100pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:12</td>
-              </tr>
-            
-              <tr class="found-row" data-name="Harts Luxury Detailing" data-category="detailing" data-email="hartsdetailing@gmail.com" data-instagram="None" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Harts Luxury Detailing</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:12</td>
-              </tr>
-            
-              <tr class="found-row" data-name="AT Dryer Vent Cleaning" data-category="cleaning" data-email="service@dryerventcleaninggarland.com" data-instagram="None" data-score="89" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">AT Dryer Vent Cleaning</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">89pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:11</td>
-              </tr>
-            
-              <tr class="found-row" data-name="Eco Green" data-category="cleaning" data-email="office@ecogreenwindowclean.com" data-instagram="ecogreenwindowclean" data-score="0" data-status="new" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Eco Green</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-new" style="font-size: 10px; padding: 2px 6px;">new</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-27 06:11</td>
               </tr>
             
           </tbody>
