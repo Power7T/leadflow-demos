@@ -166,7 +166,7 @@
       <label>Google Gemini API Key(s) (comma-separated for rotation)</label>
       <div style="display: flex; gap: 8px; align-items: center;">
         <div style="position: relative; flex: 1; display: flex; align-items: center;">
-          <input type="password" id="GEMINI_API_KEY" value="AQ.A...alfQ" placeholder="API Key 1, API Key 2, ..." style="width: 100%; padding-right: 40px; margin: 0;">
+          <input type="password" id="GEMINI_API_KEY" value="" placeholder="API Key 1, API Key 2, ..." style="width: 100%; padding-right: 40px; margin: 0;">
           <button type="button" onclick="toggleField('GEMINI_API_KEY', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
         </div>
         <button type="button" class="btn btn-ghost" id="testGeminiBtn" onclick="testGeminiKeys()" style="white-space: nowrap;">🔌 Test Keys</button>
@@ -183,14 +183,14 @@
     <div style="margin-bottom: 12px">
       <label>Google Maps API Key</label>
       <div style="position: relative; display: flex; align-items: center; width: 100%;">
-        <input type="password" id="GOOGLE_MAPS_API_KEY" value="AIza...yZgU" placeholder="For business search" style="width: 100%; padding-right: 40px; margin: 0;">
+        <input type="password" id="GOOGLE_MAPS_API_KEY" value="" placeholder="For business search" style="width: 100%; padding-right: 40px; margin: 0;">
         <button type="button" onclick="toggleField('GOOGLE_MAPS_API_KEY', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
       </div>
     </div>
     <div style="margin-bottom: 12px">
       <label>GitHub Personal Access Token (for Demo Sites deployment)</label>
       <div style="position: relative; display: flex; align-items: center; width: 100%;">
-        <input type="password" id="GITHUB_TOKEN" value="gho_...0ixa" placeholder="ghp_..." style="width: 100%; padding-right: 40px; margin: 0;">
+        <input type="password" id="GITHUB_TOKEN" value="" placeholder="ghp_..." style="width: 100%; padding-right: 40px; margin: 0;">
         <button type="button" onclick="toggleField('GITHUB_TOKEN', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
       </div>
     </div>
@@ -200,7 +200,7 @@
     </div>
     <div style="margin-bottom: 12px">
       <label>Booking URL (Calendly)</label>
-      <input type="text" id="BOOKING_URL" value="https://www.fiverr.com/s/e6zGy4g" style="width: 100%; margin: 0;">
+      <input type="text" id="BOOKING_URL" value="" style="width: 100%; margin: 0;">
     </div>
     <div style="margin-bottom: 12px">
       <label>Hunter.io API Key (Email enrichment)</label>
@@ -212,7 +212,7 @@
     <div style="margin-bottom: 12px">
       <label>Apollo.io API Key (Email enrichment)</label>
       <div style="position: relative; display: flex; align-items: center; width: 100%;">
-        <input type="password" id="APOLLO_API_KEY" value="ZU8b...Z43g" style="width: 100%; padding-right: 40px; margin: 0;">
+        <input type="password" id="APOLLO_API_KEY" value="" style="width: 100%; padding-right: 40px; margin: 0;">
         <button type="button" onclick="toggleField('APOLLO_API_KEY', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
       </div>
     </div>
@@ -222,19 +222,19 @@
       <h3 style="font-size: 14px; margin-bottom: 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;">🏢 Agency & Lead Scraping</h3>
       <div style="margin-bottom: 12px">
         <label>Agency Name</label>
-        <input type="text" id="AGENCY_NAME" value="Alex from Sitelink" placeholder="e.g. Alex from Sitelink" style="width: 100%; margin: 0;">
+        <input type="text" id="AGENCY_NAME" value="" placeholder="e.g. Alex from Sitelink" style="width: 100%; margin: 0;">
       </div>
       <div style="margin-bottom: 12px">
         <label>Serper.dev Search API Key</label>
         <div style="position: relative; display: flex; align-items: center; width: 100%;">
-          <input type="password" id="SERPER_API_KEY" value="a1b2...49d7" placeholder="For Google Search enrichment" style="width: 100%; padding-right: 40px; margin: 0;">
+          <input type="password" id="SERPER_API_KEY" value="" placeholder="For Google Search enrichment" style="width: 100%; padding-right: 40px; margin: 0;">
           <button type="button" onclick="toggleField('SERPER_API_KEY', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
         </div>
       </div>
       <div style="margin-bottom: 12px">
         <label>Google PageSpeed API Key</label>
         <div style="position: relative; display: flex; align-items: center; width: 100%;">
-          <input type="password" id="GOOGLE_PAGESPEED_API_KEY" value="AIza...TqTQ" placeholder="For page performance metrics" style="width: 100%; padding-right: 40px; margin: 0;">
+          <input type="password" id="GOOGLE_PAGESPEED_API_KEY" value="" placeholder="For page performance metrics" style="width: 100%; padding-right: 40px; margin: 0;">
           <button type="button" onclick="toggleField('GOOGLE_PAGESPEED_API_KEY', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
         </div>
       </div>
@@ -276,7 +276,7 @@
       <div style="margin-bottom: 12px">
         <label>OpenRouter API Key (Alternative Model Provider)</label>
         <div style="position: relative; display: flex; align-items: center; width: 100%;">
-          <input type="password" id="OPENROUTER_API_KEY" value="sk-o...d1a2" placeholder="sk-or-..." style="width: 100%; padding-right: 40px; margin: 0;">
+          <input type="password" id="OPENROUTER_API_KEY" value="" placeholder="sk-or-..." style="width: 100%; padding-right: 40px; margin: 0;">
           <button type="button" onclick="toggleField('OPENROUTER_API_KEY', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
         </div>
       </div>
@@ -287,29 +287,29 @@
       <h3 style="font-size: 14px; margin-bottom: 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;">🔀 Cloudflare Sync, Pages & Alerts</h3>
       <div style="margin-bottom: 12px">
         <label>LeadFlow Public URL</label>
-        <input type="text" id="LEADFLOW_PUBLIC_URL" value="https://leadflow-relay.chandango12.workers.dev" placeholder="https://..." style="width: 100%; margin: 0;">
+        <input type="text" id="LEADFLOW_PUBLIC_URL" value="" placeholder="https://..." style="width: 100%; margin: 0;">
       </div>
       <div style="margin-bottom: 12px">
         <label>LeadFlow Secret Token</label>
         <div style="position: relative; display: flex; align-items: center; width: 100%;">
-          <input type="password" id="LEADFLOW_SECRET_TOKEN" value="lf_s...4d37" style="width: 100%; padding-right: 40px; margin: 0;">
+          <input type="password" id="LEADFLOW_SECRET_TOKEN" value="" style="width: 100%; padding-right: 40px; margin: 0;">
           <button type="button" onclick="toggleField('LEADFLOW_SECRET_TOKEN', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
         </div>
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px; align-items: center;">
         <div style="display: flex; align-items: center; height: 100%;">
           <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer; text-transform: none; font-size: 13px; margin: 0; color: var(--text);">
-            <input type="checkbox" id="USE_CLOUDFLARE_PAGES" checked style="width: auto; margin: 0;"> Deploy Demos to Cloudflare Pages
+            <input type="checkbox" id="USE_CLOUDFLARE_PAGES"  style="width: auto; margin: 0;"> Deploy Demos to Cloudflare Pages
           </label>
         </div>
         <div>
           <label>Cloudflare Pages Project Name</label>
-          <input type="text" id="CLOUDFLARE_PAGES_PROJECT" value="leadflow-demos" placeholder="leadflow-demos" style="margin: 0; width: 100%;">
+          <input type="text" id="CLOUDFLARE_PAGES_PROJECT" value="" placeholder="leadflow-demos" style="margin: 0; width: 100%;">
         </div>
       </div>
       <div style="margin-bottom: 12px">
         <label>Ntfy Topic (Push Notifications Alert)</label>
-        <input type="text" id="NTFY_TOPIC" value="leadflow-chandan-secret" style="width: 100%; margin: 0;">
+        <input type="text" id="NTFY_TOPIC" value="" style="width: 100%; margin: 0;">
       </div>
     </div>
 
@@ -319,13 +319,13 @@
       <div style="margin-bottom: 12px">
         <label>Telegram Control Bot Token</label>
         <div style="position: relative; display: flex; align-items: center; width: 100%;">
-          <input type="password" id="TELEGRAM_CONTROL_BOT_TOKEN" value="8602...khyA" placeholder="12345678:ABC..." style="width: 100%; padding-right: 40px; margin: 0;">
+          <input type="password" id="TELEGRAM_CONTROL_BOT_TOKEN" value="" placeholder="12345678:ABC..." style="width: 100%; padding-right: 40px; margin: 0;">
           <button type="button" onclick="toggleField('TELEGRAM_CONTROL_BOT_TOKEN', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
         </div>
       </div>
       <div style="margin-bottom: 12px">
         <label>Telegram Control User/Chat ID</label>
-        <input type="text" id="TELEGRAM_CONTROL_USER_ID" value="935977950" placeholder="e.g. 935977950" style="width: 100%; margin: 0;">
+        <input type="text" id="TELEGRAM_CONTROL_USER_ID" value="" placeholder="e.g. 935977950" style="width: 100%; margin: 0;">
       </div>
       <div style="margin-bottom: 12px">
         <label>LeadFlow Device Role (Failover Setup)</label>
@@ -396,9 +396,9 @@
         <label>Local agy Audit Model (Logic-heavy Tasks)</label>
         <select id="AGY_AUDIT_MODEL">
           
-          <option value="Claude Sonnet 4.6 (Thinking)" >Claude Sonnet 4.6 (Thinking)</option>
+          <option value="Claude Sonnet 4.6 (Thinking)" selected>Claude Sonnet 4.6 (Thinking)</option>
           <option value="Claude Opus 4.6 (Thinking)" >Claude Opus 4.6 (Thinking)</option>
-          <option value="Gemini 3.1 Pro (High)" selected>Gemini 3.1 Pro (High)</option>
+          <option value="Gemini 3.1 Pro (High)" >Gemini 3.1 Pro (High)</option>
           <option value="Gemini 3.1 Pro (Low)" >Gemini 3.1 Pro (Low)</option>
           <option value="Gemini 3.5 Flash (High)" >Gemini 3.5 Flash (High)</option>
           <option value="Gemini 3.5 Flash (Medium)" >Gemini 3.5 Flash (Medium)</option>
@@ -411,11 +411,11 @@
         <label>Local agy Default Writing Model (Fallback Outreach)</label>
         <select id="AGY_DEFAULT_MODEL">
           
-          <option value="Gemini 3.5 Flash (Low)" >Gemini 3.5 Flash (Low)</option>
+          <option value="Gemini 3.5 Flash (Low)" selected>Gemini 3.5 Flash (Low)</option>
           <option value="Gemini 3.5 Flash (Medium)" >Gemini 3.5 Flash (Medium)</option>
           <option value="Gemini 3.5 Flash (High)" >Gemini 3.5 Flash (High)</option>
           <option value="Gemini 3.1 Pro (Low)" >Gemini 3.1 Pro (Low)</option>
-          <option value="Gemini 3.1 Pro (High)" selected>Gemini 3.1 Pro (High)</option>
+          <option value="Gemini 3.1 Pro (High)" >Gemini 3.1 Pro (High)</option>
           <option value="Claude Sonnet 4.6 (Thinking)" >Claude Sonnet 4.6 (Thinking)</option>
           <option value="Claude Opus 4.6 (Thinking)" >Claude Opus 4.6 (Thinking)</option>
           <option value="GPT-OSS 120B (Medium)" >GPT-OSS 120B (Medium)</option>
@@ -426,7 +426,7 @@
         <label>Local agy CRM Chat Model (Interactive Rewrite)</label>
         <select id="AGY_CHAT_MODEL">
           
-          <option value="Gemini 3.5 Flash (Medium)" >Gemini 3.5 Flash (Medium)</option>
+          <option value="Gemini 3.5 Flash (Medium)" selected>Gemini 3.5 Flash (Medium)</option>
           <option value="Gemini 3.5 Flash (High)" >Gemini 3.5 Flash (High)</option>
           <option value="Gemini 3.5 Flash (Low)" >Gemini 3.5 Flash (Low)</option>
           <option value="Gemini 3.1 Pro (Low)" >Gemini 3.1 Pro (Low)</option>
@@ -438,12 +438,12 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px; align-items: center;">
           <div style="display: flex; align-items: center; height: 100%;">
             <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer; text-transform: none; font-size: 13px; margin: 0; color: var(--text);">
-              <input type="checkbox" id="BYPASS_WARMUP" checked style="width: auto; margin: 0;"> Bypass Dynamic Warmup Limits
+              <input type="checkbox" id="BYPASS_WARMUP"  style="width: auto; margin: 0;"> Bypass Dynamic Warmup Limits
             </label>
           </div>
           <div>
             <label>Custom Daily Limit Per Sender</label>
-            <input type="number" id="CUSTOM_SENDER_LIMIT" value="20" min="1" max="500" style="margin: 0; width: 100%;">
+            <input type="number" id="CUSTOM_SENDER_LIMIT" value="50" min="1" max="500" style="margin: 0; width: 100%;">
           </div>
         </div>
       </div>
@@ -457,7 +457,7 @@
           </div>
           <div>
             <label>agy Active Profile</label>
-            <input type="text" id="AGY_ACTIVE_PROFILE" value="profile2">
+            <input type="text" id="AGY_ACTIVE_PROFILE" value="profile1">
           </div>
         </div>
       </div>
@@ -563,8 +563,8 @@ document.getElementById('envForm').addEventListener('submit', (e) => {
   }, document.getElementById('saveEnvBtn'));
 });
 
-const initialEmails = "ch...@gmail.com, bh...@gmail.com";
-const initialPasswords = "xgaa...uihi";
+const initialEmails = "";
+const initialPasswords = "";
 
 const emailsList = initialEmails ? initialEmails.split(',').map(e => e.trim()) : [];
 const passwordsList = initialPasswords ? initialPasswords.split(',').map(p => p.trim()) : [];
