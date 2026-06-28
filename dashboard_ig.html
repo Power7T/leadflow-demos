@@ -3,19 +3,56 @@
 <head>
 
     <!-- PASSCODE SECURITY WALL -->
+    <style>
+      #lf-login-overlay {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: #0b0c10; color: #c5c6c7; z-index: 999999;
+        display: flex; align-items: center; justify-content: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      .lf-login-card {
+        background: #151a22; padding: 36px; border-radius: 12px;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.65); width: 340px;
+        border: 1px solid #00c896; text-align: center;
+      }
+      .lf-login-card h2 { margin: 0 0 10px 0; color: #fff; font-size: 22px; font-weight: 600; }
+      .lf-login-card p { margin: 0 0 24px 0; color: #8a99ad; font-size: 13px; }
+      .lf-login-input {
+        width: 100%; padding: 12px 16px; margin: 8px 0; border-radius: 8px;
+        border: 1px solid #2d3848; background: #0b0c10; color: #fff;
+        box-sizing: border-box; font-size: 14px; outline: none; transition: border-color 0.2s;
+      }
+      .lf-login-input:focus { border-color: #00c896; }
+      .lf-login-btn {
+        width: 100%; padding: 12px; border-radius: 8px; border: none;
+        background: #00c896; color: #0b0c10; font-weight: bold; cursor: pointer;
+        font-size: 15px; margin-top: 14px; transition: opacity 0.2s;
+      }
+      .lf-login-btn:hover { opacity: 0.9; }
+      .lf-error { color: #ff4a4a; font-size: 13px; text-align: center; margin-top: 12px; display: none; font-weight: 500; }
+    </style>
     <script>
       (function() {
-        var pass = localStorage.getItem("lf_pass");
-        if (pass !== "chandan123") {
-          var input = prompt("Enter passcode to access dashboard:");
-          if (input === "chandan123") {
-            localStorage.setItem("lf_pass", input);
-          } else {
-            document.write("<h1 style='color:red;text-align:center;font-family:sans-serif;margin-top:100px;'>Unauthorized Access</h1>");
-            window.stop();
-          }
+        var u = localStorage.getItem("lf_user");
+        var p = localStorage.getItem("lf_pass");
+        if (u === "chandan" && p === "Supergo12@") {
+          document.addEventListener("DOMContentLoaded", function() {
+            var overlay = document.getElementById("lf-login-overlay");
+            if (overlay) overlay.style.display = "none";
+          });
         }
       })();
+      function lfLogin() {
+        var u = document.getElementById("lf-user").value;
+        var p = document.getElementById("lf-pass").value;
+        if (u === "chandan" && p === "Supergo12@") {
+          localStorage.setItem("lf_user", u);
+          localStorage.setItem("lf_pass", p);
+          document.getElementById("lf-login-overlay").style.display = "none";
+        } else {
+          document.getElementById("lf-error-msg").style.display = "block";
+        }
+      }
     </script>
     
   <meta charset="UTF-8">
@@ -24,6 +61,18 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+    <div id="lf-login-overlay">
+      <div class="lf-login-card">
+        <h2>🔒 LeadFlow Command Center</h2>
+        <p>Enter your authorization credentials to continue</p>
+        <input type="text" id="lf-user" class="lf-login-input" placeholder="Username" autocomplete="off" />
+        <input type="password" id="lf-pass" class="lf-login-input" placeholder="Password" />
+        <button onclick="lfLogin()" class="lf-login-btn">Sign In</button>
+        <div id="lf-error-msg" class="lf-error">Invalid credentials. Access Denied.</div>
+      </div>
+    </div>
+    
 
 <aside class="sidebar">
   <div class="logo">LeadFlow<span>by Chandan</span></div>
@@ -44,7 +93,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1150</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1148</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -83,7 +132,7 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">1150</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1148</b></div>
     <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">535</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
@@ -217,7 +266,7 @@
 
     
     <div class="lead-row" id="row-2724" onclick="selectLead(2724)"
-      data-lead='{"address": "", "assigned_sender_email": null, "category": "Gaming Creator", "city": "Instagram", "competitor_deficit": null, "country": "Online", "demo_tunnel_url": null, "demo_viewed": 1, "domain_available": null, "email": "", "email_clicked": 0, "email_opened": 0, "email_sent_at": null, "found_at": "2026-06-22 05:55:55", "gap": "All about GTA 6 \u0026 the gaming world \ud83c\udf0d\nUpdates \u2022 Leaks \u2022 Fun Gameplay\n\ud83c\udfae PSwithAJ \ud83d\ude97\ud83d\udca5", "google_rating": 5.0, "google_reviews": 1883, "has_google_ads": 0, "id": 2724, "instagram": "pswithaj", "intent_score": 0, "interactions": [], "interactions_json": "[]", "lead_score": 60, "linkedin_name": null, "linkedin_url": null, "maps_rank": 0, "maps_url": "https://scontent.cdninstagram.com/v/t51.82787-19/574938979_17843916516609741_3907140971963340303_n.jpg?stp=dst-jpg_s100x100_tt6\u0026_nc_cat=105\u0026ccb=7-5\u0026_nc_sid=bf7eb4\u0026efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44NTQuQzMifQ%3D%3D\u0026_nc_ohc=8p_KVAdZmdcQ7kNvwG_clNt\u0026_nc_oc=AdqduZA88R03k3TzX0uamuiInTVDEMJ0tlDJhK1hNDmS57DaUx_5TTKbz5Oi3PLc8Ds\u0026_nc_zt=24\u0026_nc_ht=scontent.cdninstagram.com\u0026_nc_gid=7sFL7RSJswra1LiG4VEZQg\u0026_nc_ss=7860f\u0026oh=00_Af-7x5_yn6ydyWfCXSd-SN8soS5ARKUPlEZdsAGpNENRaQ\u0026oe=6A3E9B60", "name": "PSwithAJ", "owner_name": null, "phone": "", "pitch_type": "instagram_reach", "replied_at": null, "reply_text": null, "social_active": 0, "source": "instagram_reach", "status": "approved", "template_id": null, "timezone": "America/New_York", "visual_preview_url": null, "website": "https://www.instagram.com/pswithaj/", "website_score": 0, "whatsapp": null}' data-status="approved" data-pitch-type="instagram_reach" style="margin-bottom: 8px;">
+      data-lead='{"address": "", "assigned_sender_email": null, "category": "Gaming Creator", "city": "Instagram", "competitor_deficit": null, "country": "Online", "demo_tunnel_url": null, "demo_viewed": 1, "domain_available": null, "email": "", "email_clicked": 0, "email_opened": 0, "email_sent_at": null, "found_at": "2026-06-22 05:55:55", "gap": "All about GTA 6 \u0026 the gaming world \ud83c\udf0d\nUpdates \u2022 Leaks \u2022 Fun Gameplay\n\ud83c\udfae PSwithAJ \ud83d\ude97\ud83d\udca5", "google_rating": 5.0, "google_reviews": 1883, "has_google_ads": 0, "id": 2724, "instagram": "pswithaj", "intent_score": 0, "interactions": [], "interactions_json": "[]", "lead_score": 60, "linkedin_name": null, "linkedin_url": null, "maps_rank": 0, "maps_url": "https://scontent.cdninstagram.com/v/t51.82787-19/574938979_17843916516609741_3907140971963340303_n.jpg?stp=dst-jpg_s100x100_tt6\u0026_nc_cat=105\u0026ccb=7-5\u0026_nc_sid=bf7eb4\u0026efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44NTQuQzMifQ%3D%3D\u0026_nc_ohc=8p_KVAdZmdcQ7kNvwG_clNt\u0026_nc_oc=AdqduZA88R03k3TzX0uamuiInTVDEMJ0tlDJhK1hNDmS57DaUx_5TTKbz5Oi3PLc8Ds\u0026_nc_zt=24\u0026_nc_ht=scontent.cdninstagram.com\u0026_nc_gid=7sFL7RSJswra1LiG4VEZQg\u0026_nc_ss=7860f\u0026oh=00_Af-7x5_yn6ydyWfCXSd-SN8soS5ARKUPlEZdsAGpNENRaQ\u0026oe=6A3E9B60", "name": "PSwithAJ", "notes": null, "owner_name": null, "phone": "", "pitch_type": "instagram_reach", "replied_at": null, "reply_text": null, "social_active": 0, "source": "instagram_reach", "status": "approved", "template_id": null, "timezone": "America/New_York", "visual_preview_url": null, "website": "https://www.instagram.com/pswithaj/", "website_score": 0, "whatsapp": null}' data-status="approved" data-pitch-type="instagram_reach" style="margin-bottom: 8px;">
       
       <!-- Top Row: Name and Score Pill -->
       <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
@@ -283,7 +332,7 @@
 
 <!-- lead data embedded for JS -->
 <script id="leadsData" type="application/json">
-[{"address": "", "assigned_sender_email": null, "category": "Gaming Creator", "city": "Instagram", "competitor_deficit": null, "country": "Online", "demo_tunnel_url": null, "demo_viewed": 1, "domain_available": null, "email": "", "email_clicked": 0, "email_opened": 0, "email_sent_at": null, "found_at": "2026-06-22 05:55:55", "gap": "All about GTA 6 \u0026 the gaming world \ud83c\udf0d\nUpdates \u2022 Leaks \u2022 Fun Gameplay\n\ud83c\udfae PSwithAJ \ud83d\ude97\ud83d\udca5", "google_rating": 5.0, "google_reviews": 1883, "has_google_ads": 0, "id": 2724, "instagram": "pswithaj", "intent_score": 0, "interactions": [], "interactions_json": "[]", "lead_score": 60, "linkedin_name": null, "linkedin_url": null, "maps_rank": 0, "maps_url": "https://scontent.cdninstagram.com/v/t51.82787-19/574938979_17843916516609741_3907140971963340303_n.jpg?stp=dst-jpg_s100x100_tt6\u0026_nc_cat=105\u0026ccb=7-5\u0026_nc_sid=bf7eb4\u0026efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44NTQuQzMifQ%3D%3D\u0026_nc_ohc=8p_KVAdZmdcQ7kNvwG_clNt\u0026_nc_oc=AdqduZA88R03k3TzX0uamuiInTVDEMJ0tlDJhK1hNDmS57DaUx_5TTKbz5Oi3PLc8Ds\u0026_nc_zt=24\u0026_nc_ht=scontent.cdninstagram.com\u0026_nc_gid=7sFL7RSJswra1LiG4VEZQg\u0026_nc_ss=7860f\u0026oh=00_Af-7x5_yn6ydyWfCXSd-SN8soS5ARKUPlEZdsAGpNENRaQ\u0026oe=6A3E9B60", "name": "PSwithAJ", "owner_name": null, "phone": "", "pitch_type": "instagram_reach", "replied_at": null, "reply_text": null, "social_active": 0, "source": "instagram_reach", "status": "approved", "template_id": null, "timezone": "America/New_York", "visual_preview_url": null, "website": "https://www.instagram.com/pswithaj/", "website_score": 0, "whatsapp": null}]
+[{"address": "", "assigned_sender_email": null, "category": "Gaming Creator", "city": "Instagram", "competitor_deficit": null, "country": "Online", "demo_tunnel_url": null, "demo_viewed": 1, "domain_available": null, "email": "", "email_clicked": 0, "email_opened": 0, "email_sent_at": null, "found_at": "2026-06-22 05:55:55", "gap": "All about GTA 6 \u0026 the gaming world \ud83c\udf0d\nUpdates \u2022 Leaks \u2022 Fun Gameplay\n\ud83c\udfae PSwithAJ \ud83d\ude97\ud83d\udca5", "google_rating": 5.0, "google_reviews": 1883, "has_google_ads": 0, "id": 2724, "instagram": "pswithaj", "intent_score": 0, "interactions": [], "interactions_json": "[]", "lead_score": 60, "linkedin_name": null, "linkedin_url": null, "maps_rank": 0, "maps_url": "https://scontent.cdninstagram.com/v/t51.82787-19/574938979_17843916516609741_3907140971963340303_n.jpg?stp=dst-jpg_s100x100_tt6\u0026_nc_cat=105\u0026ccb=7-5\u0026_nc_sid=bf7eb4\u0026efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44NTQuQzMifQ%3D%3D\u0026_nc_ohc=8p_KVAdZmdcQ7kNvwG_clNt\u0026_nc_oc=AdqduZA88R03k3TzX0uamuiInTVDEMJ0tlDJhK1hNDmS57DaUx_5TTKbz5Oi3PLc8Ds\u0026_nc_zt=24\u0026_nc_ht=scontent.cdninstagram.com\u0026_nc_gid=7sFL7RSJswra1LiG4VEZQg\u0026_nc_ss=7860f\u0026oh=00_Af-7x5_yn6ydyWfCXSd-SN8soS5ARKUPlEZdsAGpNENRaQ\u0026oe=6A3E9B60", "name": "PSwithAJ", "notes": null, "owner_name": null, "phone": "", "pitch_type": "instagram_reach", "replied_at": null, "reply_text": null, "social_active": 0, "source": "instagram_reach", "status": "approved", "template_id": null, "timezone": "America/New_York", "visual_preview_url": null, "website": "https://www.instagram.com/pswithaj/", "website_score": 0, "whatsapp": null}]
 </script>
 
 
