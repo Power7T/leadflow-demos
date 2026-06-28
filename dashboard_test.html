@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- PASSCODE SECURITY WALL -->
+    <script>
+      (function() {
+        var pass = localStorage.getItem("lf_pass");
+        if (pass !== "chandan123") {
+          var input = prompt("Enter passcode to access dashboard:");
+          if (input === "chandan123") {
+            localStorage.setItem("lf_pass", input);
+          } else {
+            document.write("<h1 style='color:red;text-align:center;font-family:sans-serif;margin-top:100px;'>Unauthorized Access</h1>");
+            window.stop();
+          }
+        }
+      })();
+    </script>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadFlow — Test Leads & Conversion Triggers</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="logo">LeadFlow<span>by Chandan</span></div>
+  
+  <a href="./dashboard_index.html" class="autopilot-status" id="sidebar-autopilot-status">
+    
+      <span class="pulse-dot green" id="sidebar-autopilot-dot"></span>
+      <span id="sidebar-autopilot-text" style="color:#00c896; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Autopilot Active</span>
+    
+  </a>
+
+  <nav class="nav">
+    <a href="./dashboard_index.html" class="">
+      <span class="icon">⚡</span> Dashboard
+    </a>
+    <a href="./dashboard_find.html" class="">
+      <span class="icon">🔍</span> Find Businesses
+    </a>
+    <a href="./dashboard_leads.html" class="">
+      <span class="icon">📋</span> Review Leads
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1150</span>
+    </a>
+    <a href="./dashboard_saas.html" class="">
+      <span class="icon">💻</span> SaaS CRM Leads
+    </a>
+    <a href="./dashboard_ig.html" class="">
+      <span class="icon">📸</span> Instagram Reach
+      <span class="badge badge-new" id="sidebar-badge-ig-new" style="margin-left:auto; display:none;">0</span>
+    </a>
+    <a href="./dashboard_test.html" class="active">
+      <span class="icon">🧪</span> Test Leads
+      <span class="badge badge-new" id="sidebar-badge-test-new" style="margin-left:auto; ">5</span>
+    </a>
+    <a href="./dashboard_kanban.html" class="">
+      <span class="icon">🗂</span> Pipeline
+    </a>
+    <a href="./dashboard_followups.html" class="">
+      <span class="icon">🔁</span> Follow-ups
+    </a>
+    <a href="./dashboard_templates.html" class="">
+      <span class="icon">📝</span> Templates
+    </a>
+    <a href="./dashboard_demos.html" class="">
+      <span class="icon">🌐</span> Demo Sites
+    </a>
+    <a href="./dashboard_sent.html" class="">
+      <span class="icon">📨</span> Sent
+    </a>
+    <a href="./dashboard_analytics.html" class="">
+      <span class="icon">📊</span> Analytics
+    </a>
+    <a href="/ab-test" class="">
+      <span class="icon">🧪</span> A/B Tests
+    </a>
+    <a href="./dashboard_settings.html" class="">
+      <span class="icon">⚙️</span> Settings
+    </a>
+  </nav>
+  <div class="sidebar-stats">
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1150</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">535</b></div>
+    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
+    <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
+    <div class="stat" id="sidebar-stat-opted-out-container" style="">
+      <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">2</b>
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+  
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:4px">
+  <h1 style="margin:0">🧪 Conversion Trigger Test Leads</h1>
+  <button class="btn btn-primary" onclick="toggleRunTriggersModal()">🚀 Run Conversion Triggers</button>
+</div>
+<p class="subtitle">Test high-converting FOMO triggers: Competitor Deficit, Visual Transform Mockup, and Maps 3-Pack Rank Triggers.</p>
+
+<!-- Success/Error Banners -->
+
+
+
+<!-- Run Triggers Modal -->
+<div id="runTriggersModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+  <div class="card" style="width:100%; max-width:500px; padding:30px; position:relative; background:var(--card-bg); border:1px solid var(--border); border-radius:12px;">
+    <button onclick="toggleRunTriggersModal()" style="position:absolute; top:15px; right:15px; background:none; border:none; color:var(--text-dim); font-size:24px; cursor:pointer;">&times;</button>
+    <h3 style="margin-top:0; margin-bottom:20px;">Run Conversion Triggers per City</h3>
+    <p style="font-size:12px; color:var(--text-dim); margin-bottom:20px;">Finds local businesses, tracks their Maps rankings, analyzes top competitors, and prepares visual audit transformation mocks.</p>
+    
+    <form id="runTriggersForm" action="/test-leads/run" method="POST" style="display:flex; flex-direction:column; gap:16px;">
+      <div>
+        <label style="display:block; font-size:11px; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; font-weight:600;">Niche *</label>
+        <input type="text" name="niche" required style="width:100%; padding:10px; background:var(--bg); border:1px solid var(--border); border-radius:6px; color:#fff; outline:none;" placeholder="e.g. hvac, dentist, roofing">
+      </div>
+
+      <div>
+        <label style="display:block; font-size:11px; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; font-weight:600;">City / Location *</label>
+        <input type="text" name="city" required style="width:100%; padding:10px; background:var(--bg); border:1px solid var(--border); border-radius:6px; color:#fff; outline:none;" placeholder="e.g. Dallas, TX or Seattle, WA">
+      </div>
+
+      <div style="background:rgba(255,193,7,0.05); border:1px solid rgba(255,193,7,0.15); border-radius:6px; padding:10px; font-size:11px; color:#ffc107;">
+        ℹ️ **API Safeguard**: Searches are capped at a maximum of **5 local businesses** to prevent Google API quota exhaustion.
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="submitRunBtn" style="justify-content:center; margin-top:10px; padding:12px;">Scrape & Run Triggers</button>
+    </form>
+  </div>
+</div>
+
+
+<div class="empty">
+  <div class="icon">🧪</div>
+  <p>No conversion test leads yet.</p>
+  <button class="btn btn-primary" onclick="toggleRunTriggersModal()">🚀 Run Your First City Trigger Test</button>
+</div>
+
+
+</main>
+
+
+<script>
+function toggleRunTriggersModal() {
+  const modal = document.getElementById('runTriggersModal');
+  modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+}
+
+document.getElementById('runTriggersForm').addEventListener('submit', function() {
+  const btn = document.getElementById('submitRunBtn');
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Scraping & evaluating conversion triggers...';
+});
+
+function selectLead(id) {
+  const activeRow = document.getElementById('row-' + id);
+  if (!activeRow) return;
+  const lead = JSON.parse(activeRow.getAttribute('data-lead'));
+
+  // Highlight active row
+  document.querySelectorAll('.lead-row').forEach(row => row.classList.remove('active'));
+  activeRow.classList.add('active');
+
+  const panel = document.getElementById('detailsPanel');
+  
+  // Format standard contact indicators
+  const emailVal = lead.email || 'None';
+  const phoneVal = lead.phone || 'None';
+  const websiteVal = lead.website ? `<a href="${lead.website}" target="_blank" style="color:#00c896;">${lead.website}</a>` : 'None';
+  
+  // Format conversion trigger labels
+  const isOutsidePack = lead.maps_rank > 3;
+  const rankLabel = isOutsidePack 
+    ? `<span style="color:#ef4444; font-weight:bold;">Ranked #${lead.maps_rank} (❌ Outside Google Maps 3-Pack)</span>`
+    : `<span style="color:#10b981; font-weight:bold;">Ranked #${lead.maps_rank} (⚠️ At risk of dropping from 3-Pack)</span>`;
+    
+  panel.innerHTML = `
+    <div class="card" style="padding:24px; display:flex; flex-direction:column; gap:20px; background:var(--card-bg); border:1px solid var(--border); border-radius:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:10px; border-bottom:1px solid var(--border); padding-bottom:15px;">
+        <div>
+          <h2 style="margin:0; font-size:20px; color:#fff;">${lead.name}</h2>
+          <p style="margin:5px 0 0 0; font-size:12px; color:var(--text-dim);">${lead.category.toUpperCase()} · ${lead.city}</p>
+        </div>
+        <a href="${lead.maps_url || '#'}" target="_blank" class="btn btn-ghost" style="font-size:11px; padding:6px 12px;">📍 View on Maps</a>
+      </div>
+
+      <!-- Trigger 4: Google Maps 3-Pack Position -->
+      <div style="background:rgba(239, 68, 68, 0.03); border:1px solid rgba(239, 68, 68, 0.1); border-radius:8px; padding:16px;">
+        <h4 style="margin:0 0 8px 0; font-size:11px; text-transform:uppercase; color:var(--text-dim); letter-spacing:0.5px;">🚨 Trigger #4: Google Maps 3-Pack Ranking</h4>
+        <div style="font-size:14px; margin-bottom:6px;">${rankLabel}</div>
+        <p style="margin:0; font-size:12px; color:var(--text-dim); line-height:1.4;">Only the top 3 businesses get 70% of local phone calls and website clicks. This ranking position is a critical business opportunity.</p>
+      </div>
+
+      <!-- Trigger 2: Competitor Deficit Audit -->
+      <div style="background:rgba(245, 158, 11, 0.03); border:1px solid rgba(245, 158, 11, 0.1); border-radius:8px; padding:16px;">
+        <h4 style="margin:0 0 8px 0; font-size:11px; text-transform:uppercase; color:var(--text-dim); letter-spacing:0.5px;">📊 Trigger #2: Competitor Deficit Analysis</h4>
+        <div style="font-size:13.5px; font-weight:600; color:#ffb020; margin-bottom:6px;">Deficit identified:</div>
+        <p style="margin:0; font-size:12px; color:#e5e7eb; line-height:1.5; font-family:monospace; background:rgba(0,0,0,0.2); padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.05);">${lead.competitor_deficit || 'N/A'}</p>
+      </div>
+
+      <!-- Trigger 3: Visual Transformation Mockup -->
+      <div style="background:rgba(16, 185, 129, 0.03); border:1px solid rgba(16, 185, 129, 0.1); border-radius:8px; padding:16px;">
+        <h4 style="margin:0 0 8px 0; font-size:11px; text-transform:uppercase; color:var(--text-dim); letter-spacing:0.5px;">🎨 Trigger #3: Visual Transformation Status</h4>
+        <div style="font-size:13.5px; font-weight:600; color:#10b981; margin-bottom:6px;">Mockup Demo State:</div>
+        <div style="display:flex; align-items:center; gap:8px; justify-content:space-between; width:100%;">
+          <span style="font-size:11px; color:#e5e7eb; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:240px;" title="${lead.visual_preview_url}">${lead.visual_preview_url || 'Mockup Ready'}</span>
+          <a href="${lead.visual_preview_url || '#'}" target="_blank" class="btn btn-ghost" style="padding:4px 8px; font-size:10px; text-decoration:none; display:inline-block;">👁️ Preview Demo</a>
+        </div>
+      </div>
+
+      <!-- Contact details -->
+      <div style="border-top:1px solid var(--border); padding-top:15px; display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:12px; font-size:12px;">
+        <div>
+          <span style="display:block; color:var(--text-dim); font-size:10px; text-transform:uppercase; margin-bottom:2px;">Email</span>
+          <strong style="word-break:break-all;">${emailVal}</strong>
+        </div>
+        <div>
+          <span style="display:block; color:var(--text-dim); font-size:10px; text-transform:uppercase; margin-bottom:2px;">Phone</span>
+          <strong>${phoneVal}</strong>
+        </div>
+        <div>
+          <span style="display:block; color:var(--text-dim); font-size:10px; text-transform:uppercase; margin-bottom:2px;">Website</span>
+          <strong>${websiteVal}</strong>
+        </div>
+      </div>
+
+        <!-- Pitch generation block -->
+      <div style="border-top:1px solid var(--border); padding-top:15px;">
+        <h3 style="margin:0 0 10px 0; font-size:14px; color:#fff;">Compose High-Converting Pitch</h3>
+        <div style="display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap;">
+          <button onclick="generateHighConvertingPitch(${lead.id}, 'deficit')" class="btn btn-ghost" style="font-size:11px; padding:6px 10px;" id="genPitchBtn1">🤖 Deficit Pitch</button>
+          <button onclick="generateHighConvertingPitch(${lead.id}, 'booster')" class="btn btn-ghost" style="font-size:11px; padding:6px 10px;" id="genPitchBtn2">🚀 3-Pack Booster Pitch</button>
+        </div>
+        <textarea id="testPitchArea" style="width:100%; height:120px; padding:12px; background:var(--bg); border:1px solid var(--border); border-radius:8px; color:#e5e7eb; font-size:12.5px; line-height:1.5; resize:vertical; outline:none; font-family:inherit;"></textarea>
+        
+        <div style="display:flex; justify-content:space-between; gap:10px; margin-top:12px;">
+          <button onclick="sendAuditPitch(${lead.id})" class="btn btn-primary" id="sendPitchBtn" style="margin-left:auto;">✉ Send Audit Email</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function generateHighConvertingPitch(leadId, type) {
+  const btn = type === 'deficit' ? document.getElementById('genPitchBtn1') : document.getElementById('genPitchBtn2');
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Writing...';
+
+  setTimeout(() => {
+    const activeRow = document.querySelector('.lead-row.active');
+    if (!activeRow) return;
+    const lead = JSON.parse(activeRow.getAttribute('data-lead') || '{}');
+
+    const name      = lead.name || 'your business';
+    const city      = lead.city || 'your city';
+    const category  = lead.category || 'local business';
+    const rank      = lead.maps_rank || '?';
+    const demoUrl   = lead.demo_tunnel_url || lead.visual_preview_url || '';
+    const missedRev = lead.intent_score  || 0;   // $/month at risk
+    const reviews   = lead.google_reviews || 0;
+
+    // Parse review gap from competitor_deficit text
+    let reviewGapText = '';
+    const revMatch = (lead.competitor_deficit || '').match(/Review gap[^|]+/);
+    if (revMatch) reviewGapText = revMatch[0].trim();
+
+    const missedRevFmt = missedRev > 0
+      ? `$${Number(missedRev).toLocaleString()}`
+      : 'significant revenue';
+
+    let subject = '';
+    let body    = '';
+
+    if (type === 'deficit') {
+      subject = `Quick question about ${name}'s Google Maps visibility`;
+      body = `Hey,
+
+I'm Chandan — I help local ${category}s win more customers from Google Maps.
+
+I was researching ${category}s in ${city} today and noticed ${name} is ranked #${rank} on Google Maps.
+
+Here's the problem in plain numbers:
+
+Only the top 3 businesses in your area capture ~70% of all local map clicks and phone calls. At rank #${rank}, you're currently missing an estimated ${missedRevFmt}/month in ${category} inquiries — that's revenue going directly to the businesses ranked above you.${reviewGapText ? `\n\nOn top of that: ${reviewGapText}. Google uses review count as a direct ranking signal, which is pulling your position down further.` : ''}
+
+I built a custom local presence mockup for ${name} that shows exactly what a higher-ranking, fully optimised version of your business looks like to a customer searching right now:
+${demoUrl || '[demo link — run triggers to generate]'}
+
+I'm working with ${Math.floor(Math.random()*2)+2} other ${category}s in ${city} right now and can take 1 more client this month. Worth a quick look?
+
+Regards,
+Chandan Gosavi`;
+
+    } else {
+      subject = `${name} — you're one ranking position away from 3x more calls`;
+      body = `Hey,
+
+I was searching for ${category}s in ${city} and came across ${name}.
+
+You're ranked #${rank} on Google Maps — which puts you right at the edge of the 3-Pack. The 3 businesses above you get roughly 3x more phone calls and website visits than those just below.
+
+The difference between your current rank and the top 3? An estimated ${missedRevFmt}/month in ${category} inquiries that are currently going to your competitors instead of you.
+
+To show you what's possible, I put together a custom website mockup for ${name} that's built specifically to signal local authority to Google:
+${demoUrl || '[demo link — run triggers to generate]'}
+
+Businesses I've helped in similar positions have moved into the 3-Pack within 60–90 days. I can only take on 1 more ${city} client right now.
+
+Want me to walk you through what I found?
+
+Regards,
+Chandan Gosavi`;
+    }
+
+    document.getElementById('testPitchArea').value = `Subject: ${subject}\n\n${body}`;
+    btn.disabled = false;
+    btn.innerHTML = type === 'deficit' ? '🤖 Deficit Pitch' : '🚀 3-Pack Booster Pitch';
+  }, 600);
+}
+
+
+function sendAuditPitch(leadId) {
+  const text = document.getElementById('testPitchArea').value;
+  if (!text.trim()) {
+    alert('Please generate or compose a pitch first!');
+    return;
+  }
+
+  const activeRow = document.querySelector('.lead-row.active');
+  if (!activeRow) { alert('No lead selected.'); return; }
+  const lead = JSON.parse(activeRow.getAttribute('data-lead') || '{}');
+  const toEmail = lead.email || '';
+  if (!toEmail) {
+    alert('No email address for this lead. Cannot send.');
+    return;
+  }
+
+  const btn = document.getElementById('sendPitchBtn');
+  btn.disabled = true;
+  btn.innerHTML = '📨 Sending...';
+
+  // Parse subject and body from the textarea (format: "Subject: ...\n\n...")
+  let subject = '';
+  let body = text;
+  const subjectMatch = text.match(/^Subject:\s*(.+?)(?:\n|$)/i);
+  if (subjectMatch) {
+    subject = subjectMatch[1].trim();
+    body = text.slice(subjectMatch[0].length).replace(/^\n+/, '');
+  }
+
+  fetch(`/leads/${leadId}/send`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      to_email: toEmail,
+      subject: subject,
+      email_msg: body,
+      demo_url: lead.demo_tunnel_url || lead.visual_preview_url || ''
+    })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.ok) {
+      btn.innerHTML = '✅ Sent!';
+      btn.style.background = 'rgba(16,185,129,0.2)';
+      btn.style.color = '#10b981';
+      // Show success toast
+      const toast = document.createElement('div');
+      toast.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#10b981;color:#fff;padding:12px 20px;border-radius:8px;font-size:13px;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.3);';
+      toast.textContent = `✓ Audit email sent to ${toEmail}`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = '✉ Send Audit Email';
+      alert('Send failed: ' + (data.error || 'Unknown error'));
+    }
+  })
+  .catch(err => {
+    btn.disabled = false;
+    btn.innerHTML = '✉ Send Audit Email';
+    alert('Network error: ' + err.message);
+  });
+}
+</script>
+
+
+<!-- Cloudflare Tunnel URL widget -->
+<div id="tunnelWidget" style="display:none;position:fixed;bottom:20px;right:20px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;padding:12px 16px;z-index:999;box-shadow:0 4px 24px rgba(0,0,0,0.5);max-width:340px;">
+  <div style="font-size:10px;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">🌐 Public URL (Cloudflare)</div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <a id="tunnelLink" href="#" target="_blank" style="font-size:12px;color:#00c896;text-decoration:none;font-family:'SF Mono',Monaco,monospace;word-break:break-all;flex:1"></a>
+    <button onclick="copyTunnelUrl()" id="copyBtn" style="background:#2a2a2a;border:1px solid #3a3a3a;border-radius:6px;color:#aaa;font-size:11px;padding:5px 10px;cursor:pointer;flex-shrink:0;transition:all 0.15s">Copy</button>
+  </div>
+</div>
+
+<script>
+let tunnelUrl = '';
+function copyTunnelUrl() {
+  if (!tunnelUrl) return;
+  navigator.clipboard.writeText(tunnelUrl).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied!'; btn.style.color = '#00c896';
+    setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = '#aaa'; }, 2000);
+  });
+}
+async function pollTunnelUrl() {
+  try {
+    const res = await fetch('/api/tunnel-url');
+    const data = await res.json();
+    if (data.url) {
+      tunnelUrl = data.url;
+      document.getElementById('tunnelLink').textContent = data.url;
+      document.getElementById('tunnelLink').href = data.url;
+      document.getElementById('tunnelWidget').style.display = 'block';
+    }
+  } catch(e) {}
+}
+pollTunnelUrl();
+const fastPoll = setInterval(async () => {
+  await pollTunnelUrl();
+  if (tunnelUrl) { clearInterval(fastPoll); setInterval(pollTunnelUrl, 30000); }
+}, 3000);
+
+async function pollStats() {
+  try {
+    const res = await fetch('/api/stats');
+    const stats = await res.json();
+    
+    // Update autopilot badge
+    const dot = document.getElementById('sidebar-autopilot-dot');
+    const text = document.getElementById('sidebar-autopilot-text');
+    if (dot && text) {
+      if (stats.autopilot_active) {
+        dot.className = 'pulse-dot green';
+        text.style.color = '#00c896';
+        text.textContent = 'Autopilot Active';
+      } else {
+        dot.className = 'pulse-dot gray';
+        text.style.color = 'var(--text-dim)';
+        text.textContent = 'Autopilot Stopped';
+      }
+    }
+    
+    // Update stats text
+    const newStat = document.getElementById('sidebar-stat-new');
+    if (newStat) newStat.textContent = stats.new;
+    const sentStat = document.getElementById('sidebar-stat-sent');
+    if (sentStat) sentStat.textContent = stats.sent;
+    const repliedStat = document.getElementById('sidebar-stat-replied');
+    if (repliedStat) repliedStat.textContent = stats.replied;
+    const closedStat = document.getElementById('sidebar-stat-closed');
+    if (closedStat) closedStat.textContent = stats.closed;
+    const optedOutStat = document.getElementById('sidebar-stat-opted-out');
+    const optedOutContainer = document.getElementById('sidebar-stat-opted-out-container');
+    if (optedOutStat && optedOutContainer) {
+      optedOutStat.textContent = stats.opted_out;
+      optedOutContainer.style.display = stats.opted_out > 0 ? '' : 'none';
+    }
+    
+    // Update badges
+    const badgeLeadsNew = document.getElementById('sidebar-badge-leads-new');
+    if (badgeLeadsNew) {
+      badgeLeadsNew.textContent = stats.new;
+      badgeLeadsNew.style.display = stats.new === 0 ? 'none' : '';
+    }
+    const badgeIgNew = document.getElementById('sidebar-badge-ig-new');
+    if (badgeIgNew) {
+      badgeIgNew.textContent = stats.instagram_reach_new;
+      badgeIgNew.style.display = stats.instagram_reach_new === 0 ? 'none' : '';
+    }
+    const badgeTestNew = document.getElementById('sidebar-badge-test-new');
+    if (badgeTestNew) {
+      badgeTestNew.textContent = stats.test_leads_new;
+      badgeTestNew.style.display = stats.test_leads_new === 0 ? 'none' : '';
+    }
+  } catch (e) {
+    console.error("Failed to poll sidebar stats", e);
+  }
+}
+window.pollStats = pollStats;
+
+document.addEventListener('DOMContentLoaded', pollStats);
+</script>
+</body>
+</html>
