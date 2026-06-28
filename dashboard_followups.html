@@ -93,7 +93,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1102</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">787</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -132,8 +132,8 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">1102</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">553</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">787</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">545</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -3362,8 +3362,8 @@ It's a live...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">East Nashville Chiropractic</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -3379,7 +3379,12 @@ Here it is: https://power7t.github.io/leadflow-demos/east-nashville-chiropractic
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(257, 'info@eastnashvillechiro.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(257, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -6812,36 +6817,6 @@ Hey there, curious if you ever considered how</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-304">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">EVOLVE</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: quick update on your mobile speed score
-
-Hey there,
-
-Dallas locals are looking for a gym on the go, but EVOLVE's mobile speed score is 59/100, which kills bookings. 
-
-I put your site through a redesign test and got it to 97/100. That’s double the speed and a much smoother sign-up flow. You ...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(304, 'info@evolvefitdallas.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(304, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
   <div class="lead-card " id="fu-125">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -6870,32 +6845,30 @@ I shared a custom demo</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-308">
+  <div class="lead-card " id="fu-304">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">EnduraLAB - Gym in Fort Worth, TX</div>
+        <div class="lead-name">EVOLVE</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
       <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: 2.5x faster mobile site for EnduraLAB
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Quick follow-up: Your EVOLVE Mobile Scorecard
 
 Hey there,
 
-EnduraLAB has a stellar 5.0★ reputation, but the mobile site scores 64/100. That slowdown costs you bookings.
-
-I built a mobile-optimized version that scores 97/100, loading in under a second. You can view the live comparison and even order...</div>
+Following up</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(308, 'info@enduralab.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(304, 'info@evolvefitdallas.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
-        <button class="btn btn-danger" onclick="skipFU(308, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <button class="btn btn-danger" onclick="skipFU(304, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -6954,32 +6927,30 @@ Hey ARC Realty, just a quick idea about freeing up your</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-312">
+  <div class="lead-card " id="fu-308">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">WESTCA</div>
+        <div class="lead-name">EnduraLAB - Gym in Fort Worth, TX</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
       <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: quick question about WESTCA's mobile bookings
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">EnduraLAB: Closing the Mobile Conversion Gap
 
 Hey there,
 
-Ran a quick speed test on WESTCA's mobile site and it scored 65/100, which is likely costing you mobile gym sign-ups. 
-
-I rebuilt a mobile-optimized version that scores 98/100 to show you the difference. You can view the demo and bo...</div>
+Your EnduraLAB site scores</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(312, 'info@westcasj.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(308, 'info@enduralab.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
-        <button class="btn btn-danger" onclick="skipFU(312, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <button class="btn btn-danger" onclick="skipFU(308, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -7007,37 +6978,6 @@ Following up on the custom website demo</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(131, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-316">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">East Austin Athletic Club</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick question about your 45/100 mobile score
-
-Hey there,
-
-Your members love you (4.9★ is incredible), but Google’s mobile speed test rates your website 45/100. 
-
-That lag costs you member signups. Our mobile-optimized redesign scores a 96/100, meaning instant loads and smoother bookings. 
-...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(316, 'info@eastaustinathleticclub.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(316, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -7095,41 +7035,6 @@ Hey Contigo, hope you're having a busy</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-320">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Fitness Factory of Charlotte</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick scorecard for The Fitness Factory of Charlotte
-
-Hey there,
-
-I ran a mobile speed test on your site. 
-
-Current site: 57/100
-Redesign demo: 96/100
-
-This mobile conversion gap drops your Google rank and turns away potential members who want to book classes on their phones. 
-
-I can implem...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(320, 'yt.fitnessfactorycharlotte@gmail.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(320, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
   <div class="lead-card " id="fu-137">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -7158,32 +7063,30 @@ Just following up on the</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-324">
+  <div class="lead-card " id="fu-312">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Fitness Loft</div>
+        <div class="lead-name">WESTCA</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
       <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Mobile conversion gap at The Fitness Loft
-
-Hey there,
-
-Your Google reviews are stellar, but your mobile website speed score is 65/100. I built a redesign that hits 97/100. 
-
-A 32-point gap means prospects leave before your booking page even loads. We can also integrate AI email automation t...</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">The user wants a follow-up email #1 for Chandan Gosavi targeting WESTCA gym in San Jose.
+Key constraints:
+- Role: World-class outbound sales copywriter.
+- Tone: Persuasive, professional, pattern interrupt, no generic sales speak.
+- Specific rules: No "hope this finds you well", no questions marks at...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(324, 'info@fitnessloftcolumbus.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(312, 'info@westcasj.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
-        <button class="btn btn-danger" onclick="skipFU(324, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <button class="btn btn-danger" onclick="skipFU(312, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -7216,38 +7119,6 @@ Just a quick follow-up on the</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-328">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">TRAIN. FITNESS HOUSE 24/7.</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick mobile update for Train Fitness House
-
-Hey there,
-
-Most of your 212 4.9★ reviews come from mobile users, but the current site's speed score is 57/100. 
-
-I got our redesign concept up to 96/100. 
-
-A 57-speed score means mobile visitors are hitting a slow page and leaving before booking...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(328, 'info@trainbodies.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(328, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
   <div class="lead-card " id="fu-142">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -7270,36 +7141,6 @@ Wanted to share another quick insight:</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(142, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-332">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Butcher Shop Fitness - German Village</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: quick question on your mobile bookings
-
-Hey there,
-
-Your current mobile speed score is 57/100, which means potential members are bouncing before the page loads. The redesign I built scores 95/100 and loads instantly. 
-
-Since most people book classes on their phone, this gap is costing you s...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(332, 'contact@thebutchershopfitness.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(332, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -7359,41 +7200,6 @@ Just a quick follow-up on the custom demo</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-336">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Hit Fit SF</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Hit Fit SF - mobile scorecard
-
-Hey there,
-
-I ran a mobile speed test on your website:
-
-Hit Fit SF: 65/100
-Our redesign: 98/100
-
-This conversion gap directly impacts your bookings, as slow mobile loading causes potential members to bounce.
-
-I can implement this and set up AI email automation...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(336, 'info@hitfitsf.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(336, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
   <div class="lead-card " id="fu-151">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -7421,32 +7227,34 @@ Many 24-hour gyms miss out on automating</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-340">
+  <div class="lead-card " id="fu-316">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Eden Fitness Studio</div>
+        <div class="lead-name">East Austin Athletic Club</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
       <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick mobile speed comparison for Eden Fitness Studio
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject:Your mobile speed score (45 vs 95+)
 
 Hey there,
 
-Most gym bookings in San Francisco happen on phones, but your website's mobile speed scores 65/100. 
+East Austin Athletic Club has incredible 4.9★ reviews, but your site scores 45/100 on mobile. That gap is likely costing you memberships daily.
 
-I rebuilt your home page to score 97/100, which stops potential members from bouncing before your schedule loads. You can ...</div>
+My optimized redesign hits 95+/100 — loading in under 2 seconds on phone screens.
+
+See the side-by...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(340, 'info@edensf.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(316, 'info@eastaustinathleticclub.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
-        <button class="btn btn-danger" onclick="skipFU(340, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <button class="btn btn-danger" onclick="skipFU(316, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -7477,6 +7285,38 @@ Just had another thought. With all your client communication, ever wonder how mu
     </div>
   </div>
   
+  <div class="lead-card " id="fu-320">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">The Fitness Loft</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-06-30</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Your site’s Mobile Conversion Gap
+
+Hey,
+
+The Fitness Loft scores 65/100 on mobile speed. My redesign hits 95+—a 30‑point jump. Faster load = more bookings, less drop‑off.  
+
+Check the side‑by‑side comparison here: https://www.fiverr.com/s/e6zGy4g  
+
+Let me know if you’d like to see the spee...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(320, 'info@fitnessloftcolumbus.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(320, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
   <div class="lead-card " id="fu-116">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -7501,6 +7341,73 @@ Just wondering, what'</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(116, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-324">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">TRAIN. FITNESS HOUSE 24/7.</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-06-30</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Your mobile speed score (57 vs 95+)
+
+Hey there,
+
+I ran a quick mobile audit on trainbodies.com.
+
+Current score: 57/100.
+My redesign prototype: 95+/100.
+
+That 38-point "Mobile Conversion Gap" is likely costing you late-night sign-ups when prospects search "gym near me" on phone.
+
+I've fixed ...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(324, 'info@trainbodies.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(324, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-328">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">The Butcher Shop Fitness - German Village</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-06-30</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Your mobile speed score (57 vs 95)
+
+Hey,
+
+Your 5.0★ reviews are stellar, but a 57/100 mobile score is likely costing you memberships daily.
+
+I clocked your current site at 3.2s load time. The optimized redesign I built hits 95+/100 and loads in under 1s.
+
+That "Mobile Conversion Gap" is whe...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(328, 'contact@thebutchershopfitness.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(328, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -7741,15 +7648,11 @@ Just checking back on the</div>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Dallas gym web test results
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Re: Your EVOLVE Website Demo
 
 Hey there,
 
-I recently helped a similar gym fix their mobile speed, and they saw a 30% jump in trial sign-up inquiries. 
-
-I actually built a quick, mobile-friendly mockup of EVOLVE to show you how we could capture more local Dallas searches. 
-
-You can check it o...</div>
+Following up on the EVOLVE website</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -7759,36 +7662,6 @@ You can check it o...</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(305, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-309">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">EnduraLAB - Gym in Fort Worth, TX</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick case study / EnduraLAB
-
-Hey there,
-
-A gym I worked with recently saw a 30% jump in trial sign-up inquiries after we polished their mobile speed and SEO. 
-
-I actually built a quick, optimized demo showing how we can capture more Fort Worth locals for EnduraLAB and save you time with AI...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(309, 'info@enduralab.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(309, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -7821,32 +7694,26 @@ Just wanted to circle back on the</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-313">
+  <div class="lead-card " id="fu-309">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">WESTCA</div>
+        <div class="lead-name">EnduraLAB - Gym in Fort Worth, TX</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: quick question about WESTCA
-
-Hey there,
-
-A local gym I optimized recently saw a 30% increase in trial sign-ups just by speeding up their mobile site. 
-
-I want to do the same for WESTCA, or set up the AI email automation to save you time. You can order safely on Fiverr here: https://www.five...</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(313, 'info@westcasj.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(309, 'info@enduralab.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
-        <button class="btn btn-danger" onclick="skipFU(313, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <button class="btn btn-danger" onclick="skipFU(309, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -7879,36 +7746,6 @@ Just checking back</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-317">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">East Austin Athletic Club</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick question
-
-Hey there,
-
-A local gym I worked with recently saw a 30% jump in trial sign-up inquiries after we made their site mobile-friendly and fast. 
-
-I’d love to do the same for East Austin Athletic Club by fixing the mobile speed issues. We can even run it safely through Fiverr her...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(317, 'info@eastaustinathleticclub.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(317, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
   <div class="lead-card " id="fu-101">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -7936,36 +7773,6 @@ Just wanted to circle back on the custom</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-321">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Fitness Factory of Charlotte</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick case study (+ 30% inquiries)
-
-Hey there,
-
-A local gym I worked with recently saw a 30% jump in trial inquiries just by fixing their mobile speed. 
-
-I actually put together a quick, responsive mockup for The Fitness Factory of Charlotte showing how we can capture those extra sign-ups. ...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(321, 'yt.fitnessfactorycharlotte@gmail.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(321, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
   <div class="lead-card " id="fu-104">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -7989,36 +7796,6 @@ Following up on the Rent</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(104, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-325">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Fitness Loft</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Columbus trial sign-ups
-
-Hey there,
-
-Just wanted to share a quick stat—a gym I recently optimized saw a 30% jump in trial sign-up inquiries simply by cleaning up their mobile speed. 
-
-I’ve already mapped out a similar performance polish for your Columbus location to help capture those misse...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(325, 'info@fitnessloftcolumbus.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(325, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -8051,32 +7828,28 @@ Just following up on the website demo. A gym</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-329">
+  <div class="lead-card " id="fu-313">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">TRAIN. FITNESS HOUSE 24/7.</div>
+        <div class="lead-name">WESTCA</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: 30% increase in sign-ups
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick win for WESTCA
 
-Hey there,
-
-A local gym I worked with saw a 30% jump in trial sign-ups after we made their site mobile-friendly and fast.
-
-I’d love to help TRAIN. FITNESS HOUSE 24/7 get similar results. You can check my work and order safely on Fiverr: https://www.fiverr.com/s/e6z...</div>
+Hey there, your 4.9★ rating is impressive. A gym I helped made their site mobile‑friendly and fast, and they saw a 30% jump in trial sign‑up inquiries. Imagine that boost for WESTCA. Let me know if you’d like to see similar results.</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(329, 'info@trainbodies.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(313, 'info@westcasj.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
-        <button class="btn btn-danger" onclick="skipFU(329, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <button class="btn btn-danger" onclick="skipFU(313, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -8137,92 +7910,28 @@ Following up on the custom demo I sent for Vault Fitness</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-333">
+  <div class="lead-card " id="fu-317">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Butcher Shop Fitness - German Village</div>
+        <div class="lead-name">East Austin Athletic Club</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: 30% jump
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick win for East Austin Athletic Club
 
-Hey there,
-
-A gym I worked with saw a 30% jump in trial sign-up inquiries after we made their site mobile-friendly and fast. 
-
-With 73 flawless reviews in German Village, you're clearly the best, but the slow loading speed is holding you back. You can check my work safely on Fiver...</div>
+Hey there, I helped a gym boost trial sign-ups by 30% after making their site mobile‑friendly and lightning fast. Your site’s 45/100 score could be the missing link. Want a quick chat to see how we can replicate that success? Let me know if you’d lik...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(333, 'contact@thebutchershopfitness.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(317, 'info@eastaustinathleticclub.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
-        <button class="btn btn-danger" onclick="skipFU(333, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-337">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Hit Fit SF</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Hit Fit SF - quick question
-
-Hey there,
-
-A gym I worked with recently saw a 30% jump in trial sign-up inquiries just by tuning up their mobile speed and SEO. 
-
-I actually built a quick, optimized demo for Hit Fit SF to show you how we can capture more local searchers in SF. You can check it...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(337, 'info@hitfitsf.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(337, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-341">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Eden Fitness Studio</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-03</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: 30% more trials?
-
-Hey there,
-
-I recently helped another gym boost trial sign-ups by 30% just by optimizing their site speed and local search.
-
-Since Eden Fitness Studio already has a perfect 5.0 rating on Google, polishing your mobile performance is the easiest way to capture that missed tr...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(341, 'info@edensf.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(341, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <button class="btn btn-danger" onclick="skipFU(317, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -8254,6 +7963,37 @@ Checking in on the custom demo I sent</div>
     </div>
   </div>
   
+  <div class="lead-card " id="fu-321">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">The Fitness Loft</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-03</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">The user wants a follow-up email #2 for The Fitness Loft.
+Constraints:
+- Subject line first line.
+- Under 70 words.
+- Mention social proof (30% jump in trial sign-ups for a gym after mobile/speed fixes).
+- Do NOT re-introduce self.
+- Generic greeting (no owner name provided).
+- End with ONE direct, ...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(321, 'info@fitnessloftcolumbus.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(321, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
   <div class="lead-card " id="fu-115">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -8281,6 +8021,65 @@ Remember the site demo I shared for Core City Fitness</div>
     </div>
   </div>
   
+  <div class="lead-card " id="fu-325">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">TRAIN. FITNESS HOUSE 24/7.</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-03</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">The user wants a follow-up email #2 for Chandan Gosavi targeting TRAIN. FITNESS HOUSE 24/7.
+Key constraints:
+- World-class outbound sales copywriter persona.
+- Pattern interrupt, genuine praise.
+- Personalize greeting if name known (no name provided, so generic "Hey there," or "Hey,").
+- Highlight o...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(325, 'info@trainbodies.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(325, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-329">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">The Butcher Shop Fitness - German Village</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-03</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick proof you’ll love
+
+Hey there,  
+
+A gym I helped recently saw a 30% jump in trial sign‑up inquiries after we made their site mobile‑friendly and fast. The same boost is within reach for The Butcher Shop Fitness.  
+
+Can you let me know if you’d like to see the results</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(329, 'contact@thebutchershopfitness.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(329, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
   <div class="lead-card " id="fu-307">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -8291,7 +8090,8 @@ Remember the site demo I shared for Core City Fitness</div>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
       </div>
       <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, hope training is going awesome at EVOLVE Dallas. Noticed your class schedule page takes over 5 seconds to load on phones. Any interest in speeding that up to make booking easier for members?</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey EVOLVE,
+Still impressed by your 4.7★ reviews. That custom demo I</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8315,7 +8115,7 @@ Remember the site demo I shared for Core City Fitness</div>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
       </div>
       <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, saw EnduraLAB has a perfect 5.0 score with over 200 reviews. Are you guys still answering all your gym inquiries manually, or did you automate that yet?</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Saw you hit 232 five-star reviews—impressive. Most gyms at that level lose leads because follow-up is manual. I set up a quick AI automation flow for EnduraLAB to capture every inquiry instantly. Want me to send a 60-second Loom showing how it works?</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8339,7 +8139,7 @@ Remember the site demo I shared for Core City Fitness</div>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
       </div>
       <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, love the energy at WESTCA. I built a quick AI automation that instantly replies to new member inquiries so your team doesn't have to. Would you be open to taking a quick look?</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Saw WESTCA’s 4.9★ reviews—impressive community you’ve built. Your site loads a bit slow on mobile, which might be dropping signups. I’ve got a quick fix in mind. Worth a 2-min look?</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8363,7 +8163,7 @@ Remember the site demo I shared for Core City Fitness</div>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
       </div>
       <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey! Love the vibe at East Austin Athletic Club—that 4.9 rating is elite. Quick question: have you noticed any issues with new members trying to sign up on their phones?</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Saw you hit 213 reviews at 4.9★ — legit impressive. Your site loads slow on mobile though, probably losing signups. I fixed the speed/layout in a private demo. Want the link?</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8380,14 +8180,14 @@ Remember the site demo I shared for Core City Fitness</div>
   <div class="lead-card " id="fu-323">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Fitness Factory of Charlotte</div>
+        <div class="lead-name">The Fitness Loft</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
       </div>
       <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Loved your recent post about the heavy leg day at The Fitness Factory. I put together a quick mockup showing how a faster site could capture more members. Would you be open to taking a look?</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, loved the community vibe at The Fitness Loft! Quick thought—ever considered AI‑driven email campaigns to boost member engagement? Curious if that’s on your radar?</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8404,14 +8204,14 @@ Remember the site demo I shared for Core City Fitness</div>
   <div class="lead-card " id="fu-327">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Fitness Loft</div>
+        <div class="lead-name">TRAIN. FITNESS HOUSE 24/7.</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
       </div>
       <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Love the energy at The Fitness Loft. If I could set up an AI tool to automatically answer your membership inquiries and save your team 5+ hours a week, would that be worth a quick chat?</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Saw your 4.9★ reviews—impressive. Your site loads slow on mobile though, probably losing sign-ups. I’ve got a quick fix in mind. Want me to send a 30-sec video showing the speed difference?</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8428,14 +8228,14 @@ Remember the site demo I shared for Core City Fitness</div>
   <div class="lead-card " id="fu-331">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">TRAIN. FITNESS HOUSE 24/7.</div>
+        <div class="lead-name">The Butcher Shop Fitness - German Village</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
       </div>
       <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, love the vibe at TRAIN. 24/7 fitness in Columbus is huge right now, but your mobile site is losing leads. I sketched a faster layout to fix that. Can I send it over?</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Loved the energy at The Butcher Shop Fitness—your community vibe is next level. Got a quick idea to boost member sign‑ups on mobile. Open to a 2‑minute chat?</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8445,78 +8245,6 @@ Remember the site demo I shared for Core City Fitness</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(331, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-335">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Butcher Shop Fitness - German Village</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey! Love the energy at your German Village studio. I put together a quick mobile mockup showing how to speed up your class bookings. Worth a quick look?</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-ghost" onclick="copyFU(335, this)" style="font-size:12px">
-          📋 Copy DM
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(335, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-339">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Hit Fit SF</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey! Still loving the 5★ reviews. I sketched out an AI system to automatically follow up with new gym sign-ups so you guys don't have to do it manually. Would that save you some time?</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-ghost" onclick="copyFU(339, this)" style="font-size:12px">
-          📋 Copy DM
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(339, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-343">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Eden Fitness Studio</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-04</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, love the community vibe at Eden. Quick question: would automating your class follow-ups save you guys some serious desk time this week?</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-ghost" onclick="copyFU(343, this)" style="font-size:12px">
-          📋 Copy DM
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(343, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -8805,13 +8533,9 @@ Just circling back on the custom demo</div>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Dallas local search boost + EVOLVE redesign
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Still thinking about EVOLVE's website?
 
-Hey there,
-
-Dallas locals love EVOLVE—4.7★ across 140 reviews is incredible. But a 59/100 speed score means you are likely losing members to faster gym sites.
-
-I want to stack the value for you: a full modern redesign, mobile-speed boost, Google ...</div>
+I've already created that custom</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8835,13 +8559,11 @@ I want to stack the value for you: a full modern redesign, mobile-speed boost, G
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick question about EnduraLAB's website
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Unlock EnduraLAB’s Full Online Power – All in One Package  
 
-Hey there,
+Hey there,  
 
-Still seeing EnduraLAB at 5.0★ with 232 reviews—you guys are killing it. 
-
-To help you get the site performance matching those reviews, I've stacked a complete package for you: a full redesign, speed boost, Google Maps optimization, and ...</div>
+EnduraLAB’s 5‑star reputation is stellar, yet the site’s 64/100 score leaves room for more members finding you online. I’ve built an exclusive Fiverr‑secured bundle: custom redesign, speed boost, Google Maps optimiza...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8865,13 +8587,13 @@ To help you get the site performance matching those reviews, I've stacked a comp
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick update on your site's performance
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Quick win for WESTCA
 
-Hey there,
+Hey there
 
-Still love those 248 reviews WESTCA has in San Jose.
+Your 4.9★ rating with 248 reviews is incredible — social proof most gyms would kill for. But that 65/100 site score means you're invisible in local map packs and leaking mobile leads on slow load times.
 
-I've stacked an irresistible package to completely polish your web presence: a full redesign, a 90+ speed boost, Google Maps optimization, and a custom automated contact form to captur...</div>
+I've packaged the exact fix: a conversion-focused redesign, sub...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8895,13 +8617,9 @@ I've stacked an irresistible package to completely polish your web presence: a f
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: 4 quick wins for East Austin Athletic Club
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Boost Your Gym’s Online Performance – All‑In One Offer
 
-Hey there,
-
-I put together a complete package to turn your website into a high-converting client magnet: a full modern redesign, page speed boost to 90+, Google Map visibility optimization, and a conversion-focused contact form setup. 
-
-We can sec...</div>
+Hey there, I built a custom demo showing how East Austin Athletic Club could skyrocket its site speed, look flawless on mobile, rank higher on Google Maps, and capture leads instantly. I’ve bundled the full redesign, speed boost, map optimizati...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
@@ -8918,25 +8636,21 @@ We can sec...</div>
   <div class="lead-card " id="fu-322">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Fitness Factory of Charlotte</div>
+        <div class="lead-name">The Fitness Loft</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: stack of upgrades for The Fitness Factory
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Boost Your Gym’s Online Power—All in One Offer
 
-Hey there,
-
-I want to make upgrading your website a no-brainer. I've put together a secure Fiverr package stacking everything you need: a modern mobile redesign, page speed optimization, local Google Map tuning, and a streamlined contact form. 
-
-Yo...</div>
+Hey there, I'm Chandan—a Web Development & Optimization Specialist. The Fitness Loft’s 4.5★ reviews are stellar, but the site’s 65/100 score is leaving traffic on the table. I’ve built a secured Fiverr package that bundles a fresh design, speed boost, ...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(322, 'yt.fitnessfactorycharlotte@gmail.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(322, 'info@fitnessloftcolumbus.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
@@ -8948,25 +8662,25 @@ Yo...</div>
   <div class="lead-card " id="fu-326">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">The Fitness Loft</div>
+        <div class="lead-name">TRAIN. FITNESS HOUSE 24/7.</div>
         <span class="badge badge-skipped">
           Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Your site's missing speed boost (+ a gift)
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: 4.9★ reviews deserve a 90+ site (not 57)
 
 Hey there,
 
-Still love those 250 Columbus reviews for The Fitness Loft. I stacked something special for you: a full redesign, a 90+ speed boost, Google Map optimization, and an AI contact form setup.
+TRAIN. FITNESS HOUSE 24/7 has incredible 4.9★ social proof, but that 57/100 site score is quietly killing mobile conversions and map visibility.
 
-I put this package on Fiverr so we’re 100% sec...</div>
+I’ve put together a Fiverr-secured stack to fix it all in one go: full redesign, speed opti...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(326, 'info@fitnessloftcolumbus.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(326, 'info@trainbodies.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
@@ -8978,36 +8692,6 @@ I put this package on Fiverr so we’re 100% sec...</div>
   <div class="lead-card " id="fu-330">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">TRAIN. FITNESS HOUSE 24/7.</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Quick question about TRAIN. FITNESS HOUSE
-
-Hey there,
-
-I love the 4.9★ reputation you've built across 212 reviews in Columbus. It's clear your members love the gym.
-
-To help bring in more local members, I've stacked a complete package for you: a modern mobile redesign, 90+ speed boost, Goog...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(330, 'info@trainbodies.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(330, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-334">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">The Butcher Shop Fitness - German Village</div>
         <span class="badge badge-skipped">
           Scheduled
@@ -9015,84 +8699,22 @@ To help bring in more local members, I've stacked a complete package for you: a 
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
       </div>
       <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: 73 five-star reviews, but your site is costing you clients
-
-Hey there,
-
-Your 5.0★ rating in German Village is incredible, but your site's 57/100 speed is holding you back. 
-
-I’ve put together an all-in-one upgrade: a complete modern redesign, mobile optimization, Google Maps SEO, and a fast...</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">The user wants a follow-up email #3 for Chandan Gosavi targeting "The Butcher Shop Fitness - German Village".
+Constraints:
+- Subject line first line.
+- No markdown, no commentary, just raw subject + body.
+- Generic greeting (no owner name provided).
+- No re-introduction.
+- Pitch Fiverr-secured offer...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
         
-        <button class="btn btn-primary" onclick="sendFollowUp(334, 'contact@thebutchershopfitness.com', this)" style="font-size:12px">
+        <button class="btn btn-primary" onclick="sendFollowUp(330, 'contact@thebutchershopfitness.com', this)" style="font-size:12px">
           📨 Send Email
         </button>
         
-        <button class="btn btn-danger" onclick="skipFU(334, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-338">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Hit Fit SF</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: quick question about Hit Fit SF's site speed
-
-Hey there,
-
-Still want to get those 5★ reviews translating into more San Francisco members? 
-
-I’ve put together a package to solve this. It stacks a modern redesign, a mobile speed boost, Google Maps optimization, and a new contact form. 
-
-We ca...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(338, 'info@hitfitsf.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(338, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-342">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Eden Fitness Studio</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-06</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: 53 five-star reviews (and a quick website question)
-
-Hey there,
-
-Love seeing Eden Fitness Studio's perfect 5.0★ rating in SF. 
-
-A slow website (65/100) is likely costing you local gym members. I've stacked an irresistible package to fix this: modern web design, a page speed boost, Google Ma...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(342, 'info@edensf.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(342, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <button class="btn btn-danger" onclick="skipFU(330, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
