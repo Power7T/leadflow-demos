@@ -61,8 +61,8 @@
         }
       })();
       function lfLogin() {
-        var u = document.getElementById("lf-user").value;
-        var p = document.getElementById("lf-pass").value;
+        var u = document.getElementById("lf-user").value.trim().toLowerCase();
+        var p = document.getElementById("lf-pass").value.trim();
         if ((u === "chandan" && p === "Supergo12@") || (u === "parmeet" && p === "parmeet")) {
           localStorage.setItem("lf_user", u);
           localStorage.setItem("lf_pass", p);
