@@ -35,20 +35,38 @@
       (function() {
         var u = localStorage.getItem("lf_user");
         var p = localStorage.getItem("lf_pass");
-        if (u === "chandan" && p === "Supergo12@") {
+        if ((u === "chandan" && p === "Supergo12@") || (u === "parmeet" && p === "parmeet")) {
           document.addEventListener("DOMContentLoaded", function() {
             var overlay = document.getElementById("lf-login-overlay");
             if (overlay) overlay.style.display = "none";
+            
+            // Read-only mode for parmeet
+            if (u === "parmeet") {
+              // Create read-only banner
+              var banner = document.createElement("div");
+              banner.style.cssText = "background: #f7b731; color: #000; text-align: center; padding: 6px; font-weight: bold; font-size: 13px; position: fixed; top: 0; left: 0; width: 100%; z-index: 99999;";
+              banner.innerText = "READ ONLY MODE - Actions Disabled";
+              document.body.appendChild(banner);
+              document.body.style.paddingTop = "30px";
+              
+              // Disable buttons
+              var buttons = document.querySelectorAll("button, .btn");
+              buttons.forEach(function(b) {
+                b.style.opacity = "0.5";
+                b.style.pointerEvents = "none";
+                b.title = "Action disabled in read-only mode";
+              });
+            }
           });
         }
       })();
       function lfLogin() {
         var u = document.getElementById("lf-user").value;
         var p = document.getElementById("lf-pass").value;
-        if (u === "chandan" && p === "Supergo12@") {
+        if ((u === "chandan" && p === "Supergo12@") || (u === "parmeet" && p === "parmeet")) {
           localStorage.setItem("lf_user", u);
           localStorage.setItem("lf_pass", p);
-          document.getElementById("lf-login-overlay").style.display = "none";
+          window.location.reload(); // Reload to apply read-only mode properly
         } else {
           document.getElementById("lf-error-msg").style.display = "block";
         }
@@ -93,7 +111,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1042</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1041</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -135,7 +153,7 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">1042</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1041</b></div>
     <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">553</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
@@ -164,7 +182,7 @@
     <div class="kanban-col-header">
       <span style="color:var(--text-dim)">🔍 New</span>
       <span class="kanban-count" id="count-new">
-        1048
+        1047
       </span>
     </div>
     <div class="kanban-cards" id="col-new"
@@ -6427,26 +6445,6 @@
              <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
            
            <span class="kcard-score">71pt</span>
-         </div>
-         
-      </div>
-      
-      <div class="kanban-card" draggable="true"
-           id="card-3052"
-           ondragstart="onDragStart(event, 3052)">
-         <div class="kcard-name">New Life Chiropractic</div>
-         <div class="kcard-meta">Fort Wayne, USA</div>
-         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
-           <div style="display:flex;gap:4px">
-             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
-             
-             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
-           </div>
-           
-           
-             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
-           
-           <span class="kcard-score">66pt</span>
          </div>
          
       </div>
