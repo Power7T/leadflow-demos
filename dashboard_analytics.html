@@ -3,56 +3,19 @@
 <head>
 
     <!-- PASSCODE SECURITY WALL -->
-    <style>
-      #lf-login-overlay {
-        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-        background: #0b0c10; color: #c5c6c7; z-index: 999999;
-        display: flex; align-items: center; justify-content: center;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      }
-      .lf-login-card {
-        background: #151a22; padding: 36px; border-radius: 12px;
-        box-shadow: 0 12px 40px rgba(0,0,0,0.65); width: 340px;
-        border: 1px solid #00c896; text-align: center;
-      }
-      .lf-login-card h2 { margin: 0 0 10px 0; color: #fff; font-size: 22px; font-weight: 600; }
-      .lf-login-card p { margin: 0 0 24px 0; color: #8a99ad; font-size: 13px; }
-      .lf-login-input {
-        width: 100%; padding: 12px 16px; margin: 8px 0; border-radius: 8px;
-        border: 1px solid #2d3848; background: #0b0c10; color: #fff;
-        box-sizing: border-box; font-size: 14px; outline: none; transition: border-color 0.2s;
-      }
-      .lf-login-input:focus { border-color: #00c896; }
-      .lf-login-btn {
-        width: 100%; padding: 12px; border-radius: 8px; border: none;
-        background: #00c896; color: #0b0c10; font-weight: bold; cursor: pointer;
-        font-size: 15px; margin-top: 14px; transition: opacity 0.2s;
-      }
-      .lf-login-btn:hover { opacity: 0.9; }
-      .lf-error { color: #ff4a4a; font-size: 13px; text-align: center; margin-top: 12px; display: none; font-weight: 500; }
-    </style>
     <script>
       (function() {
-        var u = localStorage.getItem("lf_user");
-        var p = localStorage.getItem("lf_pass");
-        if (u === "chandan" && p === "Supergo12@") {
-          document.addEventListener("DOMContentLoaded", function() {
-            var overlay = document.getElementById("lf-login-overlay");
-            if (overlay) overlay.style.display = "none";
-          });
+        var pass = localStorage.getItem("lf_pass");
+        if (pass !== "chandan123") {
+          var input = prompt("Enter passcode to access dashboard:");
+          if (input === "chandan123") {
+            localStorage.setItem("lf_pass", input);
+          } else {
+            document.write("<h1 style='color:red;text-align:center;font-family:sans-serif;margin-top:100px;'>Unauthorized Access</h1>");
+            window.stop();
+          }
         }
       })();
-      function lfLogin() {
-        var u = document.getElementById("lf-user").value;
-        var p = document.getElementById("lf-pass").value;
-        if (u === "chandan" && p === "Supergo12@") {
-          localStorage.setItem("lf_user", u);
-          localStorage.setItem("lf_pass", p);
-          document.getElementById("lf-login-overlay").style.display = "none";
-        } else {
-          document.getElementById("lf-error-msg").style.display = "block";
-        }
-      }
     </script>
     
   <meta charset="UTF-8">
@@ -61,18 +24,6 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-    <div id="lf-login-overlay">
-      <div class="lf-login-card">
-        <h2>🔒 LeadFlow Command Center</h2>
-        <p>Enter your authorization credentials to continue</p>
-        <input type="text" id="lf-user" class="lf-login-input" placeholder="Username" autocomplete="off" />
-        <input type="password" id="lf-pass" class="lf-login-input" placeholder="Password" />
-        <button onclick="lfLogin()" class="lf-login-btn">Sign In</button>
-        <div id="lf-error-msg" class="lf-error">Invalid credentials. Access Denied.</div>
-      </div>
-    </div>
-    
 
 <aside class="sidebar">
   <div class="logo">LeadFlow<span>by Chandan</span></div>
@@ -93,7 +44,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">848</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">1153</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -132,8 +83,8 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">848</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">545</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">1153</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">553</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -150,11 +101,11 @@
 <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:24px">
   <div class="card accent">
     <div class="label">Total Leads</div>
-    <div class="value">1827</div>
+    <div class="value">1860</div>
   </div>
   <div class="card blue">
     <div class="label">Contacted</div>
-    <div class="value">547</div>
+    <div class="value">555</div>
   </div>
   <div class="card yellow">
     <div class="label">Replied</div>
@@ -190,9 +141,9 @@
     <div class="stat-bar"><div class="stat-bar-fill" style="width:100.0%;background:var(--yellow)"></div></div>
   </div>
   <div class="form-card" style="text-align:center;padding:24px">
-    <div style="font-size:36px;font-weight:800;color:var(--blue)">4.3%</div>
+    <div style="font-size:36px;font-weight:800;color:var(--blue)">3.0%</div>
     <div style="color:var(--text-dim);font-size:13px;margin-top:4px">Email Open Rate</div>
-    <div class="stat-bar"><div class="stat-bar-fill" style="width:4.3%;background:var(--blue)"></div></div>
+    <div class="stat-bar"><div class="stat-bar-fill" style="width:3.0%;background:var(--blue)"></div></div>
   </div>
 </div>
 
@@ -205,7 +156,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">landscaping</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">79 leads</span>
+          <span style="color:var(--text-dim)">53 leads</span>
           <span style="color:var(--accent);font-weight:600">1 replied</span>
         </div>
       </div>
@@ -213,7 +164,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">gym</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">219 leads</span>
+          <span style="color:var(--text-dim)">199 leads</span>
           <span style="color:var(--accent);font-weight:600">1 replied</span>
         </div>
       </div>
@@ -221,7 +172,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">tree service</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">15 leads</span>
+          <span style="color:var(--text-dim)">14 leads</span>
           <span style="color:var(--accent);font-weight:600">0 replied</span>
         </div>
       </div>
@@ -229,7 +180,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">solar</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">65 leads</span>
+          <span style="color:var(--text-dim)">31 leads</span>
           <span style="color:var(--accent);font-weight:600">0 replied</span>
         </div>
       </div>
@@ -237,7 +188,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:13px">roofing</span>
         <div style="display:flex;gap:12px;font-size:12px">
-          <span style="color:var(--text-dim)">130 leads</span>
+          <span style="color:var(--text-dim)">69 leads</span>
           <span style="color:var(--accent);font-weight:600">0 replied</span>
         </div>
       </div>
