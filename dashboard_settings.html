@@ -443,7 +443,7 @@
           </div>
           <div>
             <label>Custom Daily Limit Per Sender</label>
-            <input type="number" id="CUSTOM_SENDER_LIMIT" value="25" min="1" max="500" style="margin: 0; width: 100%;">
+            <input type="number" id="CUSTOM_SENDER_LIMIT" value="12" min="1" max="500" style="margin: 0; width: 100%;">
           </div>
         </div>
       </div>
@@ -563,8 +563,8 @@ document.getElementById('envForm').addEventListener('submit', (e) => {
   }, document.getElementById('saveEnvBtn'));
 });
 
-const initialEmails = "ch...@gmail.com, ch...@gmail.com, bh...@gmail.com";
-const initialPasswords = "dfqm...uihi";
+const initialEmails = "ch...@gmail.com, bh...@gmail.com";
+const initialPasswords = "xgaa...uihi";
 
 const emailsList = initialEmails ? initialEmails.split(',').map(e => e.trim()) : [];
 const passwordsList = initialPasswords ? initialPasswords.split(',').map(p => p.trim()) : [];
