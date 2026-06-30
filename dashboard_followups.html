@@ -111,7 +111,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">476</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">694</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -153,8 +153,8 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">476</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">587</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">694</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">578</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">1</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -4297,8 +4297,8 @@ It's a l...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">All Shine No Grime Mobile Auto Detailing</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4313,7 +4313,12 @@ Here it is: https://power7t.github.io/leadflow-demos/all-shine-no...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(204, 'allshinenogrime@yahoo.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(204, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4322,8 +4327,8 @@ Here it is: https://power7t.github.io/leadflow-demos/all-shine-no...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Supperland</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4340,7 +4345,12 @@ It's a live demo built specifically for you. Takes...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(283, 'supperland@icloud.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(283, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4349,8 +4359,8 @@ It's a live demo built specifically for you. Takes...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">The Pulse Training Center</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
@@ -4365,7 +4375,12 @@ I'd love to help Pulse Training Center get simil...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(289, 'hwdfitnessrancho@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(289, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4374,8 +4389,8 @@ I'd love to help Pulse Training Center get simil...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Priscilla Solario Law</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
@@ -4390,7 +4405,12 @@ I’d love to help Priscilla Solario Law get similar results. I already built a 
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(292, 'info@solariolaw.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(292, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4399,8 +4419,8 @@ I’d love to help Priscilla Solario Law get similar results. I already built a 
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">JDC Energy</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
@@ -4415,7 +4435,12 @@ A solar installer I worked with recently doubled their monthly lead submissions 
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(295, 'contact@jdcenergysolutions.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(295, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4424,8 +4449,8 @@ A solar installer I worked with recently doubled their monthly lead submissions 
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">AAA Solar Cleaning Services LLC</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
@@ -4442,7 +4467,12 @@ I'd love to help AAA Solar Cleaning Services LLC get similar results ...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(297, 'info@aaasolarcleaningservices.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(297, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4481,8 +4511,8 @@ Here is the custom demo I built for you: https://leadflow-demos.pages.dev...</di
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Nelsons Auto Detail LLC</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
       </div>
@@ -4497,7 +4527,12 @@ A detailing shop I worked with in Bethany saw 8 new customers in their first mon
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(303, 'nelsgrama21@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(303, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4506,8 +4541,8 @@ A detailing shop I worked with in Bethany saw 8 new customers in their first mon
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">FixPro AC Maintenance, Duct & Exhaust Cleaning, Plumbing, Sanitization, Sofa Cleaning, General Maintenance and MEP</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4520,7 +4555,12 @@ I reached out a few days ago about FixPro AC Maintenance, Duct & Exhaust Cleanin
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(217, 'customer@fixpro.ae', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(217, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4529,8 +4569,8 @@ I reached out a few days ago about FixPro AC Maintenance, Duct & Exhaust Cleanin
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Allstate Solar Pty Ltd</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4547,7 +4587,12 @@ It's a live demo b...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(183, 'trevor@allstatesolar.com.au', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(183, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4556,8 +4601,8 @@ It's a live demo b...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">X-treme Automotive Detailing</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4572,7 +4617,12 @@ Here it is: https://power7t.github.io/leadflow-demos/x-treme-automotive-detailin
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(190, 'xtremeautomotive76@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(190, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4581,8 +4631,8 @@ Here it is: https://power7t.github.io/leadflow-demos/x-treme-automotive-detailin
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Solar Illusions</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4599,7 +4649,12 @@ It's a live demo built specifically...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(154, 'solarillusions317@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(154, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4608,8 +4663,8 @@ It's a live demo built specifically...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">DT Mobile Details</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4626,7 +4681,12 @@ It's a live demo built specif...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(165, 'dtmobiledetails@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(165, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4635,8 +4695,8 @@ It's a live demo built specif...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Morata Plumbing</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4653,7 +4713,12 @@ It's a live demo built specifically...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(175, 'morataplumbing@yahoo.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(175, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4662,8 +4727,8 @@ It's a live demo built specifically...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Studio ROOF</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4680,7 +4745,12 @@ It's a live demo built specifically for you. Ta...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(208, 'shop@studioroof.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(208, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4689,8 +4759,8 @@ It's a live demo built specifically for you. Ta...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">A-Team Construction</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4707,7 +4777,12 @@ It's a live demo built ...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(224, 'info@ateamunlimited.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(224, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4716,8 +4791,8 @@ It's a live demo built ...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">All-rounder Zurich GmbH *Handyman service*</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4732,7 +4807,12 @@ Here it is: https://power7t.github.io/leadflow-demos/all-roun...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(276, 'info@allrounderzurich.ch', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(276, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4741,8 +4821,8 @@ Here it is: https://power7t.github.io/leadflow-demos/all-roun...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Elephant Car Wash</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4759,7 +4839,12 @@ It's a live demo built specif...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(158, 'corporate@elephantcarwash.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(158, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4768,8 +4853,8 @@ It's a live demo built specif...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">John The Plumber</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4786,7 +4871,12 @@ It's a live demo built specifica...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(238, 'john@johntheplumber.ca', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(238, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4795,8 +4885,8 @@ It's a live demo built specifica...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Numbers Don't Lie Tax Prep and Financial Services Inc</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4811,7 +4901,12 @@ Here it is: https://power7t.github.io/l...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(235, 'info@numbersdontliekc.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(235, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4820,8 +4915,8 @@ Here it is: https://power7t.github.io/l...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Harmonious Living Chiropractic: Fitness & Wellness Center</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4836,7 +4931,12 @@ Here it is: https://power7t.git...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(242, 'info@drtiffanybutler.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(242, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4845,8 +4945,8 @@ Here it is: https://power7t.git...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Owen Roofing Company</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4863,7 +4963,12 @@ It's a live demo bui...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(277, 'owenroof7@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(277, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4872,8 +4977,8 @@ It's a live demo bui...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Sphere Solar Energy</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4890,7 +4995,12 @@ It's a live demo built ...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(227, 'info@spheresolarenergy.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(227, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4899,8 +5009,8 @@ It's a live demo built ...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Air Factory Heating & Cooling Co., LLC</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4915,7 +5025,12 @@ Here it is: https://power7t.github.io/leadflow-demos/air-factory-heat...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(172, 'airfactoryokc@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(172, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4924,8 +5039,8 @@ Here it is: https://power7t.github.io/leadflow-demos/air-factory-heat...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Northwest Electric and Solar</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4942,7 +5057,12 @@ It...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(218, 'derek@nwsolar.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(218, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4951,8 +5071,8 @@ It...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Afterglow Aesthetics</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4969,7 +5089,12 @@ It's a live demo bui...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(220, 'afterglow.aesthetics1@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(220, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -4978,8 +5103,8 @@ It's a live demo bui...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">The Nano Pros</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -4996,7 +5121,12 @@ It's a live demo built specifically for y...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(189, 'thenanopros1@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(189, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5005,8 +5135,8 @@ It's a live demo built specifically for y...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Legacy Roofing LLC</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5023,7 +5153,12 @@ It's a live demo built sp...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(252, 'info@legacyroofingidaho.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(252, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5032,8 +5167,8 @@ It's a live demo built sp...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Rhino Roofing</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5050,7 +5185,12 @@ It's a live demo built specifically for y...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(162, 'rhinoroofingjolyn@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(162, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5059,8 +5199,8 @@ It's a live demo built specifically for y...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Chicago Prestige Roofing</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5077,7 +5217,12 @@ It's a l...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(167, 'chicagoprestigeroofing@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(167, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5086,8 +5231,8 @@ It's a l...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Reliable Roofing</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5104,7 +5249,12 @@ It's a live demo built specifica...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(198, 'josh.reliableroofing@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(198, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5113,8 +5263,8 @@ It's a live demo built specifica...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Chicago Flat Roofing Contractors | Residential & Commercial Roofing Repairs</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5127,7 +5277,12 @@ I reached out a few days ago about Chicago Flat Roofing Contractors | Residentia
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(170, 'chicagoflatroofingcontractor@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(170, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5136,8 +5291,8 @@ I reached out a few days ago about Chicago Flat Roofing Contractors | Residentia
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Nuroofing services pty ltd</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5154,7 +5309,12 @@ It's a...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(199, 'nuroofingservices@outlook.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(199, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5163,8 +5323,8 @@ It's a...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">All HVAC & General Construction</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5181,7 +5341,12 @@ It's a liv...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(223, 'allhvacservice@yahoo.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(223, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5190,8 +5355,8 @@ It's a liv...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Progreen Pest Control</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5208,7 +5373,12 @@ It's a live demo ...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(234, 'info@progreenpestcontrol.net', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(234, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5217,8 +5387,8 @@ It's a live demo ...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Apex Landscape Works LLC</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5235,7 +5405,12 @@ It's a live ...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(271, 'info@apexlandscapeworks.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(271, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5244,8 +5419,8 @@ It's a live ...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Doyle Roof Masters Inc</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5262,7 +5437,12 @@ It's a live demo b...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(163, 'doyleroof@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(163, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5271,8 +5451,8 @@ It's a live demo b...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Solar Eclipse Window Tinting</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5289,7 +5469,12 @@ It's...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(169, 'solareclipse03@yahoo.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(169, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5298,8 +5483,8 @@ It's...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Best Electric Service, Inc.</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5316,7 +5501,12 @@ It's ...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(203, 'kaitygrizz@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(203, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5357,8 +5547,8 @@ It's ...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">ONE Dental Miami</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5375,7 +5565,12 @@ It's a live demo built specifica...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(232, 'info@onedentalmiami.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(232, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5384,8 +5579,8 @@ It's a live demo built specifica...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Rosehill Gardens</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5402,7 +5597,12 @@ It's a live demo built specifica...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(240, 'john@doe.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(240, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5411,8 +5611,8 @@ It's a live demo built specifica...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Pro Property GmbH</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5429,7 +5629,12 @@ It's a live demo built specif...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(265, 'info@proproperty.ch', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(265, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5468,8 +5673,8 @@ Here it is: https://power7t.github.io/leadflow-demos/m-c-general-landscaping-318
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">INVigorate Roofing</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5486,7 +5691,12 @@ It's a live demo built spe...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(179, 'info@invroofing.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(179, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5527,8 +5737,8 @@ It's a live d...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Plumbing Services</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5545,7 +5755,12 @@ It's a live demo built specif...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(212, 'contactgursandhu@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(212, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5614,8 +5829,8 @@ Here ...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Haulin' Assets Moving & Storage</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5630,7 +5845,12 @@ Here it is: https://power7t.github.io/leadflow-demos/haulin-assets-moving-2140.h
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(249, 'move@haulinassetsmoving.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(249, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5701,8 +5921,8 @@ It's a live...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Cotton City Plumbing</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5719,7 +5939,12 @@ It's a live demo bui...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(237, 'services@cottoncityplumbing.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(237, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5760,8 +5985,8 @@ It's a l...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Edwin's Roofing and Gutters PLLC</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5776,7 +6001,12 @@ Here it is: https://power7t.github.io/leadflow-demos/edwin-s-roofing-and-2837.ht
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(161, 'contact@edwinroofing.expert', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(161, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5785,8 +6015,8 @@ Here it is: https://power7t.github.io/leadflow-demos/edwin-s-roofing-and-2837.ht
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Golden Barbershop</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5803,7 +6033,12 @@ It's a live demo built specif...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(258, 'goldenbarbershoplv@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(258, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -5812,8 +6047,8 @@ It's a live demo built specif...</div>
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Premier Plumbing-Wichita</div>
-        <span class="badge badge-sent">
-          Sent
+        <span class="badge badge-skipped">
+          Scheduled
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
       </div>
@@ -5830,7 +6065,12 @@ It's a l...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        <span class="badge badge-sent">Sent ✓</span>
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(178, 'premierplumbingusa@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(178, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -6555,64 +6795,6 @@ Just wanted to</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-355">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Downtown YMCA</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Re: Downtown YMCA
-
-Quick thought on the YMCA demo
-
-Hey there,
-
-Saw you had a look at the Downtown YMCA</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(355, 'questions@ymcamidtn.org', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(355, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-359">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Fresh Aroma Cleaning Services</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Saw you had a look
-
-Hey, noticed you checked out the demo for Fresh Aroma. Figured I'd follow up while it's fresh — the AI email automation alone could save you hours every week.
-
-Worth a quick chat?</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(359, 'contact@fresharoma.com.au', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(359, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
   <div class="lead-card " id="fu-94">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -7332,30 +7514,6 @@ Just wondering, what'</div>
     </div>
   </div>
   
-  <div class="lead-card " id="fu-358">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Downtown YMCA</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
-      </div>
-      <div class="lead-meta">📅 2026-06-30</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey Downtown YMCA team, your 4.3★ Google reviews are impressive! Just wondering</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-ghost" onclick="copyFU(358, this)" style="font-size:12px">
-          📋 Copy DM
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(358, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
   <div class="lead-card " id="fu-345">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -7434,59 +7592,6 @@ Just checking in on the custom</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(352, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-356">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Downtown YMCA</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-02</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">A quick thought on Downtown YMCA
-Hey there,
-
-Regarding the Downtown YMCA demo I sent: we helped</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(356, 'questions@ymcamidtn.org', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(356, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-360">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Fresh Aroma Cleaning Services</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-02</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Fresh Aroma – a quick win for your site
-
-Hey there, I'm Chandan—a Web Development & Optimization Specialist. Fresh Aroma Cleaning Services has awesome 4.7★ reviews, but I noticed decent but missing SEO and performance polish. I built this custom optimized demo to show you what's possible: h...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(360, 'contact@fresharoma.com.au', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(360, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -8585,62 +8690,6 @@ Imagine it live, bringing in more local clients. I can</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(353, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-357">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Downtown YMCA</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-05</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Quick update on your lead-gen demo for Downtown YMCA
-
-Hey there,
-
-Just wanted to follow up</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(357, 'questions@ymcamidtn.org', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(357, this)" style="font-size:12px;margin-top:6px">Skip</button>
-      
-    </div>
-  </div>
-  
-  <div class="lead-card " id="fu-361">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div class="lead-name">Fresh Aroma Cleaning Services</div>
-        <span class="badge badge-skipped">
-          Scheduled
-        </span>
-        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
-      </div>
-      <div class="lead-meta">📅 2026-07-05</div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: One link → new site, speed, maps & leads (Fiverr protected)
-
-Hey there, your 4.7★ reputation deserves a site that actually converts.
-
-I packaged the demo into a full launch stack: custom design, 90+ speed scores, Google Maps optimization to own local search, and a smart contact form that fe...</div>
-    </div>
-    <div class="lead-actions" style="flex-direction:column">
-      
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(361, 'contact@fresharoma.com.au', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(361, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
