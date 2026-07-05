@@ -111,7 +111,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">166</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; display:none;">0</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -125,7 +125,7 @@
     </a>
     <a href="./dashboard_test.html" class="">
       <span class="icon">🧪</span> Test Leads
-      <span class="badge badge-new" id="sidebar-badge-test-new" style="margin-left:auto; ">5</span>
+      <span class="badge badge-new" id="sidebar-badge-test-new" style="margin-left:auto; display:none;">0</span>
     </a>
     <a href="./dashboard_kanban.html" class="">
       <span class="icon">🗂</span> Pipeline
@@ -153,12 +153,12 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">166</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">650</b></div>
-    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">1</b></div>
-    <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
-    <div class="stat" id="sidebar-stat-opted-out-container" style="">
-      <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">2</b>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">0</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">26</b></div>
+    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
+    <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
+    <div class="stat" id="sidebar-stat-opted-out-container" style="display:none;">
+      <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">0</b>
     </div>
   </div>
 </aside>
@@ -302,10 +302,10 @@
       <div style="margin-bottom: 12px;">
         <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; margin-bottom: 6px;">
           <span>Daily Limit Progress</span>
-          <span style="color: var(--accent); font-weight:600;">14 / 75 sent</span>
+          <span style="color: var(--accent); font-weight:600;">25 / 75 sent</span>
         </div>
         <div class="bp-track" style="height: 8px;">
-          <div class="bp-fill" style="width: 18.666666666666668%; background: #00c896;"></div>
+          <div class="bp-fill" style="width: 33.33333333333333%; background: #00c896;"></div>
         </div>
       </div>
       
@@ -323,13 +323,13 @@
 
       
       <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #ef4444; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 16px;">
-        <strong>⚠️ Stuck Leads:</strong> You have 1 lead(s) in "approved" status with no email address. They will not be sent.
+        <strong>⚠️ Stuck Leads:</strong> You have 12 lead(s) in "approved" status with no email address. They will not be sent.
       </div>
       
 
       
       <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 16px;">
-        <strong>⏳ Pending Follow-ups:</strong> 163 follow-up(s) waiting in queue.
+        <strong>⏳ Pending Follow-ups:</strong> 221 follow-up(s) waiting in queue.
       </div>
       
 
@@ -360,16 +360,6 @@
           
             <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
               <div>
-                <strong>Driftwood Dental</strong> (info@driftwooddentalclinic.com)<br>
-                <span style="color:var(--text-dim); font-size:11px;">Via: Auto-assigned at send</span>
-              </div>
-              <div style="color: var(--accent); font-weight: 600;">
-                2026-06-24 13:01:51
-              </div>
-            </div>
-          
-            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-              <div>
                 <strong>J Adams Air Conditioning Heating And Plumbing | Rialto CA</strong> (j.adamshvac@icloud.com)<br>
                 <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
               </div>
@@ -388,6 +378,16 @@
               </div>
             </div>
           
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>First Class Slate Roofing</strong> (info@firstclassslate.com.au)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: Auto-assigned at send</span>
+              </div>
+              <div style="color: var(--accent); font-weight: 600;">
+                2026-06-24 13:03:14
+              </div>
+            </div>
+          
           </div>
         
       </div>
@@ -399,51 +399,51 @@
           
             <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
               <div>
-                <strong>CdC Capital GmbH Steuerberatungsgesellschaft</strong> (info@cdc-capital.com)<br>
-                <span style="color:var(--text-dim); font-size:11px;">Via: bhartimitrabot@gmail.com</span>
-              </div>
-              <div style="color: #fbbf24; font-weight: 600;">
-                2026-07-01 13:05:23
-              </div>
-            </div>
-          
-            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <strong>Aplus Accountants Munich Lyssoudis & Kugler PartGmbB</strong> (kanzlei@aplus-steuerberater.de)<br>
-                <span style="color:var(--text-dim); font-size:11px;">Via: bhartimitrabot@gmail.com</span>
-              </div>
-              <div style="color: #fbbf24; font-weight: 600;">
-                2026-07-01 13:15:21
-              </div>
-            </div>
-          
-            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <strong>Longhorn Roofing</strong> (info@getlonghorn.com)<br>
+                <strong>NuBella Med Spa</strong> (info@nubellamedspa.com)<br>
                 <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
               </div>
               <div style="color: #fbbf24; font-weight: 600;">
-                2026-07-01 13:19:13
+                2026-07-05 07:37:40
               </div>
             </div>
           
             <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
               <div>
-                <strong>Rizz & Shine Auto Spa and Detailing (Mobile Service Available)</strong> (cs@sscwaz.com)<br>
+                <strong>NuBella Med Spa</strong> (info@nubellamedspa.com)<br>
                 <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
               </div>
               <div style="color: #fbbf24; font-weight: 600;">
-                2026-07-01 13:19:27
+                2026-07-05 07:37:40
               </div>
             </div>
           
             <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
               <div>
-                <strong>Maid in JC</strong> (hello@maidinjc.com)<br>
-                <span style="color:var(--text-dim); font-size:11px;">Via: bhartimitrabot@gmail.com</span>
+                <strong>NuBella Med Spa</strong> (info@nubellamedspa.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
               </div>
               <div style="color: #fbbf24; font-weight: 600;">
-                2026-07-01 13:34:24
+                2026-07-05 07:39:56
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>NuBella Med Spa</strong> (info@nubellamedspa.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
+              </div>
+              <div style="color: #fbbf24; font-weight: 600;">
+                2026-07-05 07:39:56
+              </div>
+            </div>
+          
+            <div style="background: var(--surface2); padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong>NuBella Med Spa</strong> (info@nubellamedspa.com)<br>
+                <span style="color:var(--text-dim); font-size:11px;">Via: chandango12@gmail.com</span>
+              </div>
+              <div style="color: #fbbf24; font-weight: 600;">
+                2026-07-05 07:41:08
               </div>
             </div>
           
@@ -594,319 +594,11 @@
           </thead>
           <tbody>
             
-              <tr class="sent-row" data-name="The Belmont" data-category="restaurant" data-email="adrian@belmontottawa.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">The Belmont</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">restaurant</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ adrian@belmontottawa.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-04 11:23</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/the-belmont-2164" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Gezellig" data-category="restaurant" data-email="info@gezelligdining.ca" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Gezellig</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">restaurant</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@gezelligdining.ca</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-04 11:21</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/gezellig-2162" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Midpoint Chiropractic Center" data-category="chiropractor" data-email="midpointchiro239@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Midpoint Chiropractic Center</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">chiropractor</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ midpointchiro239@gmail.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-04 07:19</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/midpoint-chiropractic-center-2646" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="The Pantry Crest" data-category="restaurant" data-email="littlerockpantry@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">The Pantry Crest</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">restaurant</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ littlerockpantry@gmail.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-04 07:17</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/the-pantry-crest-1587" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Bruna Chiropractic Clinic" data-category="chiropractor" data-email="brunachiroclinic@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Bruna Chiropractic Clinic</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">chiropractor</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ brunachiroclinic@gmail.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-04 07:16</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/bruna-chiropractic-clinic-1563" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Maintenance Mobile Detailing" data-category="detailing" data-email="info@maintenancemobiledetailing.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Maintenance Mobile Detailing</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@maintenancemobiledetailing.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-04 07:14</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/maintenance-mobile-detailing-1349" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="The Las Vegas Chiropractor" data-category="chiropractor" data-email="info@thelasvegaschiro.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">The Las Vegas Chiropractor</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">chiropractor</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@thelasvegaschiro.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:31</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/the-las-vegas-1398" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Plantscapers" data-category="landscaping" data-email="info@plantscapers.com" data-opened="1" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Plantscapers</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">landscaping</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@plantscapers.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:25</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(0, 242, 254, 0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-weight: bold;">👁 Opened</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/plantscapers-1937" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Jade Rabbit" data-category="restaurant" data-email="jaderabbitcustomerservice@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Jade Rabbit</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">restaurant</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ jaderabbitcustomerservice@gmail.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:23</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/jade-rabbit-1807" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="OX Restaurant" data-category="restaurant" data-email="hello@oxpdx.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">OX Restaurant</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">restaurant</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ hello@oxpdx.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:20</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/ox-restaurant-1802" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Dolly Olive" data-category="restaurant" data-email="hello@dollyolivepdx.com" data-opened="1" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Dolly Olive</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">restaurant</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ hello@dollyolivepdx.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:17</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(0, 242, 254, 0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-weight: bold;">👁 Opened</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/dolly-olive-1801" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Chem-Dry of Huntington Beach" data-category="cleaning" data-email="mailtodan@acechemdry.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Chem-Dry of Huntington Beach</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ mailtodan@acechemdry.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:15</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/chem-dry-of-huntington-2785" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Alvarado Roofing" data-category="roofing" data-email="lalvarado13@cox.net" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Alvarado Roofing</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">roofing</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ lalvarado13@cox.net</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:12</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/alvarado-roofing-1652" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Ortega's Jr Tree Care LLC" data-category="tree service" data-email="info@ortegasjrtreecare.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="0" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Ortega's Jr Tree Care LLC</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">tree service</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@ortegasjrtreecare.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:10</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <span style="color: var(--text-dim); font-size: 11px;">Audit Report</span>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Beautiful You Medical Aesthetics Pam Alvarez, R.N." data-category="medspa" data-email="beautifulyoumedical1@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Beautiful You Medical Aesthetics Pam Alvarez, R.N.</td>
+              <tr class="sent-row" data-name="Finesse Med Spa & IV Lounge" data-category="medspa" data-email="info@modelespa.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Finesse Med Spa & IV Lounge</td>
                 <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">medspa</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ beautifulyoumedical1@gmail.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-02 00:07</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@modelespa.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:30</td>
                 <td style="padding: 12px 8px; text-align: center;">
                   <div style="display: flex; gap: 4px; justify-content: center;">
                     
@@ -916,7 +608,315 @@
                 </td>
                 <td style="padding: 12px 8px; text-align: right;">
                   
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/beautiful-you-medical-1697" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/finesse-med-spa-100004" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Lulu Ortiz MSN, FNP | Aluma Medical Aesthetics" data-category="medspa" data-email="lululnjects@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Lulu Ortiz MSN, FNP | Aluma Medical Aesthetics</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">medspa</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ lululnjects@gmail.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:29</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/lulu-ortiz-msn-100006" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Palace Med Spa" data-category="medspa" data-email="info@palacemedspa.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Palace Med Spa</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">medspa</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@palacemedspa.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:27</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/palace-med-spa-100007" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="NuBella Med Spa" data-category="medspa" data-email="info@nubellamedspa.com" data-opened="1" data-clicked="1" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">NuBella Med Spa</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">medspa</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@nubellamedspa.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:25</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255, 200, 0, 0.1); color: var(--yellow); padding: 2px 6px; border-radius: 4px; font-weight: bold;">🔗 Clicked</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/nubella-med-spa-100002" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  1
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Daylight Window and Solar Cleaning" data-category="solar" data-email="info@sunshinewindows.net" data-opened="1" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Daylight Window and Solar Cleaning</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@sunshinewindows.net</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:16</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(0, 242, 254, 0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-weight: bold;">👁 Opened</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/daylight-window-and-3488" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Euphoria Med Spa" data-category="medspa" data-email="contact@euphoriaskinandbeauty.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Euphoria Med Spa</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">medspa</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ contact@euphoriaskinandbeauty.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:15</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/euphoria-med-spa-100001" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Titanium Solar" data-category="solar" data-email="rmiranda@titaniumsolar.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Titanium Solar</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ rmiranda@titaniumsolar.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:11</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/titanium-solar-3485" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Allstar Plumbing, Heating & Air" data-category="hvac" data-email="allstarjohn1@yahoo.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Allstar Plumbing, Heating & Air</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">hvac</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ allstarjohn1@yahoo.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:09</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/allstar-plumbing-heating-3482" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Simply Solar" data-category="solar" data-email="info@simplysolarsocal.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Simply Solar</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@simplysolarsocal.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:03</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/simply-solar-3483" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Ramco Plumbing Heating & Air" data-category="hvac" data-email="ryan@ramcoplumbingandrooter.com" data-opened="1" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Ramco Plumbing Heating & Air</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">hvac</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ ryan@ramcoplumbingandrooter.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:01</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(0, 242, 254, 0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-weight: bold;">👁 Opened</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/ramco-plumbing-heating-3480" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Bluesky Mechanical Heating and Air conditioning" data-category="hvac" data-email="blueskymech@gmail.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Bluesky Mechanical Heating and Air conditioning</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">hvac</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ blueskymech@gmail.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 07:00</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/bluesky-mechanical-heating-3481" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="1st Choice Roofing" data-category="roofing" data-email="info@1stchoiceroofing.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">1st Choice Roofing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">roofing</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@1stchoiceroofing.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 06:59</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/1st-choice-roofing-3476" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="First Roofing" data-category="roofing" data-email="info@firstroofingllc.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">First Roofing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">roofing</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@firstroofingllc.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 06:52</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/first-roofing-3474" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="Competition Roofing" data-category="roofing" data-email="info@competitionroofingco.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Competition Roofing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">roofing</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ info@competitionroofingco.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 06:48</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/competition-roofing-3472" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="GAX Roofing" data-category="roofing" data-email="sales@gaxroofing.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">GAX Roofing</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">roofing</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ sales@gaxroofing.com</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-05 06:44</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/gax-roofing-3470" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
                   
                 </td>
                 <td style="padding: 12px 8px; text-align: right;">
@@ -947,9 +947,9 @@
           </thead>
           <tbody>
             
-              <tr class="found-row" data-name="Magic Hand Carwash North Perth" data-category="detailing" data-email="info@magicwash.com.au" data-instagram="magichandcarwash_" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Magic Hand Carwash North Perth</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+              <tr class="found-row" data-name="Mi Bella Medspa" data-category="medspa" data-email="mibellamedspa@gmail.com" data-instagram="mibellamedspa" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Mi Bella Medspa</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">medspa</td>
                 <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
                 <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
                 <td style="padding: 12px 8px;">
@@ -963,12 +963,12 @@
                     
                   </div>
                 </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:23</td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:17</td>
               </tr>
             
-              <tr class="found-row" data-name="Topline Detailing Specialists" data-category="detailing" data-email="info@toplinedetailing.com.au" data-instagram="toplinedetailing.com.au" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Topline Detailing Specialists</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+              <tr class="found-row" data-name="Rio Glow Aesthetics and Wellness" data-category="medspa" data-email="info@rioglowaesthetics.com" data-instagram="rioglowaesthetics" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Rio Glow Aesthetics and Wellness</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">medspa</td>
                 <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
                 <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
                 <td style="padding: 12px 8px;">
@@ -982,12 +982,12 @@
                     
                   </div>
                 </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:23</td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:16</td>
               </tr>
             
-              <tr class="found-row" data-name="Diamond Detailing Perth" data-category="detailing" data-email="paul@diamonddetailingperth.com.au" data-instagram="diamond_detailing_perth" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Diamond Detailing Perth</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+              <tr class="found-row" data-name="Jade MD Aesthetics Medical Spa" data-category="medspa" data-email="jademdaesthetics@gmail.com" data-instagram="jademdaesthetics" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Jade MD Aesthetics Medical Spa</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">medspa</td>
                 <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
                 <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
                 <td style="padding: 12px 8px;">
@@ -1001,12 +1001,63 @@
                     
                   </div>
                 </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:21</td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:09</td>
               </tr>
             
-              <tr class="found-row" data-name="Car Detailers Perth | Mobile Auto Detailing | Ceramic Coating" data-category="detailing" data-email="info@cardetailersperth.com.au" data-instagram="cardetailersperth" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Car Detailers Perth | Mobile Auto Detailing | Ceramic Coating</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+              <tr class="found-row" data-name="Atlantis Law Firm" data-category="lawyer" data-email="renegruiz805@gmail.com" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Atlantis Law Firm</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">lawyer</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:08</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Law Offices of Roger H. Chien, APC" data-category="lawyer" data-email="attorneyrhc@gmail.com" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Law Offices of Roger H. Chien, APC</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">lawyer</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:06</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Law Offices of Douglas Borthwick" data-category="lawyer" data-email="attorneyborthwick@gmail.com" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Law Offices of Douglas Borthwick</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">lawyer</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:04</td>
+              </tr>
+            
+              <tr class="found-row" data-name="The Law Offices of Justin H. King" data-category="lawyer" data-email="info@justinkinglaw.com" data-instagram="lawofficesofjustinking" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">The Law Offices of Justin H. King</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">lawyer</td>
                 <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
                 <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
                 <td style="padding: 12px 8px;">
@@ -1020,12 +1071,12 @@
                     
                   </div>
                 </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:21</td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:03</td>
               </tr>
             
-              <tr class="found-row" data-name="Iconic Detailing Perth" data-category="detailing" data-email="info@westcoastcarcare.com.au" data-instagram="iconic_detailing_perth" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Iconic Detailing Perth</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+              <tr class="found-row" data-name="Sunplicity Energy" data-category="solar" data-email="info@sunenergyco.com" data-instagram="simplysolarca" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Sunplicity Energy</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
                 <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
                 <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
                 <td style="padding: 12px 8px;">
@@ -1039,12 +1090,80 @@
                     
                   </div>
                 </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:21</td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:02</td>
               </tr>
             
-              <tr class="found-row" data-name="Supernatural Professional Auto Detailing" data-category="detailing" data-email="supernatural@perthautodetailing.com.au" data-instagram="supernaturaldetailing" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Supernatural Professional Auto Detailing</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+              <tr class="found-row" data-name="Engrow Energy" data-category="solar" data-email="info@hydrogrow.net" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Engrow Energy</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:01</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Move Solar Inc" data-category="solar" data-email="info@aws-solar.com" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Move Solar Inc</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:01</td>
+              </tr>
+            
+              <tr class="found-row" data-name="SOLAR" data-category="solar" data-email="info@solargem.org" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">SOLAR</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 07:01</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Solargem" data-category="solar" data-email="info@solargem.org" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Solargem</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 06:59</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Friends & Family HVAC" data-category="hvac" data-email="friendsandfamilyhvac@gmail.com" data-instagram="friendsandfamilyhvac" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Friends & Family HVAC</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">hvac</td>
                 <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
                 <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
                 <td style="padding: 12px 8px;">
@@ -1058,12 +1177,31 @@
                     
                   </div>
                 </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:20</td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 06:52</td>
               </tr>
             
-              <tr class="found-row" data-name="Detailer Co" data-category="detailing" data-email="hello@detailerco.com.au" data-instagram="detailerco" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Detailer Co</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
+              <tr class="found-row" data-name="Weatherguard Company" data-category="roofing" data-email="contactus@weatherguardroofing.net" data-instagram="weatherguardrestoration" data-score="80" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Weatherguard Company</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">roofing</td>
+                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
+                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">80pt</td>
+                <td style="padding: 12px 8px;">
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    
+                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
+                    
+                    
+                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
+                    
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 06:46</td>
+              </tr>
+            
+              <tr class="found-row" data-name="Roof Removal Services" data-category="roofing" data-email="leveluproofer@gmail.com" data-instagram="relianceroofremoval" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">Roof Removal Services</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">roofing</td>
                 <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
                 <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
                 <td style="padding: 12px 8px;">
@@ -1077,155 +1215,7 @@
                     
                   </div>
                 </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:20</td>
-              </tr>
-            
-              <tr class="found-row" data-name="Sharkey Auto Detailing - Paint correction and Paint protection Experts" data-category="detailing" data-email="info@sharkeyautodetailing.com" data-instagram="sharkey_autodetailing_perth" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Sharkey Auto Detailing - Paint correction and Paint protection Experts</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:19</td>
-              </tr>
-            
-              <tr class="found-row" data-name="Perth Detailing Centre" data-category="detailing" data-email="info@perthdetailingcentre.com.au" data-instagram="perthdetailingcentre" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Perth Detailing Centre</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">detailing</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:19</td>
-              </tr>
-            
-              <tr class="found-row" data-name="ORCA Cleaning" data-category="cleaning" data-email="info@narascleaning.com.au" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">ORCA Cleaning</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:18</td>
-              </tr>
-            
-              <tr class="found-row" data-name="Nexus Kleen" data-category="cleaning" data-email="hello@nexuskleen.com" data-instagram="nexuskleen" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Nexus Kleen</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:15</td>
-              </tr>
-            
-              <tr class="found-row" data-name="All Buzz Cleaning Services" data-category="cleaning" data-email="allbuzz18@gmail.com" data-instagram="allbuzz_cleaning" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">All Buzz Cleaning Services</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:13</td>
-              </tr>
-            
-              <tr class="found-row" data-name="Housekeeping WA" data-category="cleaning" data-email="vipclient@manhattanmaids.com.au" data-instagram="None" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Housekeeping WA</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:12</td>
-              </tr>
-            
-              <tr class="found-row" data-name="Perth Home Cleaners" data-category="cleaning" data-email="hello@cleanerco.com.au" data-instagram="perthhomecleaners" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Perth Home Cleaners</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:11</td>
-              </tr>
-            
-              <tr class="found-row" data-name="Cleaner Co" data-category="cleaning" data-email="hello@cleanerco.com.au" data-instagram="cleanercoperth" data-score="0" data-status="approved" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Cleaner Co</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">cleaning</td>
-                <td style="padding: 12px 8px;"><span class="badge badge-approved" style="font-size: 10px; padding: 2px 6px;">approved</span></td>
-                <td style="padding: 12px 8px; text-align: center; font-weight: bold; color: var(--accent);">0pt</td>
-                <td style="padding: 12px 8px;">
-                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                    
-                      <span style="font-size: 10px; background: rgba(0, 200, 150, 0.08); color: #00c896; border: 1px solid rgba(0, 200, 150, 0.2); padding: 1px 5px; border-radius: 3px;">Email</span>
-                    
-                    
-                      <span style="font-size: 10px; background: rgba(0, 150, 255, 0.08); color: var(--blue); border: 1px solid rgba(0, 150, 255, 0.2); padding: 1px 5px; border-radius: 3px;">Instagram</span>
-                    
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-06-28 06:10</td>
+                <td style="padding: 12px 8px; text-align: right; font-size: 11px; color: var(--text-dim);">2026-07-05 06:44</td>
               </tr>
             
           </tbody>
