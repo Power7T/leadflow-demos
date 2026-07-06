@@ -111,7 +111,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">166</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; display:none;">0</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -125,7 +125,7 @@
     </a>
     <a href="./dashboard_test.html" class="">
       <span class="icon">🧪</span> Test Leads
-      <span class="badge badge-new" id="sidebar-badge-test-new" style="margin-left:auto; ">5</span>
+      <span class="badge badge-new" id="sidebar-badge-test-new" style="margin-left:auto; display:none;">0</span>
     </a>
     <a href="./dashboard_kanban.html" class="">
       <span class="icon">🗂</span> Pipeline
@@ -153,21 +153,97 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">166</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">650</b></div>
-    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">1</b></div>
-    <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">2</b></div>
-    <div class="stat" id="sidebar-stat-opted-out-container" style="">
-      <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">2</b>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">0</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">29</b></div>
+    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">0</b></div>
+    <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
+    <div class="stat" id="sidebar-stat-opted-out-container" style="display:none;">
+      <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">0</b>
     </div>
   </div>
 </aside>
 
 <main class="main">
   
-<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:4px">
+<div class="page-header" style="margin-bottom: 24px;">
+  <div class="page-title">
+    <h1>🚀 Instagram Reach & Autopilot</h1>
+    <p>Manage Instagram leads and configure your automated DM sender.</p>
+  </div>
+</div>
+
+<!-- Instagram Autopilot Dashboard Panel -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+  
+  <!-- Left Side: Status & Controls -->
+  <div class="form-card" style="border-color: var(--accent);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+      <div>
+        <h2 style="margin: 0; display: flex; align-items: center; gap: 10px;" id="igApStatusTitle">
+          <span class="pulse-dot gray" id="igApDot" style="width: 12px; height: 12px;"></span>
+          IG Autopilot is <span id="igApStatusText">LOADING</span>
+          <span id="igCountdownContainer" style="font-size: 11px; margin-left: 8px; padding: 2px 8px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--text-dim); font-weight: normal; display: none; align-items: center; gap: 6px;">
+            ⏱️ Next send in: <span id="igCountdownText" style="color: var(--accent); font-weight: bold; font-family: monospace;">--:--</span>
+          </span>
+        </h2>
+        <p style="color: var(--text-dim); margin-top: 6px; font-size: 13px;">
+          Runs 24/7 in the background from your local machine. Automatically messages prospects during their local awake hours (8 AM - 9 PM) to maximize open rates.
+        </p>
+      </div>
+      
+      <!-- Interactive Toggle Switch -->
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-dim);">Status:</span>
+        <button id="igToggleBtn" onclick="toggleIgAutopilot()" class="btn btn-primary" style="padding: 8px 16px; min-width: 100px;">
+          Loading...
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side: Stats & Limits -->
+  <div class="form-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h2 style="margin: 0;">📊 Deliverability & Protection</h2>
+      <button class="btn btn-ghost btn-sm" onclick="saveAutopilotSettings()" id="saveApBtn">Save Changes</button>
+    </div>
+    <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
+      Set your maximum daily DM limit to protect your Instagram account from spam blocks.
+    </p>
+    
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+      <span style="font-size: 13px; font-weight: 500;">Daily DM Limit:</span>
+      <input type="number" id="apDailyLimit" style="width: 80px; padding: 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; color: #fff; outline: none; text-align: center;" value="10">
+    </div>
+
+    <div style="margin-bottom: 12px;">
+      <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; margin-bottom: 6px;">
+        <span>Today's Progress</span>
+        <span style="color: var(--accent); font-weight:600;"><span id="apSentToday">0</span> / <span id="apTarget">10</span> sent</span>
+      </div>
+      <div class="bp-track" style="height: 8px;">
+        <div class="bp-fill" id="apProgressBar" style="width: 0%; background: var(--accent);"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Live Terminal / Logs -->
+<div class="form-card" style="margin-bottom: 24px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+    <h2 style="margin: 0;">📟 Live Autopilot Logs</h2>
+    <span style="font-size: 11px; background: rgba(0, 200, 150, 0.1); color: #00c896; padding: 3px 8px; border-radius: 12px; font-weight: 500;">
+      🟢 Streaming Live
+    </span>
+  </div>
+  <div id="igTerminalLog" style="height: 250px; background: #0c0c0e; border: 1px solid #1f1f24; border-radius: 8px; padding: 12px; font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace; font-size: 12px; line-height: 1.5; color: #a9b1d6; overflow-y: auto; white-space: pre-wrap; word-break: break-all;">
+    Initializing logs...
+  </div>
+</div>
+
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px">
   <div style="display:flex; align-items:center; gap:12px;">
-    <h1 style="margin:0">Instagram Reach</h1>
+    <h2 style="margin:0; font-size: 18px;">Instagram Leads Database</h2>
     <button class="btn btn-primary" onclick="toggleAddIgLeadsModal()" style="padding: 4px 10px; font-size: 12px;">➕ Paste Instagram Leads</button>
   </div>
   <div style="display:flex;gap:4px;flex-wrap:wrap" id="statusTabs">
@@ -202,6 +278,8 @@
   </div>
 </div>
 
+<!-- (Modal removed as it is now integrated into the page header) -->
+
 
 
 <div class="leads-split">
@@ -228,7 +306,7 @@
           <div style="font-size:9px; color:var(--text-dim); text-transform:uppercase; margin-bottom:4px; font-weight:600;">Engagement</div>
           <div style="display:flex; flex-wrap:wrap; gap:6px;">
             <label class="filter-chip" id="chip-opened">
-              <input type="checkbox" id="filter-opened"> 👁️ Opened Email
+              <input type="checkbox" id="filter-opened"> 👁️ Opened DM
             </label>
             <label class="filter-chip" id="chip-clicked">
               <input type="checkbox" id="filter-clicked"> 🔗 Clicked Link
@@ -237,7 +315,7 @@
               <input type="checkbox" id="filter-demo"> 🌐 Demo Viewed
             </label>
             <label class="filter-chip" id="chip-replied">
-              <input type="checkbox" id="filter-replied"> 💬 Replied
+              <input type="checkbox" id="filter-replied"> 💬 Replied to DM
             </label>
           </div>
         </div>
@@ -287,7 +365,7 @@
 
     
     <div class="lead-row" id="row-2724" onclick="selectLead(2724)"
-      data-lead='{"address": "", "assigned_sender_email": null, "category": "Gaming Creator", "city": "Instagram", "competitor_deficit": null, "country": "Online", "demo_tunnel_url": null, "demo_viewed": 1, "domain_available": null, "email": "", "email_clicked": null, "email_opened": null, "email_sent_at": null, "found_at": "2026-06-22 05:55:55", "gap": "All about GTA 6 \u0026 the gaming world \ud83c\udf0d\nUpdates \u2022 Leaks \u2022 Fun Gameplay\n\ud83c\udfae PSwithAJ \ud83d\ude97\ud83d\udca5", "google_rating": 5.0, "google_reviews": 1883, "has_google_ads": 0, "id": 2724, "ig_dm_sent": 0, "ig_dm_sent_at": null, "instagram": "pswithaj", "intent_score": 0, "interactions": [], "interactions_json": "[]", "lead_score": 60, "linkedin_name": null, "linkedin_url": null, "maps_rank": 0, "maps_url": "https://scontent.cdninstagram.com/v/t51.82787-19/574938979_17843916516609741_3907140971963340303_n.jpg?stp=dst-jpg_s100x100_tt6\u0026_nc_cat=105\u0026ccb=7-5\u0026_nc_sid=bf7eb4\u0026efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44NTQuQzMifQ%3D%3D\u0026_nc_ohc=8p_KVAdZmdcQ7kNvwG_clNt\u0026_nc_oc=AdqduZA88R03k3TzX0uamuiInTVDEMJ0tlDJhK1hNDmS57DaUx_5TTKbz5Oi3PLc8Ds\u0026_nc_zt=24\u0026_nc_ht=scontent.cdninstagram.com\u0026_nc_gid=7sFL7RSJswra1LiG4VEZQg\u0026_nc_ss=7860f\u0026oh=00_Af-7x5_yn6ydyWfCXSd-SN8soS5ARKUPlEZdsAGpNENRaQ\u0026oe=6A3E9B60", "name": "PSwithAJ", "notes": null, "owner_name": null, "phone": "", "pitch_type": "instagram_reach", "replied_at": null, "reply_text": null, "social_active": 0, "source": "instagram_reach", "status": "approved", "template_id": null, "tier": 0, "timezone": "America/New_York", "visual_preview_url": null, "wa_dm_sent": 0, "wa_dm_sent_at": null, "website": "https://www.instagram.com/pswithaj/", "website_score": 0, "whatsapp": null}' data-status="approved" data-pitch-type="instagram_reach" style="margin-bottom: 8px;">
+      data-lead='{"address": "", "assigned_sender_email": null, "category": "Gaming Creator", "city": "Instagram", "competitor_deficit": null, "country": "Online", "demo_tunnel_url": "https://leadflow-relay.chandango12.workers.dev/demo/2724", "demo_viewed": 1, "domain_available": null, "email": "", "email_clicked": null, "email_opened": null, "email_sent_at": null, "found_at": "2026-06-22 05:55:55", "gap": "All about GTA 6 \u0026 the gaming world \ud83c\udf0d\nUpdates \u2022 Leaks \u2022 Fun Gameplay\n\ud83c\udfae PSwithAJ \ud83d\ude97\ud83d\udca5", "google_rating": 5.0, "google_reviews": 1883, "has_google_ads": 0, "id": 2724, "ig_dm_sent": 0, "ig_dm_sent_at": null, "ig_dm_variant": null, "ig_link_delivered": 0, "instagram": "pswithaj", "intent_score": 0, "interactions": [], "interactions_json": "[]", "lead_score": 60, "linkedin_name": null, "linkedin_url": null, "maps_rank": 0, "maps_url": "https://scontent.cdninstagram.com/v/t51.82787-19/574938979_17843916516609741_3907140971963340303_n.jpg?stp=dst-jpg_s100x100_tt6\u0026_nc_cat=105\u0026ccb=7-5\u0026_nc_sid=bf7eb4\u0026efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44NTQuQzMifQ%3D%3D\u0026_nc_ohc=8p_KVAdZmdcQ7kNvwG_clNt\u0026_nc_oc=AdqduZA88R03k3TzX0uamuiInTVDEMJ0tlDJhK1hNDmS57DaUx_5TTKbz5Oi3PLc8Ds\u0026_nc_zt=24\u0026_nc_ht=scontent.cdninstagram.com\u0026_nc_gid=7sFL7RSJswra1LiG4VEZQg\u0026_nc_ss=7860f\u0026oh=00_Af-7x5_yn6ydyWfCXSd-SN8soS5ARKUPlEZdsAGpNENRaQ\u0026oe=6A3E9B60", "name": "PSwithAJ", "notes": null, "owner_name": null, "phone": "", "pitch_type": "instagram_reach", "replied_at": null, "reply_text": null, "social_active": 0, "source": "instagram_reach", "status": "approved", "template_id": null, "tier": 0, "timezone": "America/New_York", "visual_preview_url": null, "wa_dm_sent": 0, "wa_dm_sent_at": null, "website": "https://www.instagram.com/pswithaj/", "website_score": 0, "whatsapp": null}' data-status="approved" data-pitch-type="instagram_reach" style="margin-bottom: 8px;">
       
       <!-- Top Row: Name and Score Pill -->
       <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
@@ -323,6 +401,15 @@
       <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
         <!-- Campaign Niche Tag -->
         <span class="tag-campaign" style="font-size:9px; padding:1px 5px; border-radius:4px; background:rgba(217,70,239,0.15); color:#d946ef; border:1px solid rgba(217,70,239,0.25);">Instagram Reach</span>
+        
+        <!-- Potential Charge Badge -->
+        
+        
+        <!-- Schedule / Local Time Badge -->
+        
+        
+        <!-- Explicit DM Sent Badge -->
+        
 
         <!-- Demo viewed badge -->
         
@@ -331,9 +418,13 @@
 
         <!-- Lead Pipeline Status Badge -->
         
-          <span style="font-size:9px; font-weight:600; letter-spacing:.04em; padding:1px 5px; border-radius:4px; white-space:nowrap; margin-left:auto;
+          <span class="status-badge" style="font-size:9px; font-weight:600; letter-spacing:.04em; padding:1px 5px; border-radius:4px; white-space:nowrap; margin-left:auto;
             background:rgba(255,200,0,.1);color:var(--yellow);border:1px solid rgba(255,200,0,.2)
-            ">APPROVED</span>
+            ">
+            
+              APPROVED
+            
+          </span>
         
       </div>
 
@@ -353,7 +444,7 @@
 
 <!-- lead data embedded for JS -->
 <script id="leadsData" type="application/json">
-[{"address": "", "assigned_sender_email": null, "category": "Gaming Creator", "city": "Instagram", "competitor_deficit": null, "country": "Online", "demo_tunnel_url": null, "demo_viewed": 1, "domain_available": null, "email": "", "email_clicked": null, "email_opened": null, "email_sent_at": null, "found_at": "2026-06-22 05:55:55", "gap": "All about GTA 6 \u0026 the gaming world \ud83c\udf0d\nUpdates \u2022 Leaks \u2022 Fun Gameplay\n\ud83c\udfae PSwithAJ \ud83d\ude97\ud83d\udca5", "google_rating": 5.0, "google_reviews": 1883, "has_google_ads": 0, "id": 2724, "ig_dm_sent": 0, "ig_dm_sent_at": null, "instagram": "pswithaj", "intent_score": 0, "interactions": [], "interactions_json": "[]", "lead_score": 60, "linkedin_name": null, "linkedin_url": null, "maps_rank": 0, "maps_url": "https://scontent.cdninstagram.com/v/t51.82787-19/574938979_17843916516609741_3907140971963340303_n.jpg?stp=dst-jpg_s100x100_tt6\u0026_nc_cat=105\u0026ccb=7-5\u0026_nc_sid=bf7eb4\u0026efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44NTQuQzMifQ%3D%3D\u0026_nc_ohc=8p_KVAdZmdcQ7kNvwG_clNt\u0026_nc_oc=AdqduZA88R03k3TzX0uamuiInTVDEMJ0tlDJhK1hNDmS57DaUx_5TTKbz5Oi3PLc8Ds\u0026_nc_zt=24\u0026_nc_ht=scontent.cdninstagram.com\u0026_nc_gid=7sFL7RSJswra1LiG4VEZQg\u0026_nc_ss=7860f\u0026oh=00_Af-7x5_yn6ydyWfCXSd-SN8soS5ARKUPlEZdsAGpNENRaQ\u0026oe=6A3E9B60", "name": "PSwithAJ", "notes": null, "owner_name": null, "phone": "", "pitch_type": "instagram_reach", "replied_at": null, "reply_text": null, "social_active": 0, "source": "instagram_reach", "status": "approved", "template_id": null, "tier": 0, "timezone": "America/New_York", "visual_preview_url": null, "wa_dm_sent": 0, "wa_dm_sent_at": null, "website": "https://www.instagram.com/pswithaj/", "website_score": 0, "whatsapp": null}]
+[{"address": "", "assigned_sender_email": null, "category": "Gaming Creator", "city": "Instagram", "competitor_deficit": null, "country": "Online", "demo_tunnel_url": "https://leadflow-relay.chandango12.workers.dev/demo/2724", "demo_viewed": 1, "domain_available": null, "email": "", "email_clicked": null, "email_opened": null, "email_sent_at": null, "found_at": "2026-06-22 05:55:55", "gap": "All about GTA 6 \u0026 the gaming world \ud83c\udf0d\nUpdates \u2022 Leaks \u2022 Fun Gameplay\n\ud83c\udfae PSwithAJ \ud83d\ude97\ud83d\udca5", "google_rating": 5.0, "google_reviews": 1883, "has_google_ads": 0, "id": 2724, "ig_dm_sent": 0, "ig_dm_sent_at": null, "ig_dm_variant": null, "ig_link_delivered": 0, "instagram": "pswithaj", "intent_score": 0, "interactions": [], "interactions_json": "[]", "lead_score": 60, "linkedin_name": null, "linkedin_url": null, "maps_rank": 0, "maps_url": "https://scontent.cdninstagram.com/v/t51.82787-19/574938979_17843916516609741_3907140971963340303_n.jpg?stp=dst-jpg_s100x100_tt6\u0026_nc_cat=105\u0026ccb=7-5\u0026_nc_sid=bf7eb4\u0026efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44NTQuQzMifQ%3D%3D\u0026_nc_ohc=8p_KVAdZmdcQ7kNvwG_clNt\u0026_nc_oc=AdqduZA88R03k3TzX0uamuiInTVDEMJ0tlDJhK1hNDmS57DaUx_5TTKbz5Oi3PLc8Ds\u0026_nc_zt=24\u0026_nc_ht=scontent.cdninstagram.com\u0026_nc_gid=7sFL7RSJswra1LiG4VEZQg\u0026_nc_ss=7860f\u0026oh=00_Af-7x5_yn6ydyWfCXSd-SN8soS5ARKUPlEZdsAGpNENRaQ\u0026oe=6A3E9B60", "name": "PSwithAJ", "notes": null, "owner_name": null, "phone": "", "pitch_type": "instagram_reach", "replied_at": null, "reply_text": null, "social_active": 0, "source": "instagram_reach", "status": "approved", "template_id": null, "tier": 0, "timezone": "America/New_York", "visual_preview_url": null, "wa_dm_sent": 0, "wa_dm_sent_at": null, "website": "https://www.instagram.com/pswithaj/", "website_score": 0, "whatsapp": null}]
 </script>
 
 
@@ -480,6 +571,120 @@ function filterCampaign(campaign, btn) {
   applyFilters();
 }
 
+let isIgApRunning = false;
+
+function loadIgSettings() {
+  fetch('/api/ig-settings')
+    .then(r => r.json())
+    .then(d => {
+      isIgApRunning = d.is_running !== false;
+      document.getElementById('apDailyLimit').value = d.daily_limit || 10;
+      document.getElementById('apSentToday').textContent = d.sent_today || 0;
+      document.getElementById('apTarget').textContent = d.daily_limit || 10;
+      
+      const pct = Math.min(((d.sent_today || 0) / (d.daily_limit || 10)) * 100, 100);
+      document.getElementById('apProgressBar').style.width = pct + '%';
+      
+      updateApUI();
+    });
+}
+
+function updateApUI() {
+  const dot = document.getElementById('igApDot');
+  const txt = document.getElementById('igApStatusText');
+  const btn = document.getElementById('igToggleBtn');
+  
+  if (isIgApRunning) {
+    dot.className = "pulse-dot green";
+    txt.textContent = "ACTIVE";
+    btn.className = "btn btn-ghost";
+    btn.innerHTML = "⏸ Pause";
+  } else {
+    dot.className = "pulse-dot gray";
+    txt.textContent = "STOPPED";
+    btn.className = "btn btn-primary";
+    btn.innerHTML = "▶ Start";
+  }
+}
+
+function toggleIgAutopilot() {
+  isIgApRunning = !isIgApRunning;
+  updateApUI();
+  saveAutopilotSettings(true);
+}
+
+function saveAutopilotSettings(silent = false) {
+  const btn = document.getElementById('saveApBtn');
+  if (!silent) btn.textContent = 'Saving...';
+  
+  const payload = {
+    daily_limit: parseInt(document.getElementById('apDailyLimit').value),
+    is_running: isIgApRunning
+  };
+  
+  fetch('/api/ig-settings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(r => r.json()).then(d => {
+    document.getElementById('apTarget').textContent = d.settings.daily_limit;
+    
+    const pct = Math.min(((d.settings.sent_today || 0) / (d.settings.daily_limit || 10)) * 100, 100);
+    document.getElementById('apProgressBar').style.width = pct + '%';
+
+    if (!silent) {
+      btn.textContent = 'Saved!';
+      setTimeout(() => { btn.textContent = 'Save Changes'; }, 1000);
+    }
+  });
+}
+
+// Load settings on page start
+loadIgSettings();
+
+async function fetchIgLogs() {
+  try {
+    const res = await fetch('/api/ig-logs');
+    const data = await res.json();
+    const term = document.getElementById('igTerminalLog');
+    if (data.logs) {
+      const isAtBottom = term.scrollHeight - term.clientHeight <= term.scrollTop + 10;
+      
+      const escaped = data.logs
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+      
+      const lines = escaped.split('\n');
+      const coloredLines = lines.map(line => {
+        let style = "";
+        const lower = line.toLowerCase();
+        if (lower.includes('error') || lower.includes('failed') || lower.includes('exception')) {
+          style = "color: #ff4d4d;"; // Red
+        } else if (lower.includes('warning') || lower.includes('warn')) {
+          style = "color: #ffc400;"; // Yellow
+        } else if (line.includes('[INFO]') || lower.includes('info')) {
+          style = "color: #a9b1d6; opacity: 0.85;"; // Dim
+        }
+        return style ? `<span style="${style}">${line}</span>` : `<span>${line}</span>`;
+      });
+
+      term.innerHTML = coloredLines.join('\n');
+      if (isAtBottom) {
+        term.scrollTop = term.scrollHeight;
+      }
+    }
+  } catch (e) {
+    console.error("Failed to fetch IG logs", e);
+  }
+}
+
+// Poll logs every 3 seconds
+setInterval(fetchIgLogs, 3000);
+fetchIgLogs(); // initial load
+
 function applyFilters() {
   let shown = 0;
   const statusCounts = {};
@@ -551,10 +756,23 @@ function applyFilters() {
     if (campaignMatch && advancedMatch) {
       totalCampaignLeads++;
       const s = row.dataset.status || 'new';
-      statusCounts[s] = (statusCounts[s] || 0) + 1;
+      if (s === 'sent') {
+        if (lead && (lead.ig_dm_sent === 1 || lead.ig_dm_sent === true)) {
+          statusCounts['sent'] = (statusCounts['sent'] || 0) + 1;
+        }
+      } else {
+        statusCounts[s] = (statusCounts[s] || 0) + 1;
+      }
     }
     
-    const statusMatch = (currentFilter === 'all' || row.dataset.status === currentFilter);
+    let statusMatch = false;
+    if (currentFilter === 'all') {
+      statusMatch = true;
+    } else if (currentFilter === 'sent') {
+      statusMatch = lead && (lead.ig_dm_sent === 1 || lead.ig_dm_sent === true);
+    } else {
+      statusMatch = (row.dataset.status === currentFilter);
+    }
     const show = statusMatch && campaignMatch && advancedMatch;
     row.style.display = show ? '' : 'none';
     if (show) shown++;
@@ -1286,7 +1504,7 @@ async function sendMessages(id) {
         badge.style.cssText = 'font-size:9px;font-weight:600;letter-spacing:.04em;padding:2px 6px;border-radius:4px;white-space:nowrap;background:rgba(0,242,254,.12);color:var(--accent)';
         row.querySelector('.lead-row-name')?.parentElement?.appendChild(badge);
       }
-      badge.textContent = 'SENT';
+      badge.textContent = emailMsg ? 'MAILED' : 'SENT DM';
       row.dataset.status = 'sent';
       // If currently on a status tab that excludes 'sent', hide this row
       if (currentFilter !== 'all' && currentFilter !== 'sent') row.style.display = 'none';
@@ -1349,7 +1567,11 @@ async function setLeadStatus(id, status) {
       if (nameWrap) nameWrap.appendChild(badge);
     }
     badge.style.cssText = `font-size:9px;font-weight:600;letter-spacing:.04em;padding:2px 6px;border-radius:4px;white-space:nowrap;${STATUS_COLORS[status] || ''}`;
-    badge.textContent = status.toUpperCase();
+    if (status === 'sent') {
+      badge.textContent = lead.email_sent_at ? 'MAILED' : 'SENT DM';
+    } else {
+      badge.textContent = status.toUpperCase();
+    }
     if (currentFilter !== 'all' && currentFilter !== status) row.style.display = 'none';
   }
   // Brief toast
@@ -1561,6 +1783,61 @@ if (idParam) {
 } else if (allLeads.length > 0) {
   selectLead(allLeads[0].id);
 }
+
+let countdownSecondsLeft = null;
+
+function fetchIgCountdown() {
+  fetch('/api/ig-countdown')
+    .then(r => r.json())
+    .then(d => {
+      const container = document.getElementById('igCountdownContainer');
+      if (d.is_running && d.seconds_left !== null && d.seconds_left !== undefined) {
+        countdownSecondsLeft = d.seconds_left;
+        if (container) container.style.display = 'inline-flex';
+        renderCountdownText();
+      } else {
+        countdownSecondsLeft = null;
+        if (container) container.style.display = 'none';
+      }
+    }).catch(() => {
+      countdownSecondsLeft = null;
+      const container = document.getElementById('igCountdownContainer');
+      if (container) container.style.display = 'none';
+    });
+}
+
+function renderCountdownText() {
+  const el = document.getElementById('igCountdownText');
+  if (!el || countdownSecondsLeft === null) return;
+  
+  if (countdownSecondsLeft <= 0) {
+    el.textContent = "Sending...";
+    return;
+  }
+  
+  const h = Math.floor(countdownSecondsLeft / 3600);
+  const m = Math.floor((countdownSecondsLeft % 3600) / 60);
+  const s = countdownSecondsLeft % 60;
+  
+  let text = '';
+  if (h > 0) {
+    text += `${h}h `;
+  }
+  text += `${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
+  el.textContent = text;
+}
+
+// Tick down the countdown timer locally every second
+setInterval(() => {
+  if (countdownSecondsLeft !== null && countdownSecondsLeft > 0) {
+    countdownSecondsLeft--;
+    renderCountdownText();
+  }
+}, 1000);
+
+// Poll server next run time every 15 seconds
+setInterval(fetchIgCountdown, 15000);
+fetchIgCountdown(); // Initial call
 
 function toggleAddIgLeadsModal() {
   const m = document.getElementById('addIgLeadsModal');
