@@ -154,7 +154,7 @@
   </nav>
   <div class="sidebar-stats">
     <div class="stat"><span>New</span><b id="sidebar-stat-new">0</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">101</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">104</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">9</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -12520,6 +12520,58 @@ Saw you had a look at</div>
     </div>
   </div>
   
+  <div class="lead-card " id="fu-701">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Urban Fitness Oakland</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-08</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Urban Fitness Oakland Demo
+Hey there,
+Saw you had a look at the custom demo</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(701, 'training@urbanfitnessoakland.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(701, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-705">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Elite Fitness Center</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-08</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Quick thought on Elite Fitness demo
+Hey there,
+Saw you had a look at the custom demo for Elite Fitness Center. Hope it gave you a good idea of the potential</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(705, 'elitefitnesscenterinc@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(705, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
   <div class="lead-card " id="fu-697">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -12540,6 +12592,55 @@ Saw you had a look at</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(697, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-704">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Urban Fitness Oakland</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-09</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Urban Fitness Demo
+Hey there, just wanted to see if you had a chance to check out the custom</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-ghost" onclick="copyFU(704, this)" style="font-size:12px">
+          📋 Copy DM
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(704, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-708">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Elite Fitness Center</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-09</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, just checking in on the custom demo site I sent for Elite Fitness Center. Did you</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-ghost" onclick="copyFU(708, this)" style="font-size:12px">
+          📋 Copy DM
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(708, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -14641,6 +14742,61 @@ Just</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(699, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-702">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Urban Fitness Oakland</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-10</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Quick thought on your Urban Fitness Oakland demo
+
+Hey there,
+
+Just circling back on the custom demo</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(702, 'training@urbanfitnessoakland.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(702, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-706">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Elite Fitness Center</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-10</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Elite Fitness Center Demo
+Hey there,
+
+Just checking back on the custom demo site for Elite Fitness</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(706, 'elitefitnesscenterinc@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(706, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -16943,6 +17099,62 @@ I shared a custom demo for The</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(700, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-703">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Urban Fitness Oakland</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-13</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Your Custom Urban Fitness Oakland Site: More Than Just Speed
+
+Hey there,
+
+Following up on</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(703, 'training@urbanfitnessoakland.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(703, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-707">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Elite Fitness Center</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-13</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Elite Fitness Center Website Improvements
+
+Hey there,
+
+Following up on the custom demo I built for Elite Fitness</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(707, 'elitefitnesscenterinc@gmail.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(707, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
