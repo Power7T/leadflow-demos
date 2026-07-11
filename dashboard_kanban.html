@@ -111,7 +111,7 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">3</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">6</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
@@ -153,7 +153,7 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">3</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">6</b></div>
     <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">23</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">7</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
@@ -182,12 +182,72 @@
     <div class="kanban-col-header">
       <span style="color:var(--text-dim)">🔍 New</span>
       <span class="kanban-count" id="count-new">
-        3
+        6
       </span>
     </div>
     <div class="kanban-cards" id="col-new"
          ondragover="event.preventDefault()"
          ondrop="onDrop(event, 'new')">
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100111"
+           ondragstart="onDragStart(event, 100111)">
+         <div class="kcard-name">Quality Tops Roofing</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100110"
+           ondragstart="onDragStart(event, 100110)">
+         <div class="kcard-name">Classic Roofing and Solar</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100109"
+           ondragstart="onDragStart(event, 100109)">
+         <div class="kcard-name">Joe Hall Roofing Inc</div>
+         <div class="kcard-meta">Pantego, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             <span title="Instagram" style="color:#00f2fe;font-size:12px">📸</span>
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
       
       <div class="kanban-card" draggable="true"
            id="card-100042"
@@ -256,12 +316,172 @@
     <div class="kanban-col-header">
       <span style="color:var(--orange)">👍 Generated</span>
       <span class="kanban-count" id="count-approved">
-        1948
+        1957
       </span>
     </div>
     <div class="kanban-cards" id="col-approved"
          ondragover="event.preventDefault()"
          ondrop="onDrop(event, 'approved')">
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100108"
+           ondragstart="onDragStart(event, 100108)">
+         <div class="kcard-name">Rainstone Roofing Company, Roof Repair & Replacement</div>
+         <div class="kcard-meta">Dalworthington Gardens, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             <span title="Instagram" style="color:#00f2fe;font-size:12px">📸</span>
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100107"
+           ondragstart="onDragStart(event, 100107)">
+         <div class="kcard-name">Garcia Brothers Roofers LLC</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100105"
+           ondragstart="onDragStart(event, 100105)">
+         <div class="kcard-name">John Wade Roofing</div>
+         <div class="kcard-meta">Pantego, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100104"
+           ondragstart="onDragStart(event, 100104)">
+         <div class="kcard-name">Rivera Brothers Roofing LLC</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             <span title="Instagram" style="color:#00f2fe;font-size:12px">📸</span>
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100103"
+           ondragstart="onDragStart(event, 100103)">
+         <div class="kcard-name">Lonestar Roofing And Construction</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             <span title="Instagram" style="color:#00f2fe;font-size:12px">📸</span>
+             
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100102"
+           ondragstart="onDragStart(event, 100102)">
+         <div class="kcard-name">Jenkins Roofing and Construction</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             <span title="Instagram" style="color:#00f2fe;font-size:12px">📸</span>
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-warm" style="font-size:8px;padding:1px 4px">WARM 🌡️</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100101"
+           ondragstart="onDragStart(event, 100101)">
+         <div class="kcard-name">⭐️HonestRoof.com⭐️</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100099"
+           ondragstart="onDragStart(event, 100099)">
+         <div class="kcard-name">Qualis Roofing & Construction</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">100pt</span>
+         </div>
+         
+      </div>
       
       <div class="kanban-card" draggable="true"
            id="card-100098"
@@ -19499,6 +19719,26 @@
              <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
            
            <span class="kcard-score">76pt</span>
+         </div>
+         
+      </div>
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100106"
+           ondragstart="onDragStart(event, 100106)">
+         <div class="kcard-name">JayCo Roofing</div>
+         <div class="kcard-meta">Arlington, USA</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             <span title="Instagram" style="color:#00f2fe;font-size:12px">📸</span>
+             <span title="WhatsApp" style="color:#25d366;font-size:12px">💬</span>
+           </div>
+           
+           
+             <span class="badge-cold" style="font-size:8px;padding:1px 4px">COLD 🧊</span>
+           
+           <span class="kcard-score">75pt</span>
          </div>
          
       </div>
