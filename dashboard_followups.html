@@ -154,7 +154,7 @@
   </nav>
   <div class="sidebar-stats">
     <div class="stat"><span>New</span><b id="sidebar-stat-new">3</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">72</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">74</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">7</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -19173,8 +19173,8 @@ Check it out: https://leadflow-relay.chandango12.workers.dev/demo/1274
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">Assiniboine Lawns & Landscapes</div>
-        <span class="badge badge-skipped">
-          Scheduled
+        <span class="badge badge-sent">
+          Sent
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · whatsapp</span>
       </div>
@@ -19183,8 +19183,7 @@ Check it out: https://leadflow-relay.chandango12.workers.dev/demo/1274
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        
-        <button class="btn btn-danger" onclick="skipFU(938, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <span class="badge badge-sent">Sent ✓</span>
       
     </div>
   </div>
@@ -19193,8 +19192,8 @@ Check it out: https://leadflow-relay.chandango12.workers.dev/demo/1274
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">IT GRL FIT</div>
-        <span class="badge badge-skipped">
-          Scheduled
+        <span class="badge badge-sent">
+          Sent
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · whatsapp</span>
       </div>
@@ -19203,8 +19202,28 @@ Check it out: https://leadflow-relay.chandango12.workers.dev/demo/1274
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        
-        <button class="btn btn-danger" onclick="skipFU(939, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <span class="badge badge-sent">Sent ✓</span>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-940">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Wise World of Fitness</div>
+        <span class="badge badge-sent">
+          Sent
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-12</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Quick follow-up
+Hey, saw you had a look — here’s that demo link: https://leadflow-relay.chandango12.workers.dev/demo/wise-world-of-100194
+What do you think?</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        <span class="badge badge-sent">Sent ✓</span>
       
     </div>
   </div>
@@ -19231,6 +19250,35 @@ Hey there</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(884, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-944">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Wise World of Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-12</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Re: Your 5★ reviews / Wise World of Fitness
+
+Hey, saw you opened my note — figured I’d send the demo direct while it’s fresh.
+https://leadflow-relay.chandango12.workers.dev/demo/wise-world-of-100194
+Shows how an automated follow-up captures the leads your reviews deserve.
+Worth a look?</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(944, 'joshwise@joshwise.fit', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(944, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -19284,6 +19332,54 @@ A gym nearby boosted 3-day</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(900, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-943">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Wise World of Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-12</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, just checking if you saw the demo layout I sent over for Wise World of Fitness?</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-ghost" onclick="copyFU(943, this)" style="font-size:12px">
+          📋 Copy DM
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(943, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-947">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Wise World of Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-12</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey, just wanted to check if you got a chance to see the demo layout I built for Wise World of Fitness?</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-ghost" onclick="copyFU(947, this)" style="font-size:12px">
+          📋 Copy DM
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(947, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -21254,6 +21350,62 @@ I sent over that custom demo site for Premier</div>
     </div>
   </div>
   
+  <div class="lead-card " id="fu-941">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Wise World of Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-14</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">The user wants a follow-up email #2 for Wise World of Fitness.
+Key constraints:
+- Subject line on first line.
+- Under 70 words.
+- Mention social proof (30% increase in signups for 3-day pass by speeding up schedule load).
+- No self-reintroduction.
+- Banned words: streamline, leverage, revolutionize,...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(941, 'joshwise@joshwise.fit', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(941, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-945">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Wise World of Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-14</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Boost your sign‑up rate like a local gym that saw 30% more 3‑day passes after we cut their schedule load to under 1.5 seconds.
+
+I’ve built a free demo for Wise World of Fitness that shows the exact lead‑gen flow you could be using: https://leadflow-relay.chandango12.workers.dev/demo/wise-world-of-10...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(945, 'joshwise@joshwise.fit', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(945, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
   <div class="lead-card " id="fu-719">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -22760,6 +22912,64 @@ Let me know if you’d like to see it live.</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(920, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-942">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Wise World of Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-17</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Your 5.0★ reviews deserve a faster site
+
+Hey there, saw Wise World of Fitness has 26 perfect reviews—that trust is rare. But a 56/100 site speed kills conversions before they see those reviews.
+
+I put together a Fiverr-secured stack to fix it: new lead-gen design, speed overhaul, Google Map...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(942, 'joshwise@joshwise.fit', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(942, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-946">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Wise World of Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-17</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Subject: Your 5.0★ reviews deserve a faster site
+
+Hey there,
+
+Wise World of Fitness has flawless 5.0★ reviews, but your site speed score (56/100) is quietly pushing high-intent leads to faster competitors.
+
+I’ve put together a Fiverr-secured stack to fix that: a high-converting redesign, speed overh...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(946, 'joshwise@joshwise.fit', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(946, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
