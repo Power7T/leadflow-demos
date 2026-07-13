@@ -154,8 +154,8 @@
   </nav>
   <div class="sidebar-stats">
     <div class="stat"><span>New</span><b id="sidebar-stat-new">3</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">151</b></div>
-    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">8</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">150</b></div>
+    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">9</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
       <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">9</b>
@@ -41850,7 +41850,7 @@
     <div class="kanban-col-header">
       <span style="color:var(--blue)">📨 Sent</span>
       <span class="kanban-count" id="count-sent">
-        145
+        144
       </span>
     </div>
     <div class="kanban-cards" id="col-sent"
@@ -43418,26 +43418,6 @@
       </div>
       
       <div class="kanban-card" draggable="true"
-           id="card-100207"
-           ondragstart="onDragStart(event, 100207)">
-         <div class="kcard-name">The Grooming Rooms</div>
-         <div class="kcard-meta">Dublin 2, Ireland</div>
-         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
-           <div style="display:flex;gap:4px">
-             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
-             <span title="Instagram" style="color:#00f2fe;font-size:12px">📸</span>
-             
-           </div>
-           
-           
-             <span class="badge-hot" style="font-size:8px;padding:1px 4px">HOT 🔥</span>
-           
-           <span class="kcard-score">97pt</span>
-         </div>
-         
-      </div>
-      
-      <div class="kanban-card" draggable="true"
            id="card-100114"
            ondragstart="onDragStart(event, 100114)">
          <div class="kcard-name">Everest Roofing</div>
@@ -44912,12 +44892,34 @@
     <div class="kanban-col-header">
       <span style="color:#00ff88">💬 Replied</span>
       <span class="kanban-count" id="count-replied">
-        8
+        9
       </span>
     </div>
     <div class="kanban-cards" id="col-replied"
          ondragover="event.preventDefault()"
          ondrop="onDrop(event, 'replied')">
+      
+      <div class="kanban-card" draggable="true"
+           id="card-100207"
+           ondragstart="onDragStart(event, 100207)">
+         <div class="kcard-name">The Grooming Rooms</div>
+         <div class="kcard-meta">Dublin 2, Ireland</div>
+         <div class="kcard-tags" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:8px;flex-wrap:wrap;gap:6px">
+           <div style="display:flex;gap:4px">
+             <span title="Email" style="color:#4caf50;font-size:12px">✉</span>
+             <span title="Instagram" style="color:#00f2fe;font-size:12px">📸</span>
+             
+           </div>
+           
+           
+             <span class="badge-hot" style="font-size:8px;padding:1px 4px">HOT 🔥</span>
+           
+           <span class="kcard-score">97pt</span>
+         </div>
+         
+         <button class="kcard-deal-btn" onclick="openDeal(100207, 'The Grooming Rooms')">+ Log Deal</button>
+         
+      </div>
       
       <div class="kanban-card" draggable="true"
            id="card-100311"
