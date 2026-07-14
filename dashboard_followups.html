@@ -154,7 +154,7 @@
   </nav>
   <div class="sidebar-stats">
     <div class="stat"><span>New</span><b id="sidebar-stat-new">3</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">195</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">198</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">10</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -3448,8 +3448,8 @@ Hey there, I'm Chandan—I build high-performing websites to help gyms like your
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
         <div class="lead-name">2L2Q Fitness</div>
-        <span class="badge badge-skipped">
-          Scheduled
+        <span class="badge badge-sent">
+          Sent
         </span>
         <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · email</span>
       </div>
@@ -3466,12 +3466,7 @@ You can...</div>
     </div>
     <div class="lead-actions" style="flex-direction:column">
       
-        
-        <button class="btn btn-primary" onclick="sendFollowUp(65, '2l2qfit@gmail.com', this)" style="font-size:12px">
-          📨 Send Email
-        </button>
-        
-        <button class="btn btn-danger" onclick="skipFU(65, this)" style="font-size:12px;margin-top:6px">Skip</button>
+        <span class="badge badge-sent">Sent ✓</span>
       
     </div>
   </div>
@@ -22671,6 +22666,57 @@ Following up on the custom demo I built</div>
     </div>
   </div>
   
+  <div class="lead-card " id="fu-1090">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Powerhouse Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #1 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-14</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Powerhouse Fitness Demo
+Hey there,
+
+Wanted to follow up while the Powerhouse Fitness demo is fresh. That site really shows what’s possible with a modern, fast design for your gym.</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(1090, 'filler@godaddy.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(1090, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-1093">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Powerhouse Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #4 · instagram</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-15</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Hey there, just wanted to quickly check if you saw the custom layout I sent for Powerhouse Fitness?</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-ghost" onclick="copyFU(1093, this)" style="font-size:12px">
+          📋 Copy DM
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(1093, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
   <div class="lead-card " id="fu-885">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
@@ -24258,6 +24304,36 @@ https:/...</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(1082, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-1091">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Powerhouse Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #2 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-16</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Quick thought on your Powerhouse Fitness site
+
+Hey there,
+
+Following up on the Powerhouse Fitness demo. A local gym recently saw a 30% increase in 3-day pass signups just by getting their schedule to load under 1.5 seconds. Faster sites drive real results.
+
+Did you get a chance to check out the demo...</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(1091, 'filler@godaddy.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(1091, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
@@ -25873,6 +25949,33 @@ Chandan</div>
         </button>
         
         <button class="btn btn-danger" onclick="skipFU(1033, this)" style="font-size:12px;margin-top:6px">Skip</button>
+      
+    </div>
+  </div>
+  
+  <div class="lead-card " id="fu-1092">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="lead-name">Powerhouse Fitness</div>
+        <span class="badge badge-skipped">
+          Scheduled
+        </span>
+        <span style="font-size:11px;color:var(--text-dim)">Follow-up #3 · email</span>
+      </div>
+      <div class="lead-meta">📅 2026-07-19</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:12px;color:#ccc;line-height:1.6;margin-top:8px;white-space:pre-wrap">Powerhouse Fitness: Demo + Your All-In-One Online Growth Package
+Hey there,
+
+You saw the custom demo site I built for Powerhouse Fitness: https://leadflow-relay.chand</div>
+    </div>
+    <div class="lead-actions" style="flex-direction:column">
+      
+        
+        <button class="btn btn-primary" onclick="sendFollowUp(1092, 'filler@godaddy.com', this)" style="font-size:12px">
+          📨 Send Email
+        </button>
+        
+        <button class="btn btn-danger" onclick="skipFU(1092, this)" style="font-size:12px;margin-top:6px">Skip</button>
       
     </div>
   </div>
