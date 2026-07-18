@@ -161,6 +161,22 @@
       <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">11</b>
     </div>
   </div>
+
+  <!-- Phone Status Widget -->
+  <div id="phoneStatusWidget" style="margin:12px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:11px;">
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+      <span id="phoneStatusDot" style="width:7px;height:7px;border-radius:50%;background:#64748b;display:inline-block;"></span>
+      <span style="color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:10px;">📱 Vivo Phone</span>
+    </div>
+    <div id="phoneStatusController" style="color:var(--text);font-weight:600;font-size:12px;margin-bottom:4px;">Idle</div>
+    <div id="phoneStatusAction" style="color:var(--text-dim);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
+    <div id="phoneStatusStats" style="display:flex;gap:8px;margin-top:6px;color:var(--text-dim);font-size:10px;">
+      <span>👤 <b id="ps-follows" style="color:var(--text)">0</b></span>
+      <span>💬 <b id="ps-dms" style="color:var(--text)">0</b></span>
+      <span>👋 <b id="ps-unfollows" style="color:var(--text)">0</b></span>
+      <span>🚫 <b id="ps-blocks" style="color:var(--text)">0</b></span>
+    </div>
+  </div>
 </aside>
 
 <main class="main">
@@ -296,21 +312,21 @@
     <div class="form-card" style="margin-bottom: 24px;">
       <h2>📊 Deliverability & Protection</h2>
       <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
-        Spam filter safeguard: Emails are throttled to a dynamically warmed maximum of 75 sent cold emails per day.
+        Spam filter safeguard: Emails are throttled to a dynamically warmed maximum of 60 sent cold emails per day.
       </p>
       
       <div style="margin-bottom: 12px;">
         <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; margin-bottom: 6px;">
           <span>Daily Limit Progress</span>
-          <span style="color: var(--accent); font-weight:600;">4 / 75 sent</span>
+          <span style="color: var(--accent); font-weight:600;">4 / 60 sent</span>
         </div>
         <div class="bp-track" style="height: 8px;">
-          <div class="bp-fill" style="width: 5.333333333333334%; background: #00c896;"></div>
+          <div class="bp-fill" style="width: 6.666666666666667%; background: #00c896;"></div>
         </div>
       </div>
       
       <div style="font-size:11px; color: var(--text-dim); line-height: 1.4; background: var(--surface2); padding: 8px 12px; border-radius: 6px; margin-top: 14px;">
-        ℹ️ <strong>Spam Protection:</strong> Once 75 cold emails are dispatched in a single calendar day, background runs will automatically sleep until tomorrow to preserve your domain health.
+        ℹ️ <strong>Spam Protection:</strong> Once 60 cold emails are dispatched in a single calendar day, background runs will automatically sleep until tomorrow to preserve your domain health.
       </div>
     </div>
 
@@ -1527,6 +1543,50 @@ async function pollStats() {
 window.pollStats = pollStats;
 
 document.addEventListener('DOMContentLoaded', pollStats);
+
+// Phone status polling
+async function pollPhoneStatus() {
+  try {
+    const res = await fetch('/api/phone-status');
+    const ps = await res.json();
+    const dot = document.getElementById('phoneStatusDot');
+    const ctrl = document.getElementById('phoneStatusController');
+    const action = document.getElementById('phoneStatusAction');
+    if (!dot || !ctrl) return;
+
+    if (ps.is_active) {
+      dot.style.background = '#00c896';
+      dot.style.boxShadow = '0 0 6px rgba(0,200,150,0.5)';
+      ctrl.textContent = ps.controller_friendly || ps.controller;
+      ctrl.style.color = '#00c896';
+      // Show last activity
+      if (ps.activity_log && ps.activity_log.length > 0) {
+        const last = ps.activity_log[0];
+        const target = last.target_username ? '@' + last.target_username + ': ' : '';
+        action.textContent = target + (last.detail || last.action);
+      } else {
+        action.textContent = 'Session active...';
+      }
+    } else {
+      dot.style.background = '#64748b';
+      dot.style.boxShadow = 'none';
+      ctrl.textContent = 'Idle';
+      ctrl.style.color = 'var(--text)';
+      action.textContent = '';
+    }
+
+    // Today stats
+    if (ps.today) {
+      const el = id => document.getElementById(id);
+      if (el('ps-follows')) el('ps-follows').textContent = ps.today.follows;
+      if (el('ps-dms')) el('ps-dms').textContent = ps.today.dms;
+      if (el('ps-unfollows')) el('ps-unfollows').textContent = ps.today.unfollows;
+      if (el('ps-blocks')) el('ps-blocks').textContent = ps.today.blocks;
+    }
+  } catch (e) {}
+}
+setInterval(pollPhoneStatus, 5000);
+document.addEventListener('DOMContentLoaded', pollPhoneStatus);
 </script>
 </body>
 </html>
