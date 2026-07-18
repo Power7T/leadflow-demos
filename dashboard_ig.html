@@ -168,7 +168,8 @@
       <span id="phoneStatusDot" style="width:7px;height:7px;border-radius:50%;background:#64748b;display:inline-block;"></span>
       <span style="color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:10px;">📱 Vivo Phone</span>
     </div>
-    <div id="phoneStatusController" style="color:var(--text);font-weight:600;font-size:12px;margin-bottom:4px;">Idle</div>
+    <div id="phoneStatusController" style="color:var(--text);font-weight:600;font-size:12px;margin-bottom:2px;">Idle</div>
+    <div id="phoneStatusIp" style="color:var(--text-dim);font-size:10px;font-family:'SF Mono',Monaco,monospace;margin-bottom:4px;"></div>
     <div id="phoneStatusAction" style="color:var(--text-dim);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
     <div id="phoneStatusStats" style="display:flex;gap:8px;margin-top:6px;color:var(--text-dim);font-size:10px;">
       <span>👤 <b id="ps-follows" style="color:var(--text)">0</b></span>
@@ -251,7 +252,10 @@
       <span id="igPhoneDot" style="width: 12px; height: 12px; border-radius: 50%; background: #64748b; display: inline-block;"></span>
       📱 Vivo Phone: <span id="igPhoneStatus" style="color: var(--text-dim);">Idle</span>
     </h2>
-    <span id="igPhoneSessionTime" style="font-size: 11px; color: var(--text-dim);"></span>
+    <span style="display:flex;align-items:center;gap:10px;">
+      <span id="igPhoneIp" style="font-size: 10px; color: var(--text-dim); font-family: 'SF Mono', Monaco, monospace;"></span>
+      <span id="igPhoneSessionTime" style="font-size: 11px; color: var(--text-dim);"></span>
+    </span>
   </div>
   <div id="igPhoneDetail" style="display: none;">
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px;">
@@ -1906,6 +1910,10 @@ async function pollIgPhoneStatus() {
     const card = document.getElementById('phoneStatusCard');
     const detail = document.getElementById('igPhoneDetail');
     const timeEl = document.getElementById('igPhoneSessionTime');
+    const ipEl = document.getElementById('igPhoneIp');
+
+    // Always show IP
+    if (ipEl && ps.vivo_ip) ipEl.textContent = ps.vivo_ip;
 
     if (ps.is_active) {
       dot.style.background = '#00c896';
@@ -2067,7 +2075,11 @@ async function pollPhoneStatus() {
     const dot = document.getElementById('phoneStatusDot');
     const ctrl = document.getElementById('phoneStatusController');
     const action = document.getElementById('phoneStatusAction');
+    const ipEl = document.getElementById('phoneStatusIp');
     if (!dot || !ctrl) return;
+
+    // Show IP always
+    if (ipEl && ps.vivo_ip) ipEl.textContent = ps.vivo_ip;
 
     if (ps.is_active) {
       dot.style.background = '#00c896';
