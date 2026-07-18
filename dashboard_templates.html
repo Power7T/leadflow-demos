@@ -168,7 +168,8 @@
       <span id="phoneStatusDot" style="width:7px;height:7px;border-radius:50%;background:#64748b;display:inline-block;"></span>
       <span style="color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:10px;">📱 Vivo Phone</span>
     </div>
-    <div id="phoneStatusController" style="color:var(--text);font-weight:600;font-size:12px;margin-bottom:4px;">Idle</div>
+    <div id="phoneStatusController" style="color:var(--text);font-weight:600;font-size:12px;margin-bottom:2px;">Idle</div>
+    <div id="phoneStatusIp" style="color:var(--text-dim);font-size:10px;font-family:'SF Mono',Monaco,monospace;margin-bottom:4px;"></div>
     <div id="phoneStatusAction" style="color:var(--text-dim);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
     <div id="phoneStatusStats" style="display:flex;gap:8px;margin-top:6px;color:var(--text-dim);font-size:10px;">
       <span>👤 <b id="ps-follows" style="color:var(--text)">0</b></span>
@@ -341,7 +342,11 @@ async function pollPhoneStatus() {
     const dot = document.getElementById('phoneStatusDot');
     const ctrl = document.getElementById('phoneStatusController');
     const action = document.getElementById('phoneStatusAction');
+    const ipEl = document.getElementById('phoneStatusIp');
     if (!dot || !ctrl) return;
+
+    // Show IP always
+    if (ipEl && ps.vivo_ip) ipEl.textContent = ps.vivo_ip;
 
     if (ps.is_active) {
       dot.style.background = '#00c896';
