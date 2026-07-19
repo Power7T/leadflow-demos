@@ -178,6 +178,20 @@
       <span>🚫 <b id="ps-blocks" style="color:var(--text)">0</b></span>
     </div>
   </div>
+
+  <!-- Firestick Dashboard Link -->
+  <div id="firestickWidget" style="margin:12px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:11px;">
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+      <span id="firestickDot" style="width:7px;height:7px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
+      <span style="color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:10px;">📺 Firestick</span>
+    </div>
+    <a id="firestickLink" href="http://192.168.0.113:8765" target="_blank"
+       style="display:block;color:#f59e0b;text-decoration:none;font-family:'SF Mono',Monaco,monospace;font-size:11px;word-break:break-all;margin-bottom:4px;transition:opacity 0.15s;"
+       onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      192.168.0.113:8765 ↗
+    </a>
+    <div style="color:var(--text-dim);font-size:10px;">LeadFlow on Fire TV</div>
+  </div>
 </aside>
 
 <main class="main">
