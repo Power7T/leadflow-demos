@@ -154,7 +154,7 @@
   </nav>
   <div class="sidebar-stats">
     <div class="stat"><span>New</span><b id="sidebar-stat-new">3</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">10</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">11</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">9</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -178,6 +178,20 @@
       <span>🚫 <b id="ps-blocks" style="color:var(--text)">0</b></span>
     </div>
   </div>
+
+  <!-- Firestick Dashboard Link -->
+  <div id="firestickWidget" style="margin:12px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:11px;">
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+      <span id="firestickDot" style="width:7px;height:7px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
+      <span style="color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:10px;">📺 Firestick</span>
+    </div>
+    <a id="firestickLink" href="http://192.168.0.113:8765" target="_blank"
+       style="display:block;color:#f59e0b;text-decoration:none;font-family:'SF Mono',Monaco,monospace;font-size:11px;word-break:break-all;margin-bottom:4px;transition:opacity 0.15s;"
+       onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      192.168.0.113:8765 ↗
+    </a>
+    <div style="color:var(--text-dim);font-size:10px;">LeadFlow on Fire TV</div>
+  </div>
 </aside>
 
 <main class="main">
@@ -192,7 +206,7 @@
   </div>
   <div class="card blue">
     <div class="label">Contacted</div>
-    <div class="value">19</div>
+    <div class="value">20</div>
   </div>
   <div class="card yellow">
     <div class="label">Replied</div>
@@ -218,9 +232,9 @@
 
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:28px">
   <div class="form-card" style="text-align:center;padding:24px">
-    <div style="font-size:36px;font-weight:800;color:var(--accent)">47.4%</div>
+    <div style="font-size:36px;font-weight:800;color:var(--accent)">45.0%</div>
     <div style="color:var(--text-dim);font-size:13px;margin-top:4px">Reply Rate</div>
-    <div class="stat-bar"><div class="stat-bar-fill" style="width:47.4%;background:var(--accent)"></div></div>
+    <div class="stat-bar"><div class="stat-bar-fill" style="width:45.0%;background:var(--accent)"></div></div>
   </div>
   <div class="form-card" style="text-align:center;padding:24px">
     <div style="font-size:36px;font-weight:800;color:var(--yellow)">0.0%</div>
