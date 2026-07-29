@@ -154,7 +154,7 @@
   </nav>
   <div class="sidebar-stats">
     <div class="stat"><span>New</span><b id="sidebar-stat-new">3</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">101</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">102</b></div>
     <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">9</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
@@ -460,21 +460,21 @@ document.addEventListener('keydown', function(e) {
     <div class="form-card" style="margin-bottom: 24px;">
       <h2>📊 Deliverability & Protection</h2>
       <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 14px;">
-        Spam filter safeguard: Emails are throttled to a dynamically warmed maximum of 60 sent cold emails per day.
+        Spam filter safeguard: Emails are throttled to a dynamically warmed maximum of 75 sent cold emails per day.
       </p>
       
       <div style="margin-bottom: 12px;">
         <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; margin-bottom: 6px;">
           <span>Daily Limit Progress</span>
-          <span style="color: var(--accent); font-weight:600;">9 / 60 sent</span>
+          <span style="color: var(--accent); font-weight:600;">0 / 75 sent</span>
         </div>
         <div class="bp-track" style="height: 8px;">
-          <div class="bp-fill" style="width: 15.0%; background: #00c896;"></div>
+          <div class="bp-fill" style="width: 0.0%; background: #00c896;"></div>
         </div>
       </div>
       
       <div style="font-size:11px; color: var(--text-dim); line-height: 1.4; background: var(--surface2); padding: 8px 12px; border-radius: 6px; margin-top: 14px;">
-        ℹ️ <strong>Spam Protection:</strong> Once 60 cold emails are dispatched in a single calendar day, background runs will automatically sleep until tomorrow to preserve your domain health.
+        ℹ️ <strong>Spam Protection:</strong> Once 75 cold emails are dispatched in a single calendar day, background runs will automatically sleep until tomorrow to preserve your domain health.
       </div>
     </div>
 
@@ -757,6 +757,28 @@ document.addEventListener('keydown', function(e) {
             </tr>
           </thead>
           <tbody>
+            
+              <tr class="sent-row" data-name="OSW, One Stop Warehouse" data-category="solar" data-email="orders.nsw@osw.energy" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">OSW, One Stop Warehouse</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">solar</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ orders.nsw@osw.energy</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-28 23:06</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/osw-one-stop-100130" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
             
               <tr class="sent-row" data-name="Metro Heating pro" data-category="hvac" data-email="info@metroheatingrepair.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
                 <td style="padding: 12px 8px; font-weight: 600;">Metro Heating pro</td>
@@ -1059,28 +1081,6 @@ document.addEventListener('keydown', function(e) {
                 <td style="padding: 12px 8px; text-align: right;">
                   
                     <a href="https://leadflow-relay.chandango12.workers.dev/demo/1724" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="Diamondback Roofing LLC" data-category="roofing" data-email="diamondbackroofingllc@dbroof.com" data-opened="0" data-clicked="0" data-replied="0" data-demo="1" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">Diamondback Roofing LLC</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">roofing</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ diamondbackroofingllc@dbroof.com</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-07-27 11:43</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <a href="https://leadflow-relay.chandango12.workers.dev/demo/1655" target="_blank" class="btn btn-outline btn-sm" style="font-size: 11px; padding: 4px 8px; text-decoration: none;">View Site ↗</a>
                   
                 </td>
                 <td style="padding: 12px 8px; text-align: right;">
