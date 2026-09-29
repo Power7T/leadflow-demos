@@ -111,14 +111,14 @@
     </a>
     <a href="./dashboard_leads.html" class="">
       <span class="icon">📋</span> Review Leads
-      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; ">4</span>
+      <span class="badge badge-new" id="sidebar-badge-leads-new" style="margin-left:auto; display:none;">0</span>
     </a>
     <a href="./dashboard_saas.html" class="">
       <span class="icon">💻</span> SaaS CRM Leads
     </a>
     <a href="./dashboard_ig.html" class="">
       <span class="icon">📸</span> Instagram Reach
-      <span class="badge badge-new" id="sidebar-badge-ig-new" style="margin-left:auto; ">1</span>
+      <span class="badge badge-new" id="sidebar-badge-ig-new" style="margin-left:auto; display:none;">0</span>
     </a>
     <a href="/ig-manual" class="" style="">
       <span class="icon">💬</span> Manual DM Queue
@@ -153,9 +153,9 @@
     </a>
   </nav>
   <div class="sidebar-stats">
-    <div class="stat"><span>New</span><b id="sidebar-stat-new">4</b></div>
-    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">74</b></div>
-    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">10</b></div>
+    <div class="stat"><span>New</span><b id="sidebar-stat-new">0</b></div>
+    <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">0</b></div>
+    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">13</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
       <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">10</b>
@@ -235,7 +235,7 @@
     <div style="margin-bottom: 12px">
       <label>Google Maps API Key</label>
       <div style="position: relative; display: flex; align-items: center; width: 100%;">
-        <input type="password" id="GOOGLE_MAPS_API_KEY" value="AIza...yZgU" placeholder="For business search" style="width: 100%; padding-right: 40px; margin: 0;">
+        <input type="password" id="GOOGLE_MAPS_API_KEY" value="AIza...D8ag" placeholder="For business search" style="width: 100%; padding-right: 40px; margin: 0;">
         <button type="button" onclick="toggleField('GOOGLE_MAPS_API_KEY', this)" style="position: absolute; right: 10px; background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px; display: flex; align-items: center; justify-content: center; z-index: 10;">👁️</button>
       </div>
     </div>
@@ -421,7 +421,7 @@
           <label>REST API Default Writing Model</label>
           <select id="REST_DEFAULT_MODEL">
             
-            <option value="gemini-2.5-pro" >gemini-2.5-pro</option>
+            <option value="gemini-2.5-pro" selected>gemini-2.5-pro</option>
             <option value="gemini-2.5-flash" >gemini-2.5-flash</option>
             <option value="gemini-3-flash-preview" >gemini-3-flash-preview</option>
           </select>
@@ -430,7 +430,7 @@
           <label>REST API Audit Model</label>
           <select id="REST_AUDIT_MODEL">
             
-            <option value="gemini-2.5-pro" >gemini-2.5-pro</option>
+            <option value="gemini-2.5-pro" selected>gemini-2.5-pro</option>
             <option value="gemini-2.5-flash" >gemini-2.5-flash</option>
             <option value="gemini-3-flash-preview" >gemini-3-flash-preview</option>
           </select>
@@ -442,7 +442,7 @@
           <label>REST Primary Model</label>
           <select id="REST_PRIMARY_MODEL">
             
-            <option value="gemini-2.5-pro" >gemini-2.5-pro</option>
+            <option value="gemini-2.5-pro" selected>gemini-2.5-pro</option>
             <option value="gemini-2.5-flash" >gemini-2.5-flash</option>
             <option value="gemini-3-flash-preview" >gemini-3-flash-preview</option>
           </select>
