@@ -97,8 +97,8 @@
   
   <a href="./dashboard_index.html" class="autopilot-status" id="sidebar-autopilot-status">
     
-      <span class="pulse-dot green" id="sidebar-autopilot-dot"></span>
-      <span id="sidebar-autopilot-text" style="color:#00c896; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Autopilot Active</span>
+      <span class="pulse-dot gray" id="sidebar-autopilot-dot"></span>
+      <span id="sidebar-autopilot-text" style="color:var(--text-dim); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Autopilot Stopped</span>
     
   </a>
 
@@ -155,10 +155,10 @@
   <div class="sidebar-stats">
     <div class="stat"><span>New</span><b id="sidebar-stat-new">0</b></div>
     <div class="stat"><span>Sent</span><b id="sidebar-stat-sent">0</b></div>
-    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">13</b></div>
+    <div class="stat"><span>Replied</span><b id="sidebar-stat-replied">14</b></div>
     <div class="stat"><span>Closed</span><b id="sidebar-stat-closed" style="color:var(--accent)">0</b></div>
     <div class="stat" id="sidebar-stat-opted-out-container" style="">
-      <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">17</b>
+      <span style="color:var(--red)">Opted Out</span><b id="sidebar-stat-opted-out" style="color:var(--red)">16</b>
     </div>
   </div>
 
@@ -375,18 +375,18 @@ document.addEventListener('keydown', function(e) {
   <!-- Left Side: Status, Trigger & Live Terminal -->
   <div>
     <!-- Status Card -->
-    <div class="form-card" style="margin-bottom: 24px; border-color: #00c896;">
+    <div class="form-card" style="margin-bottom: 24px; border-color: var(--border);">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
         <div>
           <h2 style="margin: 0; display: flex; align-items: center; gap: 10px;">
             
-              <span class="pulse-dot green" style="width: 12px; height: 12px;"></span>
-              Autopilot is ACTIVE
+              <span class="pulse-dot gray" style="width: 12px; height: 12px;"></span>
+              Autopilot is STOPPED
             
           </h2>
           <p style="color: var(--text-dim); margin-top: 6px; font-size: 13px;">
             
-              Active 24/7. Lead extraction runs every 10 mins. Auto-sending checks queue every 5 mins and staggers sends to arrive during local business hours in each country.
+              Outbox queue processing is paused. Automatic triggers are disabled.
             
           </p>
         </div>
@@ -394,8 +394,8 @@ document.addEventListener('keydown', function(e) {
         <!-- Interactive Toggle Switch -->
         <div style="display: flex; align-items: center; gap: 10px;">
           <span style="font-size: 13px; font-weight: 500; color: var(--text-dim);">Toggle Status:</span>
-          <button id="toggleBtn" onclick="toggleAutopilot()" class="btn btn-ghost" style="padding: 8px 16px; min-width: 100px;">
-            ⏸ Pause
+          <button id="toggleBtn" onclick="toggleAutopilot()" class="btn btn-primary" style="padding: 8px 16px; min-width: 100px;">
+            ▶ Start
           </button>
         </div>
       </div>
@@ -706,7 +706,29 @@ document.addEventListener('keydown', function(e) {
           </thead>
           <tbody>
             
-              <tr class="sent-row" data-name="OpenRouter Team" data-category="unknown" data-email="welcome@openrouter.ai" data-opened="1" data-clicked="0" data-replied="0" data-demo="0" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <tr class="sent-row" data-name="OpenRouter Team" data-category="unknown" data-email="welcome@openrouter.ai" data-opened="0" data-clicked="0" data-replied="0" data-demo="0" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 8px; font-weight: 600;">OpenRouter Team</td>
+                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">unknown</td>
+                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ welcome@openrouter.ai</span></td>
+                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-10-18 17:36</td>
+                <td style="padding: 12px 8px; text-align: center;">
+                  <div style="display: flex; gap: 4px; justify-content: center;">
+                    
+                      <span style="font-size:10px; background: rgba(255,255,255,0.05); color: var(--text-dim); padding: 2px 6px; border-radius: 4px;">Delivered</span>
+                    
+                  </div>
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  
+                    <span style="color: var(--text-dim); font-size: 11px;">Audit Report</span>
+                  
+                </td>
+                <td style="padding: 12px 8px; text-align: right;">
+                  0
+                </td>
+              </tr>
+            
+              <tr class="sent-row" data-name="OpenRouter Team" data-category="unknown" data-email="welcome@openrouter.ai" data-opened="1" data-clicked="0" data-replied="1" data-demo="0" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
                 <td style="padding: 12px 8px; font-weight: 600;">OpenRouter Team</td>
                 <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">unknown</td>
                 <td style="padding: 12px 8px;"><span class="tag tag-green">✉ welcome@openrouter.ai</span></td>
@@ -714,7 +736,7 @@ document.addEventListener('keydown', function(e) {
                 <td style="padding: 12px 8px; text-align: center;">
                   <div style="display: flex; gap: 4px; justify-content: center;">
                     
-                      <span style="font-size:10px; background: rgba(0, 242, 254, 0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-weight: bold;">👁 Opened</span>
+                      <span style="font-size:10px; background: rgba(0, 200, 150, 0.1); color: #00c896; padding: 2px 6px; border-radius: 4px; font-weight: bold;">💬 Replied</span>
                     
                   </div>
                 </td>
@@ -997,28 +1019,6 @@ document.addEventListener('keydown', function(e) {
                 <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">unknown</td>
                 <td style="padding: 12px 8px;"><span class="tag tag-green">✉ welcome@openrouter.ai</span></td>
                 <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-10-18 07:07</td>
-                <td style="padding: 12px 8px; text-align: center;">
-                  <div style="display: flex; gap: 4px; justify-content: center;">
-                    
-                      <span style="font-size:10px; background: rgba(0, 200, 150, 0.1); color: #00c896; padding: 2px 6px; border-radius: 4px; font-weight: bold;">💬 Replied</span>
-                    
-                  </div>
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  
-                    <span style="color: var(--text-dim); font-size: 11px;">Audit Report</span>
-                  
-                </td>
-                <td style="padding: 12px 8px; text-align: right;">
-                  0
-                </td>
-              </tr>
-            
-              <tr class="sent-row" data-name="OpenRouter Team" data-category="unknown" data-email="welcome@openrouter.ai" data-opened="1" data-clicked="0" data-replied="1" data-demo="0" style="border-bottom: 1px solid rgba(255,255,255,0.03);">
-                <td style="padding: 12px 8px; font-weight: 600;">OpenRouter Team</td>
-                <td style="padding: 12px 8px; color: var(--text-dim); text-transform: capitalize;">unknown</td>
-                <td style="padding: 12px 8px;"><span class="tag tag-green">✉ welcome@openrouter.ai</span></td>
-                <td style="padding: 12px 8px; font-size: 11px; color: var(--text-dim);">2026-10-18 05:14</td>
                 <td style="padding: 12px 8px; text-align: center;">
                   <div style="display: flex; gap: 4px; justify-content: center;">
                     
